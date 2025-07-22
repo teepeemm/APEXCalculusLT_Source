@@ -9,7 +9,7 @@ In previous sections we have used integration to answer the following questions:
 In this section, we address a related question: Given a curve, what is its length? This is often referred to as \textbf{arc length}. 
 
 \mtable{Graphing $y=\sin x$ on $[0,\pi]$ and approximating the curve with line segments.}{fig:arcintro}{%
-\begin{tikzpicture}[alt={Blue y = sin x arch on 0 < x < pi, peak at (pi⁄2 , 1); ticks at pi⁄4, π⁄2, 3pi⁄4.}]
+\begin{tikzpicture}[alt={Blue y = sin x arch on 0 < x < π, peak at (π/2 , 1); ticks at π/4, π/2, 3π/4.}]
  \begin{axis}[width=\marginparwidth,%height=.46\marginparwidth,
    tick label style={font=\scriptsize},axis equal,
    axis y line=middle,axis x line=middle,name=myplot,axis on top,
@@ -23,7 +23,7 @@ In this section, we address a related question: Given a curve, what is its lengt
  \node [above] at (myplot.above origin) {\scriptsize $y$};
 \end{tikzpicture}
 \\(a)\\
-\begin{tikzpicture}[alt={Same sin curve; red polyline through five black nodes approximates it on 0 < x < pi.}]
+\begin{tikzpicture}[alt={Same sin curve; red polyline through five black nodes approximates it on 0 < x < π.}]
  \begin{axis}[width=\marginparwidth,%height=.46\marginparwidth,
    tick label style={font=\scriptsize},
    axis y line=middle,axis x line=middle,name=myplot,axis on top,%
@@ -108,7 +108,7 @@ As the integrand contains a square root, it is often difficult to use the formul
 \begin{example}[Finding arc length]\label{ex_arc1}%
 Find the arc length of $f(x) = x^{3/2}$ from $x=0$ to $x=4$.
 %
-\mtable{A graph of $f(x) = x^{3/2}$ from \autoref{ex_arc1}.}{fig:arc1}{\begin{tikzpicture}[alt={Blue y = x^3/2 curve on 0 < x < 4 rises steeply, reaching about 8 at x = 4.}]
+\mtable{A graph of $f(x) = x^{3/2}$ from \autoref{ex_arc1}.}{fig:arc1}{\begin{tikzpicture}[alt={Blue y = x^(3/2) curve on 0 < x < 4 rises steeply, reaching 8 at x = 4.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-.2,ymax=8.5,xmin=-.1,xmax=4.5,]
@@ -136,7 +136,7 @@ We begin by finding $\fp(x)= \frac32x^{1/2}$. Using the formula, we find the arc
 Find the arc length of $\ds f(x) =\frac18x^2-\ln x$ from $x=1$ to $x=2$.
 \solution
 A graph of $f$ is given in \autoref{fig:arc2}; the portion of the curve measured in this problem is in bold.
-\mtable{A graph of $f(x) =\frac18x^2-\ln x$ from \autoref{ex_arc2}.}{fig:arc2}{\begin{tikzpicture}[alt={Blue y = 1/8x^2 − ln x on 0 < x < 3 dives from 1, bottoms near (2, -0.2), then turns upward.}]
+\mtable{A graph of $f(x) =\frac18x^2-\ln x$ from \autoref{ex_arc2}.}{fig:arc2}{\begin{tikzpicture}[alt={Blue y = x²/8 − ln x on 0 < x < 3 dives from 1, bottoms near (2, -0.2), then turns upward.}]
 \begin{axis}[width=\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-.26,ymax=1.2,xmin=-.1,xmax=3.1]

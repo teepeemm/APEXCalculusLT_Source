@@ -13,7 +13,7 @@ An \textbf{elementary function}\index{elementary function} is any function that 
 
 The simplest way to refer to the antiderivatives of $e^{-x^2}$ is to simply write $\ds\int e^{-x^2}\dd x$. 
 
-\mtable[-2in]{Graphically representing three definite integrals that cannot be evaluated using antiderivatives.}{fig:numerical1}{\begin{tikzpicture}[alt={Blue curve y = e^(–x^2 on 0 ≤ x ≤ 1, starting at (0, 1) then falling smoothly to about (1, 0.4); region beneath is shaded.}]
+\mtable[-2in]{Graphically representing three definite integrals that cannot be evaluated using antiderivatives.}{fig:numerical1}{\begin{tikzpicture}[alt={Blue curve y = e^(–x² on 0 ≤ x ≤ 1, starting at (0, 1) then falling smoothly to about (1, 0.4); region beneath is shaded.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-.2,ymax=1.2,xmin=-.2,xmax=1.1]
@@ -25,7 +25,7 @@ ymin=-.2,ymax=1.2,xmin=-.2,xmax=1.1]
 \node [above] at (myplot.above origin) {\scriptsize $y$};
 \end{tikzpicture}
 \bigskip\\
-\begin{tikzpicture}[alt={Blue curve y = sin (x^3); small negative arch left of the y-axis, large positive hump centered near x=1; shaded between curve and axis.}]
+\begin{tikzpicture}[alt={Blue curve y=sin(x³); small negative arch left of the y-axis, large positive hump centered near x=1; shaded between curve and axis.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-.6,ymax=1.2,xmin=-1,xmax=1.7]
@@ -78,7 +78,7 @@ Approximate $\ds \int_0^1e^{-x^2}\dd x$ using the Left and Right Hand Rules with
 We begin by partitioning the interval $[0,1]$ into 5 equally spaced intervals. We have $\Delta x = \frac{1-0}5 = 1/5=0.2$, so
 \[x_0=0,\ x_1=0.2,\ x_2=0.4,\ x_3=0.6,\ x_4=0.8,\text{ and }x_5=1.\]
 
-\mtable{Approximating $\ds\int_0^1e^{-x^2}\dd x$ in \autoref{ex_num1} using (top) the left hand rule and (bottom) the right hand rule.}{fig:num1}{\begin{tikzpicture}[alt={Five uniform-width red rectangles from x = 0 to 1 whose left tops touch the decreasing curve e^(–x^2); rectangles overshoot the curve, giving an over-estimate of area.}]
+\mtable{Approximating $\ds\int_0^1e^{-x^2}\dd x$ in \autoref{ex_num1} using (top) the left hand rule and (bottom) the right hand rule.}{fig:num1}{\begin{tikzpicture}[alt={Five uniform-width red rectangles from x = 0 to 1 whose left tops touch the decreasing curve e^(–x²); rectangles overshoot the curve, giving an over-estimate of area.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick={.2,.4,.6,.8,1},
 ymin=-.2,ymax=1.2,xmin=-.2,xmax=1.1]
@@ -162,7 +162,7 @@ We begin by finding $\Delta x$:
 It is useful to write out the endpoints of the subintervals in a table; in \autoref{fig:num2a}, we give the exact values of the endpoints, their decimal approximations, and decimal approximations of $\sin(x^3)$ evaluated at these points. 
 
 \mtable[.2in]{Approximating\\ $\ds\int_{-\frac{\pi}4}^{\frac{\pi}2}\sin(x^3)\dd x$ in \autoref{ex_num2} using (top) the left hand rule and (bottom) the right hand rule.}{fig:num2b}{%
-\begin{tikzpicture}[alt={Blue curve sin (x^3) with seven red rectangles whose left tops hit the curve; three -ve region rectangles from left of the y-axis, others rise into the + hump; shaded bars illustrate left-hand rule.}]
+\begin{tikzpicture}[alt={Blue curve sin(x³) with seven red rectangles whose left tops hit the curve; three negative region rectangles from left of the y-axis, others rise into the positive hump; shaded bars illustrate left-hand rule.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-.7,ymax=1.2,xmin=-1,xmax=1.7]
@@ -181,7 +181,7 @@ ymin=-.7,ymax=1.2,xmin=-1,xmax=1.7]
 \node [above] at (myplot.above origin) {\scriptsize $y$};
 \end{tikzpicture}
 \\
-\begin{tikzpicture}[alt={Blue curve sin (x^3) with seven red rectangles aligned to right endpoints; bars now sit under the hump and above the troughs, showing right-hand rule approximation.}]
+\begin{tikzpicture}[alt={Blue curve sin(x³) with seven red rectangles aligned to right endpoints; bars now sit under the hump and above the troughs, showing right-hand rule approximation.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-.7,ymax=1.2,xmin=-1,xmax=1.7]
@@ -215,7 +215,7 @@ The average of the Left and Right Hand Rules is 0.4275.  The actual answer, accu
 
 In \autoref{ex_num1} we approximated the value of $\ds \int_0^1 e^{-x^2}\dd x$ with 5 rectangles of equal width. \autoref{fig:num1} showed the rectangles used in the Left and Right Hand Rules. These graphs clearly show that rectangles do not match the shape of the graph all that well, and that accurate approximations will only come by using lots of rectangles. \index{Trapezoidal Rule}\index{numerical integration!Trapezoidal Rule}\index{integration!numerical!Trapezoidal Rule}
 
-\mtable{Approximating $\int_0^1 e^{-x^2}\dd x$ using 5 trapezoids of equal widths.}{fig:num3a}{\begin{tikzpicture}[alt={Blue y = e^(–x^2) on 0 ≤ x ≤ 1; five equal-width red trapezoids under curve, shaded region below.}]
+\mtable{Approximating $\int_0^1 e^{-x^2}\dd x$ using 5 trapezoids of equal widths.}{fig:num3a}{\begin{tikzpicture}[alt={Blue y = e^(–x²) on 0 ≤ x ≤ 1; five equal-width red trapezoids under curve, shaded region below.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick={.2,.4,...,1},
 ymin=-.2,ymax=1.2,xmin=-.2,xmax=1.1]
@@ -367,7 +367,7 @@ $x_i$ & $e^{-x_i^2}$ \\\lxEndTableHead\midrule
 1 & 0.368
 \end{tabular}
 \\ (a) \\
-\begin{tikzpicture}[alt={Piecewise-linear red join of those points beneath blue y = e^(–x^2); region shaded.}]
+\begin{tikzpicture}[alt={Piecewise-linear red join of those points beneath blue y = e^(–x²); region shaded.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick={.25,.5,.75,1},
 ymin=-.2,ymax=1.2,xmin=-.2,xmax=1.1]
@@ -421,7 +421,7 @@ Recall in \autoref{ex_num1} we stated that the correct answer, accurate to 4 pla
   $\phantom{-}1.57$ & $-0.670$ \\
 \end{tabular}
 \\ (a) \\
-\begin{tikzpicture}[alt={Red polygon joins sample points under blue y = sin x^3 on –pi/4 < x < pi/2; shaded lobe.}]
+\begin{tikzpicture}[alt={Red polygon joins sample points under blue y=sin x³ on –π/4 < x < π/2; shaded lobe.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-.7,ymax=1.2,xmin=-1,xmax=1.7]
@@ -583,7 +583,7 @@ Find the error bounds when approximating $\ds \int_0^1 e^{-x^2}\dd x$ using the 
 
 We start by computing the $2^\text{nd}$ derivative of $f(x) = e^{-x^2}$:
 %
-\mtable{Graphing $\fpp(x)$ in \autoref{ex_num7} to help establish error bounds.}{fig:num7a}{\begin{tikzpicture}[alt={Blue y = e^(-x^2)(4x^2–2) on 0 < x < 1; curve starts near –2, rises through 0 around 0.7, ends about 1.7; axes x,y.}]
+\mtable{Graphing $\fpp(x)$ in \autoref{ex_num7} to help establish error bounds.}{fig:num7a}{\begin{tikzpicture}[alt={Blue y = e^(-x²)(4x²–2) on 0 < x < 1; curve starts near –2, rises through 0 around 0.7, ends about 1.7; axes x,y.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-2.1,ymax=.7,xmin=-.1,xmax=1.1]
@@ -605,7 +605,7 @@ We had earlier computed the exact answer, correct to 4 decimal places, to be 0.7
 
 We start by computing the $4^\text{th}$ derivative of $f(x) = e^{-x^2}$:
 %
-\mtable{Graphing $f\,^{(4)}(x)$ in \autoref{ex_num7} to help establish error bounds.}{fig:num7b}{\begin{tikzpicture}[alt={Blue y = e^(-x^2)(16x^4–48x^2+12) on 0 < x < 1; peak ≈13 at x=0, crosses 0 near 0.8, falls to –8; axes x,y.}]
+\mtable{Graphing $f\,^{(4)}(x)$ in \autoref{ex_num7} to help establish error bounds.}{fig:num7b}{\begin{tikzpicture}[alt={Blue y = e^(-x²)(16x⁴–48x²+12) on 0 < x < 1; peak (0, 12), crosses 0 near 0.8, falls to –8; axes x,y.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,minor y tick num=4,
 ymin=-8,ymax=13.5,xmin=-.1,xmax=1.1]

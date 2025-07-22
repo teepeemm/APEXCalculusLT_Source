@@ -39,7 +39,7 @@ To aid in the drawing, a polar grid is provided
   \tikzset{gridshift/.append style={shift=(current page.south),shift={+(.5in,1.7in)}}}
  }%
 \fi
-\begin{tikzpicture}[alt={Three concentric circles (r = 1, 2, 3); points: A at 30 deg (pi / 6), B at 210 deg (7pi / 6), C at 315 deg (7pi / 4), D at 240 deg (4pi / 3).},remember picture,overlay,scale=.8,gridshift]
+\begin{tikzpicture}[alt={Three concentric circles (r = 1, 2, 3); points: A at 30 deg (π / 6), B at 210 deg (7π / 6), C at 315 deg (7π / 4), D at 240 deg (4π / 3).},remember picture,overlay,scale=.8,gridshift]
  \foreach \x in {0,30,45,60,90,120,135,150,180,210,225,240,270,300,315,330}
   {\draw [dashed,gray] (0,0) -- (\x:3.1);}
  \draw[thick,->,>=stealth] (0,0) node [below] {$O$} -- (3.5,0) ;
@@ -188,7 +188,7 @@ Describe the graphs of the following polar functions.
 
 We can consider the rectangular equivalent of this equation; using $r^2=x^2+y^2$, we see that $1.5^2=x^2+y^2$, which we recognize as the equation of a circle centered at $(0,0)$ with radius 1.5. This is sketched in \autoref{fig:polar3}.
 
-\mtable{Plotting standard polar plots.}{fig:polar3}{\begin{tikzpicture}[alt={Concentric polar rings r = 0.5, 1 (bold), 1.5 with a thick ray at θ = π⁄4 crossing r = 1.5.},>=latex]
+\mtable{Plotting standard polar plots.}{fig:polar3}{\begin{tikzpicture}[alt={Concentric polar rings r = 0.5, 1 (bold), 1.5 with a thick ray at θ = π/4 crossing r = 1.5.},>=latex]
  \draw [thick,->] (0,0) node [below] {$O$} -- (2.5,0);
  \foreach \x in {1,2}
   {\draw [thin,gray] (0,0) circle (\x cm);
@@ -238,7 +238,7 @@ Sketch
 	7 \pi /4 & 1+1/\sqrt2 \\
 	11\pi/6 & 1+\sqrt{3}/2 \\
  \end{array}$} \\ \\
- \begin{tikzpicture}[alt={Polar grid; right-facing cardioid r = 1 + cos θ touches r = 0 at pi and peaks at 2 on initial ray.},scale=.95]
+ \begin{tikzpicture}[alt={Polar grid; right-facing cardioid r = 1 + cos θ touches r = 0 at π and peaks at 2 on initial ray.},scale=.95]
   \draw [dashed,gray] (-2.1,0) -- (0,0);
   \draw[thick,->,>=stealth] (0,0) node [below] {$O$} -- (2.5,0) ;
   \filldraw (0,0) circle (1.5pt);
@@ -481,7 +481,7 @@ $r=a$ & $r=a\cos \theta$ & $r=a\sin\theta$ & $r=\theta$\\
 	\draw (.45,.3) node {\scriptsize $a$};
 \end{tikzpicture}		
 &
-\begin{tikzpicture}[alt={Blue circle center (a⁄2, 0), radius a⁄2, equation r = a cos θ.},scale=.9,>=stealth]
+\begin{tikzpicture}[alt={Blue circle center (a/2, 0), radius a/2, equation r = a cos θ.},scale=.9,>=stealth]
 	\draw [<->,] (-2.1,0) -- (2.1,0);
 	\draw [<->,] (0,-2.1) -- (0,2.1);
 	\draw [thick,draw={\colorone}] (.9,0) circle (.9);
@@ -489,7 +489,7 @@ $r=a$ & $r=a\cos \theta$ & $r=a\sin\theta$ & $r=\theta$\\
 	\draw (.9,.3) node {\scriptsize $a$};
 \end{tikzpicture}		
 &
-\begin{tikzpicture}[alt={Blue circle center (0, a/2), radius a⁄2, equation r = a sin θ.},scale=.9,>=stealth]
+\begin{tikzpicture}[alt={Blue circle center (0, a/2), radius a/2, equation r = a sin θ.},scale=.9,>=stealth]
 	\draw [<->,] (-2.1,0) -- (2.1,0);
 	\draw [<->,] (0,-2.1) -- (0,2.1);
 	\draw [thick,draw={\colorone}] (0,.9) circle (.9);
@@ -578,21 +578,21 @@ $r=a\cos (3\theta)$ & $r=a\sin (3\theta)$ \smallskip\\
 \multicolumn{2}{l}{\bfseries Rose curves} & \textbf{Lemniscate:} & \textbf{Eight Curve:} \smallskip\\
 $r=a\sin (\theta/5)$ & $r=a\sin(2\theta/5)$ &
 $r^2=a^2\cos (2\theta)$ & $r^2=a^2\sec^4\theta\cos (2\theta)$ \medskip\\
-\begin{tikzpicture}[alt={Five-arm spiral-rose: small central loop then larger coils, all from r = a sin (θ ⁄ 5).},scale=.9,>=stealth]
+\begin{tikzpicture}[alt={Five-arm spiral-rose: small central loop then larger coils, all from r = a sin (θ / 5).},scale=.9,>=stealth]
 	\draw [<->,] (-2.1,0) -- (2.1,0);
 	\draw [<->,] (0,-2.1) -- (0,2.1);
 	\draw [thick,draw={\colorone},domain=0:900,samples=100,smooth] plot
 	 ({cos(\x)*(1.9*sin(\x/5))},{sin(\x)*(1.9*sin(\x/5))});
 \end{tikzpicture}		
 &
-\begin{tikzpicture}[alt={Nested rose with ten slender lobes arranged in two rings, produced by r = a sin (2θ ⁄ 5).},scale=.9,>=stealth]
+\begin{tikzpicture}[alt={Nested rose with ten slender lobes arranged in two rings, produced by r = a sin (2θ / 5).},scale=.9,>=stealth]
 	\draw [<->,] (-2.1,0) -- (2.1,0);
 	\draw [<->,] (0,-2.1) -- (0,2.1);
 	\draw [thick,draw={\colorone},domain=0:1800,samples=200,smooth] plot
 	 ({cos(\x)*(1.9*cos(2*\x/5))},{sin(\x)*(1.9*cos(2*\x/5))});
 \end{tikzpicture}		
 &
-\begin{tikzpicture}[alt={Horizontal figure-eight centred at origin, each lobe length a sqrt of 2.},scale=.9,>=stealth]
+\begin{tikzpicture}[alt={Horizontal figure-eight centered at origin, each lobe length √2.},scale=.9,>=stealth]
 	\draw [<->,] (-2.1,0) -- (2.1,0);
 	\draw [<->,] (0,-2.1) -- (0,2.1);
 	\draw [thick,draw={\colorone},domain=-45:45,samples=60,smooth] plot

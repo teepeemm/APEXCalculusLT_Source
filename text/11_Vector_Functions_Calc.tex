@@ -209,9 +209,9 @@ $\vec r(t)$ and $\vrp(t)$ are graphed together in \autoref{fig:vvflimit3}(a). No
 3Droo=150.0000027221829}{.7\marginparwidth}{Helix r (t) = ⟨cos t, sin t, t⟩ (blue) through origin; red arrow r′ (7pi/4) is tangent of length sqtr of 2 at that point.}{figures/figvvflimit4_3D}}%
 }{% not in threeD
 \mtable[-3\baselineskip]{Viewing a vector-valued function and its derivative at one point, from two different perspectives.}{fig:vvflimit4}{%
-\myincludegraphics[alt={Helix r (t) = ⟨cos t, sin t, t⟩ (blue) through origin; red arrow r′ (7pi/4) is tangent of length sqrt of 2 at that point.},width=.7\marginparwidth]{figures/figvvflimit4_3D}
+\myincludegraphics[alt={Helix r (t) = ⟨cos t, sin t, t⟩ (blue) through origin; red arrow r′ (7pi/4) is tangent of length √2 at that point.},width=.7\marginparwidth]{figures/figvvflimit4_3D}
 \\(a)\\
-\myincludegraphics[alt={Space-curve r (t)=⟨t, 1–t^2, t^2⟩ (blue) and red tangent line through point r(0)=⟨0,1,0⟩; axes ticked +/-2.},,width=.7\marginparwidth]{figures/figvvflimit4a_3D}
+\myincludegraphics[alt={Space-curve r (t)=⟨t, 1–t², t²⟩ (blue) and red tangent line through point r(0)=⟨0,1,0⟩; axes ticked ±2.},width=.7\marginparwidth]{figures/figvvflimit4a_3D}
 \\(b)}%
 }% ends whole if-toggle
 
@@ -248,7 +248,7 @@ Let
  3Droo=149.99999927774635}{\marginparwidth}{Plane curve r(t)=⟨t,t^2–1⟩ (blue) with red tangent line l(t) = r(0)+t r′(0) touching at (0, 0).}{figures/figvvfderiv1_3D}}
 }{% not in three D
  \mtable{Graphing a curve in space with its tangent line.}{fig:vvfderiv1}{%
- \myincludegraphics[alt={Plane curve r(t)=⟨t,t^2–1⟩ (blue) with red tangent line l(t) = r(0)+t r′(0) touching at (0, 0).},width=\marginparwidth]{figures/figvvfderiv1_3D}
+ \myincludegraphics[alt={Plane curve r(t)=⟨t,t²–1⟩ (blue) with red tangent line l(t) = r(0)+t r′(0) touching at (0, 0).},width=\marginparwidth]{figures/figvvfderiv1_3D}
  \\(a)\\[10pt]
  \myincludegraphics[alt={Another view of the previous image.},width=\marginparwidth]{figures/figvvfderiv1b_3D}
  \\(b)}% end mtable
@@ -275,7 +275,7 @@ This line is graphed with $\vec r(t)$ in \autoref{fig:vvfderiv3}.
 At $t=0$, we have $\vrp(0) =\bracket{0,0}=\vec 0$. This implies that the tangent line ``has no direction.'' We cannot apply \autoref{def:vector_tangent}, hence cannot find the equation of the tangent line.
 \end{example}
 
-\mtable[1.5in]{Graphing $\vec r(t)$ and its tangent line in \autoref{ex_vvfderiv3}.}{fig:vvfderiv3}{\begin{tikzpicture}[alt={Plane curve r (t)=⟨t, t^2–1⟩ (blue) with red tangent line l(t) = r(0)+t r′(0) touching at (0, 0).},>=stealth]
+\mtable[1.5in]{Graphing $\vec r(t)$ and its tangent line in \autoref{ex_vvfderiv3}.}{fig:vvfderiv3}{\begin{tikzpicture}[alt={Plane curve r (t)=⟨t, t²–1⟩ (blue) with red tangent line l(t) = r(0)+t r′(0) touching at (0, 0).},>=stealth]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,
 ymin=-2.96,ymax=2.96,xmin=-3.5,xmax=3.5]
@@ -330,7 +330,7 @@ Let $\vec r(t) =\bracket{t, t^2-1}$ and let $\vec u(t)$ be the unit vector that 
 	\item To form the unit vector that points in the direction of $\vec r$, we need to divide $\vec r(t)$ by its magnitude. 
 	\[\norm{\vec r(t)} = \sqrt{t^2+(t^2-1)^2} \quad \Rightarrow \quad \vec u(t) = \frac{1}{\sqrt{t^2+(t^2-1)^2}}\bracket{t,t^2-1}.\]
 	%
-\mtable{Graphing $\vec r(t)$ and $\vec u(t)$ in \autoref{ex_vvfderiv2}.}{fig:vvfderiv2a}{\begin{tikzpicture}[alt={Blue parabola r (t)=⟨t, t^2⟩ and red circle path u (t)=⟨sin t, 1–cos t⟩ share common start and speed; arrows show orientation.},>=stealth]
+\mtable{Graphing $\vec r(t)$ and $\vec u(t)$ in \autoref{ex_vvfderiv2}.}{fig:vvfderiv2a}{\begin{tikzpicture}[alt={Blue parabola r (t)=⟨t, t²⟩ and red circle path u (t)=⟨sin t, 1–cos t⟩ share common start and speed; arrows show orientation.},>=stealth]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,
 ymin=-1.1,ymax=3.1,xmin=-2.5,xmax=2.5]
@@ -373,7 +373,7 @@ This is admittedly very ``messy;'' such is usually the case when we deal with un
 \vec u\,'(0) &=\bracket{1,0}
 \end{align*}
 %
-\mtable{Graphing some of the derivatives of $\vec u(t)$ in \autoref{ex_vvfderiv2}.}{fig:vvfderiv2b}{\begin{tikzpicture}[alt={Blue circle u (t) with three red derivative vectors u′(t) drawn at t = pi/2, pi, 3pi/2, indicating velocity directions.},>=stealth]
+\mtable{Graphing some of the derivatives of $\vec u(t)$ in \autoref{ex_vvfderiv2}.}{fig:vvfderiv2b}{\begin{tikzpicture}[alt={Blue circle u (t) with three red derivative vectors u′(t) drawn at t = π/2, π, 3π/2, indicating velocity directions.},>=stealth]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,
 ymin=-2.1,ymax=1.1,xmin=-1.92,xmax=1.92]

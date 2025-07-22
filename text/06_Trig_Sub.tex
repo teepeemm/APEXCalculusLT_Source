@@ -166,7 +166,7 @@ Using \autoref{idea:trigsub}\ref*{trigsubtan}, we recognize $a=\sqrt{5}$ and  se
 \end{align*}
 While the integration steps are over, we are not yet done. The original problem was stated in terms of $x$, whereas our answer is given in terms of $\theta$. We must convert back to $x$.
 
-\mtable{A reference triangle for \autoref{ex_trigsub3}}{fig:tan_tri}{\begin{tikzpicture}[alt={Right triangle: base √5, vertical leg x, hypotenuse sqrt(x^2+5); right angle at foot of x, θ at left vertex.}]
+\mtable{A reference triangle for \autoref{ex_trigsub3}}{fig:tan_tri}{\begin{tikzpicture}[alt={Right triangle: base √5, vertical leg x, hypotenuse √(x²+5); right angle at foot of x, θ at left vertex.}]
 	\draw [very thick] (0,0) -- node[below,pos=.5] {$\sqrt5$} (3,0)
 	 -- node [right,pos=.5] {$x$} (3,2)
 	 -- node [pos=.5,above,sloped] {$\sqrt{x^2+5}$} cycle;
@@ -227,7 +227,7 @@ Thus
 	&= \frac14\left(\sec\theta\tan\theta -\ln\abs{\sec\theta+\tan\theta}\right)+C.
 \end{align*}
 We are not yet done. Our original integral is given in terms of $x$, whereas our final answer, as given, is in terms of $\theta$. We need to rewrite our answer in terms of $x$. With $a=1/2$, and $x=\frac12\sec\theta$, we use the Pythagorean Theorem to determine the lengths of the sides of the reference triangle in \autoref{fig:sec_tri}.
-\mtable[-\baselineskip]{A reference triangle for \autoref{ex_trigsub2}}{fig:sec_tri}{\begin{tikzpicture}[alt={Right triangle: base 1/2, vertical leg sqrt(x^2-1/4), hypotenuse x; right angle at right, θ at left.}]
+\mtable[-\baselineskip]{A reference triangle for \autoref{ex_trigsub2}}{fig:sec_tri}{\begin{tikzpicture}[alt={Right triangle: base 1/2, vertical leg √(x²-1/4), hypotenuse x; right angle at right, θ at left.}]
 	\draw [very thick] (0,0) -- node[below,pos=.5] {$1/2$} (3,0)
 	 -- node [right,pos=.5] {$\sqrt{x^2-1/4}$} (3,2)
 	 -- node [pos=.5,above] {$x$} cycle;
@@ -256,7 +256,7 @@ We use \autoref{idea:trigsub}\ref*{trigsubsin} with $a=2$, $x=2\sin \theta$, $\d
 		&= -\cot\theta -\theta + C.
 \end{align*}
 %
-\mtable{A reference triangle for \autoref{ex_trigsub4}}{fig:sin_tri}{\begin{tikzpicture}[alt={Right triangle: base sqrt(4-x^2), vertical leg x, hypotenuse 2; right angle at right, θ at left.}]
+\mtable{A reference triangle for \autoref{ex_trigsub4}}{fig:sin_tri}{\begin{tikzpicture}[alt={Right triangle: base √(4-x²), vertical leg x, hypotenuse 2; right angle at right, θ at left.}]
 	\draw [very thick] (0,0) -- node[below,pos=.5] {$\sqrt{4-x^2}$} (3,0)
 	 -- node [right,pos=.5] {$x$} (3,2) -- node [pos=.5,above] {$2$} cycle;
     \draw [thick] (2.7,0) -- (2.7,.3) -- (3,.3);

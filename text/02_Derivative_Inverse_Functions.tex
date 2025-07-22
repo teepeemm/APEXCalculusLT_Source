@@ -94,7 +94,7 @@ Adopting our previously defined notation, let $g(x) = \sin^{-1} x$ and $f(x) = \
 	&= \frac{1}{\cos(\sin^{-1}x)}.
 \end{align*}
 			
-\mtable{A right triangle defined by $y=\sin ^{-1}(x/1)$ with the length of the third leg found using the Pythagorean Theorem.}{fig:inverse3}{\begin{tikzpicture}[alt={Right triangle: hypotenuse 1 sloping up right; vertical leg length x; base $\sqrt{1-x^2}$; left angle y (arcsin x).},x=.5\marginparwidth,y=.5\marginparwidth,>=stealth]
+\mtable{A right triangle defined by $y=\sin ^{-1}(x/1)$ with the length of the third leg found using the Pythagorean Theorem.}{fig:inverse3}{\begin{tikzpicture}[alt={Right triangle: hypotenuse 1 sloping up right; vertical leg length x; base √(1-x²); left angle y (arcsin x).},x=.5\marginparwidth,y=.5\marginparwidth,>=stealth]
 \draw (0,0) node [shift={(15pt,5pt)}] {\scriptsize$y$}
  -- (1,0) node [pos=.5,below] {\scriptsize $\sqrt{1-x^2}$}
  -- (1,.75) node [pos=.5,right] {\scriptsize $x$}
@@ -109,7 +109,7 @@ Therefore $\cos (\sin^{-1} x) = \cos y = \sqrt{1-x^2}/1 = \sqrt{1-x^2}$, resulti
 
 Remember that the input $x$ of the arcsine function is a ratio of a side of a right triangle to its hypotenuse; the absolute value of this ratio will be less than 1. Therefore $1-x^2$ will be positive.
 
-\mtable{Graphs of $y=\sin x$ and $y=\sin^{-1}x$ along with corresponding tangent lines.}{fig:inverse4}{\begin{tikzpicture}[alt={Top: blue y = sin x on −pi/2<x<pi/2 with black tangent at (pi/3, sqrtrt3/2). Bottom: red y = sin^(-1) x with tangent at (sqrt3/2, pi/3).}]
+\mtable{Graphs of $y=\sin x$ and $y=\sin^{-1}x$ along with corresponding tangent lines.}{fig:inverse4}{\begin{tikzpicture}[alt={Top: blue y = sin x on −π/2<x<π/2 with black tangent at (π/3, √3/2). Bottom: red y = sin^(-1) x with tangent at (√3/2, π/3).}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 minor x tick num=1,minor y tick num=1,axis y line=middle,axis x line=middle,
 ymin=-1.7,ymax=1.7,xmin=-1.7,xmax=1.7,xtick={-1.57,-.79,.79,1.57},

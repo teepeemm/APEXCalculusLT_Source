@@ -6,7 +6,7 @@ A fundamental calculus technique is to first answer a given problem with an appr
 
 Consider the region given in \autoref{fig:rie1a}, which is the area under $y=4x-x^2$ on $[0,4]$. What is the signed area of this region --- i.e., what is $\ds\int_0^4(4x-x^2)\dd x$?
 
-\mtable{A graph of $f(x) = 4x-x^2$. What is the area of the shaded region?}{fig:rie1a}{\begin{tikzpicture}[alt={Blue parabola y = 4x - x^2 from 0 to 4; shaded region beneath; axes x and y.}]
+\mtable{A graph of $f(x) = 4x-x^2$. What is the area of the shaded region?}{fig:rie1a}{\begin{tikzpicture}[alt={Blue parabola y = 4x - x² from 0 to 4; shaded region beneath; axes x and y.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick={1,2,3,4},
 ytick={1,2,3,4},ymin=-1,ymax=5,xmin=-.5,xmax=4.5]
@@ -651,7 +651,7 @@ The Riemann sum corresponding to the Right Hand Rule is (followed by simplificat
 \end{align*}
 Once again, we have found a compact formula for approximating the definite integral with $n$ equally spaced subintervals and the Right Hand Rule. Using 10 subintervals, we have an approximation of $195.96$ (these rectangles are shown in \autoref{fig:rie9}). Using $n=100$ gives an approximation of $159.802$. 
 
-\mtable[-1in]{Approximating $\ds\int_{-1}^5 x^3\dd x$ using the Left Hand Rule and 10 evenly spaced subintervals.}{fig:rie9}{\begin{tikzpicture}[alt={Blue curve y = x^3 from x = -1 to 5; ten left-end red rectangles approximate area; axes x and y.}]
+\mtable[-1in]{Approximating $\ds\int_{-1}^5 x^3\dd x$ using the Left Hand Rule and 10 evenly spaced subintervals.}{fig:rie9}{\begin{tikzpicture}[alt={Blue curve y=x³ from x = -1 to 5; ten left-end red rectangles approximate area; axes x and y.}]
 \begin{axis}[width=1.16\marginparwidth,%
 tick label style={font=\scriptsize},axis y line=middle,axis x line=middle,name=myplot,axis on top,%
                         xtick={-1,1,2,3,4,5},% 

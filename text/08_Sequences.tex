@@ -25,7 +25,7 @@ In general, $n! = n\cdot (n-1)\cdot(n-2)\dotsm 2\cdot1$, where $n$ is a natural 
 We define $0! = 1$. While this does not immediately make sense, it makes many mathematical formulas work properly.}
 
 \mtable[.7in]{Plotting sequences in \autoref{ex_seq1}.}{fig:seq1b}{%
-\begin{tikzpicture}[alt={Blue dots for a_n = 3^n / n^! at 1 ≤ n ≤ 4; values about 3, 4.5, 4.5, 3.4; discrete plot, axes n,y.}]
+\begin{tikzpicture}[alt={Blue dots for aₙ=3^n/n^! at 1≤n≤4; values about 3, 4.5, 4.5, 3.4; discrete plot, axes n,y.}]
 \begin{axis}[width=\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick={1,2,3,4},
 ytick={1,2,3,4,5},ymin=-.1,ymax=5.5,xmin=-.1,xmax=4.5]
@@ -36,7 +36,7 @@ ytick={1,2,3,4,5},ymin=-.1,ymax=5.5,xmin=-.1,xmax=4.5]
 \node [above] at (myplot.above origin) {\scriptsize $y$};
 \end{tikzpicture}
 \\(a)\\
-\begin{tikzpicture}[alt={Blue dots for a_n = 4 + (–1)^n at 1 ≤ n ≤ 4; points alternate 3 and 5; discrete plot, axes n,y.}]
+\begin{tikzpicture}[alt={Blue dots for aₙ=4+(–1)^n at 1≤n≤4; points alternate 3 and 5; discrete plot, axes n,y.}]
 \begin{axis}[width=\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick={1,2,3,4},
 ytick={1,2,3,4,5},ymin=-.1,ymax=5.5,xmin=-.1,xmax=4.5]
@@ -47,7 +47,7 @@ ytick={1,2,3,4,5},ymin=-.1,ymax=5.5,xmin=-.1,xmax=4.5]
 \node [above] at (myplot.above origin) {\scriptsize $y$};
 \end{tikzpicture}
 \\(b)\\
-\begin{tikzpicture}[alt={{Blue dots for a_n = (–1)^{(n+1)/2}/n^2 at 1 ≤ n ≤ 5; alternating sign, magnitudes shrink to 0; axes n,y.}}]
+\begin{tikzpicture}[alt={{Blue dots for aₙ=(–1)^{(n+1)/2}/n² at 1≤n≤5; alternating sign, magnitudes shrink to 0; axes n,y.}}]
 \begin{axis}[width=\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick={1,2,3,4,5},
 ytick={-1},extra y ticks={.5,.25},extra y tick labels={$1/2$,$1/4$},
@@ -161,7 +161,7 @@ If $\ds \lim_{x\to\infty} f(x) = L$, then $\ds\lim_{n\to\infty} a_n = L$.
 Determine the convergence or divergence of the following sequences.
 %
 \mtable{Scatter plots of the sequences in \autoref{ex_seq4}.}{fig:seq4}{%
- \begin{tikzpicture}[alt={Blue dots for a_n = (3n^2–2n+1)/(n^2–1000) at 1 < n < 100; ; values descend then level near 3; axes n,y}]
+ \begin{tikzpicture}[alt={Blue dots for aₙ=(3n²–2n+1)/(n²–1000) at 1≤n≤100; ; values descend then level near 3; axes n,y}]
   \begin{axis}[width=\marginparwidth,tick label style={font=\scriptsize},
     axis y line=middle,axis x line=middle,name=myplot,axis on top,%
     xtick={20,40,60,80,100},ymin=-11,ymax=11,xmin=-.1,xmax=110]
@@ -173,7 +173,7 @@ Determine the convergence or divergence of the following sequences.
   \node [above] at (myplot.above origin) {\scriptsize $y$};
  \end{tikzpicture}
 \\(a)\\
-\begin{tikzpicture}[alt={Blue dots for a_n = cos n at 1 < n < 100; scatter dense between –1 and 1 showing no trend; axes n,y.}]
+\begin{tikzpicture}[alt={Blue dots for aₙ=cos n at 1≤n≤100; scatter dense between –1 and 1 showing no trend; axes n,y.}]
 \begin{axis}[width=\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 xtick={20,40,60,80,100},ymin=-1.1,ymax=1.1,xmin=-.1,xmax=110]
@@ -185,7 +185,7 @@ xtick={20,40,60,80,100},ymin=-1.1,ymax=1.1,xmin=-.1,xmax=110]
 \node [] at (myplot.north) {\scriptsize $\ds a_n = \cos n$};
 \end{tikzpicture}
 \\(b)\\
-\begin{tikzpicture}[alt={Blue dots for a_n = (–1)^n / n at 1 < n < 20; alternating sign terms decay toward 0; axes n,y.}]
+\begin{tikzpicture}[alt={Blue dots for aₙ=(–1)^n/n at 1≤n≤20; alternating sign terms decay toward 0; axes n,y.}]
 \begin{axis}[width=\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-1.1,ymax=1.1,xmin=-.1,xmax=22]
@@ -362,7 +362,7 @@ Determine the boundedness of the following sequences.
 \]
 %
 \mtable{A plot of $\{a_n\} = \{1/n\}$ and $\{a_n\} = \{2^n\}$ from \autoref{ex_seq3}.}{fig:seq3}{%
-\begin{tikzpicture}[alt={Blue dots: a_n = 1 ⁄ n for 1 < n < 10; values decline from 1 to near 0 along the n-axis.}]
+\begin{tikzpicture}[alt={Blue dots: aₙ=1/n for 1≤n≤10; values decline from 1 to near 0 along the n-axis.}]
 \begin{axis}[width=\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick={1,...,10},
 ytick={1},extra y ticks={.5,.25,.1},extra y tick labels={$1/2$,$1/4$,$1/10$},
@@ -374,7 +374,7 @@ ymin=-.1,ymax=1.1,xmin=-.1,xmax=11]
 \node [above] at (myplot.above origin) {\scriptsize $y$};
 \end{tikzpicture}
 \\(a)\\[10pt]
-\begin{tikzpicture}[alt={Blue dots: a_n = 2^n for 1 < n < 9; points soar from 2 up to about 256 on the y-axis.}]
+\begin{tikzpicture}[alt={Blue dots: aₙ=2^n for 1≤n≤9; points soar from 2 up to about 256 on the y-axis.}]
 \begin{axis}[width=\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-.1,ymax=275,xmin=-.1,xmax=9]
@@ -444,7 +444,7 @@ a_{n+1}-a_n &= \frac{n+2}{n+1} - \frac{n+1}{n} \\
 	&<0 \quad\text{ for all $n$.}
 \end{aligned}$\hfill\null\\
 %
-\mtable[-7\baselineskip]{A plot of $\{a_n\}=\{\frac{n+1}n\}$ in \autoref{ex_seq7}(a).}{fig:seq7a}{\begin{tikzpicture}[alt={Blue dots: a_n = (n + 1) ⁄ n for 1 < n < 11; sequence slips from 2 toward 1.}]
+\mtable[-7\baselineskip]{A plot of $\{a_n\}=\{\frac{n+1}n\}$ in \autoref{ex_seq7}(a).}{fig:seq7a}{\begin{tikzpicture}[alt={Blue dots: aₙ=(n+1)/n for 1≤n≤11; sequence slips from 2 toward 1.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,ytick={-1,-2,1,2},
 ymin=-.1,ymax=2.5,xmin=-1,xmax=11]
@@ -459,7 +459,7 @@ Since $a_{n+1}-a_n<0$ for all $n$, we conclude that the sequence is decreasing.
 
 \item
 %
-\mtable[5\baselineskip]{A plot of $\{a_n\}=\{\frac{n^2+1}{n+1}\}$ in \autoref{ex_seq7}(b).}{fig:seq7b}{\begin{tikzpicture}[alt={Blue dots: a_n = (n^2 + 1) ⁄ (n + 1) for 1 < n < 11; roughly linear rise, y climbs 2 towards 10.}]
+\mtable[5\baselineskip]{A plot of $\{a_n\}=\{\frac{n^2+1}{n+1}\}$ in \autoref{ex_seq7}(b).}{fig:seq7b}{\begin{tikzpicture}[alt={Blue dots: aₙ=(n²+1)/(n+1) for 1≤n≤11; roughly linear rise, y climbs 2 towards 10.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-1,ymax=11,xmin=-1,xmax=11]
@@ -482,7 +482,7 @@ Since $a_{n+1}-a_n>0$ for all $n$, we conclude the sequence is increasing.
 
 \item%
 %
-\mtable[10\baselineskip]{A plot of $\{a_n\}=\{\frac{n^2-9}{n^2-10n+26}\}$ in \autoref{ex_seq7}(c).}{fig:seq7c}{\begin{tikzpicture}[alt={Blue dots: aₙ = (n^2 − 9) ⁄ (n^2 − 10n + 26) for 1 < n < 11; peaks near n = 3 then tapers.}]
+\mtable[10\baselineskip]{A plot of $\{a_n\}=\{\frac{n^2-9}{n^2-10n+26}\}$ in \autoref{ex_seq7}(c).}{fig:seq7c}{\begin{tikzpicture}[alt={Blue dots: aₙ=(n²−9)/(n²−10n+26) for 1<n<11; peaks near n=3 then tapers.}]
 \begin{axis}[width=\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-1,ymax=16,xmin=-1,xmax=11]
@@ -512,7 +512,7 @@ In short, the sequence is simply not monotonic. However, it is useful to note th
 
 \item
 %
-\mtable{A plot of $\{a_n\}=\{n^2/n!\}$ in \autoref{ex_seq7}(d).}{fig:seq7d}{\begin{tikzpicture}[alt={Blue dots: a_n = n^2 ⁄ n^! for 1 < n < 11; rapid drop from 2 to near 0.}]
+\mtable{A plot of $\{a_n\}=\{n^2/n!\}$ in \autoref{ex_seq7}(d).}{fig:seq7d}{\begin{tikzpicture}[alt={Blue dots: aₙ=n²/n^! for 1≤n≤11; rapid drop from 2 to near 0.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-.1,ymax=2.1,xmin=-1,xmax=11]

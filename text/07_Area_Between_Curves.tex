@@ -96,7 +96,7 @@ Often, we do not know which function is greater (or they switch within the domai
 \begin{example}[Finding area enclosed by curves]\label{ex_abc1}%
 Find the area of the region bounded by $f(x) = \sin x+2$, $g(x) = \frac12\cos (2x)-1$, $x=0$ and $x=4\pi$, as shown in \autoref{fig:abc1}.
 \solution
-\mtable{Graphing an enclosed region in \autoref{ex_abc1}.}{fig:abc1}{\begin{tikzpicture}[alt={Blue upper curve sin x + 2 and lower curve 0.5 cos 2x − 1; shaded area between curves from x 0 to 4 pi; axes x and y.}]
+\mtable{Graphing an enclosed region in \autoref{ex_abc1}.}{fig:abc1}{\begin{tikzpicture}[alt={Blue upper curve sin x + 2 and lower curve 0.5 cos 2x − 1; shaded area between curves from x 0 to 4π; axes x and y.}]
 \begin{axis}[width=\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,extra x ticks={12.57},
 extra x tick labels={$4\pi$},ymin=-2,ymax=3.5,xmin=-.5,xmax=13.5]
@@ -128,7 +128,7 @@ The graph verifies that the upper boundary of the region is given by $f$ and the
 Find the area of the region enclosed by $y=x^2+x-5$ and $y=3x-2$.
 \solution
 It will help to sketch these two functions, as done in \autoref{fig:ftc6}. 
-\mtable{Sketching the region enclosed by $y=x^2+x-5$ and $y=3x-2$ in \autoref{ex_ftc6}.}{fig:ftc6}{\begin{tikzpicture}[alt={Blue parabola y = x^2 + x − 5 and blue line y = 3x − 2 intersect at −1 and 3; axes x and y.}]
+\mtable{Sketching the region enclosed by $y=x^2+x-5$ and $y=3x-2$ in \autoref{ex_ftc6}.}{fig:ftc6}{\begin{tikzpicture}[alt={Blue parabola y = x²+x−5 and blue line y=3x−2 intersect at −1 and 3; axes x and y.}]
 \begin{axis}[width=\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick={-2,-1,1,2,3,4},
 ytick={5,10,15},ymin=-10,ymax=16,xmin=-2.5,xmax=4.5]
@@ -200,7 +200,7 @@ The previous example makes note that we are expecting area to be \emph{positive}
 
 The previous example also demonstrates that we often have to break a given region into subregions before applying \autoref{thm:areabetweencurves}. The following example shows another situation where this is applicable, along with an alternate view of applying the Theorem.
 
-\mtable{Graphing a region for \autoref{ex_abc3}.}{fig:abc3}{\begin{tikzpicture}[alt={Blue region: upper curve y = sqrt(x)+2 on 0–1, then y = -(x-1)^2+3 on 1–2; lower edge y = 2; axes x and y.}]
+\mtable{Graphing a region for \autoref{ex_abc3}.}{fig:abc3}{\begin{tikzpicture}[alt={Blue region: upper curve y=2+√x on 0≤x≤1, then y=-(x-1)²+3 on 1≤x≤2; lower edge y=2; axes x and y.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick={1,2},
 ymin=-.1,ymax=3.5,xmin=-.1,xmax=2.5]
@@ -235,7 +235,7 @@ y=\sqrt{x}+2 & \quad\Rightarrow\quad x=(y-2)^2 \\
 y=-(x-1)^2+3 & \quad\Rightarrow\quad x=\sqrt{3-y}+1.
 \end{align*}
 
-\mtable{The region used in \autoref{ex_abc3} with boundaries relabeled as functions of $y$.}{fig:abc3b}{\begin{tikzpicture}[alt={Horizontal view: shaded band between y = 2 and y = 3; left edge x = (y-2)^2, right edge x = sqrt(3-y)+1; a red horizontal slice shows Delta y; axes x and y.}]
+\mtable{The region used in \autoref{ex_abc3} with boundaries relabeled as functions of $y$.}{fig:abc3b}{\begin{tikzpicture}[alt={Horizontal view: shaded band between y=2 and y=3; left edge x=(y-2)², right edge x=1+√(3-y); a red horizontal slice shows Delta y; axes x and y.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick={1,2},
 ymin=-.1,ymax=3.5,xmin=-.1,xmax=2.5]

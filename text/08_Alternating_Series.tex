@@ -46,7 +46,7 @@ The basic idea behind \autoref{thm:alt_series_test} is illustrated in \autoref{f
 \[S_n = \sum_{i=1}^n(-1)^{i+1}b_i =b_1-b_2+b_3-b_4+\dotsb+(-1)^{n+1}b_n.\]
 Because $\{b_n\}$ is decreasing, the amount by which $S_n$ bounces up and down decreases. Moreover, the odd terms of $S_n$ form a decreasing, bounded sequence, while the even terms of $S_n$ form an increasing, bounded sequence. Since bounded, monotonic sequences converge (see \autoref{thm:monotonic_converge}) and the terms of $\{b_n\}$ approach 0, we will show below that the odd and even terms of $S_n$ converge to the same common limit $L$, the sum of the series.
 
-\mtable{Illustrating convergence with the Alternating Series Test.}{fig:alt_series_converge}{\begin{tikzpicture}[alt={The sequence b_n is decreasing from 1 toward 0.  The partial sums S_n alternate on which side of the dashed line y=L they are.}]
+\mtable{Illustrating convergence with the Alternating Series Test.}{fig:alt_series_converge}{\begin{tikzpicture}[alt={The sequence bₙ is decreasing from 1 toward 0.  The partial sums Sₙ alternate on which side of the dashed line y=L they are.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick={2,4,6,8,10},
 ymin=-.25,ymax=1.25,xmin=-1,xmax=11,legend columns=-1,legend style={at={(.5,0)},anchor=north}]

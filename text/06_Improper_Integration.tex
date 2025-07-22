@@ -11,7 +11,7 @@ Notice how the integrand is $1/(1+x^2)$ in each integral (which is sketched in \
 \[\int_0^b \frac{1}{1+x^2}\dd x = \tan^{-1}x\Big|_0^b = \tan^{-1}b-\tan^{-1}0 = \tan^{-1}b.\]
 As $b\rightarrow \infty$, $\tan^{-1}b \rightarrow \pi/2.$ Therefore it seems that as the upper bound $b$ grows, the value of the definite integral $\ds \int_0^b\frac{1}{1+x^2}\dd x$ approaches $\pi/2\approx 1.5708$. This should strike the reader as being a bit amazing: even though the curve extends ``to infinity,'' it has a finite amount of area underneath it.
 
-\mtable{Graphing $\ds f(x)=\frac{1}{1+x^2}$.}{fig:improper1}{\begin{tikzpicture}[alt={Blue curve f(x)=1/(1+x^2) on 0 < x < 10, falling from y=1 at x=0 toward 0; area under curve to x axis is shaded.}]
+\mtable{Graphing $\ds f(x)=\frac{1}{1+x^2}$.}{fig:improper1}{\begin{tikzpicture}[alt={Blue curve f(x)=1/(1+x²) on 0 < x < 10, falling from y=1 at x=0 toward 0; area under curve to x axis is shaded.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-.1,ymax=1.1,xmin=-1,xmax=11]
@@ -80,7 +80,7 @@ Evaluate the following improper integrals.\\
 \begin{enumerate}
 	\item
 	%
-\mtable{A graph of $f(x) = \frac{1}{x^2}$ in\\\autoref{ex_impint1} part 1.}{fig:impint1a}{\begin{tikzpicture}[alt={Blue curve f(x)=1/x^2 on 1 < x < 10; rapid drop from y=1 at x=1 then tails to 0; region under curve and above x axis is shaded.}]
+\mtable{A graph of $f(x) = \frac{1}{x^2}$ in\\\autoref{ex_impint1} part 1.}{fig:impint1a}{\begin{tikzpicture}[alt={Blue curve f(x)=1/x² on 1 < x < 10; rapid drop from y=1 at x=1 then tails to 0; region under curve and above x axis is shaded.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick={1,5,10},
 ymin=-.1,ymax=1.1,xmin=-1,xmax=11]
@@ -150,7 +150,7 @@ ytick={1},ymin=-.1,ymax=1.1,xmin=-11,xmax=1]
 
 	\item	We will need to break this into two improper integrals and choose a value of $c$ as in part 3 of \autoref{def:imp_int1}. Any value of $c$ is fine; we choose $c=0$.
 %
-\mtable[4\baselineskip]{A graph of $f(x) = \frac{1}{1+x^2}$ in \autoref{ex_impint1} part 4.}{fig:impint1d}{\begin{tikzpicture}[alt={Blue graph of f(x)=1/(1+x^2), symmetric, peak y=1 at x=0, then falls to y=0 by x=10; area below curve to x-axis shaded.}]
+\mtable[4\baselineskip]{A graph of $f(x) = \frac{1}{1+x^2}$ in \autoref{ex_impint1} part 4.}{fig:impint1d}{\begin{tikzpicture}[alt={Blue graph of f(x)=1/(1+x²), symmetric, peak y=1 at x=0, then falls to y=0 by x=10; area below curve to x-axis shaded.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,ytick={1},
 ymin=-.1,ymax=1.1,xmin=-11,xmax=11]
@@ -181,7 +181,7 @@ Evaluate the improper integral $\ds \int_1^\infty \frac{\ln x}{x^2}\dd x$.
 \solution
 This integral will require the use of Integration by Parts. Let $u = \ln x$ and $dv = 1/x^2\dd x$. Then
 %
-\mtable{A graph of $f(x) = \frac{\ln x}{x^2}$ in \autoref{ex_impint2}.}{fig:impint2}{\begin{tikzpicture}[alt={Blue curve f(x)=ln x / x^2 on 1<x<10; rises to small hump near x=1.3 then decays toward 0; region under curve is filled.}]
+\mtable{A graph of $f(x) = \frac{\ln x}{x^2}$ in \autoref{ex_impint2}.}{fig:impint2}{\begin{tikzpicture}[alt={Blue curve f(x)=(ln x)/ x² on 1<x<10; rises to small hump near x=1.3 then decays toward 0; region under curve is filled.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick={1,5,10},
 ymin=-.1,ymax=.5,xmin=-1,xmax=11]
@@ -230,7 +230,7 @@ Evaluate the following improper integrals:
 \begin{enumerate}
 \item		A graph of $f(x) = 1/\sqrt{x}$ is given in \autoref{fig:impint3}.
 %
-\mtable{A graph of $f(x)=\frac{1}{\sqrt{x}}$ in \autoref{ex_impint3}.}{fig:impint3}{\begin{tikzpicture}[alt={Blue curve f(x)=1/sqrt(x) on 0<x<1; shoots to y 10 near x=0, decreases to y=1 at x=1; vertical strip at x=1 and area beneath are shaded.}]
+\mtable{A graph of $f(x)=\frac{1}{\sqrt{x}}$ in \autoref{ex_impint3}.}{fig:impint3}{\begin{tikzpicture}[alt={Blue curve f(x)=1/√x on 0<x<1; shoots to y 10 near x=0, decreases to y=1 at x=1; vertical strip at x=1 and area beneath are shaded.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-.1,ymax=11,xmin=-.1,xmax=1.1]
@@ -258,7 +258,7 @@ It turns out that the region does have a finite area even though it has no upper
 			&=-2.
 \end{align*}
 %
-\mtable[-4\baselineskip]{A graph of $f(x)=\frac{1}{x^2}$ in \autoref{ex_impint3}.}{fig:impint3b}{\begin{tikzpicture}[alt={Blue graph f(x)=1/x^2 on −1<x<1 with a tall central spike (clipped at y=10) and symmetric flanks; full region under curve shaded.}]
+\mtable[-4\baselineskip]{A graph of $f(x)=\frac{1}{x^2}$ in \autoref{ex_impint3}.}{fig:impint3b}{\begin{tikzpicture}[alt={Blue graph f(x)=1/x² on −1<x<1 with a tall central spike (clipped at y=10) and symmetric flanks; full region under curve shaded.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-.1,ymax=11,xmin=-1.1,xmax=1.1]
@@ -369,7 +369,7 @@ Determine the convergence of the following improper integrals.
 \begin{enumerate}
 \item		The function $f(x) = e^{-x^2}$ does not have an antiderivative expressible in terms of elementary functions, so we cannot integrate directly. It is comparable to $g(x)=1/x^2$, and as demonstrated in \autoref{fig:impint5}, $e^{-x^2} < 1/x^2$ on $[1,\infty)$. We know from \autoref{idea:impint1} that $\ds \int_1^\infty \frac{1}{x^2}\dd x$ converges, hence $\ds\int_1^\infty e^{-x^2}\dd x$ also converges.
 
-\mtable{Graphs of $f(x) = e^{-x^2}$ and $f(x)= 1/x^2$ in \autoref{ex_impint5}.}{fig:impint5}{\begin{tikzpicture}[alt={Red 1/x^2 and blue e^(–x^2) on 1<x<4; both fall toward the axis, red stays above blue after x=1.3.}]
+\mtable{Graphs of $f(x) = e^{-x^2}$ and $f(x)= 1/x^2$ in \autoref{ex_impint5}.}{fig:impint5}{\begin{tikzpicture}[alt={Red 1/x² and blue e^(–x²) on 1<x<4; both fall toward the axis, red stays above blue after x=1.3.}]
 \begin{axis}[width=\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-.1,ymax=1.1,xmin=-.1,xmax=4.1]
@@ -389,7 +389,7 @@ It is easy to see that when $x>0$, we have $x = \sqrt{x^2} > \sqrt{x^2-x}$. Taki
 
 Using \autoref{thm:impint_comparison}, we conclude that since $\ds\int_3^\infty\frac1x\dd x$ diverges, then $\ds\int_3^\infty\frac1{\sqrt{x^2-x}}\dd x$ diverges as well. \autoref{fig:impint5b} illustrates this.
 
-\mtable{Graphs of $f(x) = 1/\sqrt{x^2-x}$ and $f(x)= 1/x$ in \autoref{ex_impint5}.}{fig:impint5b}{\begin{tikzpicture}[alt={Blue 1 / sqrt(x^2 – x) and red 1 / x on 2<x<6; curves descend, blue slightly above red throughout.}]
+\mtable{Graphs of $f(x) = 1/\sqrt{x^2-x}$ and $f(x)= 1/x$ in \autoref{ex_impint5}.}{fig:impint5b}{\begin{tikzpicture}[alt={Blue 1 / √(x² – x) and red 1 / x on 2<x<6; curves descend, blue slightly above red throughout.}]
 \begin{axis}[width=\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-.1,ymax=.5,xmin=-.1,xmax=6.2]
@@ -434,7 +434,7 @@ The trouble is the square root function.
 %This converges to 1, meaning the original limit also converged to 1. As $x$ gets very large, the function $\frac1{\sqrt{x^2+2x+5}}$ looks very much like $\frac1x$.
 We determine the limit by using a technique we learned in \autoref{key:rat_lim_at_inf}:
 %
-\mtable{Graphing $f(x)=\frac{1}{\sqrt{x^2+2x+5}}$ and $f(x)=\frac1x$ in \autoref{ex_impint6}.}{fig:impint6}{\begin{tikzpicture}[alt={Blue 1 / sqrt(x^2+2x+5) and red 1/x on 3<x<20; red starts above then meets blue near x=10 before both approach zero.}]
+\mtable{Graphing $f(x)=\frac{1}{\sqrt{x^2+2x+5}}$ and $f(x)=\frac1x$ in \autoref{ex_impint6}.}{fig:impint6}{\begin{tikzpicture}[alt={Blue 1 / √(x²+2x+5) and red 1/x on 3<x<20; red starts above then meets blue near x=10 before both approach zero.}]
 \begin{axis}[width=\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-.1,ymax=.35,xmin=-.1,xmax=21]

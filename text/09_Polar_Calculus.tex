@@ -61,7 +61,7 @@ To find the vertical lines of tangency, we determine where $\frac{\dd y}{\dd x}$
 \sin\theta &= \frac{-1\pm\sqrt{33}}{8}.
 \end{align*}
 %
-\mtable{The limaçon in \autoref{ex_polcalc1} with its tangent line at $\theta=\pi/4$ and points of vertical and horizontal tangency.}{fig:polcalc1}{\begin{tikzpicture}[alt={Blue limacon with inner loop; red tangent at θ = pi⁄4; filled/open dots show four vertical or horizontal tangent points.}]
+\mtable{The limaçon in \autoref{ex_polcalc1} with its tangent line at $\theta=\pi/4$ and points of vertical and horizontal tangency.}{fig:polcalc1}{\begin{tikzpicture}[alt={Blue limacon with inner loop; red tangent at θ = π/4; filled/open dots show four vertical or horizontal tangent points.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,minor x tick num=1,
 ymin=-.35,ymax=3.2,xmin=-2.1,xmax=2.1]
@@ -143,7 +143,7 @@ When using rectangular coordinates, the equations $x=h$ and $y=k$ defined vertic
 
 \mnote{\textbf{Note:} Recall that the area of a sector of a circle with radius $r$ subtended by an angle $\theta$ is $A = \frac12\theta r^2$.
 \[
-\begin{tikzpicture}[alt={Circle sector with radius r and angle theta; accompanying note states its area A = 1/2 theta r^2.},x=30pt,y=30pt,thick]
+\begin{tikzpicture}[alt={Circular sector with radius r and angle θ; accompanying note states its area A = θ r² /2.},x=30pt,y=30pt,thick]
 			\draw (2,0) arc (0:50:2) -- (0,0);
 			\draw [] (0,0) -- (2,0) node [pos=.5,below] {$r$};
 			\draw [fill=black] (0,0) circle (1pt);
@@ -159,7 +159,7 @@ Consider \autoref{fig:polararea} (a) where a region defined by $r=f(\theta)$ on 
 Partition the interval $[\alpha,\beta]$ into $n$ equally spaced subintervals as $\alpha=\theta_0<\theta_1<\dotso<\theta_n=\beta$. The radian length of each subinterval is $\Delta\theta = (\beta-\alpha)/n$, representing a small change in angle. The area of the region defined by the $i\,^\text{th}$ subinterval $[\theta_{i-1},\theta_i]$ can be approximated with a sector of a circle with radius $f(c_i)$, for some $c_i$ in $[\theta_{i-1},\theta_i]$. The area of this sector is $\frac12[f(c_i)]^2\Delta\theta$. This is shown in part (b) of the figure, where $[\alpha,\beta]$ has been divided into 4 subintervals. We approximate the area of the whole region by summing the areas of all sectors:
 %
 \mtable[-.5in]{Computing the area of a polar region.}{fig:polararea}{%
-\begin{tikzpicture}[alt={Blue r = f(θ) with dashed spokes; shaded wedge from θ = alpha to beta.}]
+\begin{tikzpicture}[alt={Blue r = f(θ) with dashed spokes; shaded wedge from θ = α to β.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,
 ymin=-.1,ymax=1.1,xmin=-.1,xmax=1.1,axis equal]
@@ -184,7 +184,7 @@ ymin=-.1,ymax=1.1,xmin=-.1,xmax=1.1,axis equal]
 \node [above] at (myplot.above origin) {\scriptsize $\pi/2$};
 \end{tikzpicture}
 \\(a)\\
-\begin{tikzpicture}[alt={Red r = f(θ) with dashed spokes; shaded wedge from θ = alpha to Beta}]
+\begin{tikzpicture}[alt={Red r = f(θ) with dashed spokes; shaded wedge from θ = α to β}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,
 ymin=-.1,ymax=1.1,xmin=-.1,xmax=1.1,axis equal]
@@ -250,7 +250,7 @@ Find the area of the cardioid $r=1+\cos\theta$ bound between $\theta=\pi/6$ and 
 \solution
 This is again a direct application of \autoref{thm:polar_area}.
 %
-\mtable[\baselineskip]{Finding the area of the shaded region of a cardioid in \autoref{ex_polcalc4}.}{fig:polcalc4}{\begin{tikzpicture}[alt={Cardioid sector: blue curve r = f(θ) with shaded slice between θ = 0 and pi⁄6, bounded by two radii.}]
+\mtable[\baselineskip]{Finding the area of the shaded region of a cardioid in \autoref{ex_polcalc4}.}{fig:polcalc4}{\begin{tikzpicture}[alt={Cardioid sector: blue curve r = f(θ) with shaded slice between θ = 0 and π/6, bounded by two radii.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,ytick={1},
 ymin=-.7,ymax=1.5,xmin=-.5,xmax=2.1]
@@ -282,7 +282,7 @@ ymin=-.7,ymax=1.5,xmin=-.5,xmax=2.1]
 
 Our study of area in the context of rectangular functions led naturally to finding area bounded between curves. We consider the same in the context of polar functions. \index{polar!functions!area between curves}
 
-\mtable{Illustrating area bound between two polar curves.}{fig:polarea3}{\begin{tikzpicture}[alt={Blue outer r_2 and red inner r_1 enclose shaded region between θ = alpha and Beta, inner arc from r_1 to pole.}]
+\mtable{Illustrating area bound between two polar curves.}{fig:polarea3}{\begin{tikzpicture}[alt={Blue outer r_2 and red inner r_1 enclose shaded region between θ = α and β, inner arc from r_1 to pole.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,
 ymin=-.1,ymax=1.1,xmin=-.1,xmax=1.1]
@@ -321,7 +321,7 @@ A = \frac{1}{2} \int_\alpha^\beta [f_2(\theta)]^2 - [f_1(\theta)]^2\dd\theta
 \]
 \end{keyidea}
 
-\mtable{Finding the area between polar curves in \autoref{ex_polcalc5}.}{fig:polcalc5}{\begin{tikzpicture}[alt={Blue circle r = 1 intersects red cardioid r = 1 − cos theta; right‐hand lens (−pi∕2 ≤ theta ≤ pi∕2) is shaded.}]
+\mtable{Finding the area between polar curves in \autoref{ex_polcalc5}.}{fig:polcalc5}{\begin{tikzpicture}[alt={Blue circle r = 1 intersects red cardioid r = 1 − cos θ; right‐hand lens (−π/2 ≤ θ ≤ π/2) is shaded.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-1.6,ymax=1.6,xmin=-.6,xmax=3.2]
@@ -362,7 +362,7 @@ Find the area bounded between the polar curves $r=1$ and one petal of $r=2\cos(2
 \solution
 %
 \mtable[-10\baselineskip]{Graphing the region bounded by the functions in \autoref{ex_polcalc6}.}{fig:polcalc6}{%
-\begin{tikzpicture}[alt={Blue rose r = sin 4 theta overlaps red three‐leaf r = sin 2 theta; intersection rays at theta = +/- pi∕6, +/- pi∕2.}]
+\begin{tikzpicture}[alt={Blue rose r = sin 4 θ overlaps red three‐leaf r = sin 2 θ; intersection rays at θ = ± π/6, ± π/2.}]
 \begin{axis}[width=\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-1.15,ymax=1.15,xmin=-.5,xmax=2.2]
@@ -378,7 +378,7 @@ ymin=-1.15,ymax=1.15,xmin=-.5,xmax=2.2]
 \node [above] at (myplot.above origin) {\scriptsize $\pi/2$};
 \end{tikzpicture}
 \\(a)\\[10pt]
-\begin{tikzpicture}[alt={Close-up: sector aplha ≤ theta ≤ beta between the two curves is filled to illustrate the integrand region.}]
+\begin{tikzpicture}[alt={Close-up: sector α ≤ θ ≤ β between the two curves is filled to illustrate the integrand region.}]
 \begin{axis}[width=\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-.1,ymax=1,xmin=-.1,xmax=1.2]
@@ -474,7 +474,7 @@ With $r=1+2\sin\theta$, we have $r\,' = 2\cos\theta$. The limaçon is traced out
 	&\approx 13.3649.
 \end{align*}
 %
-\mtable[-6\baselineskip]{The limaçon in \autoref{ex_polcalc7} whose arc length is measured.}{fig:polcalc7}{\begin{tikzpicture}[alt={Limacon r = 1 + 2 cos theta plotted; small inner loop (theta around pi) and outer loop (whole 0 ≤ θ < 2 pi) }]
+\mtable[-6\baselineskip]{The limaçon in \autoref{ex_polcalc7} whose arc length is measured.}{fig:polcalc7}{\begin{tikzpicture}[alt={Limacon r = 1 + 2 cos θ plotted; small inner loop (θ around π) and outer loop (whole 0 ≤ θ < 2 π) }]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-.5,ymax=3.2,xmin=-2.22,xmax=2.22]
@@ -507,7 +507,7 @@ Consider the graph of the polar equation $r=f(\theta)$, where $\fp$ is continuou
 Find the surface area formed by revolving one petal of the rose curve $r=\cos(2\theta)$ about its central axis (see \autoref{fig:polcalc8}).
 \solution
 \mtable{Finding the surface area of a rose-curve petal that is revolved around its central axis.}{fig:polcalc8}{%
-\begin{tikzpicture}[alt={Red and blue roses r = cos 2 theta and r = sin 2 theta share four petals, alternating every pi∕4.}]
+\begin{tikzpicture}[alt={Red and blue roses r = cos 2 θ and r = sin 2 θ share four petals, alternating every π/4.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick={-1,1},
 ytick={-1,1},ymin=-1.1,ymax=1.1,xmin=-1.3,xmax=1.3]
@@ -525,7 +525,7 @@ ytick={-1,1},ymin=-1.1,ymax=1.1,xmin=-1.3,xmax=1.3]
 3Dortho=0.009,
 3Dc2c=0.41893383860588074 -0.887881875038147 0.1901581883430481,
 3Dcoo=65.85308837890625 6.341495513916016 17.98039436340332,
-3Droo=85}{\marginparwidth}{One blue petal (0 ≤ θ ≤ pi∕2) revolved about its axis, forming a translucent spindle-shaped surface for surface-area computation.}{figures/figpolcalc8a_3D}
+3Droo=85}{\marginparwidth}{One blue petal (0 ≤ θ ≤ pi/2) revolved about its axis, forming a translucent spindle-shaped surface for surface-area computation.}{figures/figpolcalc8a_3D}
 \\(b)}
 We choose, as implied by the figure, to revolve the portion of the curve that lies on $[0,\pi/4]$ about the initial ray. Using \autoref{idea:surface_area_polar} and the fact that $\fp(\theta) = -2\sin(2\theta)$, we have
 \begin{align*}

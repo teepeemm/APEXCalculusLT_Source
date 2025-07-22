@@ -46,7 +46,7 @@ We will explore a variety of series in this section. We start with two series th
 \begin{enumerate}
 \item	Consider $S_n$, the $n^\text{th}$ partial sum.
 %
-\mtable{Scatter plots relating to the series of \autoref{ex_series1} part 1.}{fig:series1a}{\begin{tikzpicture}[alt={Blue a_n rise gently to 100 while red S_n surge to almost 340; scatter for 1 < n < 10, y-axis 0 < y < 350.}]
+\mtable{Scatter plots relating to the series of \autoref{ex_series1} part 1.}{fig:series1a}{\begin{tikzpicture}[alt={Blue aₙ rise gently to 100 while red Sₙ surge to almost 340; scatter for 1≤n≤10, y-axis 0 < y < 350.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 xmin=-1,xmax=11,ymin=-10,legend columns=-1,legend style={at={(.5,-.1)},anchor=north}]%ymax=2.1,%
@@ -82,7 +82,7 @@ $S_n = \begin{cases}
 \end{cases}$ \smallskip
 As $\{S_n\}$ oscillates, repeating $1, 0, 1, 0, \dotsc$, we conclude that $\ds\lim_{n\to\infty}S_n$ does not exist, hence $\ds\sum_{n=1}^\infty (-1)^{n+1}$ diverges.		
 
-\mtable{Scatter plots relating to the series of \autoref{ex_series1} part 2.}{fig:series1b}{\begin{tikzpicture}[alt={Blue b_n dots alternate ±1; red S_n alternate 0 and 1; scatter for 1 < n < 10, y-axis –1 < y < 1.}]
+\mtable{Scatter plots relating to the series of \autoref{ex_series1} part 2.}{fig:series1b}{\begin{tikzpicture}[alt={Blue bₙ dots alternate ±1; red Sₙ alternate 0 and 1; scatter for 1≤n≤10, y-axis –1 < y < 1.}]
 \begin{axis}[width=\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-1.1,ymax=1.1,xmin=-1,xmax=11,legend columns=-1,legend style={at={(.5,-.1)},anchor=north}]
@@ -153,7 +153,7 @@ According to \autoref{thm:geom_series}, the series
 converges as $r=1/2$, and $\ds \sum_{n=0}^\infty \frac{1}{2^n} = \frac{1}{1-1/2} = 2.$ This concurs with our introductory example; while there we got a sum of 1, we skipped the first term of 1.
 
 \mtable{Scatter plots relating to the series in \autoref{ex_series2}.}{fig:series2}{%
-\begin{tikzpicture}[alt={Blue a_n decline toward 0; red S_n creep up to almost 2; scatter 2 < n < 10, y-axis –1 < y < 2.5.}]
+\begin{tikzpicture}[alt={Blue aₙ decline toward 0; red Sₙ creep up to almost 2; scatter 2≤n≤10, y-axis –1 < y < 2.5.}]
 \begin{axis}[width=\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick={2,4,6,8,10},
 ymin=-.5,ymax=2.5,xmin=-1,xmax=11,legend columns=-1,legend style={at={(.5,-.1)},anchor=north}]
@@ -166,7 +166,7 @@ ymin=-.5,ymax=2.5,xmin=-1,xmax=11,legend columns=-1,legend style={at={(.5,-.1)},
 \node [above] at (myplot.above origin) {\scriptsize $y$};
 \end{tikzpicture}
 \smallskip\\(a)\bigskip\\
-\begin{tikzpicture}[alt={Blue a_n positive towards 0; red S_n flatten at almost 0.6; scatter 2 < n < 10, y-axis –0.5 < y < 1.}]
+\begin{tikzpicture}[alt={Blue aₙ positive towards 0; red Sₙ flatten at almost 0.6; scatter 2≤n≤10, y-axis –0.5 < y < 1.}]
 \begin{axis}[width=\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick={2,4,6,8,10},
 ymin=-1.1,ymax=1.1,xmin=-1,xmax=11,legend columns=-1,legend style={at={(.5,0)},anchor=south}]
@@ -179,7 +179,7 @@ ymin=-1.1,ymax=1.1,xmin=-1,xmax=11,legend columns=-1,legend style={at={(.5,0)},a
 \node [above] at (myplot.above origin) {\scriptsize $y$};
 \end{tikzpicture}
 \smallskip\\(b)\bigskip\\
-\begin{tikzpicture}[alt={Blue a_n explode past 800; red Sₙ climb past 1000; scatter 1 < n < 6, y-axis 0 < y < 1 100.}]
+\begin{tikzpicture}[alt={Blue aₙ explode past 800; red Sₙ climb past 1000; scatter 1≤n≤6, y-axis 0 < y < 1 100.}]
 \begin{axis}[width=\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 xmin=-1,xmax=7,ymin=-50,legend columns=-1,legend style={at={(.5,-.1)},anchor=north}]%ymax=1.1,%
@@ -232,7 +232,7 @@ S_3 &=	\left(\frac11-\frac12\right) + \left(\frac12-\frac13\right)+\left(\frac13
 S_4 &=	\left(\frac11-\frac12\right) + \left(\frac12-\frac13\right)+\left(\frac13-\frac14\right) +\left(\frac14-\frac15\right)& &= 1-\frac15
 \end{align*}
 %
-\mtable{Scatter plots relating to the series of \autoref{ex_series3}.}{fig:series3}{\begin{tikzpicture}[alt={Blue a_n decay to 0; red S_n increase toward 0.9; scatter 1 < n < 10, y-axis 0 < y < 1.}]
+\mtable{Scatter plots relating to the series of \autoref{ex_series3}.}{fig:series3}{\begin{tikzpicture}[alt={Blue aₙ decay to 0; red Sₙ increase toward 0.9; scatter 1≤n≤10, y-axis 0 < y < 1.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick={2,4,6,8,10},
 ymin=-.1,ymax=1.1,xmin=-1,xmax=11,legend columns=-1,legend style={at={(.5,-.1)},anchor=north}]
@@ -284,7 +284,7 @@ S_5 &= (1-\tfrac13) + (\tfrac12-\tfrac14) + (\tfrac13-\tfrac15) + (\tfrac14-\tfr
 &&= 1+\tfrac12-\tfrac16-\tfrac17
 \end{align*}}%
 %
-\mtable{Scatter plots relating to the series of \autoref{ex_series4} part 1.}{fig:series4a}{\begin{tikzpicture}[alt={Scatter-blue a_n drops toward 0 while red S_n rises and levels near 1.3; data for 1 < n < 10.}]
+\mtable{Scatter plots relating to the series of \autoref{ex_series4} part 1.}{fig:series4a}{\begin{tikzpicture}[alt={Scatter-blue aₙ drops toward 0 while red Sₙ rises and levels near 1.3; data for 1≤n≤10.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick={2,4,6,8,10},
 ymin=-.1,ymax=1.6,xmin=-1,xmax=11,legend columns=-1,legend style={at={(.5,-.1)},anchor=north}]
@@ -327,7 +327,7 @@ S_n=\ln\left(2\right)+\ln\left(\frac32\right)+\dots +\ln \left(\frac{n+1}{n}\rig
 =\ln(n+1)
 \end{multline*}
 
-\mtable{Scatter plots relating to the series of \autoref{ex_series4} part 2.}{fig:series4b}{\begin{tikzpicture}[alt={Scatter-blue a_n stays near 0, red S_n increases slowly to about 4.5 over 10 < n < 100.}]
+\mtable{Scatter plots relating to the series of \autoref{ex_series4} part 2.}{fig:series4b}{\begin{tikzpicture}[alt={Scatter-blue aₙ stays near 0, red Sₙ increases slowly to about 4.5 over 10≤n≤100.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-.5,ymax=5,xmin=-10,xmax=110,legend columns=-1,legend style={at={(.5,-.1)},anchor=north}]
@@ -405,7 +405,7 @@ This gives us $S\geq \frac12+S$ which can never be true, thus our assumption tha
 %\end{align*}
 %
 %This is illustrated in \autoref{fig:series5}(a).
-%\mtable{Scatter plots relating to the series of \autoref{ex_series5} part 1.}{fig:series5a}{\begin{tikzpicture}[alt={Blue a_n alternate signs but decrease in magnitude.  Red S_n are negative and settle down around -1.7.}]
+%\mtable{Scatter plots relating to the series of \autoref{ex_series5} part 1.}{fig:series5a}{\begin{tikzpicture}[alt={Blue aₙ alternate signs but decrease in magnitude.  Red Sₙ are negative and settle down around -1.7.}]
 %\begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 %axis y line=middle,axis x line=middle,name=myplot,axis on top,
 %xtick={10,20,30,40,50},ymin=-.3,ymax=.3,xmin=-1,xmax=55,legend columns=-1,legend style={at={(.5,0)},anchor=south}]
@@ -424,7 +424,7 @@ This gives us $S\geq \frac12+S$ which can never be true, thus our assumption tha
 %							&= 1000\cdot (e-1) \approx  1718.28.
 %\end{align*}
 %This is illustrated in \autoref{fig:series5}(b). The graph shows how this particular series converges very rapidly.
-%\mtable{Scatter plots relating to the series of \autoref{ex_series5} part 2.}{fig:series5b}{\begin{tikzpicture}[alt={Blue a_n decrease from 1000 quickly to near 0.  Red S_n increase to around 1700.}]
+%\mtable{Scatter plots relating to the series of \autoref{ex_series5} part 2.}{fig:series5b}{\begin{tikzpicture}[alt={Blue aₙ decrease from 1000 quickly to near 0.  Red Sₙ increase to around 1700.}]
 %\begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 %axis y line=middle,axis x line=middle,name=myplot,axis on top,
 %ymin=-.3,ymax=2100,xmin=-1,xmax=11,legend columns=-1,legend style={at={(.5,-.15)},anchor=north}]
@@ -437,7 +437,7 @@ This gives us $S\geq \frac12+S$ which can never be true, thus our assumption tha
 %\node [above] at (myplot.above origin) {\scriptsize $y$};
 %\end{tikzpicture}}
 %\mtable{Scatter plots relating to the series in \autoref{ex_series5}.}{fig:series5}{%
-%\begin{tikzpicture}[alt={Every five steps, blue a_n alternate signs decreasing in magnitude toward 0.  Red S_n settle to around -0.15.  5≤n≤50.}]
+%\begin{tikzpicture}[alt={Every five steps, blue aₙ alternate signs decreasing in magnitude toward 0.  Red Sₙ settle to around -0.15.  5≤n≤50.}]
 %\begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 %axis y line=middle,axis x line=middle,name=myplot,axis on top,
 %xtick={10,20,30,40,50},ymin=-.3,ymax=.3,xmin=-1,xmax=55,legend columns=-1,legend style={at={(.5,0)},anchor=south}]
@@ -450,7 +450,7 @@ This gives us $S\geq \frac12+S$ which can never be true, thus our assumption tha
 %\node [above] at (myplot.above origin) {\scriptsize $y$};
 %\end{tikzpicture}
 %\\[10pt](a)\\[15pt]
-%\begin{tikzpicture}[alt={Blue a_n decreasing from 1000 rapidly to nearly 0.  Red S_n increasing from 1000 to around 1700.}]
+%\begin{tikzpicture}[alt={Blue aₙ decreasing from 1000 rapidly to nearly 0.  Red Sₙ increasing from 1000 to around 1700.}]
 %\begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 %axis y line=middle,axis x line=middle,name=myplot,axis on top,
 %ymin=-.3,ymax=2100,xmin=-1,xmax=11,legend columns=-1,legend style={at={(.5,-.15)},anchor=north}]
