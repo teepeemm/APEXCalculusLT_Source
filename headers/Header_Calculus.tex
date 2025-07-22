@@ -1,5 +1,13 @@
 \usepackage{makecell}
 
+\usepackage{amsthm}
+% see https://github.com/latex3/tagging-project/issues/942 and issue 920
+\ExplSyntaxOn
+\makeatletter
+\def\measuring@true{\let\ifmeasuring@\iftrue\tag_suspend:n{\measuring}\luamml_ignore:}
+\makeatother
+\ExplSyntaxOff
+
 \newtheoremstyle{apexExample}% name
   {0pt}% Space above, empty = `usual value'
   {0pt}% Space below
