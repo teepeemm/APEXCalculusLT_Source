@@ -6,7 +6,7 @@ Individual errors are detailed in [the errata directory](errata/)
 Changes for the 2025-07 version:
 --------------------
 
-* The biggest change is that the pdf is now accessible according to Ally, VeraPDF, PDFix, and PAC.  To make this happen, we needed several superficial changes.  Among the more notable
+* The biggest change is that the pdf is now accessible according to Ally, Siteimprove, VeraPDF, and ~~PAC~~.  To make this happen, we needed several superficial changes.  Among the more notable
 
     * Prerequisite sections 1.0, 2.0, and 10.0 now come after the chapter heading and introduction, not before.
     
@@ -14,7 +14,7 @@ Changes for the 2025-07 version:
     
     * We changed the font from Calibri to Lato and Lete Sans Math.
 
-* All known errata (3) have been fixed.
+* All known errata (4) have been fixed.
 
 Changes for the 2023-06 version:
 --------------------
