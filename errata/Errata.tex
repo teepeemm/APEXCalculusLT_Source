@@ -19,32 +19,27 @@
 \newcounter{totalsII}\setcounter{totalsII}{0}
 \newcounter{totalsIII}\setcounter{totalsIII}{0}
 
-\makeatletter
 \newcommand{\errorboxed}[2]{%
- \@ifundefined{r@#1#2plus}{%
-  \@ifundefined{r@#1#2}{%
-  }{% plusless defined
+ \IfLabelExistsTF{#1#2plus}{%
+  \makebox[2em][r]{\ref{#1#2plus}{+}}%
+  \addtocounter{totals#2}{\getrefnumber{#1#2plus}}%
+ }{%
+  \IfLabelExistsT{#1#2}{%
    \makebox[2em][r]{\ref{#1#2}\phantom{+}}%
    \addtocounter{totals#2}{\getrefnumber{#1#2}}%
   }%
- }{% plus defined
-  \makebox[2em][r]{\ref{#1#2plus}{+}}%
-  \addtocounter{totals#2}{\getrefnumber{#1#2plus}}%
  }%
 }
-% as part of a write, errortext needs to be expandable
-% getrefnumber is. ref isn't
+
 \newcommand{\errortext}[2]{%
- \@ifundefined{r@#1#2plus}{%
-  \@ifundefined{r@#1#2}{%
-  }{% plusless defined
+ \IfLabelExistsTF{#1#2plus}{%
+  \getrefnumber{#1#2plus}+%
+ }{%
+  \IfLabelExistsT{#1#2}{%
    \getrefnumber{#1#2}%
   }%
- }{% plus defined
-   \getrefnumber{#1#2plus}+%
  }%
 }
-\makeatother
 
 \newcommand{\errorTotals}{%
  Total &
@@ -88,7 +83,7 @@
 \maketitle
 
 The following errors exist in the in June 2023 printed version of Apex LT Calculus I:
-\begin{enumerate}\addtocounter{enumi}{-1}\refstepcounter{enumi}\label{2023-06-00II}
+\begin{enumerate}
 \item \S1.2 p18 Example 1.2.1: The solution requires $\epsilon<4$ in order for $\delta>0$.
 \item \S3.3 p168\#25 solution: While the function is decreasing on $(-\infty,-2)$, $(-2,4)$, $(4,\infty)$; and this is the entirety of the domain; it is incorrect to say that the function is ``decreasing on [its] entire domain'' because it is not necessarily decreasing from one interval to another.
 \label{2023-06-00I}
@@ -96,6 +91,8 @@ The following errors exist in the in June 2023 printed version of Apex LT Calcul
 
 The following error exists in the in June 2023 printed version of Apex LT Calculus III:
 \begin{enumerate}
+% Calc 2 had no errors, so we force a label for "0" so that it appears in the table
+\addtocounter{enumi}{-1}\refstepcounter{enumi}\label{2023-06-00II}
 \item \S12.1 p719 Exercise \#9: The problem should have $\vec r(t)=\bracket{3\cos t,2\sin t}$ for $0\le t\le 2\pi$, not a repeat of \#8.
 \item \S15.5 p995 Example 15.5.7: The solution should switch $\phi$ and $\theta$ so that they match the notation for spherical coordinates.
 \label{2023-06-00III}
@@ -218,7 +215,7 @@ The following errors exist in the in June 2019 printed version of Apex LT Calcul
 \item \S14.7 p944\#12: Cylindrical should be Spherical.
 \item \S14.7 p944\#15 solution: $z=1$ should be $z=0$.
 \item \S14.7 p945\#19--24: The differentials should be in the order $d\rho d\phi d\theta$.
-\item \S15.3 p970 Line 8: We should have $\vec r'_1(t)=\bracket{1,1}$, not $\bracket{1,2}$.
+\item \S15.3 p970 Line 8: We should have $\vec r\,'_1(t)=\bracket{1,1}$, not $\bracket{1,2}$.
 \item \S15.4 p991\#31: The curve should be given by $\vec r(t)=\bracket{3t^2-2t-t^3,2(t-1)^2}$.
 \item \S15.5 p1002\#9 solution: For $x=1$, the $x$-component to $\vec r$ should be 1.
 \item \S15.5 p1002\#13: The vertical surface is given by $x^2+y^2/9=1$.
