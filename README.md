@@ -1,21 +1,16 @@
 APEXCalculusLT_Source
 ===================
 
-Source files for the APEX Calculus LT text, Version 3.1.  The resulting pdfs (or recent versions thereof) are posted at https://arts-sciences.und.edu/academics/math/calc-1-texts.html
+Source files for the APEX Calculus LT text.  The resulting pdf (or recent version thereof) is posted at https://arts-sciences.und.edu/academics/math/calc-1-texts.html
 
-The main file is Calculus.tex, intended to be run with LuaLaTeX with the Calibri font. 
-(It will run without Calibri and with pdflatex, but the spacing will be different than intended.
-One can try using the Carlito font, which is an open font with (supposedly) the same font metrics as Calibri.
-I have not yet tried it personally.)
+The main file is Calculus.tex, intended to be run with LuaLaTeX.
 
 There are a variety of compilation options.
 This is simplified by using make.py (a Python script) which calls latexmk.
 Running `./make.py` will give the various options.
-Compiling with a single set of options will take an hour or two.
-Running `./make.py -a` will create four different pdfs after about five hours.
+Compiling with a single set of options will take two hours or so for one semester, or 6--12 hours for all three semesters.
+Running `./make.py -a` will create four different pdfs after 12--18 hours.
 Running `./make.py -n` will use latexml to make a complete website version of the book after about three hours.
-(Unfortunately, latexmk appears to be a little too agressive in ignoring compilation errors.
-I recommend compiling using your regular method first, and once you know it compiles, then use latexmk.)
 
 A solutions manual is available upon request.
 
