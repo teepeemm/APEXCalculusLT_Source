@@ -434,6 +434,7 @@ def getlatexmlcommandline(base: str ='Calculus') -> list[str]:
             '--quiet','--quiet',#'--verbose','--verbose',##
            '--destination='+base+'.xml',
            '--nocomments',
+           '--preload=headers/preload.ltxml',
            base]
     if platform.mac_ver()[0]:
         return ['caffeinate','-s'] + ret
