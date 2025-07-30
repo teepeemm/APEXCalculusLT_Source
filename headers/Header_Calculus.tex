@@ -548,6 +548,7 @@ https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js}
 
 
 % these allow us to skip pdf tagging for the speedup
+% (may no longer be a worry now that I use Talon for compilation)
 \ExplSyntaxOn
 \providecommand{\tag_struct_begin:n}[1]{}
 \providecommand{\tagstructbegin}[1]{}
@@ -566,7 +567,6 @@ https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js}
 \providecommand{\SuspendTagging}[1]{}
 
 \tagpdfsetup{math/alt/use = true}
-\usepackage{headers/table-header-scope}
 %\usepackage{headers/tagpdf-table-headers}
 
 
