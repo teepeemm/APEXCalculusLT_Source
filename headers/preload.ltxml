@@ -1,0 +1,44 @@
+# -*- mode: Perl -*-
+# /=====================================================================\ #
+# | Apex definitions needed early                                       | #
+# | Implementation for LaTeXML                                          | #
+# |=====================================================================| #
+# | Timothy Prescott <timothy.prescott.und@gmail.com>                   | #
+# | License:     Creative Commons Attribution 4.0 Unported License      | #
+# |    http://creativecommons.org/licenses/by/4.0/                      | #
+# \=====================================================================/ #
+
+package apex;
+use strict;
+use warnings;
+use LaTeXML::Package;
+
+# work around https://github.com/brucemiller/LaTeXML/issues/2064
+InputDefinitions('headers/ltxml-expl3', type=>'sty', noltxml => 1);
+
+DefMacro('\DocumentMetadata RequiredKeyVals', sub {
+    my ($gullet, $kv) = @_;
+    # other keys are related to tagging and ignorable
+    if ( $$kv{'lang'} ) {
+      # set the document lang
+    }
+    DefMacro('\ResumeTagging {}');
+    DefMacro('\SuspendTagging {}');
+    DefMacro('\tagpdfsetup {}');
+    DefMacro('\tagpdfparaOn');
+    DefMacro('\tagpdfparaOff');
+    DefMacro('\tagstructbegin {}');
+    DefMacro('\tagstructend');
+    DefMacro('\tagmcbegin {}');
+    DefMacro('\tagmcend');
+    DefMacroI('\tag_struct_begin:n {}');
+    DefMacroI('\tag_struct_end:');
+    DefMacroI('\tag_mc_begin:n {}');
+    DefMacroI('\tag_mc_end:');
+    DefMacroI('\tag_struct_parent_int:');
+    DefMacroI('\pdfannot_box_ref_last:');
+    DefMacroI('\tag_struct_insert_annot:nn {}{}');
+    return;
+});
+
+InputDefinitions('enumext', type=>'sty', noltxml => 1);
