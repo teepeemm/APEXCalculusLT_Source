@@ -62,8 +62,6 @@ Instead of “Note: these are the same functions as in Exercises ##—##”, sho
 13.5: Multi-v chain rule: Example 1 rewrites dz/dt as only a function of the independent variable t.  Examples 2 through 5 leave dz/dt as functions of the independent and intermediate variables.  Exercises 19-22 do this as well.
 
 
-Bismarck State: katrina.eberhart@bismarckstate.edu
-
 
 html could do:
 Pretext(MBX) conversion?
@@ -99,7 +97,6 @@ Should the notebook be distributed with the text?  Eventually.  CC-BY-NC, same a
 
 My to do:
   ragged bottom?
-  pdfsizeopt to python 3? or just get it working again?
   tocbibind ?
   check units in center of mass calculations
   rearrange text/ to have chapter subfolders? and exercise and figure???
