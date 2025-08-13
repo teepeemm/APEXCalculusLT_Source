@@ -357,9 +357,9 @@
 %\makeatother
 
 % I'd like to move the \closeenumerate into the \exercisesubsubsection, but I can't figure it out
-\newcommand{\printconcepts}{\noindent\closeenumerate\exercisesubsubsection*{\noindent Terms and Concepts}}
-\newcommand{\printproblems}{\noindent\closeenumerate\exercisesubsubsection*{\noindent Problems}}
-\newcommand{\printreview}{\noindent\closeenumerate\exercisesubsubsection*{\noindent Review}}
+\newcommand{\printconcepts}{\noindent\closeenumerate\exercisesubsubsection{\noindent Terms and Concepts}}
+\newcommand{\printproblems}{\noindent\closeenumerate\exercisesubsubsection{\noindent Problems}}
+\newcommand{\printreview}{\noindent\closeenumerate\exercisesubsubsection{\noindent Review}}
 
 %\newlist{sectionexercises}{enumerate}{1}
 %\newcounter{saveexercisenum}[section]
@@ -455,6 +455,7 @@
 \makeatletter
 \newcommand{\openenumerate}{%
  \ifx\@currenvir\exerenv\else%
+  \leavevmode%
   \begin{enumext}[widest=22,ref=\arabic*]
 %  \begin{sectionexercises}
 %  \ifbool{latexml}{%
@@ -646,6 +647,7 @@
 }
 \newcommand*{\loadAnswers}[1]{%
 %	\stepcounter{answersection}%
+ \leavevmode\vspace{-2\baselineskip}%
  \begin{enumext}[start=1,widest=22]
   \input{#1}
  \end{enumext}
