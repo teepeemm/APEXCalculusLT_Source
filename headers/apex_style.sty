@@ -100,6 +100,23 @@
 % perhaps problems with page breaks with numbered ones''
 % if I'm not seeing those problems, maybe just continue
 
+
+% from https://github.com/latex3/tagging-project/issues/24
+\usepackage{etoolbox}
+\patchcmd\ttl@straight@ii
+  {\@svsechd\unskip}
+  {\@svsechd\unskip\tagtool {sec-split-para}}
+  {}{\fail}
+\patchcmd\ttl@straight@ii
+  {\@afterheading}
+  {\tagtool{restore-para}\@afterheading}
+  {}{\fail}
+\patchcmd\ttl@straight@i
+  {\par}
+  {\par\tagtool{sec-start=#1}\tagtool{para/flattened}}
+  {}{\fail}
+
+
 \newcommand{\exercisesubsection}[1]{%
  \bgroup
   \titleformat{\subsection}{\huge\bfseries}{}{0pt}{}[\hrule\vspace{-\baselineskip}]%
@@ -118,14 +135,25 @@
 %\dottedcontents{exercisesubsection}[6.1em]{}{3.2em}{1pc}
 % exercisesubsection doesn't appear in the toc (so I don't care about the numbers), but without this the subsequent section gets messed up
 
-\titleclass{\exercisesubsubsection}{straight}[\exercisesubsection]
-\titleformat{\exercisesubsubsection}[block]{\noindent}%format
- {is not labeled}%label
- {0pt}%sep
- {\noindent\Large\textit}%before
- %after
-\titlespacing*{\exercisesubsubsection}{0pt}{.5\bigskipamount}{0pt}
-\dottedcontents{exercisesubsubsection}[6.1em]{}{3.2em}{1pc}
+\newcommand{\exercisesubsubsection}[1]{%
+ \bgroup
+  \titleformat{\subsubsection}[block]{\noindent}%format
+   {is not labeled}%label
+   {0pt}%sep
+   {\noindent\Large\textit}%before
+   %after
+   \titlespacing*{\subsubsection}{0pt}{.5\bigskipamount}{0pt}
+  \subsubsection*{#1}
+ \egroup
+}
+%\titleclass{\exercisesubsubsection}{straight}[\exercisesubsection]
+%\titleformat{\exercisesubsubsection}[block]{\noindent}%format
+% {is not labeled}%label
+% {0pt}%sep
+% {\noindent\Large\textit}%before
+% %after
+%\titlespacing*{\exercisesubsubsection}{0pt}{.5\bigskipamount}{0pt}
+%\dottedcontents{exercisesubsubsection}[6.1em]{}{3.2em}{1pc}
 % exercisesubsubsection doesn't appear in the toc (so I don't care about the numbers), end of story
 
 \newcommand{\leftparbox}[2]{\parbox[t]{#1}{\raggedright#2}}
