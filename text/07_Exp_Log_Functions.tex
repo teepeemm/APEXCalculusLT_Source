@@ -16,7 +16,6 @@ ymin=-1,ymax=5,xmin=-4,xmax=4,name=myplot,xtick={1},ytick={1,2}]
 \end{tikzpicture}}
 Consider first the function $f(x)=2^x$. If $x$ is rational, then we know how to compute $2^x$. What do we mean by $2^\pi$ though? We compute this by first looking at $2^r$ for rational numbers $r$ that are very close to $\pi$, then finding a limit. In our case we might compute $2^3$, $2^{3.1}$, $2^{3.14}$, etc. We then define $2^\pi$ to be the limit of these numbers. Note that this is actually a different kind of limit than we have dealt with before since we only consider rational numbers close to $\pi$, not all real numbers close to $\pi$. We will see one way to make this more precise in \autoref{chapter:sequences_series}. Graphically, we can plot the values of $2^x$ for $x$ rational and get something like the dotted curve in \autoref{fig:two_to_x}. In order to define the remaining values, we are ``connecting the dots'' in a way that makes the function continuous.
 
-It follows from continuity and the properties of limits that exponential functions will satisfy the familiar properties of exponents (see \autoref{sec:deriv_prereqs}).  This implies that
 \mtable{The functions $2^x$ and $2^{-x}$.}{fig:two_to_minus_x}{%
 \begin{tikzpicture}[alt={Blue y=2^x increasing and red y=2^−x decreasing; meet at (0,1);  −1.2<x<1.2, 0.3<y<3; mirror images about y-axis.}]
 \begin{axis}[width=\marginparwidth, axis y line=middle,axis x line=middle,
@@ -28,6 +27,8 @@ ymin=-1,ymax=5,xmin=-4,xmax=4,name=myplot,xtick={-1,1},ytick={.5,1,2}]
 \node [right] at (myplot.right of origin) {\scriptsize $x$};
 \node [above] at (myplot.above origin) {\scriptsize $y$};
 \end{tikzpicture}}
+It follows from continuity and the properties of limits that exponential functions will satisfy the familiar properties of exponents (see \autoref{sec:deriv_prereqs}).
+This implies that
 \[\left(\frac12\right)^x =(2^{-1})^x=2^{-x},\]
 so the graph of $g(x)=(1/2)^x$ is the reflection of $f$ across the $y$-axis, as in \autoref{fig:two_to_minus_x}.
 

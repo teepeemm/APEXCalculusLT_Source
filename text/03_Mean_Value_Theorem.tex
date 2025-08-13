@@ -4,7 +4,7 @@ We motivate this section with the following question: Suppose you leave your hou
 
 In answering this question, it is clear that the \emph{average} speed for the entire trip is 50 mph (i.e. 100 miles in 2 hours), but the question is whether or not your \emph{instantaneous} speed is ever exactly 50 mph. More simply, does your speedometer ever read exactly 50 mph?  \autoref{fig:mvt_ex} shows a graphical interpretation of this question.  The answer, under some very reasonable assumptions, is ``yes.''
 
-\mtable[.5in]{Distance traveled as a function of time.  Must there be a tangent line parallel to the average slope?}{fig:mvt_ex}{\begin{tikzpicture}[alt={A straight line from the origin to the point (2,100).  A different curve begins at the origin, and starts out below the straight line.  Then it curves up to cross the line at (1,50) and is above the line before finishing at the same (2,100).}]
+\mtable{Distance traveled as a function of time.  Must there be a tangent line parallel to the average slope?}{fig:mvt_ex}{\begin{tikzpicture}[alt={A straight line from the origin to the point (2,100).  A different curve begins at the origin, and starts out below the straight line.  Then it curves up to cross the line at (1,50) and is above the line before finishing at the same (2,100).}]
 \begin{axis}[width=\marginparwidth, tick label style={font=\scriptsize},
 			ymajorgrids=true, xmajorgrids=true, xmin=0, xmax=2, ymin=0, ymax=100,
 			xlabel={Time (hours)}, ylabel={Distance (miles)}]
@@ -32,7 +32,7 @@ Let's look at two functions in an example.
 \begin{example}[Comparing average and instantaneous rates of change]\label{ex_mvt1}%
 Consider functions
 %
-\mtable[2in]{A graph of $f_1(x) = 1/x^2$ and $f_2(x) = \abs{x}$ in \autoref{ex_mvt1}.}{fig:mvt1}%
+\mtable{A graph of $f_1(x) = 1/x^2$ and $f_2(x) = \abs{x}$ in \autoref{ex_mvt1}.}{fig:mvt1}%
 {\begin{tikzpicture}[alt={A curve beginning near (-2,.25) and curving upward to get arbitrarily large as x nears zero.  Afterward, the curve is a mirror image across the y-axis, decreasing to finish near (2,.25).  There is a dashed line joining the points (-1,1) and (1,1).}]
  \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
    minor x tick num=1,axis y line=middle,axis x line=middle,

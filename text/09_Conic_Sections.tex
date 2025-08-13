@@ -199,7 +199,7 @@ An \textbf{ellipse} is the locus of all points whose sum of distances from two f
 An easy way to visualize this construction of an ellipse is to pin both ends of a string to a board. The pins become the foci. Holding a pencil tight against the string places the pencil on the ellipse; the sum of distances from the pencil to the pins is constant: the length of the string. See \autoref{fig:ellipse_def}.
 
 
-\mtable[-2\baselineskip]{Illustrating the construction of an ellipse with pins, pencil and string.}{fig:ellipse_def}{\begin{tikzpicture}[alt={Dashed ellipse drawn by string loop on two fixed pins (foci); pencil keeps string taut so d_1+d_2 is constant along curve.}]
+\mtable{Illustrating the construction of an ellipse with pins, pencil and string.}{fig:ellipse_def}{\begin{tikzpicture}[alt={Dashed ellipse drawn by string loop on two fixed pins (foci); pencil keeps string taut so d_1+d_2 is constant along curve.}]
 	\draw [thick,dashed] (0,0) circle [x radius=2,y radius=1.5];
 	\filldraw (1.3,0)circle(1.5pt) (-1.3,0)circle(1.5pt);
 	\draw  (1.3,0) -- node [right,pos=.5] {\scriptsize $d_1$}
@@ -228,7 +228,7 @@ As shown in \autoref{fig:ellipse_label}, the values of $a$ and $b$ have
 % geometric
 meaning. In general, the two foci of an ellipse lie on the \textbf{major axis} of the ellipse, and the midpoint of the segment joining the two foci is the \textbf{center}. The major axis intersects the ellipse at two points, each of which is a \textbf{vertex}. The line segment through the center and perpendicular to the major axis is the \textbf{minor axis}. The ``constant sum of distances'' that defines the ellipse is the length of the major axis, i.e., $2a$.
 
-\mtable[5\baselineskip]{Labeling the significant features of an ellipse.}{fig:ellipse_label}{\begin{tikzpicture}[alt={Ellipse with dashed major/minor axes; red dots mark foci, endpoints mark vertices; distances a, b, c labelled inside.}]
+\mtable{Labeling the significant features of an ellipse.}{fig:ellipse_label}{\begin{tikzpicture}[alt={Ellipse with dashed major/minor axes; red dots mark foci, endpoints mark vertices; distances a, b, c labelled inside.}]
  \draw [thick,draw={\colorone}] (0,0) circle [x radius=2,y radius=1.5];
  \draw [thick,dashed] (-2.4,0) -- (2.4,0) (0,1.8) -- (0,-1.9);
  \filldraw [draw={\colortwo},fill={\colortwo}] (1.3,0) circle (1.5pt) (-1.3,0) circle (1.5pt);
@@ -467,7 +467,7 @@ The vertices are located $a$ units from the center and the foci are located $c$ 
 
 \subsection{Graphing Hyperbolas}
 
-\mtable[-1.2in]{Graphing the hyperbola $\frac{x^2}9-\frac{y^2}1 = 1$ along with its asymptotes, $y=\pm x/3$.}{fig:hyperbola_asy1}{\begin{tikzpicture}[alt={Blue hyperbola x²/9−y²=1 with red dashed asymptotes y=±x/3; axes roughly −5<x<5, −2<y<2.}]
+\mtable{Graphing the hyperbola $\frac{x^2}9-\frac{y^2}1 = 1$ along with its asymptotes, $y=\pm x/3$.}{fig:hyperbola_asy1}{\begin{tikzpicture}[alt={Blue hyperbola x²/9−y²=1 with red dashed asymptotes y=±x/3; axes roughly −5<x<5, −2<y<2.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,
 ymin=-3.2,ymax=3.2,xmin=-8.2,xmax=8.2]
@@ -482,7 +482,7 @@ ymin=-3.2,ymax=3.2,xmin=-8.2,xmax=8.2]
 
 Consider the hyperbola $\frac{x^2}9-\frac{y^2}1 = 1$. Solving for $y$, we find $y=\pm\sqrt{x^2/9-1}$. As $x$ grows large, the ``$-1$'' part of the equation for $y$ becomes less significant and $y\approx \pm\sqrt{x^2/9} = \pm x/3$. That is, as $x$ gets large, the graph of the hyperbola looks very much like the lines $y=\pm x/3$. These lines are asymptotes of the hyperbola, as shown in \autoref{fig:hyperbola_asy1}.
 
-\mtable[.2in]{Using the asymptotes of a hyperbola as a graphing aid.}{fig:hyperbola_asy2}{\begin{tikzpicture}[alt={Blue hyperbola framed by dashed rectangle (width 2a, height 2b); red asymptotes pass rectangle corners; center labeled (h, k).}]
+\mtable{Using the asymptotes of a hyperbola as a graphing aid.}{fig:hyperbola_asy2}{\begin{tikzpicture}[alt={Blue hyperbola framed by dashed rectangle (width 2a, height 2b); red asymptotes pass rectangle corners; center labeled (h, k).}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,xtick=\empty,extra x ticks={2,8,5},
 extra x tick labels={$h-a$, $h+a$,$h$},ytick=\empty,extra y ticks={2,4,6},
@@ -518,7 +518,7 @@ $\ds y=\pm\frac ba(x-h)+k$  &$\ds  y=\pm\frac ab(x-h)+k.$
 \begin{example}[Graphing a hyperbola]\label{ex_conic5}%
 Sketch the hyperbola given by $\ds \frac{(y-2)^2}{25}-\frac{(x-1)^2}{4}=1$.
 %
-\mtable[.5in]{Graphing the hyperbola in \autoref{ex_conic5}.}{fig:conic5}{\begin{tikzpicture}[alt={Blue hyperbola; central dashed box and red asymptotes crossing at origin; axes about −5 < x < 5, −1 < y < 7.}]
+\mtable{Graphing the hyperbola in \autoref{ex_conic5}.}{fig:conic5}{\begin{tikzpicture}[alt={Blue hyperbola; central dashed box and red asymptotes crossing at origin; axes about −5 < x < 5, −1 < y < 7.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,minor x tick num=4,
 minor y tick num=4,ymin=-7.2,ymax=11.2,xmin=-5.2,xmax=7.2]

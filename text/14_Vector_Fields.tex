@@ -116,7 +116,7 @@ Drawing arrows with variable thickness is best done with technology; search the 
 
 We can similarly plot vector fields in space, as shown in \autoref{fig:vectorfieldintroc}, though it is not often done. The plots get very busy very quickly, as there are lots of arrows drawn in a small amount of space. In \autoref{fig:vectorfieldintroc} the field $\vec F =\bracket{-y,x,z}$ is graphed. If one could view the graph from above, one could see the arrows point in a circle about the $z$-axis. One should also note how the arrows far from the origin are larger than those close to the origin. 
 
-\mtable[1.5in]{Graphing a vector field in space.}{fig:vectorfieldintroc}{%
+\mtable{Graphing a vector field in space.}{fig:vectorfieldintroc}{%
 \myincludeasythree{
 3Droll=0,
 3Dortho=0.004676746670156717,
@@ -413,7 +413,7 @@ The point mass pulls toward the origin, so at $(x,y,z)$, the force will pull in 
 \]
 The magnitude of the force is inversely proportional to the square of the distance between the two points. Letting $k$ be the constant of proportionality, we have the magnitude as $\ds\frac{k}{x^2+y^2+z^2}$. Multiplying this magnitude by the unit vector above, we have the desired vector field:
 %
-\mtable[-3\baselineskip]{A vector field representing a planar gravitational force.}{fig:vectorfield3}{\begin{tikzpicture}[alt={A vector field with arrows pointing toward the origin.  Arrows closer to the origin are longer.}]
+\mtable{A vector field representing a planar gravitational force.}{fig:vectorfield3}{\begin{tikzpicture}[alt={A vector field with arrows pointing toward the origin.  Arrows closer to the origin are longer.}]
 \begin{axis}[width=1.16\marginparwidth,height=1.16\marginparwidth,
 tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,axis equal,
@@ -443,7 +443,7 @@ The analogous planar vector field is given in \autoref{fig:vectorfield3}. Note h
 
 A function $z=f(x,y)$ naturally induces a vector field, $\vec F = \grad f =\bracket{f_x,f_y}$. Given what we learned of the gradient in \autoref{sec:directional_derivative}, we know that the vectors of $\vec F$ point in the direction of greatest increase of $f$. Because of this, $f$ is said to be the \textbf{potential function}\index{potential function}\index{vector field!potential function of} of $\vec F$. Vector fields that are the gradient of potential functions will play an important role in the next section.
 
-\mtable[-2\baselineskip]{The vector field $\vec F = \grad f$ and a graph of a function $z=f(x,y)$ in \autoref{ex_vectorfield4}.}{fig:vectorfield4}{%
+\mtable{The vector field $\vec F = \grad f$ and a graph of a function $z=f(x,y)$ in \autoref{ex_vectorfield4}.}{fig:vectorfield4}{%
 \begin{tikzpicture}[alt={A continuously varying vector field that points toward y=0 and then toward the origin.}]
 \begin{axis}[width=\marginparwidth,height=\marginparwidth,
 tick label style={font=\scriptsize},

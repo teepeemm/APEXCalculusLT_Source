@@ -269,7 +269,7 @@ Let $\vec u$ and $\vec v$ be given, where $\vec v\neq\vec 0$. The \textbf{orthog
 \[\proj uv = \frac{\vec u\cdot\vec v}{\vec v\cdot\vec v}\vec v.\]
 \end{definition}
 
-\mtable[-1in]{Graphing the vectors used in \autoref{ex_dotp4}.}{fig:dotp4}{%
+\mtable{Graphing the vectors used in \autoref{ex_dotp4}.}{fig:dotp4}{%
 \begin{tikzpicture}[alt={2-D plot of u, v and proj_v; right-angle tick at foot; axes graduated.},>=stealth]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick={-3,-2,-1,1,2,3},
@@ -337,7 +337,7 @@ Consider \autoref{fig:dotpprojc} where the concept of the orthogonal projection 
 As we know what $\vec u$ and $\proj uv$ are, we can solve for $\vec z$ and state that
 \[\vec z = \vec u - \proj uv.\]%
 %
-\mtable[-7\baselineskip]{Illustrating the orthogonal projection.}{fig:dotpprojc}{\begin{tikzpicture}[alt={Vectors u, v with right-angle foot; z fills gap so u = proj_v u + z.},>=stealth]
+\mtable{Illustrating the orthogonal projection.}{fig:dotpprojc}{\begin{tikzpicture}[alt={Vectors u, v with right-angle foot; z fills gap so u = proj_v u + z.},>=stealth]
  \draw [thick,->] (2,1) -- (4,2) node [below] {\scriptsize $\vec v$};
  \draw [thick,->] (0,0) -- (1,3) node [above ] {\scriptsize $\vec u$};
  \draw [thick,->,gray] (0,0) -- (2,1)
@@ -393,7 +393,7 @@ We give an example of where this decomposition is useful.
 \begin{example}[Orthogonally decomposing a force vector]\label{ex_dotp6}%
 Consider \autoref{fig:dotp6}(a), showing a box weighing 50 lb on a ramp that rises 5 ft over a span of 20 ft. Find the components of force, and their magnitudes, acting on the box (as sketched in part (b) of the figure):
 %
-\mtable[-3\baselineskip]{Sketching the ramp and box in \autoref{ex_dotp6}. Note: \emph{The vectors are not drawn to scale.}}{fig:dotp6}{%
+\mtable{Sketching the ramp and box in \autoref{ex_dotp6}. Note: \emph{The vectors are not drawn to scale.}}{fig:dotp6}{%
 \begin{tikzpicture}[alt={20 by 5 ramp; weight g acts vertically on box resting on the incline.},>=stealth,scale=.2]
 	\draw [thick,->] (20,5) -- node [right,pos=.5] {\scriptsize $5$} (20,0)
 	 -- node [below,pos=.6] {\scriptsize 20}(0,0)

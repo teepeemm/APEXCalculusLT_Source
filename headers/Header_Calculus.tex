@@ -312,7 +312,7 @@
 }
 
 % \mtable[offset=0]{caption}{label}{contents}
-\newcommand{\mtable}[4][0ex]{%
+\newcommand{\mtable}[4][]{%
 	\mnote@pex{\iffalse}{#1}{%
 		\centering\small#4%\captionsetup{type=figure}%
 		\caption{#2}\label{#3}%
@@ -320,7 +320,7 @@
 }
 
 % \mnote[offset=0]{contents}
-\newcommand*{\mnote}[2][0pt]{%
+\newcommand*{\mnote}[2][]{%
 	\mnote@pex{\iftrue}{#1}{#2}%
 }
 

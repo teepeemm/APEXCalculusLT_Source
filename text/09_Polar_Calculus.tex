@@ -158,7 +158,7 @@ Consider \autoref{fig:polararea} (a) where a region defined by $r=f(\theta)$ on 
 
 Partition the interval $[\alpha,\beta]$ into $n$ equally spaced subintervals as $\alpha=\theta_0<\theta_1<\dotso<\theta_n=\beta$. The radian length of each subinterval is $\Delta\theta = (\beta-\alpha)/n$, representing a small change in angle. The area of the region defined by the $i\,^\text{th}$ subinterval $[\theta_{i-1},\theta_i]$ can be approximated with a sector of a circle with radius $f(c_i)$, for some $c_i$ in $[\theta_{i-1},\theta_i]$. The area of this sector is $\frac12[f(c_i)]^2\Delta\theta$. This is shown in part (b) of the figure, where $[\alpha,\beta]$ has been divided into 4 subintervals. We approximate the area of the whole region by summing the areas of all sectors:
 %
-\mtable[-.5in]{Computing the area of a polar region.}{fig:polararea}{%
+\mtable{Computing the area of a polar region.}{fig:polararea}{%
 \begin{tikzpicture}[alt={Blue r = f(θ) with dashed spokes; shaded wedge from θ = α to β.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,
@@ -250,7 +250,7 @@ Find the area of the cardioid $r=1+\cos\theta$ bound between $\theta=\pi/6$ and 
 \solution
 This is again a direct application of \autoref{thm:polar_area}.
 %
-\mtable[\baselineskip]{Finding the area of the shaded region of a cardioid in \autoref{ex_polcalc4}.}{fig:polcalc4}{\begin{tikzpicture}[alt={Cardioid sector: blue curve r = f(θ) with shaded slice between θ = 0 and π/6, bounded by two radii.}]
+\mtable{Finding the area of the shaded region of a cardioid in \autoref{ex_polcalc4}.}{fig:polcalc4}{\begin{tikzpicture}[alt={Cardioid sector: blue curve r = f(θ) with shaded slice between θ = 0 and π/6, bounded by two radii.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,ytick={1},
 ymin=-.7,ymax=1.5,xmin=-.5,xmax=2.1]
@@ -361,7 +361,7 @@ Amazingly enough, the area between these curves has a ``nice'' value.
 Find the area bounded between the polar curves $r=1$ and one petal of $r=2\cos(2\theta)$ where $y>0$, as shown in \autoref{fig:polcalc6}(a).
 \solution
 %
-\mtable[-10\baselineskip]{Graphing the region bounded by the functions in \autoref{ex_polcalc6}.}{fig:polcalc6}{%
+\mtable{Graphing the region bounded by the functions in \autoref{ex_polcalc6}.}{fig:polcalc6}{%
 \begin{tikzpicture}[alt={Blue rose r = sin 4 θ overlaps red three‐leaf r = sin 2 θ; intersection rays at θ = ± π/6, ± π/2.}]
 \begin{axis}[width=\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
@@ -474,7 +474,7 @@ With $r=1+2\sin\theta$, we have $r\,' = 2\cos\theta$. The limaçon is traced out
 	&\approx 13.3649.
 \end{align*}
 %
-\mtable[-6\baselineskip]{The limaçon in \autoref{ex_polcalc7} whose arc length is measured.}{fig:polcalc7}{\begin{tikzpicture}[alt={Limacon r = 1 + 2 cos θ plotted; small inner loop (θ around π) and outer loop (whole 0 ≤ θ < 2 π) }]
+\mtable{The limaçon in \autoref{ex_polcalc7} whose arc length is measured.}{fig:polcalc7}{\begin{tikzpicture}[alt={Limacon r = 1 + 2 cos θ plotted; small inner loop (θ around π) and outer loop (whole 0 ≤ θ < 2 π) }]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-.5,ymax=3.2,xmin=-2.22,xmax=2.22]

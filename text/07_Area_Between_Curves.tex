@@ -5,7 +5,7 @@ We are often interested in knowing the area of a region. Forget momentarily that
 \bgroup % leaving newcommand in the mtable causes errors
 \newcommand{\f}[1]{.25*sin(deg(2*#1))+1.25}
 \newcommand{\g}[1]{.25*(#1-2)^2+.2}
-\mtable[3in]{Subdividing a region into vertical slices and approximating the areas with rectangles.}{fig:abcintro}{\small%
+\mtable{Subdividing a region into vertical slices and approximating the areas with rectangles.}{fig:abcintro}{\small%
 \begin{tikzpicture}[alt={(a) Blue upper curve f(x) and lower curve g(x); area between them shaded from a to b; axes x and y.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick=\empty,

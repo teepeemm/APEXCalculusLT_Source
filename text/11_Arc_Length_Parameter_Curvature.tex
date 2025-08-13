@@ -131,7 +131,7 @@ Let $\vec r(s)$ be a vector-valued function. The parameter $s$ is the arc length
 
 \subsection{Curvature}
 
-\mtable[-1in]{Establishing the concept of curvature.}{fig:curvatureintro}{%
+\mtable{Establishing the concept of curvature.}{fig:curvatureintro}{%
 \begin{tikzpicture}[alt={Blue track, labeled points A, B; illustrates turn radius change between them.},>=stealth]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,
@@ -307,7 +307,7 @@ ymin=-.1,ymax=2.9,xmin=-.1,xmax=3.5]
 is the \textbf{osculating circle}, or \textbf{circle of curvature}, to $C$ at $P$, and $r$ is the \textbf{radius of curvature}. \index{curvature!of circle}\index{osculating circle}\index{circle of curvature}\index{radius of curvature}\index{curvature!radius of}%
 \autoref{fig:curvature_osculate} shows the graph of the curve seen earlier in \autoref{fig:curvatureintro} and its osculating circles at $A$ and $B$. A sharp turn corresponds to a circle with a small radius; a gradual turn corresponds to a circle with a large radius. Being able to think of curvature in terms of the radius of a circle is very useful. (The word ``osculating'' comes from a Latin word related to kissing; an osculating circle ``kisses'' the graph at a particular point. Many useful ideas in mathematics have come from studying the osculating circles to a curve.)
 
-\mtable[\baselineskip]{Examining the curvature of $y=x^2$.}{fig:curvature3}{\begin{tikzpicture}[alt={Parabola y=x^(2); red circle of radius = 0.5 depicts peak curvature at vertex.},>=stealth]
+\mtable{Examining the curvature of $y=x^2$.}{fig:curvature3}{\begin{tikzpicture}[alt={Parabola y=x^(2); red circle of radius = 0.5 depicts peak curvature at vertex.},>=stealth]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,
 ymin=-2.5,ymax=10.1,xmin=-10.2,xmax=4.9]
@@ -345,7 +345,7 @@ Thus
 	&= \frac{\norm{\bracket{12t^2,-12t,2}}}{\norm{\bracket{1,2t,6t^2}}^3} \smallskip\\
 	&= \frac{\sqrt{144t^4+144t^2+4}}{\Bigl(\sqrt{1+4t^2+36t^4\ }\Bigr)^3}
 \end{align*}
-\mtable[-6\baselineskip]{Understanding the curvature of a curve in space.  The top is $\kappa$ as a function of $t$; the bottom is $\vrt$ as a function of $t$.}{fig:curvature4}{%
+\mtable{Understanding the curvature of a curve in space.  The top is $\kappa$ as a function of $t$; the bottom is $\vrt$ as a function of $t$.}{fig:curvature4}{%
 \begin{tikzpicture}[alt={Plot of curvature \kappa(t) vs. t; spikes expose tight bends.},>=stealth]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,

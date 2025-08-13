@@ -13,7 +13,7 @@ An \textbf{elementary function}\index{elementary function} is any function that 
 
 The simplest way to refer to the antiderivatives of $e^{-x^2}$ is to simply write $\ds\int e^{-x^2}\dd x$. 
 
-\mtable[-2in]{Graphically representing three definite integrals that cannot be evaluated using antiderivatives.}{fig:numerical1}{\begin{tikzpicture}[alt={Blue curve y = e^(–x² on 0 ≤ x ≤ 1, starting at (0, 1) then falling smoothly to about (1, 0.4); region beneath is shaded.}]
+\mtable{Graphically representing three definite integrals that cannot be evaluated using antiderivatives.}{fig:numerical1}{\begin{tikzpicture}[alt={Blue curve y = e^(–x² on 0 ≤ x ≤ 1, starting at (0, 1) then falling smoothly to about (1, 0.4); region beneath is shaded.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-.2,ymax=1.2,xmin=-.2,xmax=1.1]
@@ -137,7 +137,7 @@ Using the Right Hand Rule, we have:
 The actual answer, accurate to 4 places after the decimal, is 0.7468, showing our average is a good approximation.
 \end{example}
 
-\mtable[-.2in]{Table of values used to approximate $\ds\int_{-\frac{\pi}4}^{\frac{\pi}2}\sin(x^3)\dd x$ in \autoref{ex_num2}.}{fig:num2a}{%
+\mtable{Table of values used to approximate $\ds\int_{-\frac{\pi}4}^{\frac{\pi}2}\sin(x^3)\dd x$ in \autoref{ex_num2}.}{fig:num2a}{%
 	\tagpdfsetup{table/header-rows={1}}
 	\begin{tabular}{ l r l l }\lxBeginTableHead
 	$x_i$ & Exact & Approx. & $\sin(x_i^3)$ \\\lxEndTableHead\midrule
@@ -161,7 +161,7 @@ We begin by finding $\Delta x$:
 \[\frac{b-a}{n} = \frac{\pi/2 - (-\pi/4)}{10} = \frac{3\pi}{40}\approx 0.236.\]
 It is useful to write out the endpoints of the subintervals in a table; in \autoref{fig:num2a}, we give the exact values of the endpoints, their decimal approximations, and decimal approximations of $\sin(x^3)$ evaluated at these points. 
 
-\mtable[.2in]{Approximating\\ $\ds\int_{-\frac{\pi}4}^{\frac{\pi}2}\sin(x^3)\dd x$ in \autoref{ex_num2} using (top) the left hand rule and (bottom) the right hand rule.}{fig:num2b}{%
+\mtable{Approximating\\ $\ds\int_{-\frac{\pi}4}^{\frac{\pi}2}\sin(x^3)\dd x$ in \autoref{ex_num2} using (top) the left hand rule and (bottom) the right hand rule.}{fig:num2b}{%
 \begin{tikzpicture}[alt={Blue curve sin(x³) with seven red rectangles whose left tops hit the curve; three negative region rectangles from left of the y-axis, others rise into the positive hump; shaded bars illustrate left-hand rule.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
@@ -404,7 +404,7 @@ Recall in \autoref{ex_num1} we stated that the correct answer, accurate to 4 pla
 \autoref{fig:num5a}(b) shows $f(x) = e^{-x^2}$ along with its approximating parabolas, demonstrating how good our approximation is. The approximating curves are nearly indistinguishable from the actual function.
 \end{example}
 
-\mtable[3\baselineskip]{A table of values to approximate $\int_{-\frac{\pi}4}^{\frac{\pi}2}\sin(x^3)\dd x$ in \autoref{ex_num6}, along with a graph of the function.}{fig:num6a}{%
+\mtable{A table of values to approximate $\int_{-\frac{\pi}4}^{\frac{\pi}2}\sin(x^3)\dd x$ in \autoref{ex_num6}, along with a graph of the function.}{fig:num6a}{%
 \tagpdfsetup{table/header-rows={1}}
 \begin{tabular}{ll}\lxBeginTableHead
   $x_i$ & $\sin(x_i^3)$ \\\lxEndTableHead\midrule
@@ -642,7 +642,7 @@ At the beginning of this section we mentioned two main situations where numerica
 \begin{example}[Approximating distance traveled]\label{ex_num8}%
 One of the authors drove his daughter home from school while she recorded their speed every 30 seconds. The data is given in \autoref{fig:num8}.
 %
-\mtable[-2in]{Speed data collected at 30 second intervals for \autoref{ex_num8}.}{fig:num8}{%
+\mtable{Speed data collected at 30 second intervals for \autoref{ex_num8}.}{fig:num8}{%
 \tagpdfsetup{table/header-rows={1}}
 \begin{tabular}{rr}\lxBeginTableHead
 Time & Speed\\(min)&(mph)

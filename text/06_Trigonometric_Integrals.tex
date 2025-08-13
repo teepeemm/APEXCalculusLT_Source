@@ -107,8 +107,7 @@ Now substitute and integrate, using $u = \sin x $ and $\dd u = \cos x\dd x$.
 %
 \end{example}
 
-\paragraph{Technology Note:} The work we are doing here can be a bit tedious, but the skills developed (problem solving, algebraic manipulation, etc.) are important. Nowadays problems of this sort are often solved using a computer algebra system. The powerful program \textit{Mathematica}\textsuperscript{\textregistered} integrates $\int \sin^5x\cos^9x\dd x$ as
-
+\textbf{Technology Note:} The work we are doing here can be a bit tedious, but the skills developed (problem solving, algebraic manipulation, etc.) are important. Nowadays problems of this sort are often solved using a computer algebra system. The powerful program \textit{Mathematica}\textsuperscript{\textregistered} integrates $\int \sin^5x\cos^9x\dd x$ as
 {\small
 \begin{multline*}
  f(x)=\\
@@ -116,8 +115,7 @@ Now substitute and integrate, using $u = \sin x $ and $\dd u = \cos x\dd x$.
    x)}{49152}+\frac{\cos (8 x)}{4096}-\frac{\cos (10 x)}{81920}-\frac{\cos (12
    x)}{24576}-\frac{\cos (14 x)}{114688},
 \end{multline*}}
-which clearly has a different form than our second answer in \autoref{ex_trigint2}, which is
-%
+
 \mtable{A plot of $f(x)$ and $g(x)$ from \autoref{ex_trigint2} and the Technology Note.}{fig:trigint2}{\begin{tikzpicture}[alt={g(x) starts flat near the origin, then moves up to near (1,0.0045), is flat until near (2,0,0045), then moves down to finish flat near (π,0).  f(x) is similar, but slightly below g(x).}]
 \begin{axis}[width=\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
@@ -134,6 +132,8 @@ ymin=-.003,ymax=0.005,xmin=-.1,xmax=3.15,scaled ticks=false]
 \node [right] at (myplot.right of origin) {\scriptsize $x$};
 \node [above] at (myplot.above origin) {\scriptsize $y$};
 \end{tikzpicture}}
+\noindent
+which clearly has a different form than our second answer in \autoref{ex_trigint2}, which is
 \[
  g(x)=\frac16\sin^6 x-\frac12\sin^8 x+\frac35\sin^{10} x-\frac13\sin^{12} x+\frac{1}{14}\sin^{14} x.
 \]

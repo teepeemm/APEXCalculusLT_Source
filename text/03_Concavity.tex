@@ -18,7 +18,7 @@ Let $f$ be differentiable on an interval $I$.
 The graph of $f$ is \textbf{concave up} on $I$ if $\fp$ is increasing. The graph of $f$ is \textbf{concave down} on $I$ if $\fp$ is decreasing. If $\fp$ is constant then the graph of $f$ is said to have \textbf{no concavity}.\index{concavity}\index{concave up}\index{concave down}
 \end{definition}
 
-\mtable[-0in]{A function $f$ with a graph that is (a) concave up and (b) concave down. Notice how the slopes of the tangent lines, when looking from left to right, are (a) increasing and (b) decreasing.}{fig:concavity1}{%
+\mtable{A function $f$ with a graph that is (a) concave up and (b) concave down. Notice how the slopes of the tangent lines, when looking from left to right, are (a) increasing and (b) decreasing.}{fig:concavity1}{%
 \begin{tikzpicture}[alt={Graph with black axes labeled x= −2 to 2 and y= 0 to 30; blue concave-up U; red tangent lines whose slopes rise left-to-right.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,ymin=-1,ymax=35,xmin=-3.5,xmax=3.5]
@@ -235,7 +235,7 @@ The sales of a certain product over a three-year span are modeled by $S(t)= t^4-
 \solution
 We want to maximize the rate of decrease, which is to say, we want to find where $S\primeskip'$ has a minimum.  To do this, we find where $S\primeskip''$ is 0.  We find $S\primeskip'(t)=4t^3-16t$ and $S\primeskip''(t)=12t^2-16$.  Setting $S\primeskip''(t)=0$ and solving, we get $t=2/\sqrt3\approx 1.16$ (we ignore the negative value of $t$ since it does not lie in the domain of our function $S$).
 
-\mtable[.5in]{A graph of $S(t)$ in \autoref{ex_conc3} along with $S\primeskip'(t)$.}{fig:conc3b}{\begin{tikzpicture}[alt={Blue S(t) and red S′(t); red dips to −10, crosses 0 at t=1.6, then rises; axes t=(0–3), y=(−12–22).}]
+\mtable{A graph of $S(t)$ in \autoref{ex_conc3} along with $S\primeskip'(t)$.}{fig:conc3b}{\begin{tikzpicture}[alt={Blue S(t) and red S′(t); red dips to −10, crosses 0 at t=1.6, then rises; axes t=(0–3), y=(−12–22).}]
 \begin{axis}[width=\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,ymin=-16,ymax=22,xmin=-.2,xmax=3.2]
 \addplot [thick, draw={\colortwo},smooth,domain=0:3] {4*x^3-16*x};
@@ -259,7 +259,7 @@ A graph of $S(t)$ and $S\primeskip'(t)$ is given in \autoref{fig:conc3b}. When $
 
 Not every critical point corresponds to a relative extrema; $f(x)=x^3$ has a critical point at $x=0$ but no relative maximum or minimum. Likewise, just because $\fpp(x)=0$ we cannot conclude concavity changes at that point. We were careful before to use terminology ``\emph{possible} point of inflection'' since we needed to check to see if the concavity changed. The canonical example of $\fpp(x)=0$ \emph{without} concavity changing is $f(x)=x^4$. At $x=0$, $\fpp(x)=0$ but $f$ is always concave up, as shown in \autoref{fig:concavity5}.
 
-\mtable[2\baselineskip]{A graph of $f(x) = x^4$. Clearly $f$ is always concave up, despite the fact that $\fpp(x) = 0$ when $x=0$. It this example, the \emph{possible} point of inflection $(0,0)$ is not a point of inflection.}{fig:concavity5}{\begin{tikzpicture}[alt={Blue quartic f(x)=x⁴, symmetric U always concave up; axes x=(−1–1), y=(0–1).}]
+\mtable{A graph of $f(x) = x^4$. Clearly $f$ is always concave up, despite the fact that $\fpp(x) = 0$ when $x=0$. It this example, the \emph{possible} point of inflection $(0,0)$ is not a point of inflection.}{fig:concavity5}{\begin{tikzpicture}[alt={Blue quartic f(x)=x⁴, symmetric U always concave up; axes x=(−1–1), y=(0–1).}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,
 ymin=-.1,ymax=1.1,xmin=-1.1,xmax=1.1]
@@ -274,7 +274,7 @@ ymin=-.1,ymax=1.1,xmin=-1.1,xmax=1.1]
 
 The first derivative of a function gave us a test to find if a critical value corresponded to a relative maximum, minimum, or neither. The second derivative gives us another way to test if a critical point is a local maximum or minimum. The following theorem officially states something that is intuitive: if a critical value occurs in a region where a function $f$ is concave up, then that critical value must correspond to a relative minimum of $f$, etc. See \autoref{fig:concavity6} for a visualization of this.
 
-\mtable[.5in]{Demonstrating the fact that relative maxima occur when the graph is concave down and relative minima occur when the graph is concave up.}{fig:concavity6}{\begin{tikzpicture}[alt={Blue curve concave down to relative max near (−1,9), then concave up to relative min near (1,−10); axes x=(−2–2), y=(−10–10).}]
+\mtable{Demonstrating the fact that relative maxima occur when the graph is concave down and relative minima occur when the graph is concave up.}{fig:concavity6}{\begin{tikzpicture}[alt={Blue curve concave down to relative max near (−1,9), then concave up to relative min near (1,−10); axes x=(−2–2), y=(−10–10).}]
  \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
    axis y line=middle,axis x line=middle,name=myplot,
    ymin=-11,ymax=11,xmin=-2.1,xmax=2.1]

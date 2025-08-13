@@ -2,7 +2,7 @@
 
 Consider a function $y=f(x)$ and a point $\bigl(c,f(c)\bigr)$. The derivative, $\fp(c)$, gives the instantaneous rate of change of $f$ at $x=c$. Of all lines that pass through the point $\bigl(c,f(c)\bigr)$, the line that best approximates $f$ at this point is the tangent line; that is, the line whose slope (rate of change) is $\fp(c)$.
 
-\mtable[-\baselineskip]{Plotting $y=f(x)$ and a table of derivatives of $f$ evaluated at 0.}{fig:taypolyintroa}{\begin{tikzpicture}[alt={Blue curve f; red line p_1 is the tangent at x = 0.}]
+\mtable{Plotting $y=f(x)$ and a table of derivatives of $f$ evaluated at 0.}{fig:taypolyintroa}{\begin{tikzpicture}[alt={Blue curve f; red line p_1 is the tangent at x = 0.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-5.5,ymax=8.5,xmin=-4.2,xmax=4.4]
@@ -48,7 +48,7 @@ If $p_2''(x) = 2$, then $p_2'(x) = 2x+C$ for some constant $C$. Since we have de
 
 We can repeat this approximation process by creating polynomials of higher degree that match more of the derivatives of $f$ at $x=0$. In general, a polynomial of degree $n$ can be created to match the first $n$ derivatives of $f$. \autoref{fig:taypolyintrob} also shows $p_4(x)= -x^4/2-x^3/6+x^2+x+2$, whose first four derivatives at 0 match those of $f$. (Using the table in \autoref{fig:taypolyintroa}, start with $p_4^{(4)}(x)=-12$ and solve the related initial-value problem.)
 
-\mtable[2\baselineskip]{Plotting $f$ and $p_{13}$.}{fig:taypolyintroc}{\begin{tikzpicture}[alt={Blue f alongside red quintic p_s; p₅ wiggles but tracks f closely on −1 < x < 4}]
+\mtable{Plotting $f$ and $p_{13}$.}{fig:taypolyintroc}{\begin{tikzpicture}[alt={Blue f alongside red quintic p_s; p₅ wiggles but tracks f closely on −1 < x < 4}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-5.5,ymax=8.5,xmin=-4.2,xmax=4.4]
@@ -158,7 +158,7 @@ A plot of $f(x)=e^x$ and $p_5(x)$ is given in \autoref{fig:taypoly1b}.
 \solution
 \begin{enumerate}
 \item	We begin by creating a table of derivatives of $\ln x$ evaluated at $x=1$. While this is not as straightforward as it was in the previous example, a pattern does emerge, as shown in \autoref{fig:taypoly2a}.
-\mtable[-5\baselineskip]{Derivatives of $\ln x$ evaluated at $x=1$.}{fig:taypoly2a}{%
+\mtable{Derivatives of $\ln x$ evaluated at $x=1$.}{fig:taypoly2a}{%
 \begin{align*}
 % todo Tim latexml https://github.com/brucemiller/LaTeXML/issues/1763
 f(x) &= \makebox[3em]{$\ln x$} \quad \Rightarrow & f(1)&=\phantom-0\\
@@ -232,7 +232,7 @@ This approximation is not terribly impressive: a hand held calculator shows that
 The graph in \autoref{fig:taypoly2b} shows that $p_6(x)$ provides less accurate approximations of $\ln x$ as $x$ gets close to 0 or 2. 
 
 % todo use 20th degree polynomial instead of coordinates in Figure 9.9.8 fig:taypoly2c
-\mtable[-.5in]{A plot of $y=\ln x$ and its 20$^\text{th}$ degree Taylor polynomial at $x=1$.}{fig:taypoly2c}{\begin{tikzpicture}[alt={Blue ln x with red 20th-degree Taylor about x=1; ln x tracked well to about x=2.3 before diverging upward.}]
+\mtable{A plot of $y=\ln x$ and its 20$^\text{th}$ degree Taylor polynomial at $x=1$.}{fig:taypoly2c}{\begin{tikzpicture}[alt={Blue ln x with red 20th-degree Taylor about x=1; ln x tracked well to about x=2.3 before diverging upward.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-4.5,ymax=2.4,xmin=-.5,xmax=3.2]
@@ -331,7 +331,7 @@ Following Taylor's theorem, we need bounds on the size of the derivatives of $f(
 \end{align*}
 We find an $n$ that satisfies this last inequality with trial-and-error. When $n=8$, we have $\ds \frac{2^{8+1}}{(8+1)!} \approx 0.0014$; when $n=9$, we have $\ds \frac{2^{9+1}}{(9+1)!} \approx 0.000282 <0.001$. Thus we want to approximate $\cos 2$ with $p_9(2)$.\bigskip
 
-\mtable[-2\baselineskip]{A table of the derivatives of $f(x)=\cos x$ evaluated at $x=0$.}{fig:taypoly4a}{\begin{align*}
+\mtable{A table of the derivatives of $f(x)=\cos x$ evaluated at $x=0$.}{fig:taypoly4a}{\begin{align*}
 f(x) &= \phantom-\cos x & \Rightarrow && f(0) &= \phantom-1\\
 \fp(x) &= -\sin x & \Rightarrow && \fp(0) &= \phantom-0\\
 \fp'(x) &= -\cos x & \Rightarrow && \fp'(0) &= -1\\
@@ -383,7 +383,7 @@ Our error bound guarantees that this approximation is within $0.001$ of the corr
 \begin{enumerate}
 	\item	We begin by evaluating the derivatives of $f$ at $x=4$. This is done in \autoref{fig:taypoly5a}. These values allow us to form the Taylor polynomial $p_4(x)$:
 	%
-\mtable[-2\baselineskip]{A table of the derivatives of $f(x)=\sqrt{x}$ evaluated at $x=4$.}{fig:taypoly5a}{%
+\mtable{A table of the derivatives of $f(x)=\sqrt{x}$ evaluated at $x=4$.}{fig:taypoly5a}{%
 \begin{align*}
 f(x) &= \sqrt{x} & \Rightarrow && f(4) &= 2\\
 \ds\fp(x) &= \frac{1}{2\sqrt{x}} & \Rightarrow && \ds\fp(4) &= \frac{1}{4}\\
@@ -404,7 +404,7 @@ p_4(x) = \\
 	The largest value the fifth derivative of $f(x)=\sqrt{x}$ takes on $[3,4]$ is when $x=3$, at about $0.0234$. Thus
 \[\abs{R_4(3)} \leq \frac{0.0234}{5!}\abs{3-4}^5 \approx 0.00019.\]
 %
-\mtable[\baselineskip]{A graph of $f(x)=\sqrt{x}$ and its degree 4 Taylor polynomial at $x=4$.}{fig:taypoly5b}{\begin{tikzpicture}[alt={Blue √x (x > 0); red 4-term Taylor at 4 tracks up to = 6, then climbs more steeply.}]
+\mtable{A graph of $f(x)=\sqrt{x}$ and its degree 4 Taylor polynomial at $x=4$.}{fig:taypoly5b}{\begin{tikzpicture}[alt={Blue √x (x > 0); red 4-term Taylor at 4 tracks up to = 6, then climbs more steeply.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-.1,ymax=3.5,xmin=-1,xmax=11,legend style={at={(1,0.5)}}]

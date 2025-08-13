@@ -20,7 +20,7 @@ We use this definition to find the \textbf{force} exerted on a horizontal sheet 
 
 \youtubeVideo{dNYbyKQQmQ4}{Calculating the Fluid Force on a Semi-Circle}
 
-\mtable[-.5in]{A cylindrical tank in \autoref{ex_fluid1}.}{fig:fluid1a}{\begin{tikzpicture}[alt={Vertical cylinder, radius 2 ft; fluid fills full 10 ft height (0<y<10); dashed base circle and height arrow.},x=.3cm,y=.3cm,>=stealth]
+\mtable{A cylindrical tank in \autoref{ex_fluid1}.}{fig:fluid1a}{\begin{tikzpicture}[alt={Vertical cylinder, radius 2 ft; fluid fills full 10 ft height (0<y<10); dashed base circle and height arrow.},x=.3cm,y=.3cm,>=stealth]
 \begin{scope}[xscale=2]
  \draw[thick,left color={\coloronefill},right color={\coloronefill!20}]
  (-2,10) -- (-2,0) arc (180:360:2) -- (2,10);
@@ -211,7 +211,7 @@ The total fluid force is then:
 
 	\item	Sometimes it seems easier to orient the thin plate nearer the origin. For instance, consider the convention that the bottom of the triangular plate is at $(0,0)$, as shown in \autoref{fig:fluid2c}. The equations of the left and right hand sides are easy to find. They are $y=2x$ and $y=-2x$, respectively, which we rewrite as $x=y/2$ and $x=-y/2$. Thus the length function is $\ell(y) =y/2-(-y/2) = y$. 
 
-\mtable[-.2in]{Sketching the triangular plate in \autoref{ex_fluid2} with the convention that the base of the triangle is at $(0,0)$.}{fig:fluid2c}{\begin{tikzpicture}[alt={Water surface at y=10. Inverted triangle apex (0,0), base (−2,4)–(2,4). Red slice at y, thickness dy. Bracket labels depth 10−y.}]
+\mtable{Sketching the triangular plate in \autoref{ex_fluid2} with the convention that the base of the triangle is at $(0,0)$.}{fig:fluid2c}{\begin{tikzpicture}[alt={Water surface at y=10. Inverted triangle apex (0,0), base (−2,4)–(2,4). Red slice at y, thickness dy. Bracket labels depth 10−y.}]
 \begin{axis}[width=\marginparwidth, axis y line=middle,axis x line=middle,
 tick label style={font=\scriptsize},ymin=-1,ymax=12,xmin=-3,xmax=5,axis on top,
 xtick={-2,-1,1,2},ytick={2,6,8,10},height=1.625\marginparwidth, % 13/8

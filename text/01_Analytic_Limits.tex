@@ -178,7 +178,7 @@ Before stating this theorem formally, suppose we have functions $f$, $g$ and $h$
 \[f(x) \leq g(x) \leq h(x).\]
 If $f$ and $h$ have the same limit at $c$, and $g$  is always ``squeezed'' between them, then $g$ must have the same limit as well. That is what the Squeeze Theorem states, as illustrated in \autoref{fig:squeeze_thm}.
 
-\mtable[-1.5in]{The situation of the squeeze theorem}{fig:squeeze_thm}{\begin{tikzpicture}[alt={A blue h(x) above a dashed g(x) above a red f(x).  All three come together when x=c.}]
+\mtable{The situation of the squeeze theorem}{fig:squeeze_thm}{\begin{tikzpicture}[alt={A blue h(x) above a dashed g(x) above a red f(x).  All three come together when x=c.}]
 \begin{axis}[width=\marginparwidth, ticks=none, axis y line=middle,axis x line=middle,ymin=-1.5,ymax=1.5,xmin=-1,xmax=1.5,name=myplot]
 \addplot [draw=black, dashed, domain=-1.5:1.5, thick,smooth] {cos(deg(x-.5))} ;
 \addplot[draw={\colortwo},domain=-1:1.5, thick, smooth] {cos(deg(2*(x-.5))};
@@ -214,7 +214,7 @@ Use the Squeeze Theorem to show that
 \solution
 We will begin by considering the unit circle. Each point on the unit circle has coordinates $(\cos \theta,\sin \theta)$ for some angle $\theta$ as shown in \autoref{fig:squeeze_sinx}. Using similar triangles, we can extend the line from the origin through the point to the point $(1,\tan \theta)$, as shown. (Here we are assuming that $0\leq \theta \leq \pi/2$. Later we will show that we can also consider $\theta \leq 0$.)
 
-\mtable[-1in]{The unit circle and related triangles.}{fig:squeeze_sinx}{%
+\mtable{The unit circle and related triangles.}{fig:squeeze_sinx}{%
 \begin{tikzpicture}[alt={The unit circle with a ray at angle 𝜃 intersecting the circle at (cos𝜃,sin𝜃) and the line x=1 at (1,tan𝜃).  The point (cos𝜃,sin𝜃) is also connected to (1,0).},x=.4\marginparwidth,y=.4\marginparwidth,>=stealth]
  \draw [draw={\colorone},thick] (0,0)
   node [shift={(10pt,4pt)},color=black] {\scriptsize$\theta$} circle (1);
