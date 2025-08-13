@@ -144,6 +144,7 @@
 \noindent%
 \begin{minipage}[t]{.53\linewidth}
 \subsection{The Unit Circle}\vspace{-2\baselineskip}
+%\textbf{\large The Unit Circle}\leavevmode\vspace{-2\baselineskip}
 
 \begin{tikzpicture}[alt={The unit circle with angles multiples of π/6 (30∘) and π/4 (45∘) marked, along with sine and cosine of those angles.},scale=3]
 \draw [<->,>=latex] (-1.5,0) -- (1.4,0) node [right] {\scriptsize $x$};
@@ -236,15 +237,15 @@
 
 \noindent%
 \begin{minipage}[t]{.25\linewidth}
-	\subsubsection*{Pythagorean~Identities}\vspace{-\baselineskip}
-	\begin{align*}
+	\textbf{Pythagorean~Identities}\vspace{-.5\baselineskip}
+	\begin{gather*}
 		\sin ^2x+\cos ^2x= 1 \\
 		\tan^2x+ 1 = \sec^2 x \\
 		1 + \cot^2x=\csc^2 x
-	\end{align*}
+	\end{gather*}
 \end{minipage}%
 \begin{minipage}[t]{.43\linewidth}
-	\subsubsection*{Cofunction Identities}\vspace{-\baselineskip}
+	\textbf{Cofunction Identities}\vspace{-.5\baselineskip}
 	\begin{align*}
 		\sin(\tfrac{\pi}{2}-x) &= \cos x &
 		\csc(\tfrac{\pi}{2}-x) &= \sec x \\
@@ -255,7 +256,7 @@
 	\end{align*}
 \end{minipage}%
 \begin{minipage}[t]{.32\linewidth}
-\subsubsection*{Even/Odd Identities}\vspace{-\baselineskip}
+\textbf{Even/Odd Identities}\vspace{-.5\baselineskip}
 \begin{align*}
 \sin(-x) &= -\sin x &
 \csc(-x) &= -\csc x \\
@@ -270,7 +271,7 @@
 
 \noindent%
 \begin{minipage}[t]{.44\linewidth}
-\subsubsection*{Sum to Product Formulas}\vspace{-\baselineskip}
+\textbf{Sum to Product Formulas}\vspace{-.5\baselineskip}
 \begin{align*}
 \sin x+\sin y &= 2\sin (\tfrac{x+y}2)\cos(\tfrac{x-y}2) &~\\
 \sin x-\sin y &= 2\sin (\tfrac{x-y}2)\cos(\tfrac{x+y}2) \\
@@ -279,7 +280,7 @@
 \end{align*}
 \end{minipage}%
 \begin{minipage}[t]{.3\linewidth}
-\subsubsection*{Power-Reducing Formulas}\vspace{-\baselineskip}
+\textbf{Power-Reducing Formulas}\vspace{-.5\baselineskip}
 \begin{align*}
 \sin^2 x &= \frac{1-\cos 2x}{2} & \vphantom{\left(\frac11\right)}&~\\
 \cos^2 x &= \frac{1+\cos 2x}{2} & \vphantom{\left(\frac11\right)}\\
@@ -287,7 +288,7 @@
 \end{align*}
 \end{minipage}%
 \begin{minipage}[t]{.25\linewidth}
-	\subsubsection*{Double Angle Formulas}\vspace{-\baselineskip}
+	\textbf{Double Angle Formulas}\vspace{-.5\baselineskip}
 	\begin{align*}
 		\sin 2x &= 2\sin x\cos x &~\\
 		\cos 2x &= \cos^2x - \sin^2 x \\
@@ -301,7 +302,7 @@
 
 \noindent
 \begin{minipage}[t]{.45\linewidth}
-\subsubsection*{Product to Sum Formulas}\vspace{-\baselineskip}
+\textbf{Product to Sum Formulas}\vspace{-.5\baselineskip}
 \begin{align*}
 \sin x\sin y &= \tfrac12\bigl(\cos(x-y)-\cos(x+y)\bigr) &~\\
 \cos x\cos y &= \tfrac12\bigl(\cos(x-y)+\cos(x+y)\bigr) \\
@@ -309,7 +310,7 @@
 \end{align*}
 \end{minipage}%
 \begin{minipage}[t]{.45\linewidth}
-\subsubsection*{Angle Sum/Difference Formulas}\vspace{-\baselineskip}
+\textbf{Angle Sum/Difference Formulas}\vspace{-.5\baselineskip}
 \begin{align*}
 \sin (x\pm y) &= \sin x\cos y \pm \cos x\sin y &~\\
 \cos (x\pm y) &= \cos x\cos y \mp \sin x\sin y\\
@@ -524,11 +525,13 @@ $\cot^{-1}x$ & $(-\infty,\infty)$ & $(0,\pi)$
 \subsection{Algebra}
 
 \subsubsection*{Factors and Zeros of Polynomials}
+%\textbf{Factors and Zeros of Polynomials}\\[.7\baselineskip]
 Let $p(x) = a_n x^n + a_{n-1} x^{n-1} + \dots + a_1 x + a_0$ be a polynomial.  If $p(a)=0$, then $a$ is a $zero$ of the polynomial and a solution
 of the equation $p(x)=0$.  Furthermore, $(x-a)$ is a $factor$ of the polynomial.
 
 \vfill
 
+%\noindent\textbf{Fundamental Theorem of Algebra}\\[.5\baselineskip]
 \subsubsection*{Fundamental Theorem of Algebra}
 An $n$th degree polynomial has $n$ (not necessarily distinct) zeros.  Although all of these zeros may be imaginary, a real polynomial of odd degree
 must have at least one real zero.
@@ -538,10 +541,10 @@ must have at least one real zero.
 \subsubsection*{Quadratic Formula}
 If $p(x) = ax^2 + bx + c$, %and $0 \le b^2 - 4ac$,
 then the zeros of $p$ are $x=\dfrac{-b\pm \sqrt{b^2-4ac}}{2a}$
+\vspace{\fill}
 
-\vfill
-
-\subsubsection*{Special Factoring}\vspace{-\baselineskip}
+\noindent\textbf{Special Factoring}
+%\subsubsection*{Special Factoring}\vspace{-\baselineskip}
 \begin{flalign*}
 x^2 - a^2 &= (x-a)(x+a)
 &
@@ -552,7 +555,8 @@ x^4 - a^4 &= (x^2-a^2)(x^2+a^2)
 
 \vfill
 
-\subsubsection*{Binomial Theorem}\vspace{-\baselineskip}
+\noindent\textbf{Binomial Theorem}
+%\subsubsection*{Binomial Theorem}\vspace{-\baselineskip}
 \begin{align*}
 (x+y)^2 &= x^2 + 2xy + y^2 &
 (x+y)^3 &= x^3 + 3x^2y + 3xy^2 + y^3 \\
@@ -562,7 +566,8 @@ x^4 - a^4 &= (x^2-a^2)(x^2+a^2)
 
 \vfill
 
-\subsubsection*{Rational Zero Theorem}
+\noindent\textbf{Rational Zero Theorem}\\[.5\baselineskip]
+%\subsubsection*{Rational Zero Theorem}
 If $p(x) = a_n x^n + a_{n-1} x^{n-1} + \dotsb + a_1 x + a_0$ has integer coefficients, then every $rational$ $zero$ of $p$ is of the form
 $x=r/s$, where $r$ is a factor of $a_0$ and $s$ is a factor of $a_n$.
 
@@ -573,7 +578,8 @@ $ac x^3 + ad x^2 + bcx + bd = ax^2(cx+d)+b(cx+d)=(ax^2+b)(cx+d)$
 
 \vfill
 
-\subsubsection*{Arithmetic Operations}\vspace{-\baselineskip}
+\noindent\textbf{Arithmetic Operations}\\[-.5\baselineskip]
+%\subsubsection*{Arithmetic Operations}\vspace{-\baselineskip}
 \begin{align*}
 &ab+ac=a(b+c) && \frac{a}{b}+\frac{c}{d} = \frac{ad+bc}{bd} && \frac{a+b}{c} = \frac{a}{c} + \frac{b}{c} \\[.3\baselineskip]
 &\frac{\left(\dfrac{a\vphantom{d}}{b}\right)}{\left(\dfrac{c}{d}\right)}=\left(\frac{a}{b}\right)\left(\frac{d}{c}\right)=\frac{ad}{bc} 
@@ -584,7 +590,8 @@ $ac x^3 + ad x^2 + bcx + bd = ax^2(cx+d)+b(cx+d)=(ax^2+b)(cx+d)$
 
 \vfill
 
-\subsubsection*{Exponents and Radicals}\vspace{-\baselineskip}
+\noindent\textbf{Exponents and Radicals}
+%\subsubsection*{Exponents and Radicals}\vspace{-\baselineskip}
 \begin{flalign*}
 &a^0=1, \; \; a \ne 0 & (ab)^x&=a^xb^x & a^xa^y &= a^{x+y} & \sqrt{a}&=a^{1/2} & \frac{a^x}{a^y}&=a^{x-y} & \sqrt[n]{a}&=a^{1/n} \\
 &\left(\frac{a}{b}\right)^x=\frac{a^x}{b^x} & \sqrt[n]{a^m}&=a^{m/n} & a^{-x}&=\frac{1}{a^x} & \sqrt[n]{ab}&=\sqrt[n]{a}\sqrt[n]{b} &
@@ -597,8 +604,9 @@ $ac x^3 + ad x^2 + bcx + bd = ax^2(cx+d)+b(cx+d)=(ax^2+b)(cx+d)$
 
 \vfill
 
-\subsubsection*{Summation Formulas}\vspace{-\baselineskip}
-
+\noindent\textbf{Summation Formulas}\\[-\baselineskip]
+%\subsubsection*{Summation Formulas}\vspace{-\baselineskip}
+%
 \begin{align*}
 \sum^n_{i=1}{c} &= cn
 &
@@ -611,6 +619,7 @@ $ac x^3 + ad x^2 + bcx + bd = ax^2(cx+d)+b(cx+d)=(ax^2+b)(cx+d)$
 
 \vfill
 
+%\noindent\textbf{Trapezoidal Rule}
 \subsubsection*{Trapezoidal Rule}
 
 \noindent$\ds\int_a^b{f(x)}\dd x \approx \frac{\Delta x}{2}\left[f(x_1)+2f(x_2) + 2f(x_3) + \dotsb + 2f(x_{n}) + f(x_{n+1})\right]$\smallskip\\
@@ -678,40 +687,40 @@ $y=\dfrac{x^2}{4p}$ & $x=\dfrac{y^2}{4p}$ & $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1
 \subsection{Summary of Tests for Series}\label{tab_series_tests}
 
 Notation: Infinite series $\ds\sum_{n=1}^\infty a_n$ with sequence of partial sums $\{S_n\}=\{a_1+a_2+a_3+\dots+a_n\}$
-
+\leavevmode
 \begin{center}
 \renewcommand{\arraystretch}{3.8}
 \addtolength{\tabcolsep}{5pt}
 \tagpdfsetup{table/header-rows={1}}
 \begin{tabular}{ p{.7in} p{1.2in} @{} p{2.5in} p{1.6in} }
-
+%
 %\toprule% this leaves too much space afterward
 \specialrule{\heavyrulewidth}{0pt}{-2ex}
 \lxBeginTableHead
 \centering Test & \centering Series & \centering Convergence or Divergence & \parbox[t]{\linewidth}{\centering Comment} \\\lxEndTableHead
 \specialrule{\lightrulewidth}{0pt}{-2ex}
 %\midrule% not quite as bad as the toprule, but still to much space
-
+%
 \parbox[t]{\linewidth}{\centering Definition of Series} & \parbox[t]{\linewidth}{\centering$\ds\sum_{n=1}^\infty a_n$} & \parbox[t]{\linewidth}{\centering series converges if and\\only if $\{S_n\}$ converges} & \parbox[t]{\linewidth}{\centering used when a formula\\for $S_n$ can be found}\\
-
+%
 \parbox[t]{\linewidth}{\centering Divergence Test} & \parbox[t]{\linewidth}{\centering$\ds\sum_{n=1}^\infty a_n$} & \parbox[t]{\linewidth}{\centering diverges if $\ds\lim_{n\to\infty}a_n\neq0$} & \parbox[t]{\linewidth}{\centering no conclusion if $\ds\lim_{n\to\infty}a_n=0$}\\
-
+%
 \parbox{\linewidth}{\centering Alternating Series} & \parbox[t]{\linewidth}{\centering $\ds\pm\sum_{n=1}^\infty (-1)^n b_n$} & \parbox{\linewidth}{\centering converges if $b_n>0$, $\{b_n\}$ is\\decreasing, and $\ds\lim_{n\to\infty}b_n=0$} & \parbox{\linewidth}{\centering check that conditions hold eventually; no information about divergence} \\
-
+%
 \parbox{\linewidth}{\centering Geometric Series} & \parbox[t]{\linewidth}{\centering$\ds\sum_{n=0}^\infty ar\primeskip^n$} & \parbox{\linewidth}{\centering converges if and\\only if $\abs r<1$} & \parbox[t]{\linewidth}{\centering Sum $=\dfrac a{1-r}$} \\
-
+%
 \parbox{\linewidth}{\centering Telescoping Series} & \parbox[t]{\linewidth}{\centering$\ds\sum_{n=1}^\infty b_n-b_{n+m}$} & \parbox{\linewidth}{\centering converges if and only\\if $\{S_n\}$ converges} & \parbox{\linewidth}{\centering most terms of $S_n$\\subtract away} \\
-
+%
 \parbox[t]{\linewidth}{\centering$p$-Series} & \parbox[t]{\linewidth}{\centering$\ds\sum_{n=1}^\infty\frac1{(an+b)^p}$} & \parbox{\linewidth}{\centering converges if and\\only if $p>1$} & \parbox[t]{\linewidth}{\centering assumes $an+b\ne0$} \\
-
+%
 \parbox{\linewidth}{\centering$p$-Series For Logarithms} & \parbox[t]{\linewidth}{\centering$\ds\sum_{n=1}^\infty\frac1{(an+b)(\log n)^p}$} & \parbox{\linewidth}{\centering converges if and\\only if $p>1$} & \parbox{\linewidth}{\centering logarithm's base doesn't affect convergence.} \\
-
+%
 \parbox[t]{\linewidth}{\centering Integral Test} & \parbox[t]{\linewidth}{\centering$\ds\sum_{n=1}^\infty a_n$} & \parbox{\linewidth}{\centering converges if and only if\\$\ds\int_k^\infty a(n)\dd n$ converges} & \parbox{\linewidth}{\centering $a_n = a(n)$ must be positive and decreasing eventually} \\
-
+%
 \parbox[t]{\linewidth}{\centering Direct Comparison} & \parbox[t]{\linewidth}{\centering$\ds\sum_{n=1}^\infty a_n$, $\ds\sum_{n=1}^\infty b_n$ $0<a_n\le b_n$} & \parbox[t]{\linewidth}{\centering $\sum b_n\text{ converges }\Rightarrow\sum a_n$ converges $\sum a_n\text{ diverges }\Rightarrow\sum b_n$ diverges} & \parbox[t]{\linewidth}{\centering consider geometric\\or $p$-series} \\\addlinespace
-
+%
 \parbox[t]{\linewidth}{\centering Limit Comparison} & \parbox[t]{\linewidth}{\centering$\ds\sum_{n=1}^\infty a_n$, $\ds\sum_{n=1}^\infty b_n$ $0<a_n,b_n$} & \parbox{\linewidth}{\centering if $\ds\lim_{n\to\infty} a_n/b_n=L$\\ $L>0$: both converge or diverge together\\ $L=0$: $\sum b_n\text{ converges }\Rightarrow\sum a_n$ converges\\$L=\infty$: $\sum b_n\text{ diverges }\Rightarrow\sum a_n$ diverges} & \parbox[t]{\linewidth}{\centering consider geometric\\or $p$-series} \\\addlinespace
-
+%
 \parbox[t]{\linewidth}{\centering Ratio/Root Test} & \parbox[t]{\linewidth}{\centering$\ds\sum_{n=1}^\infty a_n$} & \parbox[t]{\linewidth}{\centering$L=\begin{cases}
 \ds\lim_{n\to\infty}\abs{a_{n+1}/a_n}&\text{Ratio Test} \\
 %\ds\lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}}&\text{Ratio Test} \\
@@ -721,9 +730,9 @@ $L<1$: converges\\
 $L>1$ or $L=\infty$: diverges\\
 $L=1$: test indeterminate}
 & \parbox[t]{\linewidth}{\vskip-1.3\baselineskip\relax\centering use Ratio Test for products, factorials, or powers in terms\\\medskip use Root Test for series of the form $a_n=(b_n)^n$} \\\addlinespace \bottomrule
-
+%
 \end{tabular}
-
+%
 \end{center}
 
 \textbf{Absolute convergence:} $\ds\sum_{n=1}^\infty\abs{a_n}$ converges (and by \emph{Absolute Convergence Theorem}, $\ds\sum_{n=1}^\infty a_n$ converges)
