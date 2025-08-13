@@ -1,5 +1,0 @@
-/ASYx {( ) print ASYX sub 12 string cvs print} bind def
-/ASYy {( ) print ASYY sub 12 string cvs print} bind def
-/ASY1 true def
-/stroke {strokepath ASY1 {/ASYX currentpoint pop def /ASYY currentpoint exch pop def /ASY1 false def} if {(M) print ASYy ASYx} {(L) print ASYy ASYx} {(C) print ASYy ASYx ASYy ASYx ASYy ASYx} {(c) print} pathforall (M) print currentpoint ASYy ASYx currentpoint newpath moveto} bind def
-/fill {closepath ASY1 {/ASYX currentpoint pop def /ASYY currentpoint exch pop def /ASY1 false def} if {(M) print ASYy ASYx} {(L) print ASYy ASYx} {(C) print ASYy ASYx ASYy ASYx ASYy ASYx} {(c) print} pathforall (M) print currentpoint ASYy ASYx currentpoint newpath moveto} bind def
