@@ -16,12 +16,24 @@ import labelpath3;
 defaultrender.merge=true;
 
 //usepackage("amsmath");
-usepackage("mathspec");
-usepackage("esvect");
-texpreamble("\setallmainfonts[Mapping=tex-text]{Calibri}");
-texpreamble("\setmainfont[Mapping=tex-text]{Calibri}");
-texpreamble("\setsansfont[Mapping=tex-text]{Calibri}");
-texpreamble("\setmathsfont(Greek){[cmmi10]}");
+//usepackage("mathspec");
+//usepackage("esvect");
+//texpreamble("\setallmainfonts[Mapping=tex-text]{Calibri}");
+//texpreamble("\setmainfont[Mapping=tex-text]{Calibri}");
+//texpreamble("\setsansfont[Mapping=tex-text]{Calibri}");
+//texpreamble("\setmathsfont(Greek){[cmmi10]}");
+
+//\sffamily
+usepackage("fontspec");
+usepackage("unicode-math");
+usepackage("lete-sans-math");
+//usepackage[default,defaultsans]{lato}
+usepackage("lato");
+usepackage("realscripts");
+usepackage("microtype");
+texpreamble("\newcommand{\vv}{\vec}");
+texpreamble("\DeclareMicrotypeAlias{LeteSansMath.otf}{TU-basic}");
+
 
 defaultpen(0.5mm);
 
