@@ -122,8 +122,6 @@ meaning we can express the area of $R$ as an iterated integral:
 
 In short: a certain iterated integral can be viewed as giving the area of a plane region.
 
-A region $R$ could also be defined by $c\leq y\leq d$ and $h_1(y)\leq x\leq h_2(y)$, as shown in \autoref{fig:iterated_intro2}. Using a process similar to that above, we have 
-%
 \mtable{Calculating the area of a plane region $R$ with an iterated integral.}{fig:iterated_intro2}{%
 \begin{tikzpicture}[alt={A region in the x y plane with horizontal lines for its top and bottom.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
@@ -142,7 +140,8 @@ ymin=-.1,ymax=1,xmin=-.1,xmax=1]
 \node [right] at (myplot.right of origin) {\scriptsize $x$};
 \node [above] at (myplot.above origin) {\scriptsize $y$};
 \end{tikzpicture}}
-%
+
+A region $R$ could also be defined by $c\leq y\leq d$ and $h_1(y)\leq x\leq h_2(y)$, as shown in \autoref{fig:iterated_intro2}. Using a process similar to that above, we have 
 \[\text{the area of }R = \int_c^d\int_{h_1(y)}^{h_2(y)} \dd x\dd y.\]
 
 We state this formally in a theorem.

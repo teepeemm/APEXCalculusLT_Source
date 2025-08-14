@@ -5,6 +5,7 @@ In \autoref{sec:arc_length} we used definite integrals to compute the arc length
 The natural extension of the concept of ``arc length over an interval'' to surfaces is ``surface area over a region.'' 
 
 Consider the surface $z=f(x,y)$ over a region $R$ in the $x$-$y$ plane, shown in \autoref{fig:sa_intro}(a). Because of the domed shape of the surface, the surface area will be greater than that of the area of the region $R$. We can find this area using the same basic technique we have used over and over: we'll make an approximation, then using limits, we'll refine the approximation to the exact value.
+
 \mtable{Developing a method of computing surface area.}{fig:sa_intro}{%
 \myincludeasythree{
 3Droll=0.,
@@ -28,7 +29,6 @@ In part (b) of the figure, we zoom in on this portion of the surface. When $\Del
 This portion of the tangent plane is a parallelogram, defined by sides $\vec u$ and $\vec v$, as shown. One of the applications of the cross product from \autoref{sec:cross_product} is that the area of this parallelogram is $\norm{\vec u\times \vec v}$. Once we can determine $\vec u$ and $\vec v$, we can determine the area.
 
 $\vec u$ is tangent to the surface in the direction of $x$, therefore, from \autoref{sec:multi_tangent}, $\vec u$ is parallel to $\bracket{1,0,f_x(x_i,y_i)}$. The $x$-displacement of $\vec u$ is $\Delta x_i$, so we know that $\vec u = \Delta x_i\bracket{1,0,f_x(x_i,y_i)}$. Similar logic shows that $\vec v = \Delta y_i\bracket{0,1,f_y(x_i,y_i)}$. Thus:
-
 \begin{align*}
 \text{surface area $S_i$}
 	&\approx \text{area of  $T_i$}\\

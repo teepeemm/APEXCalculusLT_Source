@@ -355,7 +355,6 @@ From \autoref{sec:cross_product} we know the area of this parallelogram is $\nor
 where $\vec u_{i,j} = \vec r(u_i+\Delta u,v_j) - \vec r(u_i,v_j)$ and $\vec v_{i,j} = \vec r(u_i,v_j+\Delta v)-\vec r(u_i,v_j)$.
 
 From our previous calculus experience, we expect that taking a limit as $n\to \infty$ will result in the exact surface area. However, the current form of the above double sum makes it difficult to realize what the result of that limit is. The following rewriting of the double summation will be helpful:
-
 \begin{align*}
 &\sum_{j=1}^n\sum_{i=1}^n \norm{\vec u_{i,j}\times \vec v_{i,j}}= \\ 
 &\sum_{j=1}^n\sum_{i=1}^n \norm{\bigl(\vec r(u_i+\Delta u,v_j) - \vec r(u_i,v_j)\bigr) \times \bigl(\vec r(u_i,v_j+\Delta v)-\vec r(u_i,v_j)\bigr)}= \\

@@ -104,7 +104,6 @@ repeat the first two columns after the original three:
  \end{matrix}
 \]
 This gives three full ``upper left to lower right'' diagonals, and three full ``upper right to lower left'' diagonals, as shown. Compute the products along each diagonal, then add the products on the right and subtract the products on the left:
-
 \begin{center}\begin{tikzpicture}[alt={Vectors u, v span a blue plane; red arrow u * v rises along +z, matching the right-hand rule.},baseline=-3pt,>=stealth]
 \node at (0,0) {$\begin{array}{ c c c c c } \ \veci\ &\ \vecj\ &\ \veck\ &\ \veci\ &\ \vecj\ \\  2&-1&4&2&-1\\3&2&5&3&2\end{array}$};
 \draw[->,  thin] (-1.3,.4) -- (.5,-.8) node[below right] {$-5\veci$};
@@ -114,6 +113,7 @@ This gives three full ``upper left to lower right'' diagonals, and three full ``
 \draw[->, thin] (.7,.4) -- (-1.3,-.8) node[below left ] {8\veci};
 \draw[->, thin] (1.3,.4) -- (-.5,-.8) node[below left] {10\vecj};
 \end{tikzpicture}\end{center}
+\leavevmode
 \[\vec u\times\vec v = \bigl(-5\veci+12\vecj+4\veck\,\bigr) - \bigl(-3\veck+8\veci+10\vecj\,\bigr) = -13\veci+2\vecj+7\veck =\bracket{-13,2,7}.\]
 
 This is equivalent to evaluating the determinant
@@ -380,17 +380,15 @@ As with the cross product, we can also write $\vecu\cdot(\vec v\times\vec w)$ in
  \vecu\cdot(\vec v\times\vec w)=
  \begin{vmatrix}u_1&u_2&u_3\\v_1&v_2&v_3\\w_1&w_2&w_3\end{vmatrix}.
 \]
-Because
-%
+Because the volume is the absolute value of the determinant, changing the order of the rows can only change the sign of this determinant, which doesn't change the final answer.
+
 \mtable{A parallelepiped in \autoref{ex_crossp6}.}{fig:crossp6}{
 \myincludeasythree{
 3Droll=0,
 3Dortho=0.0045,
 3Dc2c=4 4 2,
 3Dcoo=0 50 50,
-3Droo=150}{\marginparwidth}{Origin-anchored vectors u, v, w span a blue parallelepiped; volume equals |u * (v * w)|.}{figures/figcrossp6_3D}}
-%
-the volume is the absolute value of the determinant, changing the order of the rows can only change the sign of this determinant, which doesn't change the final answer.
+3Droo=150}{\marginparwidth}{Origin-anchored vectors u, v, and w define a blue parallelepiped.}{figures/figcrossp6_3D}}
 
 \begin{example}[Finding the volume of parallelepiped]\label{ex_crossp6}%
 Find the volume of the parallelepiped defined by the vectors $\vecu = \bracket{1,1,0}$, $\vecv = \bracket{-1,1,0}$ and $\vecw = \bracket{0,1,1}$.

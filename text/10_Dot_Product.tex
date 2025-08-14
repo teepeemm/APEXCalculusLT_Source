@@ -329,14 +329,6 @@ ytick={1,2,-1,-2},ymin=-2.8,ymax=2.8,xmin=-2.9,xmax=3.9]
 \end{enumerate}%}
 \end{example}
 
-Consider \autoref{fig:dotpprojc} where the concept of the orthogonal projection is again illustrated. It is clear that
-\begin{equation}
-\vec u = \proj uv + \vec z.
-\label{eq:orthogproj}
-\end{equation}
-As we know what $\vec u$ and $\proj uv$ are, we can solve for $\vec z$ and state that
-\[\vec z = \vec u - \proj uv.\]%
-%
 \mtable{Illustrating the orthogonal projection.}{fig:dotpprojc}{\begin{tikzpicture}[alt={Vectors u, v with right-angle foot; z fills gap so u = proj_v u + z.},>=stealth]
  \draw [thick,->] (2,1) -- (4,2) node [below] {\scriptsize $\vec v$};
  \draw [thick,->] (0,0) -- (1,3) node [above ] {\scriptsize $\vec u$};
@@ -344,8 +336,15 @@ As we know what $\vec u$ and $\proj uv$ are, we can solve for $\vec z$ and state
   node [pos=.6,below,black] {\scriptsize $\text{proj}_{\, \vec v}\, \vec u$};
  \draw [<-,thick] (1,3) -- (2,1) node [right,pos=.5] {\scriptsize $\vec z$};
  \draw (1.82111, 0.910557) -- ({1.73167, 1.08944})--(1.91056, 1.17889);
-\end{tikzpicture}}%
+\end{tikzpicture}}
 %
+Consider \autoref{fig:dotpprojc} where the concept of the orthogonal projection is again illustrated. It is clear that
+\begin{equation}
+\vec u = \proj uv + \vec z.
+\label{eq:orthogproj}
+\end{equation}
+As we know what $\vec u$ and $\proj uv$ are, we can solve for $\vec z$ and state that
+\[\vec z = \vec u - \proj uv.\]%
 This leads us to rewrite \autoeqref{eq:orthogproj} in a seemingly silly way:
 \[\vec u = \proj uv + (\vec u - \proj uv).\]
 This is not nonsense, as pointed out in the following Key Idea. (Notation note: the expression ``$\parallel \vec y$\,'' means ``is parallel to $\vec y$.'' We can use this notation to state ``$\vec x\parallel\vec y$\,'' which means ``$\vec x$ is parallel to $\vec y$.'' The expression ``$\perp \vec y$\,'' means ``is orthogonal to $\vec y$,'' and is used similarly.)
@@ -448,8 +447,6 @@ As the ramp rises 5 ft over a horizontal distance of 20 ft, we can represent the
 
 In physics, the application of a force $F$ to move an object in a straight line a distance $d$ produces \emph{work}; the amount of work $W$ is $W=Fd$, (where $F$ is in the direction of travel). The orthogonal projection allows us to compute work when the force is not in the direction of travel.
 
-Consider \autoref{fig:dotpwork}, where a force $\vec F$ is being applied to an object moving in the direction of $\vec d$. (The distance the object travels is the magnitude of $\vec d$.) The work done is the amount of force in the direction of $\vec d$, $\norm{\proj Fd}$, times $\vnorm d$:
-
 \mtable{Finding work when the force and direction of travel are given as vectors.}{fig:dotpwork}{\begin{tikzpicture}[alt={Box pulled by force F; horizontal travel d; grey proj_d F shows effective work.},>=stealth,scale=.8]
  \draw [thick] (0,0) rectangle (2,2);
  \draw [thick,->] (0,-.25) -- (5,-.25) node [right] {\scriptsize $\vec d$};
@@ -457,6 +454,7 @@ Consider \autoref{fig:dotpwork}, where a force $\vec F$ is being applied to an o
  \draw [thick,gray,->] (1,1) -- (3,1) node [right,black] {\scriptsize $\proj Fd$};
 \end{tikzpicture}}
 
+Consider \autoref{fig:dotpwork}, where a force $\vec F$ is being applied to an object moving in the direction of $\vec d$. (The distance the object travels is the magnitude of $\vec d$.) The work done is the amount of force in the direction of $\vec d$, $\norm{\proj Fd}$, times $\vnorm d$:
 \begin{align*}
 \norm{\proj Fd}\cdot\vnorm d
  &= \norm{\frac{\vec F\cdot\vec d}{\vec d\cdot\vec d}\vec d}\cdot \vnorm d \\

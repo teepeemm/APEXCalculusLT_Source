@@ -2,7 +2,6 @@
 
 In normal conversation we describe position in terms of both \emph{time} and \emph{distance}. For instance, imagine driving to visit a friend. If she calls and asks where you are, you might answer ``I am 20 minutes from your house,'' or you might say ``I am 10 miles from your house.'' Both answers provide your friend with a general idea of where you are.
 
-Currently, our vector-valued functions have defined points with a parameter $t$, which we often take to represent time. Consider \autoref{fig:vvfarc_intro1}(a), where $\vrt =\bracket{t^2-t,t^2+t}$ is graphed and the points corresponding to $t=0,\ 1$ and $2$ are shown. Note how the arc length between $t=0$ and $t=1$ is smaller than the arc length between $t=1$ and $t=2$; if the parameter $t$ is time and $\vec r$ is position, we can say that the particle traveled faster on $[1,2]$ than on $[0,1]$. 
 \mtable{Introducing the arc length parameter.}{fig:vvfarc_intro1}{%
 \begin{tikzpicture}[alt={Curve r(t); red dots at t=0,1,2 mark unequal arc lengths along path.},>=stealth]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
@@ -48,6 +47,8 @@ ymin=-1.1,ymax=6.5,xmin=-2.1,xmax=7]
 \node [above] at (myplot.above origin) {\scriptsize $y$};
 \end{tikzpicture}
 \\(b)}
+
+Currently, our vector-valued functions have defined points with a parameter $t$, which we often take to represent time. Consider \autoref{fig:vvfarc_intro1}(a), where $\vrt =\bracket{t^2-t,t^2+t}$ is graphed and the points corresponding to $t=0,\ 1$ and $2$ are shown. Note how the arc length between $t=0$ and $t=1$ is smaller than the arc length between $t=1$ and $t=2$; if the parameter $t$ is time and $\vec r$ is position, we can say that the particle traveled faster on $[1,2]$ than on $[0,1]$. 
 
 Now consider \autoref{fig:vvfarc_intro1}(b), where the same graph is parameterized by a different variable $s$.  Points corresponding to $s=0$ through $s=6$ are plotted. The arc length of the graph between each adjacent pair of points is 1. We can view this parameter $s$ as distance; that is, the arc length of the graph from $s=0$ to $s=3$ is 3, the arc length from $s=2$ to $s=6$ is 4, etc. If one wants to find the point 2.5 units from an initial location (i.e., $s=0$), one would compute $\vec r(2.5)$. This parameter $s$ is very useful, and is called the \textbf{arc length parameter}.\index{arc length parameter}\index{arc length}
 

@@ -81,7 +81,10 @@ Determine if the domain of $f(x,y) = \frac1{x-y}$ is open, closed, or neither.
 \solution
 As we cannot divide by 0, we find the domain to be $D = \{(x,y)\ |\ x-y\neq 0\}$. In other words, the domain is the set of all points $(x,y)$ \emph{not} on the line $y=x$. 
 
-\mtable{Sketching the domain of the function in \autoref{ex_multilimit2}.}{fig:multilimit2}{\begin{tikzpicture}[alt={Domain is the filled square x,y with the diagonal y = x; white strip through the shading.},>=stealth]
+The domain is sketched in \autoref{fig:multilimit2}. Note how we can draw an open disk around any point in the domain that lies entirely inside the domain, and also note how the only boundary points of the domain are the points on the line $y=x$. We conclude the domain is an open set. The set is unbounded.
+\end{example}
+
+\mtable[yshift=5\baselineskip]{Sketching the domain of the function in \autoref{ex_multilimit2}.}{fig:multilimit2}{\begin{tikzpicture}[alt={Domain is the filled square x,y with the diagonal y = x; white strip through the shading.},>=stealth]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick=\empty,
 ytick=\empty,ymin=-1,ymax=1,xmin=-1,xmax=1,axis equal image]
@@ -92,13 +95,9 @@ ytick=\empty,ymin=-1,ymax=1,xmin=-1,xmax=1,axis equal image]
 \node [above] at (myplot.above origin) {\scriptsize $y$};
 \end{tikzpicture}}
 
-The domain is sketched in \autoref{fig:multilimit2}. Note how we can draw an open disk around any point in the domain that lies entirely inside the domain, and also note how the only boundary points of the domain are the points on the line $y=x$. We conclude the domain is an open set. The set is unbounded.
-\end{example}
-
 \subsection{Limits}
 
-Recall a pseudo-definition of the limit of a function of one variable: ``$\ds \lim_{x\to c}f(x) = L$'' means that if $x$ is ``really close'' to $c$, then $f(x)$ is ``really close'' to $L$. A similar pseudo-definition holds for functions of two variables. We'll say that 
-
+Recall a pseudo-definition of the limit of a function of one variable: ``$\ds \lim_{x\to c}f(x) = L$'' means that if $x$ is ``really close'' to $c$, then $f(x)$ is ``really close'' to $L$. A similar pseudo-definition holds for functions of two variables. We'll say that
 \begin{center}
 ``\!$\ds \lim_{(x,y)\to (x_0,y_0)} f(x,y) = L$''
 \end{center}
