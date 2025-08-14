@@ -28,7 +28,7 @@
 In this section we investigate the antiderivatives of rational functions. Recall that rational functions are functions of the form $f(x)= \frac{p(x)}{q(x)}$, where $p(x)$ and $q(x)$ are polynomials and $q(x)\neq 0$. Such functions arise in many contexts, one of which is the solving of certain fundamental differential equations.
 
 We begin with an example that demonstrates the motivation behind this section. Consider the integral $\ds\int \frac{1}{x^2-1}\dd x$. We do not have a simple formula for this (if the denominator were $x^2+1$, we would recognize the antiderivative as being the arctangent function). It can be solved using Trigonometric Substitution, but note how the integral is easy to evaluate once we realize:
-
+%
 %This integral is not difficult to evaluate once one realizes the following fact: 
 \[\frac{1}{x^2-1} = \frac{1/2}{x-1} - \frac{1/2}{x+1}.\]
 Thus 
@@ -47,8 +47,9 @@ We start with a rational function $f(x)=\dfrac{p(x)}{q(x)}$, where $p$ and $q$ d
 \end{itemize}
 
 Partial fraction decomposition is based on an algebraic theorem that guarantees that any polynomial, and hence $q$, can use real numbers to factor into the product of linear and irreducible quadratic factors.
-\mnote{An \emph{irreducible quadratic} is one that cannot factor into linear terms with real coefficients.}\index{irreducible quadratic}
 The following Key Idea states how to decompose a rational function into a sum of rational functions whose denominators are all of lower degree than $q$.
+
+\mnote[yshift=3\baselineskip]{An \emph{irreducible quadratic} is one that cannot factor into linear terms with real coefficients.}\index{irreducible quadratic}
 
 {
 \tcbset{grow to right by=6em}
@@ -160,6 +161,10 @@ Resulting in the same decomposition as above.
 
 In \autoref{ex_pf3}, we solve for the decomposition coefficients using the system of linear equations (method 2a). The margin note explains how to solve using substitution (method 2b).
 
+\mnote[yshift=-9\baselineskip]{\textbf{Note:} Equations \eqref{eq:decomp3} and \eqref{eq:pf3} are not equivalent for $x=1$ and $x=-2$. However, due to the continuity of polynomials we can let $x=1$ to simplify the right hand side to $A(1+2)^2=9A$. Since the left hand side is still $1$, we have $1=9A$, so that $A=1/9$.\bigskip\\
+Likewise,when $x=-2$; this leads to the equation $1=-3C$. Thus $C = -1/3$.\bigskip\\
+Knowing $A$ and $C$, we can find the value of $B$ by choosing yet another value of $x$, such as $x=0$, and solving for $B$.}
+%
 \begin{example}[Integrating using partial fractions]\label{ex_pf3}%
 Use partial fraction decomposition to integrate $\ds\int\frac{1}{(x-1)(x+2)^2}\dd x$.
 \solution
@@ -168,11 +173,6 @@ We decompose the integrand as follows, as described by \autoref{idea:partial_fra
  \frac{1}{(x-1)(x+2)^2} = \frac{A}{x-1} + \frac{B}{x+2} + \frac{C}{(x+2)^2}.
 \end{equation}
 To solve for $A$, $B$ and $C$, we multiply both sides by $(x-1)(x+2)^2$ and collect like terms:
-%
-\mnote{\textbf{Note:} Equations \eqref{eq:decomp3} and \eqref{eq:pf3} are not equivalent for $x=1$ and $x=-2$. However, due to the continuity of polynomials we can let $x=1$ to simplify the right hand side to $A(1+2)^2=9A$. Since the left hand side is still $1$, we have $1=9A$, so that $A=1/9$.\bigskip\\
-Likewise,when $x=-2$; this leads to the equation $1=-3C$. Thus $C = -1/3$.\bigskip\\
-Knowing $A$ and $C$, we can find the value of $B$ by choosing yet another value of $x$, such as $x=0$, and solving for $B$.}
-%
 \begin{align}
 	1
 	&= A(x+2)^2 + B(x-1)(x+2) + C(x-1)\label{eq:pf3}\\

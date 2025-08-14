@@ -49,8 +49,6 @@ We can approximate the value of this limit numerically with small values of $h$ 
  &=-64.
 \end{align*}
 
-Graphically, we can view the average velocities we computed numerically as the slopes of secant lines on the graph of $f$ going through the points $(2,f(2))$ and $(2+h,f(2+h))$, as in \autoref{fig:diff_quotient}.
-%
 \mtable{Computing the difference quotient.}{fig:diff_quotient}{\begin{tikzpicture}[alt={A curve from (0,150) to (3,0), with a line segment meeting this curve near (2,100) and (2.4,80).  These intersections differ by h in the x direction, and f(2+h)-f(2) in the y direction.}]
 \begin{axis}[tick label style={font=\scriptsize},minor x tick num=1,
 axis y line=middle,axis x line=middle,ymin=-50,ymax=160,xmin=-.5,xmax=3.49,
@@ -71,7 +69,8 @@ extra x tick labels={\tagpdfsetup{table/tagging=presentation}%
 \node [right] at (myplot.right of origin) {\scriptsize $x$};
 \node [above] at (myplot.above origin) {\scriptsize $y$};
 \end{tikzpicture}}
-%
+
+Graphically, we can view the average velocities we computed numerically as the slopes of secant lines on the graph of $f$ going through the points $(2,f(2))$ and $(2+h,f(2+h))$, as in \autoref{fig:diff_quotient}.
 In \autoref{fig:derivfalling}, the secant line corresponding to $h=1$ is shown in three contexts. \autoref{fig:derivfalling}(a) shows a ``zoomed out'' version of $f$ with its secant line. In (b), we zoom in around the points of intersection between $f$ and the secant line. Notice how well this secant line approximates $f$ between those two points --- it is a common practice to approximate functions with straight lines.
 
 As $h\to 0$, these secant lines approach the \emph{tangent line}, a line that goes through the point $(2,f(2))$ with the special slope of $-64$. In parts (c) and (d) of \autoref{fig:derivfalling}, we zoom in around the point $(2,86)$. In (c) we see the secant line, which approximates $f$ well, but not as well the tangent line shown in (d).
@@ -377,7 +376,9 @@ Before applying \autoref{def:the_derivative}, note that once the derivative is f
 
 We have found that when $f(x) = \sin x$, $\fp(x) = \cos x$ (see \autoref{fig:sin_and_dsin}).
 
-\begin{\ifbool{latexml}{center}{centering}}
+\noindent
+\begin{minipage}{\textwidth}
+\centering
 \captionsetup{type=figure}%
 \begin{tikzpicture}[alt={Two wave functions overlapping.}]
 \begin{axis}[tick label style={font=\scriptsize}, axis y line=middle,axis x line=middle, ymin=-1.5, ymax=1.9,xmin=-7,xmax=7,name=myplot,axis equal image,
@@ -401,7 +402,7 @@ We have found that when $f(x) = \sin x$, $\fp(x) = \cos x$ (see \autoref{fig:sin
 \end{tikzpicture}
 \caption{The function $f(x)=\sin x$ and its derivative $\fp(x)=\cos x$.}
 \label{fig:sin_and_dsin}
-\end{\ifbool{latexml}{center}{centering}}
+\end{minipage}
 
 Initially, this might be somewhat surprising; the result of a tedious limit process and the sine function is a nice function. Then again, perhaps this is not entirely surprising. The sine function is periodic --- it repeats itself on regular intervals. Therefore its rate of change also repeats itself on the same regular intervals. In fact, if we think about $\fp(x)$ as the slope of the tangent to the sine curve we notice the following
 \begin{itemize}
