@@ -1,15 +1,25 @@
-\DocumentMetadata{
-  lang        = en,
-  pdfversion  = 1.7,
-  pdfstandard = ua-1,
-%  pdfversion  = 2.0,
-%  pdfstandard = ua-2,
-  testphase   = latest
-}
+\DocumentMetadata{tagging=on,lang=en,pdfstandard=ua-2,
+  tagging-setup={math/setup=mathml-SE}}
 \documentclass{article}
+\usepackage{titlesec}
+% from https://github.com/latex3/tagging-project/issues/24
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\ttl@straight@ii
+  {\@svsechd\unskip}
+  {\@svsechd\unskip\tagtool {sec-split-para}}
+  {}{\fail}
+\patchcmd\ttl@straight@ii
+  {\@afterheading}
+  {\UseTaggingSocket{para/restore}\@afterheading}
+  {}{\fail}
+\patchcmd\ttl@straight@i
+  {\par}
+  {\par\tagtool{sec-start=#1}\tagtool{para/flattened}}
+  {}{\fail}
+\makeatother
 \title{Title}
 \begin{document}
-page 1
-%\clearpage
-%page 2
+%page 1\clearpage
+\section{Subsection}
 \end{document}
