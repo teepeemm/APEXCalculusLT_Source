@@ -241,11 +241,12 @@ Since the Taylor series for $\sin x$ has an infinite radius of convergence, so d
 The Taylor expansion for $\ln(x+1)$ given in \autoref{idea:common_taylor} is centered at $x=0$, so we can center the series for $\ln (\sqrt{x})$ at $x=1$.
 With 
 \[\ln x = \sum_{n=1}^\infty(-1)^{n+1}\frac{(x-1)^n}{n} = (x-1)- \frac{(x-1)^2}{2} +\frac{(x-1)^3}{3}-\dotsb,\]
-\mnote{\textbf{Note:} In \autoref{ex_ts6}, one could create a series for $\ln(\sqrt{x})$ by simply recognizing that $\ln(\sqrt{x}) = \ln (x^{1/2}) = 1/2\ln x$, and hence multiplying the Taylor series for $\ln x$ by $1/2$. This example was chosen to demonstrate other aspects of series, such as the fact that the interval of convergence changes.}
 we substitute $\sqrt{x}$ for $x$ to obtain
 \[\ln (\sqrt{x}) = \sum_{n=1}^\infty(-1)^{n+1}\frac{(\sqrt{x}-1)^n}{n} = (\sqrt{x}-1)- \frac{(\sqrt{x}-1)^2}{2} +\frac{(\sqrt{x}-1)^3}{3}-\dotsb.\]
 While this is not strictly a power series because of the $\sqrt x$, it is a series that allows us to study the function $\ln(\sqrt{x})$. Since the interval of convergence of $\ln x$ is $(0,2]$, and the range of $\sqrt{x}$ on $(0,4]$ is $(0,2]$, the interval of convergence of this series expansion of $\ln(\sqrt{x})$ is $(0,4]$.
 \end{example}
+
+\mnote[yshift=12\baselineskip]{\textbf{Note:} In \autoref{ex_ts6}, one could create a series for $\ln(\sqrt{x})$ by simply recognizing that $\ln(\sqrt{x}) = \ln (x^{1/2}) = 1/2\ln x$, and hence multiplying the Taylor series for $\ln x$ by $1/2$. This example was chosen to demonstrate other aspects of series, such as the fact that the interval of convergence changes.}
 
 \begin{example}[Using Taylor series to evaluate definite integrals]\label{ex_ts7}%
 Use the Taylor series of $e^{-x^2}$ to evaluate $\ds \int_0^1e^{-x^2}\dd x$.
