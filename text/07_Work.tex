@@ -211,12 +211,12 @@ We will refer often to \autoref{fig:pump1a} which illustrates the salient aspect
 
 We start as we often do: we partition an interval into subintervals. We orient our tank vertically since this makes intuitive sense with the base of the tank at $y=0$. Hence the top of the water is at $y=30$, meaning we are interested in subdividing the $y$-interval $[0,30]$ into $n$ subintervals as 
 \[0 = y_0 < y_1 < \dots < y_n = 30.\]
-Consider the work $W_i$ of pumping only the water residing in the $i\,^\text{th}$ subinterval, illustrated in \autoref{fig:pump1a}. The force required to move this water is equal to its weight which we calculate as volume $\times $ density. The volume of water in this subinterval is 
+Consider the work $W_i$ of pumping only the water residing in the $i^{\text{th}}$ subinterval, illustrated in \autoref{fig:pump1a}. The force required to move this water is equal to its weight which we calculate as volume $\times $ density. The volume of water in this subinterval is 
 $V_i = 10^2\pi \Delta y_i$; its density is $62.4$ lb/ft$^3$. Thus the required force is $6240\pi\Delta y_i$ lb.
 
-We approximate the distance the force is applied by using any $y$-value contained in the $i\,^\text{th}$ subinterval; for simplicity, we arbitrarily use $y_i$ for now (it will not matter later on). The water will be pumped to a point 5 feet above the top of the tank, that is, to the height of $y=35$ ft. Thus the distance the water at height $y_i$ travels is $35-y_i$ ft. 
+We approximate the distance the force is applied by using any $y$-value contained in the $i^{\text{th}}$ subinterval; for simplicity, we arbitrarily use $y_i$ for now (it will not matter later on). The water will be pumped to a point 5 feet above the top of the tank, that is, to the height of $y=35$ ft. Thus the distance the water at height $y_i$ travels is $35-y_i$ ft. 
 
-In all, the approximate work $W_i$ performed in moving the water in the $i\,^\text{th}$ subinterval to a point 5 feet above the tank is 
+In all, the approximate work $W_i$ performed in moving the water in the $i^{\text{th}}$ subinterval to a point 5 feet above the tank is 
 \[W_i \approx 6240\pi\Delta y_i(35-y_i).\]
 To approximate the total work performed in pumping out all the water from the tank, we sum all the work $W_i$ performed in pumping the water from each of the $n$ subintervals of $[0,30]$:
 \[W \approx \sum_{i=1}^n W_i = \sum_{i=1}^n 6240\pi\Delta y_i(35-y_i).\]
@@ -249,7 +249,7 @@ W 	&=	\int_0^{30} 6240\pi(35-y)\dd y \\
 \end{tikzpicture}}
 % todo Tim make the simplified water tank into 3d?
 
-We can ``streamline'' the above process a bit as we may now recognize what the important features of the problem are. \autoref{fig:pump1b} shows the tank from \autoref{ex_pump1} without the $i\,^\text{th}$ subinterval identified. Instead, we just draw a sample slice. This helps establish the height a small amount of water must travel along with the force required to move it (where the force is volume $\times$ density).
+We can ``streamline'' the above process a bit as we may now recognize what the important features of the problem are. \autoref{fig:pump1b} shows the tank from \autoref{ex_pump1} without the $i^{\text{th}}$ subinterval identified. Instead, we just draw a sample slice. This helps establish the height a small amount of water must travel along with the force required to move it (where the force is volume $\times$ density).
 
 We demonstrate the concepts again in the next examples.
 

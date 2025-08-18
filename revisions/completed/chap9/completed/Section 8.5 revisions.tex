@@ -165,14 +165,14 @@ The theorem states that rearranging the terms of an absolutely convergent series
 Before we consider an example, we state the following theorem that illustrates how the alternating structure of an alternating series is a powerful tool when approximating the sum of a convergent series.
 
 %\theorem{thm:alt_series_approx}{The Alternating Series Approximation Theorem}
-{Let $\{a_n\}$ be a sequence that satisfies the hypotheses of the Alternating Series Test, and let $S_n$ and $L$ be the $n^\text{th}$ partial sums and sum, respectively, of either $\ds \sum_{n=1}^\infty (-1)^{n}a_n$ or $\ds \sum_{n=1}^\infty (-1)^{n+1}a_n$. Then
+{Let $\{a_n\}$ be a sequence that satisfies the hypotheses of the Alternating Series Test, and let $S_n$ and $L$ be the $n^{\text{th}}$ partial sums and sum, respectively, of either $\ds \sum_{n=1}^\infty (-1)^{n}a_n$ or $\ds \sum_{n=1}^\infty (-1)^{n+1}a_n$. Then
 \index{series!alternating!Approximation Theorem}
 \begin{enumerate}
 	\item $|S_n-L| < a_{n+1}$, and
 	\item	$L$ is between $S_n$ and $S_{n+1}$.
 \end{enumerate}
 
-Part 1 of Theorem \ref{thm:alt_series_approx} states that the $n^\text{th}$ partial sum of a convergent alternating series will be within $a_{n+1}$ of its total sum. Consider the alternating series we looked at before the statement of the theorem, $\ds \sum_{n=1}^\infty \frac{(-1)^{n+1}}{n^2}$. Since $a_{14} = 1/14^2 \approx 0.0051$, we know that $S_{13}$ is within $0.0051$ of the total sum. 
+Part 1 of Theorem \ref{thm:alt_series_approx} states that the $n^{\text{th}}$ partial sum of a convergent alternating series will be within $a_{n+1}$ of its total sum. Consider the alternating series we looked at before the statement of the theorem, $\ds \sum_{n=1}^\infty \frac{(-1)^{n+1}}{n^2}$. Since $a_{14} = 1/14^2 \approx 0.0051$, we know that $S_{13}$ is within $0.0051$ of the total sum. 
 
 Moreover, Part 2 of the theorem states that since $S_{13} \approx 0.8252$ and $S_{14}\approx 0.8201$, we know the sum $L$ lies between $0.8201$ and $0.8252$. One use of this is the knowledge that $S_{14}$ is accurate to two places after the decimal.
 
@@ -194,7 +194,7 @@ Approximate the sum of the following series, accurate to within $0.001$.\\
 	\end{align*}
 	Let $L$ be the sum of this series. By Part 1 of the theorem, $|S_9-L|<a_{10} = 1/1000$. We can compute $S_9=0.902116$, which our theorem states is within $0.001$ of the total sum. 
 	
-	We can use Part 2 of the theorem to obtain an even more accurate result. As we know the $10^\text{th}$ term of the series is $-1/1000$, we can easily compute $S_{10} = 0.901116$. Part 2 of the theorem states that $L$ is between $S_9$ and $S_{10}$, so $0.901116 <L<0.902116$.
+	We can use Part 2 of the theorem to obtain an even more accurate result. As we know the $10^{\text{th}}$ term of the series is $-1/1000$, we can easily compute $S_{10} = 0.901116$. Part 2 of the theorem states that $L$ is between $S_9$ and $S_{10}$, so $0.901116 <L<0.902116$.
 	
 	
 	\item		We want to find $n$ where $\ln (n)/n < 0.001$. We start by solving $\ln (n)/n = 0.001$ for $n$. This cannot be solved algebraically, so we will use Newton's Method to approximate a solution. 
@@ -208,7 +208,7 @@ Approximate the sum of the following series, accurate to within $0.001$.\\
 	\end{align*}
 	Using a computer, we find that Newton's Method seems to converge to a solution $x=9118.01$ after 8 iterations. Taking the next integer higher, we have $n=9119$, where $\ln(9119)/9119 =0.000999903<0.001$.
 	
-	Again using a computer, we find $S_{9118} = -0.160369$. Part 1 of the theorem states that this is within $0.001$ of the actual sum $L$. Already knowing the 9,119$^\text{th}$ term, we can compute $S_{9119} = -0.159369$, meaning $-0.159369 < L < -0.160369$. 
+	Again using a computer, we find $S_{9118} = -0.160369$. Part 1 of the theorem states that this is within $0.001$ of the actual sum $L$. Already knowing the 9,119$^{\text{th}}$ term, we can compute $S_{9119} = -0.159369$, meaning $-0.159369 < L < -0.160369$. 
 	
 \end{enumerate}
 Notice how the first series converged quite quickly, where we needed only 10 terms to reach the desired accuracy, whereas the second series took over 9,000 terms.

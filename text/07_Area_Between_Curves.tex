@@ -78,7 +78,7 @@ Total Area = sum of the areas of the subregions.
 \end{center}
 The issue to address next is how to systematically break a region into subregions. A graph will help. Consider \autoref{fig:abcintro} (a) where a region between two curves is shaded. While there are many ways to break this into subregions, one particularly efficient way is to ``slice'' it vertically, as shown in \autoref{fig:abcintro} (b), into $n$ equally spaced slices.
 
-We now approximate the area of a slice. Again, we have many options, but using a rectangle seems simplest. Picking any $x$-value $c_i$ in the $i^\text{ th}$ slice, we set the height of the rectangle to be $f(c_i)-g(c_i)$, the difference of the corresponding $y$-values. The width of the rectangle is a small difference in $x$-values, which we represent with $\Delta x$. \autoref{fig:abcintro} (c) shows sample points $c_i$ chosen in each subinterval and appropriate rectangles drawn.
+We now approximate the area of a slice. Again, we have many options, but using a rectangle seems simplest. Picking any $x$-value $c_i$ in the $i^{\text{th}}$ slice, we set the height of the rectangle to be $f(c_i)-g(c_i)$, the difference of the corresponding $y$-values. The width of the rectangle is a small difference in $x$-values, which we represent with $\Delta x$. \autoref{fig:abcintro} (c) shows sample points $c_i$ chosen in each subinterval and appropriate rectangles drawn.
 %(Each of these rectangles represents a differential element.)
 Each slice has an area approximately equal to $\bigl(f(c_i)-g(c_i)\bigr)\Delta x$; hence, the total area is approximately the Riemann Sum\vspace{-.5\baselineskip}
 \[Q \approx \sum_{i=1}^n \bigl(f(c_i)-g(c_i)\bigr)\Delta x.\]

@@ -52,7 +52,7 @@ In \autoref{fig:arcintro} (b), the curve $y=\sin x$ has been approximated with 4
 
 %Using 6 evenly spaced subintervals is not too much more work and gives a better approximation. The six lines are shown in \autoref{fig:arcintro} (c) and provide an arc length approximation of $3.81$. 
 
-In general,  we can approximate the arc length of $y=f(x)$ on $[a,b]$ in the following manner. Let $a=x_0 < x_1 < \dotso < x_{n-1}< x_n=b$ be a partition of $[a,b]$ into $n$ subintervals. Let $\Delta x_i$ represent the length of the $i\,^\text{th}$ subinterval $[x_{i-1},x_i]$.
+In general,  we can approximate the arc length of $y=f(x)$ on $[a,b]$ in the following manner. Let $a=x_0 < x_1 < \dotso < x_{n-1}< x_n=b$ be a partition of $[a,b]$ into $n$ subintervals. Let $\Delta x_i$ represent the length of the $i^{\text{th}}$ subinterval $[x_{i-1},x_i]$.
 
 \autoref{fig:arcintro2} zooms in on the $i^{\text{th}}$ subinterval where $y=f(x)$ is approximated by a straight line segment. The dashed lines show that we can view this line segment as the hypotenuse of a right triangle whose sides have length $\Delta x_i$ and $\Delta y_i$. Using the Pythagorean Theorem, the length of this line segment is $\ds \sqrt{(\Delta x_i)^2 + (\Delta y_i)^2}.$ Summing over all subintervals gives an arc length approximation
 %
@@ -90,7 +90,7 @@ In the above expression factor out a $\Delta x_i^2$ term:
 \end{align*}
 Now pull the $(\Delta x_i)^2$ term out of the square root:
 \[L\approx\sum_{i=1}^n\sqrt{1 + \frac{(\Delta y_i)^2}{(\Delta x_i)^2}}\ \Delta x_i.\]
-This is nearly a Riemann Sum. Consider the $(\Delta y_i)^2/(\Delta x_i)^2$ term. The expression $\Delta y_i/\Delta x_i$ measures the ``change in $y$/change in $x$,'' that is, the ``rise over run'' of $f$ on the $i\,^\text{th}$ subinterval. The Mean Value Theorem of Differentiation (\autoref{thm:mvt}) states that there is a $c_i$ in the $i\,^\text{th}$ subinterval where $\fp(c_i) = \Delta y_i/\Delta x_i$. Thus we can rewrite our above expression as:
+This is nearly a Riemann Sum. Consider the $(\Delta y_i)^2/(\Delta x_i)^2$ term. The expression $\Delta y_i/\Delta x_i$ measures the ``change in $y$/change in $x$,'' that is, the ``rise over run'' of $f$ on the $i^{\text{th}}$ subinterval. The Mean Value Theorem of Differentiation (\autoref{thm:mvt}) states that there is a $c_i$ in the $i^{\text{th}}$ subinterval where $\fp(c_i) = \Delta y_i/\Delta x_i$. Thus we can rewrite our above expression as:
 \[L\approx\sum_{i=1}^n\sqrt{1+[\fp(c_i)]^2}\ \Delta x_i.\]
 This \emph{is} a Riemann Sum. As long as \fp\ is continuous on $[a,b]$, we can invoke \autoref{thm:riemannSum} and conclude
 \[L=\int_a^b\sqrt{1+[\fp(x)]^2}\dd x.\]
@@ -213,7 +213,7 @@ We begin as we have in the previous sections: we partition the interval $[a,b]$ 
 \[A=2\pi r_{\text{avg}} L,\]
 where $r_{\text{avg}}$ is the average of $R_1$ and $R_2$.  The length is given by $L$; we use the material just covered by arc length to state that
 \[L\approx \sqrt{1+[\fp(c_i)]^2}\Delta x_i\]
-for some $c_i$ in the $i\,^\text{th}$ subinterval. The radii are just the function evaluated at the endpoints of the interval: $f(x_{i-1})$ and $f(x_i)$. Thus the surface area of this sample frustum of the cone is approximately 
+for some $c_i$ in the $i^{\text{th}}$ subinterval. The radii are just the function evaluated at the endpoints of the interval: $f(x_{i-1})$ and $f(x_i)$. Thus the surface area of this sample frustum of the cone is approximately 
 \[2\pi\frac{f(x_{i-1})+f(x_i)}2\sqrt{1+[\fp(c_i)]^2}\Delta x_i.\]
 
 Since $f$ is a continuous function, the Intermediate Value Theorem states there is some $d_i$ in $[x_{i-1},x_i]$ such that $f(d_i)=\dfrac{f(x_{i-1})+f(x_i)}2$; we can use this to rewrite the above equation as

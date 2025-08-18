@@ -71,7 +71,7 @@ This no longer looks like a ``double integral,'' but more like a ``triple integr
 
 To formally find the volume of a closed, bounded region $D$ in space, such as the one shown in \autoref{fig:tripintro}(a), we start with an approximation. Break $D$ into $n$ rectangular solids; the solids near the boundary of $D$ may possibly not include portions of $D$ and/or include extra space. In \autoref{fig:tripintro}(b), we zoom in on a portion of the boundary of $D$ to show a rectangular solid that contains space not in $D$; as this is an approximation of the volume, this is acceptable and this error will be reduced as we shrink the size of our solids.
 
-The volume $\Delta V_i$ of the $i^\text{\,th}$ solid $D_i$ is $\Delta V_i = \Delta x_i\Delta y_i\Delta z_i$, where $\Delta x_i$, $\Delta y_i$ and $\Delta z_i$ give the dimensions of the rectangular solid in the $x$, $y$ and $z$ directions, respectively. By summing up the volumes of all $n$ solids, we get an approximation of the volume $V$ of $D$:
+The volume $\Delta V_i$ of the $i^{\text{th}}$ solid $D_i$ is $\Delta V_i = \Delta x_i\Delta y_i\Delta z_i$, where $\Delta x_i$, $\Delta y_i$ and $\Delta z_i$ give the dimensions of the rectangular solid in the $x$, $y$ and $z$ directions, respectively. By summing up the volumes of all $n$ solids, we get an approximation of the volume $V$ of $D$:
 \[V \approx \sum_{i=1}^n \Delta V_i = \sum_{i=1}^n \Delta x_i\Delta y_i\Delta z_i.\]
 
 Let $\norm{\Delta D}$ represent the length of the longest diagonal of rectangular solids in the subdivision of $D$. As $\norm{\Delta D}\to 0$, the volume of each solid goes to 0, as do each of $\Delta x_i$, $\Delta y_i$ and $\Delta z_i$, for all $i$. Our calculus experience tells us that taking a limit as $\norm{\Delta D}\to 0$ turns our approximation of $V$ into an exact calculation of $V$. Before we state this result in a theorem, we use a definition to define some terms.
@@ -97,7 +97,7 @@ Our informal understanding of the notation $\iiint_D\dd V$ is ``sum up lots of l
 {
 \tcbset{grow to right by=9em}
 \begin{theorem}[Triple Integration (Part I)]\label{thm:triple_integration}%
-Let $D$ be a closed, bounded region in space and let $\Delta D$ be any subdivision of $D$ into $n$ rectangular solids, where the  $i^\text{\,th}$ subregion $D_i$ has dimensions $\Delta x_i\times\Delta y_i\times\Delta z_i$ and volume $\Delta V_i$.
+Let $D$ be a closed, bounded region in space and let $\Delta D$ be any subdivision of $D$ into $n$ rectangular solids, where the  $i^{\text{th}}$ subregion $D_i$ has dimensions $\Delta x_i\times\Delta y_i\times\Delta z_i$ and volume $\Delta V_i$.
 \index{integration!triple}\index{triple integral}\index{iterated integration}
 \begin{enumerate}
 	\item	The volume $V$ of $D$ is

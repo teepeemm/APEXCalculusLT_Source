@@ -19,12 +19,12 @@ Now consider the following limit: $\ds \lim_{n\to\infty}S_n = \lim_{n\to\infty}\
 This example illustrates some interesting concepts that we explore in this section. We begin this exploration with some definitions.
 
 {\tcbset{grow to right by=5em}
-\begin{definition}[Infinite Series, $n^\text{th}$ Partial Sums, Convergence, Divergence]\label{def:series}%
+\begin{definition}[Infinite Series, $n^{\text{th}}$ Partial Sums, Convergence, Divergence]\label{def:series}%
 Let $\{a_n\}$ be a sequence.
 \index{series!definition}\index{series!partial sums}\index{series!convergent}\index{series!divergent}\index{convergence!of series}\index{divergence!of series}
 \begin{enumerate}
 \item		The sum $\ds \sum_{n=1}^\infty a_n$ is an \textbf{infinite series} (or, simply \textbf{series}).
-\item		Let $\ds S_n = \sum_{i=1}^n a_i$\,; the sequence $\{S_n\}$ is the sequence of \textbf{$n^\text{th}$ partial sums} of $\{a_n\}$.\vspace{-.5\baselineskip}
+\item		Let $\ds S_n = \sum_{i=1}^n a_i$\,; the sequence $\{S_n\}$ is the sequence of \textbf{$n^{\text{th}}$ partial sums} of $\{a_n\}$.\vspace{-.5\baselineskip}
 \item		If the sequence $\{S_n\}$ converges to $L$, we say the series $\ds \sum_{n=1}^\infty a_n$ \textbf{converges} to $L$, and we write $\ds \sum_{n=1}^\infty a_n = L$.\vspace{-.5\baselineskip}
 \item		If the sequence $\{S_n\}$ diverges, the series $\ds \sum_{n=1}^\infty a_n$ \textbf{diverges}.
 \end{enumerate}
@@ -44,7 +44,7 @@ We will explore a variety of series in this section. We start with two series th
 \end{enumerate}}\vspace{0pt}
 \solution
 \begin{enumerate}
-\item	Consider $S_n$, the $n^\text{th}$ partial sum.
+\item	Consider $S_n$, the $n^{\text{th}}$ partial sum.
 %
 \mtable{Scatter plots relating to the series of \autoref{ex_series1} part 1.}{fig:series1a}{\begin{tikzpicture}[alt={Blue aₙ rise gently to 100 while red Sₙ surge to almost 340; scatter for 1≤n≤10, y-axis 0 < y < 350.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
@@ -118,7 +118,7 @@ We started this section with a geometric series, although we dropped the first t
 Consider the geometric series $\ds \sum_{n=0}^\infty ar^n$ where $a\neq0$.\vspace{-.5\baselineskip}
 \index{series!geometric}\index{geometric series}\index{convergence!of geometric series}\index{divergence!of geometric series}
 \begin{enumerate}
-\item	If $r\neq1$, the $n^\text{th}$ partial sum is: $\ds S_n = \sum_{k=0}^{n-1}ar^k=\frac{a(1-r\,^n)}{1-r}$.
+\item	If $r\neq1$, the $n^{\text{th}}$ partial sum is: $\ds S_n = \sum_{k=0}^{n-1}ar^k=\frac{a(1-r\,^n)}{1-r}$.
 \item	The series converges if, and only if, $\abs r<1$. When $\abs r<1$, 
 \[\sum_{n=0}^\infty ar^n = \frac{a}{1-r}.\]
 \end{enumerate}
@@ -253,7 +253,7 @@ and so we conclude that $\ds\sum_{n=1}^\infty \left(\tfrac1n-\tfrac1{n+1}\right)
 
 The series in \autoref{ex_series3} is an example of a \textbf{telescoping series}. Informally, a telescoping series is one in which the partial sums reduce to just a fixed number of terms. The partial sum $S_n$ did not contain $n$ terms, but rather just two: 1 and $1/(n+1)$.\index{series!telescoping}\index{telescoping series}
 
-When possible, seek a way to write an explicit formula for the $n^\text{th}$ partial sum $S_n$. This makes evaluating the limit $\ds\lim_{n\to\infty} S_n$ much more approachable. We do so in the next example.
+When possible, seek a way to write an explicit formula for the $n^{\text{th}}$ partial sum $S_n$. This makes evaluating the limit $\ds\lim_{n\to\infty} S_n$ much more approachable. We do so in the next example.
 
 %\noindent\textbf{Note on notation:} Most of the series we encounter will start with $n=1$. For ease of notation, we will often write $\sum a_n$ instead of writing $\ds\sum_{n=1}^\infty a_n$.\\
 

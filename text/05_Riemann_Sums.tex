@@ -416,7 +416,7 @@ We use these formulas in the next two examples.
 %Again, \textit{Mathematica} nearly instantly computes this sum as \texttt{10.6656}.
 %\end{example}
 %
-%One of the advantages of using a computer is that it can do a large number of calculations very quickly. Using 10,000 subintervals and the Left Hand Rule, \textit{Mathematica} took approximately $1/5^\text{ th}$ of a second to compute an approximation 10.66666656. It is worthwhile to ascertain what technology is available to you and to understand how to use it appropriately.
+%One of the advantages of using a computer is that it can do a large number of calculations very quickly. Using 10,000 subintervals and the Left Hand Rule, \textit{Mathematica} took approximately 1/5\textsuperscript{th} of a second to compute an approximation 10.66666656. It is worthwhile to ascertain what technology is available to you and to understand how to use it appropriately.
 The following example lets us practice using the Left Hand Rule and the summation formulas introduced in \autoref{thm:summation}.
 
 \begin{example}[Approximating definite integrals using sums]\label{ex_rie7}%
@@ -481,7 +481,7 @@ Before the above example, we stated what the summations for the Left Hand, Right
 	\item each rectangle's height is determined by evaluating $f$ at a particular point in each subinterval. For instance, the Left Hand Rule states that each rectangle's height is determined by evaluating $f$ at the left hand endpoint of the subinterval the rectangle lives on.
 \end{enumerate}
 %; the only difference was at what values to evaluate $f$. 
-One could partition an interval $[a,b]$ with subintervals that did not have the same size. We refer to the length of the first subinterval as $\Delta x_1$, the length of the second subinterval as $\Delta x_2$, and so on, giving the length of the $i^\text{ th}$ subinterval as $\Delta x_i$. Also, one could determine each rectangle's height by evaluating $f$ at \emph{any} point in the $i^\text{ th}$ subinterval. We refer to the point picked in the first subinterval as $c_1$, the point picked in the second subinterval as $c_2$, and so on, with $c_i$ representing the point picked in the $i^\text{ th}$ subinterval. Thus the height of the $i^\text{ th}$ subinterval would be $f(c_i)$, and the area of the $i^\text{ th}$ rectangle would be $f(c_i)\Delta x_i$.
+One could partition an interval $[a,b]$ with subintervals that did not have the same size. We refer to the length of the first subinterval as $\Delta x_1$, the length of the second subinterval as $\Delta x_2$, and so on, giving the length of the $i^{\text{th}}$ subinterval as $\Delta x_i$. Also, one could determine each rectangle's height by evaluating $f$ at \emph{any} point in the $i^{\text{th}}$ subinterval. We refer to the point picked in the first subinterval as $c_1$, the point picked in the second subinterval as $c_2$, and so on, with $c_i$ representing the point picked in the $i^{\text{th}}$ subinterval. Thus the height of the $i^{\text{th}}$ subinterval would be $f(c_i)$, and the area of the $i^{\text{th}}$ rectangle would be $f(c_i)\Delta x_i$.
 
 Summations of rectangles with area $f(c_i)\Delta x_i$ are named after mathematician Georg Friedrich Bernhard Riemann, as given in the following definition.
 
@@ -492,8 +492,8 @@ Summations of rectangles with area $f(c_i)\Delta x_i$ are named after mathematic
 \begin{definition}[Riemann Sum]\label{def:rie_sum}%
 Let $f$ be defined on the closed interval $[a,b]$ and let $P$ be a partition of $[a,b]$, with \index{Riemann Sum}
 \[a=x_0 < x_1 < \dots < x_{n-1} < x_n=b.\]
-Let $\Delta x_i$ denote the length of the $i^\text{ th}$ subinterval
-$[x_{i-1},x_i]$ and let $c_i$ denote any value in the $i^\text{ th}$ subinterval. The sum
+Let $\Delta x_i$ denote the length of the $i^{\text{th}}$ subinterval
+$[x_{i-1},x_i]$ and let $c_i$ denote any value in the $i^{\text{th}}$ subinterval. The sum
 \[\sum_{i=1}^n f(c_i)\Delta x_i\]
 is a \textbf{Riemann sum} of $f$ on $[a,b]$.
 \end{definition}
@@ -519,7 +519,7 @@ ytick={1,2,3,4},ymin=-1,ymax=5,xmin=-.5,xmax=4.5]
 
 In \autoref{fig:riedef}, we see the approximating rectangles of a Riemann sum of $\ds\int_0^4(4x-x^2)\dd x$. While the rectangles in this example do not approximate well the shaded area, they demonstrate that the subinterval widths may vary and the heights of the rectangles can be determined without following a particular rule.
 
-Usually, Riemann sums are calculated using one of the three methods we have introduced. The uniformity of construction makes computations easier. We have $\Delta x_i = \Delta x = \dfrac{b-a}n$ and the $i^\text{ th}$ term of the partition is $x_i = a + i\Delta x$.  Then the Left Hand Rule uses $c_i=x_{i-1}$, the Right Hand Rule uses $c_i=x_i$, and the Midpoint Rule uses $c_i=\dfrac{x_{i-1}+x_i}{2}$.
+Usually, Riemann sums are calculated using one of the three methods we have introduced. The uniformity of construction makes computations easier. We have $\Delta x_i = \Delta x = \dfrac{b-a}n$ and the $i^{\text{th}}$ term of the partition is $x_i = a + i\Delta x$.  Then the Left Hand Rule uses $c_i=x_{i-1}$, the Right Hand Rule uses $c_i=x_i$, and the Midpoint Rule uses $c_i=\dfrac{x_{i-1}+x_i}{2}$.
 
 %Before working another example, let's summarize some of what we have learned in a convenient way.
 
@@ -528,7 +528,7 @@ Usually, Riemann sums are calculated using one of the three methods we have intr
 %
 %\begin{enumerate}
 %\item	When the $n$ subintervals have equal length, $\ds \Delta x_i = \Delta x = \frac{b-a}n.$
-%\item	The $i^\text{ th}$ term of the partition is $x_i = a + i\Delta x$. (This makes $x_n = b$.)
+%\item	The $i^{\text{th}}$ term of the partition is $x_i = a + i\Delta x$. (This makes $x_n = b$.)
 %\item	The Left Hand Rule summation is: $\ds \sum_{i=1}^n f(x_{i-1})\Delta x$.
 %\item	The Right Hand Rule summation is: $\ds \sum_{i=1}^n f(x_i)\Delta x$.
 %\item	The Midpoint Rule summation is: $\ds \sum_{i=1}^n f\left(\frac{x_{i-1}+x_i}{2}\right)\Delta x$.
@@ -698,9 +698,9 @@ Given a definite integral $\ds\int_a^b f(x)\dd x$, let:
 Recall the definition of a limit as $n\to\infty$: $\ds\lim_{n\to\infty}S_L(n) = K$ if, given any $\epsilon>0$, there exists $N>0$ such that
 \[\abs{S_L(n)-K}< \epsilon \quad \text{when}\quad n\geq N.\]
 
-The following theorem states that we can use any of our three rules to find the exact value of a definite integral $\ds\int_a^b f(x)\dd x$. It also goes two steps further. The theorem states that the height of each rectangle doesn't have to be determined following a specific rule, but could be $f(c_i)$, where $c_i$ is any point in the $i^\text{ th}$ subinterval, as discussed before Riemann Sums where defined in \autoref{def:rie_sum}.
+The following theorem states that we can use any of our three rules to find the exact value of a definite integral $\ds\int_a^b f(x)\dd x$. It also goes two steps further. The theorem states that the height of each rectangle doesn't have to be determined following a specific rule, but could be $f(c_i)$, where $c_i$ is any point in the $i^{\text{th}}$ subinterval, as discussed before Riemann Sums where defined in \autoref{def:rie_sum}.
 
-The theorem goes on to state that the rectangles do not need to be of the same width. Using the notation of \autoref{def:rie_sum}, let $\Delta x_i$ denote the length of the $i^\text{ th}$ subinterval in a partition of $[a,b]$. Now let $\norm{P}$ represent the length of the largest subinterval in the partition: that is, $\norm{P}$ is the largest of all the $\Delta x_i$'s (this is sometimes called the \emph{size} of the partition). If $\norm{P}$ is small, then $[a,b]$ must be partitioned into many subintervals, since all subintervals must have small lengths. ``Taking the limit as $\norm{P}$ goes to zero'' implies that the number $n$ of subintervals in the partition is growing to infinity, as the largest subinterval length is becoming arbitrarily small. We then interpret the expression 
+The theorem goes on to state that the rectangles do not need to be of the same width. Using the notation of \autoref{def:rie_sum}, let $\Delta x_i$ denote the length of the $i^{\text{th}}$ subinterval in a partition of $[a,b]$. Now let $\norm{P}$ represent the length of the largest subinterval in the partition: that is, $\norm{P}$ is the largest of all the $\Delta x_i$'s (this is sometimes called the \emph{size} of the partition). If $\norm{P}$ is small, then $[a,b]$ must be partitioned into many subintervals, since all subintervals must have small lengths. ``Taking the limit as $\norm{P}$ goes to zero'' implies that the number $n$ of subintervals in the partition is growing to infinity, as the largest subinterval length is becoming arbitrarily small. We then interpret the expression 
 \[\lim_{\norm{P}\to 0}\ \sum_{i=1}^n f(c_i)\Delta x_i\]
 as ``the limit of the sum of rectangles, where the width of each rectangle can be different but getting small, and the height of each rectangle is not necessarily determined by a particular rule.'' The theorem states that this Riemann Sum also gives the value of the definite integral of $f$ over $[a,b]$.
 
