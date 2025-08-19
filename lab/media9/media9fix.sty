@@ -62,26 +62,28 @@
   % somewhere on the page.
   \bool_if:NT\g_pbs_ocgbase_loaded_bool{
     \put(1,-1){
-%      \tag_struct_begin:n{tag=Form}
-      \tag_mc_begin:n{artifact} % pdfstandard UA: artifact <=> /F 6 has hidden flag 2
+      \tag_struct_begin:n{tag=Form}
+%      \tag_mc_begin:n{artifact} % pdfstandard UA: artifact <=> /F 6 has hidden flag 2
       \tl_if_exist:NF\g_pbs_blank_xform_tl{
         \hbox_set:Nn\l_tmpa_box{\phantom{\rule{1pt}{1pt}}}
         \pbs_pdfxform:nnnnn{0}{1}{}{}{\l_tmpa_box}
         \tl_const:Ne\g_pbs_blank_xform_tl{\pbs_pdflastxform:}
       }
-      \pbs_pdfannot:nnnn{3bp}{\c_zero_dim}{3bp}{
-        /Ff~65537/FT/Btn/Subtype/Widget/F~6 % set Hidden Flag
-%        /Ff~65537/FT/Btn/Subtype/Widget/F~4
+      \pbs_pdfannot:nnnn{\c_zero_dim}{\c_zero_dim}{\c_zero_dim}{
+        /Ff~65537/FT/Btn/Subtype/Widget
+%        /F~6 % set Hidden Flag
+        /F~4
+%        /Ff~65537/FT/Btn/Subtype/Widget
         /Contents~(dummy)
 %        /A~<</S/ResetForm>>% to make pdf.js happy, but invalid for PDF A-4F:
         % Widget cannot contain A (6.4.1), ResetForm action forbidden (6.6.1)
         /AP~<</N~<</On~\g_pbs_blank_xform_tl>>>>/AS/On
         /T~(pbs@ARFix@\int_use:N\g_pbs_page_int)
-%        /StructParent~\tag_struct_parent_int:
+        /StructParent~\tag_struct_parent_int:
       }
-%      \exp_args:Nee \tag_struct_insert_annot:nn {\pdfannot_box_ref_last: }{ \tag_struct_parent_int: }
-%      \tag_struct_end:
-      \tag_mc_end:
+      \exp_args:Nee \tag_struct_insert_annot:nn {\pdfannot_box_ref_last: }{ \tag_struct_parent_int: }
+      \tag_struct_end:
+%      \tag_mc_end:
     }
   }
 }
@@ -334,6 +336,7 @@
     \tl_if_empty:NF\g_mix_usrlabel_tl{
       \tl_gset_eq:NN\g_mix_label_tl\g_mix_usrlabel_tl
     }
+    % related to 6.9
 %    \tag_mc_begin:n{artifact}
     \tag_struct_begin:n{tag=Form}
     % #1:width, #2:height, #3:depth, #4:content (key-value)
@@ -341,13 +344,13 @@
 %    \__tag_struct_prop_gput:Vne \tag_struct_parent_int: { TU } { (,~media~embedded~by~media9~[\g_mix_version_tl~(\g_mix_date_tl)]) }
     \mix_pdfannot:nnnn{\g_mix_wd_tl}{\g_mix_ht_tl}{\g_mix_dp_tl}{
       /Subtype/Widget
-      /F~ \pdf_version_compare:NnTF<{2.0}{6}{4}
+      /F~4
 %      /F~4 % A-4F needs F & (1|2|4|32|256) == 4 (rule 6.3.2)
 %      /F~6 % UA-1 needs F & 2 == 2 (or a TU or an Alt key) (rule 7.18.1(3))
-%      /TU~(media~embedded~by~media9~[\g_mix_version_tl~(\g_mix_date_tl)]) % but this doesn't do it
-%      /Alt~(media~embedded~by~media9~[\g_mix_version_tl~(\g_mix_date_tl)])
+      /TU~(media349~embedded~by~media9~[\g_mix_version_tl~(\g_mix_date_tl)]) % but this doesn't do it
+      /Alt~(media350~embedded~by~media9~[\g_mix_version_tl~(\g_mix_date_tl)])
       /BS~<</W~0/S/S>>
-      /Contents~(media~embedded~by~media9~[\g_mix_version_tl~(\g_mix_date_tl)])
+      /Contents~(media352~embedded~by~media9~[\g_mix_version_tl~(\g_mix_date_tl)])
       /NM~(\g_mix_label_tl)
       /AP~<</N~\g_mix_appearance_tl>>
       /RichMediaSettings~\l_mix_settings_tl
@@ -397,27 +400,21 @@
         this.dirty=false;
       )
     }
-    % 1.7: artifact in tagged content.  2.0: size 0 must be artifact
-    \pdf_version_compare:NnTF<{2.0}
-      {\tag_struct_begin:n{tag=Form}}
-      {\tag_mc_begin:n{artifact}}
+%    \tag_mc_begin:n{artifact}
 	% something in here is violating A-4F 6.2.5(1) that forbids the TR key in a graphics state parameter dictionary
     \mix_pdfannot:nnnn{0pt}{0pt}{0pt}{
       /Subtype/Widget
-      /FT/Btn/Ff~65537/F~2
+      /FT/Btn/Ff~65537
+      /F~4 % 6.3.2
+%      /F~2
       /BS~<</W~0>>
       /T~(fd@\g_mix_label_tl)
       /AA~<</PO~\mix_pdflastobj:~/PV~\mix_pdflastobj:>>
-      /Contents~(media~embedded~by~media9~[\g_mix_version_tl~(\g_mix_date_tl)])
+      /Contents~(media410~embedded~by~media9~[\g_mix_version_tl~(\g_mix_date_tl)])
       /StructParent~\tag_struct_parent_int:
-      /TU~(media~embedded~by~media9~[\g_mix_version_tl~(\g_mix_date_tl)])
+      /TU~(media412~embedded~by~media9~[\g_mix_version_tl~(\g_mix_date_tl)])
     }
-    \pdf_version_compare:NnTF<{2.0}
-      {
-        \exp_args:Nee \tag_struct_insert_annot:nn {\pdfannot_box_ref_last: }{ \tag_struct_parent_int: }
-        \tag_struct_end:
-      }
-      {\tag_mc_end:}
+%    \tag_mc_end:
     \mix_appendtofields:n{\mix_pdflastann:}
     \hbox_overlap_right:n{\box_use:N\l_mix_poster_box}
     \str_if_eq:eeTF{\g_mix_usrpbtn_tl}{none}{
@@ -525,24 +522,25 @@
         \mix_pdfobj:nnn{}{dict}{
           /Type/Filespec/F~(#1)/UF~(#1)
           /EF~<<
-%            /AFRelationship~(Unspecified)
-%            /Subtype~(application/octet-stream)
+            /AFRelationship~(Unspecified)
+            /Subtype~(application/octet-stream)
             /F~\tl_use:c{fileEmb_\file_mdfive_hash:n{\l_mix_file_tl}}
           >>
-%          /AFRelationship~(Unspecified)
+          /AFRelationship~(Unspecified)
 %          /Subtype~(text/javascript) % maybe?
-%          /Subtype~(application/octet-stream) % maybe?
+          /Subtype~(application/octet-stream) % maybe?
         }
         \tl_gset:cx{fileSpec_#1}{\mix_pdflastobj:}
         \bool_if:NT\g_mix_usrattach_bool{
           \mix_pdfannot:nnnn{0pt}{0pt}{0pt}{
             /Contents~(media~resource)
             /F~2
-            /Subtype/FileAttachment
+%            /Subtype~(application/octet-stream)
+            /FileAttachment
             /FS~\mix_pdflastobj:
-%           /AFRelationship~(Unspecified)
+           /AFRelationship~(Unspecified)
 %           /Subtype~(text/javascript) % maybe?
-%           /Subtype~(application/octet-stream) % maybe?
+           /Subtype~(application/octet-stream) % maybe?
           }
         }
       }
