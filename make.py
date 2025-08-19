@@ -21,6 +21,7 @@ import atexit
 import collections
 import glob
 import html
+import io
 import itertools
 import os
 import platform
@@ -88,7 +89,6 @@ addboolarg('quit','Write options.tex and quit.')
 parser.add_argument('--spelling',action='store_true',help='Run spellcheck')
 parser.add_argument('--justprint',action='store_true',
                     help='Print the commands that would be executed, but do not execute them')
-parser.add_argument('--causeerror',action='store_true',help='Try to cause the error in 09_Polar_Intro')
 
 group = parser.add_mutually_exclusive_group()
 addboolarg('blackwhite','Print static graphics in black and white (default is color).',parser=group)
@@ -498,8 +498,8 @@ def getcommandline(args) -> Union[list[str], list[list[str]]]:
         return getlatexmlepubcommandline()
     if args.standalonee:
         return getlatexmlepubcommandline('standalone','standaloneweb')
-    if args.calculus == 2:
-        return ['latexmk','-g','-lualatex','-interaction=batchmode','Calculus']
+#    if args.calculus == 2:
+#        return ['latexmk','-g','-lualatex','-interaction=batchmode','Calculus']
     # see https://tex.stackexchange.com/a/741777/107497
     return ['max_strings=1000000 hash_extra=1000000 latexmk -g -lualatex -interaction=batchmode Calculus']
 
@@ -616,43 +616,13 @@ def writemisspellings() -> None:
         for word,count in runningTotal.most_common(10):
             print(word+':',count,'time(s)',file=misspellings)
 
-def cause_error():
-    local_failed_compilations = 0
-    print('attempting to cause error')
-#    compilewith('-bc1')
-    compilewith('-qbc2')
-    try:
-        commandline = ['lualatex','-interaction=batchmode','Calculus']
-        subprocess.check_call(commandline,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)  # type: ignore
-        shutil.copy('Calculus.log','logs/Calculus-lua.log')
-        print('lua completed')
-    except:
-        local_failed_compilations += 1
-    try:
-        commandline = ['latexmk','-g','-lualatex','-interaction=batchmode','Calculus']
-        subprocess.check_call(commandline,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)  # type: ignore
-        shutil.copy('Calculus.log','logs/Calculus-mk.log')
-        shutil.copy('Calculus.pdf','ApexPDFs/bigpdfs/calculus-2-bw.pdf')
-        print('mk completed')
-    except:
-        local_failed_compilations += 1
-    try:
-        commandline = ['max_strings=1000000 hash_extra=1000000 latexmk -g -lualatex -interaction=batchmode Calculus']
-        subprocess.check_call(commandline,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,shell=True)
-        shutil.copy('Calculus.log','logs/Calculus-mk-mem.log')
-        print('mk memory completed')
-    except:
-        local_failed_compilations += 1
-    return local_failed_compilations
-
 option_func = {
     'figures': makefigs,
     'matrices': makematrices,
     'todo': updatetodo,
     'prc': updateprc,
     'spelling': writemisspellings,
-    'overview': create_overview,
-    'causeerror': cause_error
+    'overview': create_overview
 }
 
 def compilewith(commands: Union[str, Literal[False]] =False) -> int:
@@ -685,10 +655,25 @@ def compilewith(commands: Union[str, Literal[False]] =False) -> int:
     local_failed_compilations += runcommands(args,commands)
     return local_failed_compilations
 
+latexmk_commands = {
+    'biber': 'B',
+    'bibtex': 'b',
+    'makeindex': 'I',
+    'lualatex': 'L',
+    'luatex': 'l',
+    'pdflatex': 'P',
+    'pdftex': 'p',
+    'latex': 'T',
+    'tex': 't',
+    'xelatex': 'X',
+    'xetex': 'x',
+}
+
 def runcommands(args, commands: Union[str, Literal[False]]) -> int:
     newsuffix = getsuffix(args)
     log = getlog(args)
     local_failed_compilations = 0
+    latexmk_used = ''
     try:
         commandline = getcommandline(args)
         print('commandline is:',commandline)
@@ -698,7 +683,12 @@ def runcommands(args, commands: Union[str, Literal[False]]) -> int:
         # check_call(shell=False) tries to interpret the first thing as the program or file,
         # and fails with latexmk.  We use shell=True.  See file lab/maxstrings/maxstrings.py
         elif len(commandline) == 1:
-            subprocess.check_call(commandline,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,shell=True)
+            stdout_saved = io.StringIO()
+            subprocess.check_call(commandline,stdout=stdout_saved,stderr=subprocess.STDOUT,shell=True)
+            for line in stdout_saved.getvalue().split('\n'):
+                if line.startswith('Running '):
+                    key = line.removeprefix("Running '").split(maxsplit=1)[0]
+                    latexmk_used += latexmk_commands.get(key, f'?{key}?')
         else:
 #            assert isinstance(commandline, list)
 #            assert isinstance(commandline, Sequence)
@@ -720,6 +710,8 @@ def runcommands(args, commands: Union[str, Literal[False]]) -> int:
     time = "{0[0]:02d}:{0[1]:02d}:{0[2]:02d}".format(getTime())
     if commands:
         message = 'Command line: '+commands+' finished at '+time
+        if latexmk_used:
+            message += ' using '+latexmk_used
         print(message,'')
         loginfo.append(message)
     else:
@@ -744,7 +736,6 @@ if args.all:
     failed_compilations += compilewith('--prc')
 #    failed_compilations += compilewith('-bc1')
 #    failed_compilations += compilewith('-bc3')
-#    cause_error()
     for part in range(1,4):
         failed_compilations += compilewith(f'-bc{part}')
 #    print('--all completed, now causing error')
