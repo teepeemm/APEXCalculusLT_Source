@@ -21,7 +21,6 @@ import atexit
 import collections
 import glob
 import html
-import io
 import itertools
 import os
 import platform
@@ -683,10 +682,10 @@ def runcommands(args, commands: Union[str, Literal[False]]) -> int:
         # check_call(shell=False) tries to interpret the first thing as the program or file,
         # and fails with latexmk.  We use shell=True.  See file lab/maxstrings/maxstrings.py
         elif len(commandline) == 1:
-            stdout_saved = io.StringIO()
-            subprocess.check_call(commandline,stdout=stdout_saved,stderr=subprocess.STDOUT,shell=True)
-            for line in stdout_saved.getvalue().split('\n'):
+            stdout = subprocess.check_output(commandline,shell=True)
+            for line in stdout.split('\n'):
                 if line.startswith('Running '):
+                    # if not for the repeated key, we could have this in one line as a comprehension
                     key = line.removeprefix("Running '").split(maxsplit=1)[0]
                     latexmk_used += latexmk_commands.get(key, f'?{key}?')
         else:
