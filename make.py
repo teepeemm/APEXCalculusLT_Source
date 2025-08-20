@@ -683,7 +683,7 @@ def runcommands(args, commands: Union[str, Literal[False]]) -> int:
         # and fails with latexmk.  We use shell=True.  See file lab/maxstrings/maxstrings.py
         elif len(commandline) == 1:
             stdout = subprocess.check_output(commandline,shell=True)
-            for line in stdout.split('\n'):
+            for line in stdout.decode().split('\n'):
                 if line.startswith('Running '):
                     # if not for the repeated key, we could have this in one line as a comprehension
                     key = line.removeprefix("Running '").split(maxsplit=1)[0]
