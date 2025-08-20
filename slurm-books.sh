@@ -37,7 +37,7 @@
 #SBATCH --mail-user=timothy.prescott@und.edu
 
 # megabytes needed, default is 5000
-#SBATCH --mem 6000
+#SBATCH --mem 7000
 
 # load required modules here
 #module load apptainer
