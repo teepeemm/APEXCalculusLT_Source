@@ -657,6 +657,7 @@ def compilewith(commands: Union[str, Literal[False]] =False) -> int:
 latexmk_commands = {
     'biber': 'B',
     'bibtex': 'b',
+    'makeglossaries': 'G',
     'makeindex': 'I',
     'lualatex': 'L',
     'luatex': 'l',
