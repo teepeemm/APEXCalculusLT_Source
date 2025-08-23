@@ -4,8 +4,11 @@ This chapter explores completely different relationships between vectors and int
 
 Our upcoming work with integration will benefit from a review. We are not concerned here with techniques of integration, but rather what an integral ``does'' and how that relates to the notation we use to describe it.
 
-% adobe treats this as a section
-\subsection{Integration Review}
+\bgroup
+% make a section titles styled like a subsection, so that validation can pass
+\titleformat{\section}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\section*{Integration Review}
+\egroup
 
 Recall from \autoref{sec:iterated_integrals} that when $R$ is a region in the $x$-$y$ plane, $ \iint_R\dd A$ gives the area of the region $R$. The integral symbols are ``elongated esses'' meaning ``sum'' and $\dd A$ represents ``a small amount of area.'' Taken together, $\iint_R \dd A$ means ``sum up, over $R$, small amounts of area.'' This sum then gives the total area of $R$. We use two integral symbols since $R$ is a two-dimensional region.
 
