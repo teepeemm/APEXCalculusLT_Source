@@ -4,7 +4,11 @@
 \pagestyle{plain} % doesn't take?
 \thispagestyle{empty}
 
-\subsection{A Note on Using this Text}
+\bgroup
+% make sections titles styled like subsections in the preface
+\titleformat{\section}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+\section*{A Note on Using this Text}
 
 Thank you for reading this short preface. Allow us to share a few key points about the text so that you may better understand what you will find beyond this page.
 
@@ -19,7 +23,7 @@ Printing the entire text as one volume makes for a large, heavy, cumbersome book
 
 A result of this splitting is that sometimes material is referenced that is not contained in the present text. The context should make it clear whether the ``missing'' material comes before or after the current portion. Downloading the appropriate pdf, or the entire \emph{\apex\ Calculus LT} pdf, will give access to these topics.
 
-\subsection{For Students: How to Read this Text}
+\section*{For Students: How to Read this Text}
 
 Mathematics textbooks have a reputation for being hard to read. High-level mathematical writing often seeks to say much with few words, and this style often seeps into texts of lower-level topics. This book was written with the goal of being easier to read than many other calculus textbooks, without becoming too verbose. 
 
@@ -48,11 +52,11 @@ All of these sites are completely free (although some will ask you to donate).  
 \youtubeVideo{ILNfpJTZLxk}{Practical Advice for Those Taking College Calculus}
 
 
-\subsection{Thanks from Greg Hartman}
+\section*{Thanks from Greg Hartman}
 
 There are many people who deserve recognition for the important role they have played in the development of this text. First, I thank Michelle for her support and encouragement, even as this ``project from work'' occupied my time and attention at home. Many thanks to Troy Siemers, whose most important contributions extend far beyond the sections he wrote or the 227 figures he coded in Asymptote for 3D interaction.  He provided incredible support, advice and encouragement for which I am very grateful. My thanks to Brian Heinold and Dimplekumar Chalishajar for their contributions and to Jennifer Bowen for reading through so much material and providing great feedback early on. Thanks to Troy, Lee Dewald, Dan Joseph, Meagan Herald, Bill Lowe, John David, Vonda Walsh, Geoff Cox, Jessica Libertini and other faculty of VMI who have given me numerous suggestions and corrections based on their experience with teaching from the text. (Special thanks to Troy, Lee \& Dan for their patience in teaching Calc III while I was still writing the Calc III material.) Thanks to Randy Cone for encouraging his tutors of VMI's Open Math Lab to read through the text and check the solutions, and thanks to the tutors for spending their time doing so. A very special thanks to Kristi Brown and Paul Janiczek who took this opportunity far above \& beyond what I expected, meticulously checking every solution and carefully reading every example. Their comments have been extraordinarily helpful. I am also thankful for the support provided by Wane Schneiter, who as my Dean provided me with extra time to work on this project. I am blessed to have so many people give of their time to make this book better.
 
-\subsection{\apex\ --- Affordable Print and Electronic teXts}
+\section*{\apex\ --- Affordable Print and Electronic teXts}
 
 \apex\ is a consortium of authors  who collaborate to produce high-quality, low-cost textbooks. The current textbook-writing paradigm is facing a potential revolution as desktop publishing and electronic formats increase in popularity. However, writing a good textbook is no easy task, as the time requirements alone are substantial. It takes countless hours of work to produce text, write examples and exercises, edit and publish. Through collaboration, however, the cost to any individual can be lessened, allowing us to create texts that we freely distribute electronically and sell in printed form for an incredibly low cost. Having said that, nothing is entirely free; someone always bears some cost. This text ``cost'' the authors of this book their time, and that was not enough. \emph{\apex\ Calculus} would not exist had not the Virginia Military Institute, through a generous Jackson-Hope grant, given the lead author significant time away from teaching so he could focus on this text.
 
@@ -64,7 +68,7 @@ You can learn more at \texttt{\href{http://www.vmi.edu/APEX}{www.vmi.edu/APEX}}.
 
 ~\hfill Greg Hartman
 
-\subsection{Creating \apex~LT}
+\section*{Creating \apex~LT}
 
 Starting with the source at \url{https://github.com/APEXCalculus},
 faculty at the University of North Dakota made several substantial changes to create \apex\ Late Transcendentals.  The most obvious change was to rearrange the text to delay proving the derivative of transcendental functions until Calculus 2.  UND added Sections \ref{sec:inv_funcs} and \ref{sec:exp_log}, adapted several sections from other resources, created the prerequisite sections, included links to videos and Geogebra, and added several examples and exercises.  In the end, every section had some changes (some more substantial than others), resulting in a document that is about 10\% longer. The source files can now be found at\iflatexml\ \else\\\fi
@@ -80,7 +84,7 @@ to Paul Dawkins for allowing us to use portions of his online math notes from \t
 The work on Calculus III was partially supported by the NDUS OER Initiative.
 
 
-\subsection{Electronic Resources}
+\section*{Electronic Resources}
 
 A distinctive feature of \apex\ is interactive, 3D graphics in the .pdf version. Nearly all graphs of objects in space can be rotated, shifted, and zoomed in/out so the reader can better understand the object illustrated. 
 
@@ -108,10 +112,13 @@ The QR code to the right will take you to that page.
 Additionally, a web version of the book is available at \url{https://sites.und.edu/timothy.prescott/apex/web/}.  While we have striven to make the pdf accessible for non-print formats, html is far better in this regard.
 \fi
 
+\egroup
+% restore sections styled like sections
 
 \restoregeometry
 
-\iffalse
+
+\endinput
 
 The rest of this file is commented out.
 
@@ -475,5 +482,3 @@ e up everything.&quot; AmericInn sign in Grand Forks, ND</em></font></div>
 </html>
 
 --_000_ek6uw3t7hsit4k5e9q11wp9b1478611124428emailandroidcom_--
-
-\fi
