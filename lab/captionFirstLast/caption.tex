@@ -1,0 +1,96 @@
+\DocumentMetadata{lang=en,tagging=on,pdfstandard=ua-2,
+  tagging-setup={math/setup=mathml-SE}}
+\documentclass[11pt]{article}
+
+\usepackage{caption}
+
+\RemoveFromHook{begindocument}[latex-lab-testphase-float]
+\makeatletter
+\ExplSyntaxOn
+\socket_new_plug:nnn{tagsupport/parbox/before}{caption}
+  {   
+   \tagpdfparaOn %restart para tagging
+   \tl_if_empty:NTF\@current@float@struct
+    {     
+     \tag_struct_begin:n{tag=Caption,firstkid}
+    }
+    {
+     \tag_struct_begin:n{tag=Caption,parent=\@current@float@struct,firstkid}
+    } 
+  }
+\socket_new_plug:nnn{tagsupport/parbox/after}{caption}
+  {
+   \tag_struct_end:   
+  }
+\l@addto@macro\caption@beginex@hook{%
+  \tagpdfparaOff %leavevmode in parbox should not start paragraph structure
+  \AssignSocketPlug{tagsupport/parbox/before}{caption}
+  \AssignSocketPlug{tagsupport/parbox/after}{caption}}
+\ExplSyntaxOff
+\makeatother
+\usepackage{hyperref} 
+
+\captionsetup{labelfont=bf,textfont=it,format=hang}
+ \captionsetup[figure]{name={Fig.}}
+\captionsetup[table]{name={Table}}
+
+\title{Title}
+\begin{document}
+
+\section{section}
+
+\begin{minipage}{4cm}
+some table
+\captionof{table}{a table}
+\end{minipage}
+
+\begin{figure}
+
+some figure
+
+\caption{a longer text over than on line and even more longer
+longer longer longer longer}\label{test}
+
+more text
+\end{figure}
+
+\ref{test}
+\end{document} 
+
+\documentclass{article}
+\usepackage{caption}
+
+\RemoveFromHook{begindocument}[latex-lab-testphase-float]
+\makeatletter
+\ExplSyntaxOn
+\socket_new_plug:nnn{tagsupport/parbox/before}{caption}
+  {   
+   \tagpdfparaOn %restart para tagging
+   \tl_if_empty:NTF\@current@float@struct
+    {     
+     \tag_struct_begin:n{tag=Caption,firstkid}
+    }
+    {
+     \tag_struct_begin:n{tag=Caption,parent=\@current@float@struct,firstkid}
+    } 
+  }
+\socket_new_plug:nnn{tagsupport/parbox/after}{caption}
+  {
+   \tag_struct_end:   
+  }
+\l@addto@macro\caption@beginex@hook{%
+  \tagpdfparaOff %leavevmode in parbox should not start paragraph structure
+  \AssignSocketPlug{tagsupport/parbox/before}{caption}
+  \AssignSocketPlug{tagsupport/parbox/after}{caption}}
+\ExplSyntaxOff
+\makeatother
+\usepackage{hyperref} 
+\title{Title}
+\begin{document}
+
+\section*{Section}
+
+\begin{minipage}{4cm}\captionof{table}{Caption first}some table\end{minipage}
+
+\begin{minipage}{4cm}some figure\captionof{figure}{Caption last}\end{minipage}
+\end{document} 
