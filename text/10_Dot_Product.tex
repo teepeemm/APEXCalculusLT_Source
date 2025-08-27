@@ -78,9 +78,9 @@ where $\theta$, $0\leq\theta\leq \pi$, is the angle between $\vec u$ and $\vec v
 When $\theta$ is an acute angle (i.e., $0\leq \theta <\pi/2$), $\cos \theta$ is positive; when $\theta = \pi/2$, $\cos \theta = 0$; when $\theta$ is an obtuse angle ($\pi/2<\theta \leq \pi$), $\cos \theta$ is negative. Thus the sign of the dot product gives a general indication of the angle between the vectors, illustrated in \autoref{fig:dotpsign}.
 
 \noindent\begin{minipage}[t]{\linewidth}\noindent%
-\captionsetup{type=figure}%
+%\captionsetup{type=figure}%
 \centering
-\begin{tikzpicture}[alt={Panels: (1) acute θ between u and v, u·v > 0; (2) right angle θ = π/2, u·v = 0; (3) obtuse θ, u·v < 0.},>=stealth,thick,scale=1.25]
+\begin{tikzpicture}[alt={Vectors u and v with common tail and angle θ between them in three situations: (1) acute θ, u·v > 0; (2) right angle θ = π/2, u·v = 0; (3) obtuse θ, u·v < 0.},>=stealth,thick,scale=1.25]
 	\begin{scope}
 		\draw[->] (0,0) -- (1,0) node [pos=.5,below]
 		 {\scriptsize $\vec u\cdot \vec v >0$} node [right] {\scriptsize $\vec u$};
@@ -103,8 +103,7 @@ When $\theta$ is an acute angle (i.e., $0\leq \theta <\pi/2$), $\cos \theta$ is 
 		\draw[rotate=67.5] (.45,0) node {\scriptsize $\theta$};
 	\end{scope}
 \end{tikzpicture}
-\caption{Illustrating the relationship between the angle between vectors and the sign of their dot product.}
-\label{fig:dotpsign}
+\captionof{figure}{\label{fig:dotpsign}Illustrating the relationship between the angle between vectors and the sign of their dot product.}%
 \end{minipage}
 
 We \emph{can} use \autoref{thm:dot_product} to compute the dot product, but generally this theorem is used to find the angle between known vectors (since the dot product is generally easy to compute). To this end, we rewrite the theorem's equation as\vspace{-.3\baselineskip}
@@ -253,8 +252,8 @@ Using trigonometry, we can state that
 
 We also know that $\vec w$ is parallel to to $\vec v$\,; that is, the direction of $\vec w$ is the direction of $\vec v$, described by the unit vector $\frac{1}{\norm{\vec v}}\vec v$. The vector $\vec w$ is the vector in the direction $\frac{1}{\norm{\vec v}}\vec v$ with magnitude $\norm{\vec u}\cos \theta$:
 \begin{align*}
-\vec w &= \Bigl(\norm{\vec u}\cos\theta \Bigr)\frac{1}{\norm{\vec v}}\vec v.
-\intertext{Replace $\cos\theta$ using \autoref{thm:dot_product}:}
+\vec w &= \Bigl(\norm{\vec u}\cos\theta \Bigr)\frac{1}{\norm{\vec v}}\vec v.\\
+\intertext{Replace \(\cos\theta\) using \autoref{thm:dot_product}:}
 			&= \left(\norm{\vec u}\frac{\vec u\cdot\vec v}{\norm{\vec u}\norm{\vec v}}\right)\frac{1}{\norm{\vec v}} \vec v\\ 
 			&= \frac{\vec u\cdot\vec v}{\norm{\vec v}^2}\vec v.
 			\intertext{Now apply \autoref{thm:dot_product_properties}.}
