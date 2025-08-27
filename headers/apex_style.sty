@@ -468,8 +468,9 @@
 %}
 
 
-% todo bugfix see https://github.com/latex3/tagging-project/issues/924
 \ExplSyntaxOn
+
+% todo bugfix see https://github.com/latex3/tagging-project/issues/924
 \tl_new:N \l__pgf_tmpa_tl
 \socket_set_plug:nnn{tagsupport/tikz/picture/end}{alt}
   {
@@ -503,4 +504,27 @@
    \tag_struct_end:
    \tag_mc_begin_pop:n{}
   }
+
+% todo bugfix see https://github.com/latex3/tagging-project/issues/720
+\RemoveFromHook{begindocument}[latex-lab-testphase-float]
+\socket_new_plug:nnn{tagsupport/parbox/before}{caption}
+  {   
+   \tagpdfparaOn %restart para tagging
+   \tl_if_empty:NTF\@current@float@struct
+    {     
+     \tag_struct_begin:n{tag=Caption,firstkid}
+    }
+    {
+     \tag_struct_begin:n{tag=Caption,parent=\@current@float@struct,firstkid}
+    } 
+  }
+\socket_new_plug:nnn{tagsupport/parbox/after}{caption}
+  {
+   \tag_struct_end:   
+  }
+\l@addto@macro\caption@beginex@hook{%
+  \tagpdfparaOff %leavevmode in parbox should not start paragraph structure
+  \AssignSocketPlug{tagsupport/parbox/before}{caption}
+  \AssignSocketPlug{tagsupport/parbox/after}{caption}}
+
 \ExplSyntaxOff
