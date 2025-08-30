@@ -491,15 +491,13 @@ def getcommandline(args) -> Union[list[str], list[list[str]]]:
         return getlatexmlpostcommandline('standalone','standaloneweb')
     if args.internet or args.standalonen:
         raise NotImplementedError('args.internet does not need a command line')
-    if args.instructor:
-        return ['latexmk','-lualatex','-interaction=batchmode','Answers']
     if args.epub:
         return getlatexmlepubcommandline()
     if args.standalonee:
         return getlatexmlepubcommandline('standalone','standaloneweb')
-#    if args.calculus == 2:
-#        return ['latexmk','-g','-lualatex','-interaction=batchmode','Calculus']
     # see https://tex.stackexchange.com/a/741777/107497
+    if args.instructor:
+        return ['max_strings=1000000 latexmk -g -lualatex -interaction=batchmode Answers']
     return ['max_strings=2000000 hash_extra=2000000 latexmk -g -lualatex -interaction=batchmode Calculus']
 
 def getlog(args) -> str:
