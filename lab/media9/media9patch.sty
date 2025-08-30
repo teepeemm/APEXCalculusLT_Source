@@ -1,0 +1,136 @@
+%%%%%%%%%%%%%%%%%%%%%% /pdfmanagement-testphase %%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% media9fix.sty
+%
+% see https://github.com/latex3/tagging-project/issues/868
+% multimedia inclusion package
+%
+% Copyright 2012--\today, Alexander Grahn modified by Tim Prescott
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% media9 implements Adobe-Reader 9 and X compatible RichMedia
+% annotation for multimedia (Flash & 3D) inclusion according to:
+%
+% Adobe Supplement to ISO 32000, BaseVersion 1.7, ExtensionLevel 3
+%
+% Supported workflows:
+%
+%   pdflatex, lualatex
+%   latex-->dvips-->ps2pdf or Distiller
+%   latex-->dvipdfmx
+%   xelatex
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+% This package adjusts media 9 so that my pdfs including prc files will validate
+% as 1.7/UA-1 and 2.0/UA-2.  Further adjustments will probably be needed for 
+% other workflows (for example, I have `noplaybutton` and have only worked with LuaLaTeX)
+
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License.
+%
+% The latest version of this license is in
+%   http://mirrors.ctan.org/macros/latex/base/lppl.txt
+%
+% media9 has the LPPL maintenance status `maintained'.
+%
+% The Current Maintainer of media9 is A. Grahn.
+
+
+\NeedsTeXFormat{LaTeX2e}[2022-06-01]
+\RequirePackage[noplaybutton]{media9}
+\ProvidesExplPackage{media9fix}{\g@mix@date@tl}{\g@mix@version@tl}
+{acrobat-9/X compatible media}
+
+\RequirePackage{etoolbox}
+
+\RemoveFromHook{shipout/background}[pdfbase]
+
+\cs_generate_variant:Nn \__tag_struct_prop_gput:nnn { Vne }
+
+%\tagpdfsetup{role/new-attribute={Annot}{/TU}}
+%\tagpdfsetup{role/new-attribute={Annot}{/Alt}}
+%\tagpdfsetup{role/new-attribute={Annot}{/TU}}
+%\tagpdfsetup{role/new-attribute={Annot}{/TU}}
+
+\AddToHook{shipout/background}{
+  % workaround for curious AR bug (pdf annot or link placed on
+  % OCG remains active although OCG is hidden)
+  % This can be fixed by placing a dumb (non-interactive) Widget dummy
+  % somewhere on the page.
+  \bool_if:NT\g_pbs_ocgbase_loaded_bool{
+    \put(1,-1){
+%      \tag_struct_begin:n{tag=Form}
+      \tag_mc_begin:n{artifact} % pdfstandard UA: artifact <=> /F 6 has hidden flag 2
+      \tl_if_exist:NF\g_pbs_blank_xform_tl{
+        \hbox_set:Nn\l_tmpa_box{\phantom{\rule{1pt}{1pt}}}
+        \pbs_pdfxform:nnnnn{0}{1}{}{}{\l_tmpa_box}
+        \tl_const:Ne\g_pbs_blank_xform_tl{\pbs_pdflastxform:}
+      }
+      \pbs_pdfannot:nnnn{3bp}{\c_zero_dim}{3bp}{
+        /Ff~65537/FT/Btn/Subtype/Widget/F~6 % set Hidden Flag
+%        /Ff~65537/FT/Btn/Subtype/Widget/F~4
+        /Contents~(dummy)
+%        /A~<</S/ResetForm>>% to make pdf.js happy, but invalid for PDF A-4F:
+        % Widget cannot contain A (6.4.1), ResetForm action forbidden (6.6.1)
+        /AP~<</N~<</On~\g_pbs_blank_xform_tl>>>>/AS/On
+        /T~(pbs@ARFix@\int_use:N\g_pbs_page_int)
+%        /StructParent~\tag_struct_parent_int:
+      }
+%      \exp_args:Nee \tag_struct_insert_annot:nn {\pdfannot_box_ref_last: }{ \tag_struct_parent_int: }
+%      \tag_struct_end:
+      \tag_mc_end:
+    }
+  }
+}
+
+%\exp_args:Nc\show{includemedia~code}
+%\show\mix_embedasset:n
+
+\AtBeginDocument{
+
+%    \tag_mc_begin:n{artifact}
+%    \tag_struct_begin:n{tag=Form}
+\ifpatchable{\use:c{includemedia~code}}{\mix_pdfannot:nnnn~{\g_mix_wd_tl~}{\g_mix_ht_tl~}{\g_mix_dp_tl~}}{1TRUE}{1FALSE}
+
+\ifpatchable{\use:c{includemedia~code}}{/RichMediaContent~}{2aTRUE}{2aFALSE}
+\ifpatchable{\use:c{includemedia~code}}{/RichMediaContent~\l_mix_content_tl}{2bTRUE}{2bFALSE}
+\ifpatchable{\use:c{includemedia~code}}{l_mix_content_tl}{2cTRUE}{2cFALSE}
+%      /StructParent~\tag_struct_parent_int:
+
+%    \exp_args:Nee \tag_struct_insert_annot:nn {\pdfannot_box_ref_last: }{ \tag_struct_parent_int: }
+%    \tag_struct_end:
+%    \tag_mc_end:
+\ifpatchable{\use:c{includemedia~code}}{\tl_if_empty:NF~\g_mix_usrlabel_tl}{3TRUE}{3FALSE}
+
+    % 1.7: artifact in tagged content.  2.0: size 0 must be artifact
+%    \pdf_version_compare:NnTF<{2.0}
+%      {\tag_struct_begin:n{tag=Form}}
+%      {\tag_mc_begin:n{artifact}}
+	% something in here is violating A-4F 6.2.5(1) that forbids the TR key in a graphics state parameter dictionary
+\ifpatchable{\use:c{includemedia~code}}{\mix_pdfannot:nnnn~{0pt}{0pt}{0pt}}{4TRUE}{4FALSE}
+
+\ifpatchable{\use:c{includemedia~code}}{/AA~<</PO~\mix_pdflastobj:~/PV~\mix_pdflastobj:~>>}{5TRUE}{5FALSE}
+%      /Contents~(media~embedded~by~media9~[\g_mix_version_tl~(\g_mix_date_tl)])
+%%      /StructParent~\tag_struct_parent_int:
+%      /TU~(media~embedded~by~media9~[\g_mix_version_tl~(\g_mix_date_tl)])
+
+%    \pdf_version_compare:NnTF<{2.0}
+%      {
+%        \exp_args:Nee \tag_struct_insert_annot:nn {\pdfannot_box_ref_last: }{ \tag_struct_parent_int: }
+%        \tag_struct_end:
+%      }
+%      {\tag_mc_end:}
+\ifpatchable{\use:c{includemedia~code}}{\mix_appendtofields:n~{\mix_pdflastann:~}}{6TRUE}{6FALSE}
+
+
+        % to pass A-4F 6.9, file specification dictionary needs (1) /Subtype~mimetype and (4) /AFRelationship~Unspecified
+        % (or some other AFR value from https://pdfa.org/how-to-get-started-with-pdf-2-0/#Associated_Files)
+        % but I can't get either of those to work in any of the places I've tried
+\ifpatchable{\mix_embedasset:n}{/EF~<</F~\tl_use:c~{fileEmb_\file_mdfive_hash:n~{\l_mix_file_tl~}}>>}{7TRUE}{7FALSE}
+
+}
