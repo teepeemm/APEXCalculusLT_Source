@@ -652,42 +652,30 @@ def compilewith(commands: Union[str, Literal[False]] =False) -> int:
     local_failed_compilations += runcommands(args,commands)
     return local_failed_compilations
 
-latexmk_commands = {
-    'biber': 'B',
-    'bibtex': 'b',
-    'makeglossaries': 'G',
-    'makeindex': 'I',
-    'lualatex': 'L',
-    'luatex': 'l',
-    'pdflatex': 'P',
-    'pdftex': 'p',
-    'latex': 'T',
-    'tex': 't',
-    'xelatex': 'X',
-    'xetex': 'x',
-}
-
 def runcommands(args, commands: Union[str, Literal[False]]) -> int:
     newsuffix = getsuffix(args)
     log = getlog(args)
     local_failed_compilations = 0
     latexmk_used = ''
+    commandline = getcommandline(args)
+    print('commandline is:',commandline)
+    if args.justprint:
+        print('now run')
+        return local_failed_compilations
     try:
-        commandline = getcommandline(args)
-        print('commandline is:',commandline)
-        #breakpoint()
-        if args.justprint:
-            print('now run')
         # check_call(shell=False) tries to interpret the first thing as the program or file,
         # and fails with latexmk.  We use shell=True.  See file lab/maxstrings/maxstrings.py
-        elif len(commandline) == 1:
+        if args.calculus or args.calculus==0:
+            try:
+                shutil.copy(f'Calculus{args.calculus}.idx', 'Calculus.idx')
+            except FileNotFoundError:
+                pass
+        if len(commandline) == 1:
             stdout = subprocess.check_output(commandline,shell=True)
-            latexmk_used = ', '.join((line.removeprefix("Running '").split(maxsplit=1)[0]
+            latexmk_used = ', '.join( (line.removeprefix("Running '").split(maxsplit=1)[0]
                 for line in stdout.decode().split('\n')
-                    if line.startswith('Running ')))
+                    if line.startswith('Running ')) )
         else:
-#            assert isinstance(commandline, list)
-#            assert isinstance(commandline, Sequence)
             subprocess.check_call(commandline,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)  # type: ignore
     except Exception as exception:
         print(f'Exception caught: {type(exception)}; {exception}', file=sys.stderr)
@@ -702,6 +690,8 @@ def runcommands(args, commands: Union[str, Literal[False]]) -> int:
         print(loginfomessage, file=sys.stderr)
         traceback.print_exc()
     finally:
+        if args.calculus or args.calculus==0:
+            shutil.copy('Calculus.idx', f'Calculus{args.calculus}.idx')
         shutil.copy(log,'logs/compilation'+newsuffix+'.log')
     time = "{0[0]:02d}:{0[1]:02d}:{0[2]:02d}".format(getTime())
     if commands:
