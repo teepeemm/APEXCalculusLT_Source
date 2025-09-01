@@ -1,15 +1,32 @@
-\DocumentMetadata{lang=en,tagging=on,pdfstandard=ua-2,
-  tagging-setup={math/setup=mathml-SE}
+\DocumentMetadata{lang=en,tagging=on,
+%pdfstandard=ua-1,pdfversion=1.7,tagging-setup={math/alt/use}
+pdfstandard=ua-2,tagging-setup={math/setup=mathml-SE}
 }
 \documentclass{article}
 \usepackage{amsmath}
 \title{Title}
+\ExplSyntaxOn
+\newcommand { \intertextmathbegin } { \pdf_version_compare:NnF<{2.0} { \tag_struct_begin:n{tag=Formula} } }
+\newcommand { \intertextmathend } { \pdf_version_compare:NnF<{2.0} { \tag_struct_end: } }
+\ExplSyntaxOff
 \begin{document}
 Before
 \begin{gather*}
 a
-\intertext{during: \(b\)}
+%\intertext{during: \tagstructbegin{tag=Formula}\(b\)\tagstructend}
+\intertext{during: \intertextmathbegin\(b\)\intertextmathend}
 c
 \end{gather*}
 after
 \end{document}
+
+This could certainly be done better (I'm not sure which sockets and hooks to look for), but the following:
+results in the tags `Formula > text-unit > P > Formula > math > mi` and validates as UA-2.
+
+Without the version check, 1.7 results in the tag `Formula > text-unit > P` containing the text "during:b" and an adjacent (empty?) Formula, so that VeraPDF complains "Formula structure element neither has an alternate description nor a replacement text".
+
+Is this the proper correction?  Is there a socket or hook that would be useful in this case?
+
+1.7: Formula > text-unit > P > (during:b)
+Formula structure element neither has an alternate description nor a replacement text
+2.0: Formula > text-unit > P > Formula > math > mi
