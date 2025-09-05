@@ -301,7 +301,7 @@
 
 
 \makeatletter
-% \mfigure[graphicsoptions]{offset}{caption}{label}{file}
+% \mfigure[graphicsoptions]{marginaliaoptions}{caption}{label}{file}
 \newcommand{\mfigure}[5][]{%
 	\mnote@pex{\iffalse}{#2}{%
 		\centering\myincludegraphics[#1]{#5}%
@@ -310,7 +310,7 @@
 	}%
 }
 
-% \mtable[offset=0]{caption}{label}{contents}
+% \mtable[marginaliaoptions]{caption}{label}{contents}
 \newcommand{\mtable}[4][]{%
 	\mnote@pex{\iffalse}{#1}{%
 		\centering\small#4%\captionsetup{type=figure}%
@@ -318,7 +318,7 @@
 	}%
 }
 
-% \mnote[offset=0]{contents}
+% \mnote[marginaliaoptions]{contents}
 \newcommand*{\mnote}[2][]{%
 	\mnote@pex{\iftrue}{#1}{#2}%
 }
