@@ -77,7 +77,10 @@ where $\theta$, $0\leq\theta\leq \pi$, is the angle between $\vec u$ and $\vec v
 
 When $\theta$ is an acute angle (i.e., $0\leq \theta <\pi/2$), $\cos \theta$ is positive; when $\theta = \pi/2$, $\cos \theta = 0$; when $\theta$ is an obtuse angle ($\pi/2<\theta \leq \pi$), $\cos \theta$ is negative. Thus the sign of the dot product gives a general indication of the angle between the vectors, illustrated in \autoref{fig:dotpsign}.
 
-\noindent\begin{minipage}[t]{\linewidth}\noindent%
+\noindent\begin{minipage}[t]{\linewidth}%
+% todo bugfix see https://github.com/latex3/tagging-project/issues/986
+\tagstructbegin{tag=Sect}%
+\noindent%
 %\captionsetup{type=figure}%
 \centering
 \begin{tikzpicture}[alt={Vectors u and v with common tail and angle θ between them in three situations: (1) acute θ, u·v > 0; (2) right angle θ = π/2, u·v = 0; (3) obtuse θ, u·v < 0.},>=stealth,thick,scale=1.25]
@@ -104,6 +107,7 @@ When $\theta$ is an acute angle (i.e., $0\leq \theta <\pi/2$), $\cos \theta$ is 
 	\end{scope}
 \end{tikzpicture}
 \captionof{figure}{\label{fig:dotpsign}Illustrating the relationship between the angle between vectors and the sign of their dot product.}%
+\tagstructend
 \end{minipage}
 
 We \emph{can} use \autoref{thm:dot_product} to compute the dot product, but generally this theorem is used to find the angle between known vectors (since the dot product is generally easy to compute). To this end, we rewrite the theorem's equation as\vspace{-.3\baselineskip}
@@ -253,7 +257,7 @@ Using trigonometry, we can state that
 We also know that $\vec w$ is parallel to to $\vec v$\,; that is, the direction of $\vec w$ is the direction of $\vec v$, described by the unit vector $\frac{1}{\norm{\vec v}}\vec v$. The vector $\vec w$ is the vector in the direction $\frac{1}{\norm{\vec v}}\vec v$ with magnitude $\norm{\vec u}\cos \theta$:
 \begin{align*}
 \vec w &= \Bigl(\norm{\vec u}\cos\theta \Bigr)\frac{1}{\norm{\vec v}}\vec v.\\
-\intertext{Replace \(\cos\theta\) using \autoref{thm:dot_product}:}
+\intertext{Replace \intertextmathbegin\(\cos\theta\)\intertextmathend{} using \autoref{thm:dot_product}:}
 			&= \left(\norm{\vec u}\frac{\vec u\cdot\vec v}{\norm{\vec u}\norm{\vec v}}\right)\frac{1}{\norm{\vec v}} \vec v\\ 
 			&= \frac{\vec u\cdot\vec v}{\norm{\vec v}^2}\vec v.
 			\intertext{Now apply \autoref{thm:dot_product_properties}.}
