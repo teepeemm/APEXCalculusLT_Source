@@ -639,6 +639,10 @@ def compilewith(commands: Union[str, Literal[False]] =False) -> int:
     writeoptions(args)
     if args.quit:
         return local_failed_compilations
+    try:
+        shutil.copy(f'Calculus{args.calculus}.idx', 'Calculus.idx')
+    except FileNotFoundError:
+        pass
     if args.instructor:
         compilewith('-qsc0')
     elif args.internet:
@@ -665,11 +669,6 @@ def runcommands(args, commands: Union[str, Literal[False]]) -> int:
     try:
         # check_call(shell=False) tries to interpret the first thing as the program or file,
         # and fails with latexmk.  We use shell=True.  See file lab/maxstrings/maxstrings.py
-        if args.calculus or args.calculus==0:
-            try:
-                shutil.copy(f'Calculus{args.calculus}.idx', 'Calculus.idx')
-            except FileNotFoundError:
-                pass
         if len(commandline) == 1:
             stdout = subprocess.check_output(commandline,shell=True)
             latexmk_used = ', '.join( (line.removeprefix("Running '").split(maxsplit=1)[0]
@@ -690,9 +689,8 @@ def runcommands(args, commands: Union[str, Literal[False]]) -> int:
         print(loginfomessage, file=sys.stderr)
         traceback.print_exc()
     finally:
-        if args.calculus or args.calculus==0:
-            shutil.copy('Calculus.idx', f'Calculus{args.calculus}.idx')
         shutil.copy(log,'logs/compilation'+newsuffix+'.log')
+        shutil.copy('Calculus.idx', f'Calculus{args.calculus}.idx')
     time = "{0[0]:02d}:{0[1]:02d}:{0[2]:02d}".format(getTime())
     if commands:
         message = 'Command line: '+commands+' finished at '+time
