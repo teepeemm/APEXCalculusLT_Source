@@ -94,7 +94,7 @@ A force of 20 lb stretches a spring from a natural length of 7 inches to a lengt
 \solution
 In many ways, we are not at all concerned with the actual length of the spring, only with the amount of its change. Hence, we do not care that 20 lb of force stretches the spring to a length of 12 inches, but rather that a force of 20 lb stretches the spring by 5 in. This is illustrated in \autoref{fig:spring1}; we only measure the change in the spring's length, not the overall length of the spring.
 
-{\centering
+\begin{center}\tagstructbegin{tag=Sect}
 \begin{tikzpicture}[alt={Two views: spring with block; first block at x≈1 on 0<x<6 scale, second after stretch at x≈6; arrow F right.}]
  \begin{scope}[xscale=.2,yscale=.5,shift={(.5,0)}]
   \draw [thick,draw={\colorone}] (-1,.5)--(-.5,.5)--(0,0);
@@ -141,8 +141,8 @@ In many ways, we are not at all concerned with the actual length of the spring, 
 \end{tikzpicture}
 \captionsetup{type=figure}
 \caption{Illustrating the important aspects of stretching a spring in computing work in \autoref{ex_spring1}.}
-\label{fig:spring1}
-}% end centering
+\label{fig:spring1}\tagstructend
+\end{center}
 
 Converting the units of length to feet, we have
 \[F(5/12) = (5/12)k = 20\ \text{lb}.\]

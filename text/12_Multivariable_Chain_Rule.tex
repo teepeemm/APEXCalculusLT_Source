@@ -145,7 +145,7 @@ We can extend the Chain Rule to include the situation where $z$ is a function of
 \end{theorem}
 
 The proof of Part II follows quickly from Part I, because $\frac\partial{\partial t_i}$ means that we hold the other variables constant and we are back to the one variable case already proved.  A helpful way to remember the derivatives is to examine the following chart\\
-\noindent\begin{minipage}[t]{\linewidth}\noindent%
+\noindent\begin{minipage}[t]{\linewidth}\tagstructbegin{tag=Sect}\noindent%
 \captionsetup{type=figure}%
 \centering
 \begin{tikzpicture}[alt={Chain‑rule diagram: gradient node f atop, middle layer variables x_1, x_2, .. x_m, bottom layer parameters t_1, t_2, ..t_n; every path f = x_j to t_i gives product partial f/ partial x_m * partial x_m/ partial t_i.}]
@@ -162,7 +162,7 @@ The proof of Part II follows quickly from Part I, because $\frac\partial{\partia
  (x1)--(t1)(x1)--(t2)(x1)--(tn)
  (x2)--(t1)(x2)--(t2)(x2)--(tn)
  (xm)--(t1)(xm)--(t2)(xm)--(tn);
-\end{tikzpicture}
+\end{tikzpicture}\tagstructend
 \end{minipage}\\
 Each possible path from $f$ to the variable $t_i$ contributes a term to the sum, and each line segment in a path contributes a factor to that term.
 

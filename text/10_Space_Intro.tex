@@ -112,7 +112,7 @@ The coordinate axes naturally define three planes (shown in \autoref{fig:coordpl
 \index{planes!coordinate plane}\index{planes!introduction}
 This, in fact, gives us an equation that describes this plane: $z=0$. Likewise, the $x$-$z$ plane is all points where the $y$-value is 0, characterized by $y=0$.
 
-\noindent\begin{minipage}[t]{\linewidth}\noindent%
+\noindent\begin{minipage}[t]{\linewidth}\tagstructbegin{tag=Sect}\noindent%
 \captionsetup{type=figure}%
 \flushinner{%
 \tagpdfsetup{table/header-rows={2}}
@@ -140,7 +140,7 @@ This, in fact, gives us an equation that describes this plane: $z=0$. Likewise, 
 \\
 the $x$-$y$ plane & the $y$-$z$ plane & the $x$-$z$ plane
 \end{tabular}}
-\caption{The coordinate planes.}\label{fig:coordplanes}
+\caption{The coordinate planes.}\label{fig:coordplanes}\tagstructend
 \end{minipage}
 
 % todo Tim this would look better if the bl-ue plane would not stop exactly at the z-axis and if the tip of the x-axis would stick out
@@ -209,7 +209,7 @@ Graph the following cylinders.
 \begin{enumerate}
 	\item We can view the equation $z=y^2$ as a parabola in the $y$-$z$ plane, as illustrated in \autoref{fig:space4a} (a). As $x$ does not appear in the equation, the rulings are lines through this parabola parallel to the $x$-axis, shown in (b). These rulings give a general idea as to what the surface looks like, drawn in (c).
 	
-{\centering
+\begin{center}\tagstructbegin{tag=Sect}
 \captionsetup{type=figure}%
 \tagpdfsetup{table/header-rows={2}}
 \begin{tabular}{ c c c }
@@ -235,12 +235,12 @@ Graph the following cylinders.
 3Droo=150}{.28\linewidth}{Blue ruled surface y = x^2}{figures/figspace4c_3D}
 \\(a) & (b) & (c)
 \end{tabular}
-\caption{Sketching the cylinder defined by $z=y^2$.}\label{fig:space4a}
-}% end centering
+\caption{Sketching the cylinder defined by $z=y^2$.}\label{fig:space4a}\tagstructend
+\end{center}
 	
 	\item		We can view the equation $x=\sin z$ as a sine curve that exists in the $x$-$z$ plane, as shown in \autoref{fig:space4b} (a). The rules are parallel to the $y$ axis as the variable $y$ does not appear in the equation $x=\sin z$; some of these are shown in part (b). The surface is shown in part (c) of the figure. 
 
-{\centering
+\begin{center}\tagstructbegin{tag=Sect}
 \captionsetup{type=figure}%
 \tagpdfsetup{table/header-rows={2}}
 \begin{tabular}{ c c c }
@@ -266,8 +266,8 @@ Graph the following cylinders.
 3Droo=150}{.28\linewidth}{Blue ruled surface z = sin x.}{figures/figspace4f_3D}
 \\(a) & (b) & (c)
 \end{tabular}
-\caption{Sketching the cylinder defined by $x=\sin z$.}\label{fig:space4b}
-}% end centering
+\caption{Sketching the cylinder defined by $x=\sin z$.}\label{fig:space4b}\tagstructend
+\end{center}
 \end{enumerate}
 \end{example}
 
@@ -400,7 +400,7 @@ Such an analysis can be made with each of the quadric surfaces. We give a sample
 
 \index{quadric surface!gallery|(}
 \noindent
-\begin{minipage}{\linewidth}
+\begin{minipage}{\linewidth}\tagstructbegin{tag=Sect}
 \lxAddClass{oneLineMinipage}
  \captionsetup{type=figure}%
  \noindent%
@@ -436,7 +436,7 @@ Such an analysis can be made with each of the quadric surfaces. We give a sample
   One variable in the equation of the elliptic paraboloid will be raised to the first power; above, this is the $z$ variable. The paraboloid will ``open'' in the direction of this variable's axis. Thus $x= y^2/a^2+z^2/b^2$ is an elliptic paraboloid that opens along the $x$-axis.\bigskip
 
   Multiplying the right hand side by $(-1)$ defines an elliptic paraboloid that ``opens'' in the opposite direction.\index{quadric surface!elliptic paraboloid}
- \end{minipage}
+ \end{minipage}\tagstructend
 \end{minipage}
 
 \vfill
@@ -445,7 +445,7 @@ Such an analysis can be made with each of the quadric surfaces. We give a sample
 
 % todo Tim this should all be in one line.  LaTeXML isn't doing that
 \noindent
-\begin{minipage}{\ifbool{latexml}{1.5}{}\linewidth}
+\begin{minipage}{\ifbool{latexml}{1.5}{}\linewidth}\tagstructbegin{tag=Sect}
 \lxAddClass{oneLineMinipage}
  \captionsetup{type=figure}%
  \noindent%
@@ -488,13 +488,13 @@ Such an analysis can be made with each of the quadric surfaces. We give a sample
  \bigskip
  \begin{minipage}{.75\linewidth}
   One can rewrite the equation as $z^2-x^2/a^2-y^2/{b^2} = 0$. The one variable with a positive coefficient corresponds to the axis that the cones ``open'' along. \index{quadric surface!elliptic cone}
- \end{minipage}
+ \end{minipage}\tagstructend
 \end{minipage}
 
 \clearpage
 
 \noindent
-\begin{minipage}{\linewidth}
+\begin{minipage}{\linewidth}\tagstructbegin{tag=Sect}
 \lxAddClass{oneLineMinipage}
  \captionsetup{type=figure}%
  \noindent%
@@ -535,7 +535,7 @@ Such an analysis can be made with each of the quadric surfaces. We give a sample
  \caption{\quad\textbf{Hyperbolic Paraboloid}\qquad$z=\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}$}
  \label{fig_hyperbolic_paraboloid}
  \bigskip
-  The parabolic traces will open along the axis of the one variable that is raised to the first power.\index{quadric surface!hyperbolic paraboloid}
+  The parabolic traces will open along the axis of the one variable that is raised to the first power.\index{quadric surface!hyperbolic paraboloid}\tagstructend
 \end{minipage}
 
 \vfill
@@ -543,7 +543,7 @@ Such an analysis can be made with each of the quadric surfaces. We give a sample
 \vfill
 
 \noindent
-\begin{minipage}{\linewidth}
+\begin{minipage}{\linewidth}\tagstructbegin{tag=Sect}
 \lxAddClass{oneLineMinipage}
  \captionsetup{type=figure}%
  \noindent%
@@ -574,13 +574,13 @@ Such an analysis can be made with each of the quadric surfaces. We give a sample
  \end{minipage}
  \caption{\quad\textbf{Ellipsoid}\qquad$\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2}=1$}
  \bigskip
-  If $a=b=c\neq0$, the ellipsoid is a sphere with radius $a$; compare to \autoref{idea:sphere}.\index{quadric surface!ellipsoid}\index{quadric surface!sphere}
+  If $a=b=c\neq0$, the ellipsoid is a sphere with radius $a$; compare to \autoref{idea:sphere}.\index{quadric surface!ellipsoid}\index{quadric surface!sphere}\tagstructend
 \end{minipage}
 
 \clearpage
 
 \noindent
-\begin{minipage}{\linewidth}
+\begin{minipage}{\linewidth}\tagstructbegin{tag=Sect}
 \lxAddClass{oneLineMinipage}
  \captionsetup{type=figure}%
  \noindent%
@@ -612,7 +612,7 @@ Such an analysis can be made with each of the quadric surfaces. We give a sample
  \caption{\quad\textbf{Hyperboloid of One Sheet}\qquad$\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}-\dfrac{z^2}{c^2}=1$}
  \label{fig_hyperboloid_one_sheet}
  \bigskip
-  The one variable with a negative coefficient corresponds to the axis along which the hyperboloid ``opens''.\index{quadric surface!hyperboloid of one sheet}
+  The one variable with a negative coefficient corresponds to the axis along which the hyperboloid ``opens''.\index{quadric surface!hyperboloid of one sheet}\tagstructend
 \end{minipage}
 
 \vfill
@@ -620,7 +620,7 @@ Such an analysis can be made with each of the quadric surfaces. We give a sample
 \vfill
 
 \noindent
-\begin{minipage}{\linewidth}
+\begin{minipage}{\linewidth}\tagstructbegin{tag=Sect}
 \lxAddClass{oneLineMinipage}
  \captionsetup{type=figure}%
  \noindent%
@@ -654,7 +654,7 @@ Such an analysis can be made with each of the quadric surfaces. We give a sample
  \bigskip
  \begin{minipage}{.75\linewidth}
   The one variable with a positive coefficient corresponds to the axis along which the hyperboloid ``opens''. In the case illustrated, when $\abs d<\abs c$, there is no trace in the plane $z=d$.\index{quadric surface!hyperboloid of two sheets}
- \end{minipage}
+ \end{minipage}\tagstructend
 \end{minipage}
 
 \index{quadric surface!gallery|)}

@@ -69,7 +69,7 @@ The hyperbolic functions are graphed in \autoref{fig:hyperbolic}. In the graphs 
 Notice the domains of $\tanh x$ and $\sech x$ are $(-\infty,\infty)$, whereas both $\coth x$ and $\csch x$ have vertical asymptotes at $x=0$. Also note the ranges of these functions, especially $\tanh x$: as $x\to\infty$, both $\sinh x$ and $\cosh x$ approach $e^x/2$, hence $\tanh x$ approaches $1$.
 
 \noindent
-\begin{minipage}{\linewidth}
+\begin{minipage}{\linewidth}\tagstructbegin{tag=Sect}
 \centering
 \begin{tikzpicture}[alt={cosh is in blue, and makes a U shape above the x axis.  For positive x, cosh is well approximated by exp(x/2).  For negative x, cosh is well approximated by exp(-x/2).}]
 \begin{axis}[width=.55\textwidth,tick label style={font=\scriptsize},
@@ -129,7 +129,7 @@ ymin=-3.5,ymax=3.5,xmin=-3.5,xmax=3.5,scaled ticks=false]
 \end{tikzpicture}
 \captionsetup{type=figure}
 \caption{Graphs of the hyperbolic functions.}
-\label{fig:hyperbolic}
+\label{fig:hyperbolic}\tagstructend
 \end{minipage}
 
 \youtubeVideo{G1C1Z5aTZSQ}{Hyperbolic Functions --- The Basics}
@@ -288,7 +288,7 @@ Just as the inverse trigonometric functions are useful in certain integrations, 
 
 Because the hyperbolic functions are defined in terms of exponential functions, their inverses can be expressed in terms of logarithms as shown in \autoref{idea:hyperbolic_log}. It is often more convenient to use $\sinh^{-1}x$ than $\ln\bigl(x+\sqrt{x^2+1}\bigr)$, especially when one is working on theory and does not need to compute actual values. On the other hand, when computations are needed, technology is often helpful but many hand-held calculators lack a \emph{convenient} $\sinh^{-1}x$ button. (Often it can be accessed under a menu system, but not conveniently.) In such a situation, the logarithmic representation is useful. The reader is not encouraged to memorize these, but rather know they exist and know how to use them when needed.
 
-\noindent\begin{minipage}[t]{\linewidth}\noindent%
+\noindent\begin{minipage}[t]{\linewidth}\tagstructbegin{tag=Sect}\noindent%
 \captionsetup{type=figure}%
 \flushinner{%
 \small
@@ -308,10 +308,10 @@ $\coth x$ & $(-\infty,0) \cup (0,\infty)$ & $(-\infty,-1) \cup (1,\infty)$ &
  $\coth^{-1} x$ & $(-\infty,-1) \cup (1,\infty)$ & $(-\infty,0) \cup (0,\infty)$
 \end{tabular}}
 \caption{Domains and ranges of the hyperbolic and inverse hyperbolic functions.}
-\label{fig:hfinverse2}
+\label{fig:hfinverse2}\tagstructend
 \end{minipage}
 
-\noindent\begin{minipage}[t]{\linewidth}\noindent%
+\noindent\begin{minipage}[t]{\linewidth}\tagstructbegin{tag=Sect}\noindent%
 \captionsetup{type=figure}%
 %\flushinner{%
 \addtolength{\tabcolsep}{6pt}
@@ -381,7 +381,7 @@ ymin=-3.5,ymax=3.5,xmin=-3.5,xmax=3.5,scaled ticks=false,axis equal]
 \end{tikzpicture}
 \end{tabular}
 %}
-\caption{Graphs of the hyperbolic functions and their inverses.}\label{fig:hfinverse1}
+\caption{Graphs of the hyperbolic functions and their inverses.}\label{fig:hfinverse1}\tagstructend
 \end{minipage}
 
 Now let's consider the inverses of the hyperbolic functions. We begin with the function $f(x)=\sinh x$. Since $\fp(x)=\cosh x>0$ for all real $x$, $f$ is increasing and must be one-to-one.

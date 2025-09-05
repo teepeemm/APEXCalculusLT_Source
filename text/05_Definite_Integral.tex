@@ -357,7 +357,7 @@ Since the graph gives velocity, finding the maximum speed is simple: it looks to
 At time $t=0$, the displacement is 0; the object is at its starting position. At time $t=a$, the object has moved backward 11 feet. Between times $t=a$ and $t=b$, the object moves forward 38 feet, bringing it into a position 27 feet forward of its starting position. From $t=b$ to $t=c$ the object is moving backwards again, hence its maximum displacement is 27 feet from its starting position.
 
 We can also analyze the displacement by drawing the path of the particle's location as time varies, as in \autoref{fig_displacement_line}.\\
-\noindent\begin{minipage}[t]{\linewidth}\noindent%
+\noindent\begin{minipage}[t]{\linewidth}\tagstructbegin{tag=Sect}\noindent%
 \captionsetup{type=figure}%
 \begin{tikzpicture}[alt={Number line centered at 0; path: 0 to −11 left, across to 27 right, back toward 16; dots at −11 and 27; axis x.},x=.7em,y=2.5em]
  \draw[<->](-12.9,1)--(28.9,1);
@@ -379,7 +379,7 @@ We can also analyze the displacement by drawing the path of the particle's locat
   to[out=270,in=0](end);
 \end{tikzpicture}
 \caption{Number line for \autoref{ex_defint6}.}
-\label{fig_displacement_line}
+\label{fig_displacement_line}\tagstructend
 \end{minipage}\\
 The object starts at the origin, and moves to the left with a negative velocity 11 units.  It then reverses direction and moves to the right with a positive velocity 38 units, arriving at 27.  Finally, it reverses direction again and moves to the left with a negative velocity 11 units, ending at 26.
 \end{example}

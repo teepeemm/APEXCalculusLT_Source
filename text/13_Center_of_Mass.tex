@@ -141,7 +141,7 @@ W &= \int_0^{2\pi}\int_0^2 (2r+1)r\dd r\dd\theta\\
 \end{align*}
 One would expect different density functions to return different weights, as we have here. The density functions were chosen, though, to be similar: each gives a density of 1 at the origin and a density of 5 at the outside edge of the circle, as seen in \autoref{fig:mass3}.
 
-{\centering
+\begin{center}\tagstructbegin{tag=Sect}
 \tagpdfsetup{table/header-rows={2}}
 \begin{tabular}{ c @{\qquad} c }
 \myincludeasythree{
@@ -160,8 +160,8 @@ One would expect different density functions to return different weights, as we 
 \\(a) & (b) 
 \end{tabular}%
 \captionsetup{type=figure}%
-\caption{Graphing the density functions in \autoref{ex_mass3}. In (a) is the density function $\delta(x,y) = x^2+y^2+1$; in (b) is $\delta(x,y) = 2\sqrt{x^2+y^2}+1$.}\label{fig:mass3}
-}% end centering
+\caption{Graphing the density functions in \autoref{ex_mass3}. In (a) is the density function $\delta(x,y) = x^2+y^2+1$; in (b) is $\delta(x,y) = 2\sqrt{x^2+y^2}+1$.}\label{fig:mass3}\tagstructend
+\end{center}
 
 Notice how $x^2+y^2+1 \leq 2\sqrt{x^2+y^2}+1$ over the circle; this results in less weight.
 \end{example}

@@ -165,7 +165,7 @@ ymin=-20.5,ymax=20.5,xmin=-24.5,xmax=24.5]
 \begin{example}[Adding and scaling vector-valued functions.]\label{ex_vvf4}%
 A \textbf{cycloid} is a graph traced by a point $p$ on a rolling circle, as shown in \autoref{fig:vvf4}. Find an equation describing the cycloid, where the circle has radius 1.
 \index{cycloid}
-{\centering
+\begin{center}\tagstructbegin{tag=Sect}
 \begin{tikzpicture}[alt={Cycloid: point on rolling unit circle traces arches of length 2pi; circle shown at left with arrow.},>=stealth,scale=.5]
 \draw [thick] (0,1) circle (1);
 \filldraw (1,1) circle (2pt) node [right] {\scriptsize $p$};
@@ -176,8 +176,8 @@ A \textbf{cycloid} is a graph traced by a point $p$ on a rolling circle, as show
 \draw [thick,white] (0,2.5) -- (1,2.5);
 \end{tikzpicture}
 \captionsetup{type=figure}
-\caption{Tracing a cycloid.}\label{fig:vvf4}
-}% end centering
+\caption{Tracing a cycloid.}\label{fig:vvf4}\tagstructend
+\end{center}
 \solution
 This problem is not very difficult if we approach it in a clever way. We start by letting $\vec p(t)$ describe the position of the point $p$ on the circle, where the circle is centered at the origin and only rotates clockwise (i.e., it  does not roll). This is relatively simple given our previous experiences with parametric equations; $\vec p(t) =\bracket{\cos t, -\sin t}$. 
 

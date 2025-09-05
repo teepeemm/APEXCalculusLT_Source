@@ -99,7 +99,7 @@ Evaluate $\ds\iint_{R} e^{\frac{x-y}{x+y}} \dd A$, where $R= \{(x,y): x \ge 0, y
 First, note that evaluating this double integral \emph{without} using substitution is probably impossible, at least in a closed form. By looking at the numerator and denominator of the exponent of $e$, we will try the substitution $u=x-y$ and $v=x+y$. To use the change of variables \autoeqref{eqn:changevarint2}, we need to write both $x$ and $y$ in terms of $u$ and $v$. So solving for $x$ and $y$ gives $x=\frac12(u+v)$ and $y=\frac12(v-u)$. In \autoref{fig:exyint} below, we see how the mapping $x=x(u,v)=\frac12(u+v)$,
  $y=y(u,v)=\frac12(v-u)$ maps the region $R'$ onto $R$ in a one-to-one manner.
  
-\noindent\begin{minipage}[t]{\linewidth}\noindent%
+\noindent\begin{minipage}[t]{\linewidth}\tagstructbegin{tag=Sect}\noindent%
 \captionsetup{type=figure}%
  \centering
   \begin{tikzpicture}[alt={On the left is a triangle labeled R in the xy plane with vertices at the origin, (1,0), and (0,1).  The diagonal is x+y=1.  On the right is a triangle labeled R' in the uv plane with vertices at the origin and (±1,1).  An arrow points from right to left with x=(u+v)/2 and y=(v-u)/2.},scale=2]
@@ -131,7 +131,7 @@ First, note that evaluating this double integral \emph{without} using substituti
    \node[right]at(4,.6){$R'$};
   \end{tikzpicture}
  \caption{The regions $R$ and $R'$}
- \label{fig:exyint}
+ \label{fig:exyint}\tagstructend
 \end{minipage}
 
  Now we see that
