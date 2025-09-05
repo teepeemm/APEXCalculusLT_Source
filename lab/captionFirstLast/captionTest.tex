@@ -2,23 +2,20 @@
   pdfstandard=ua-2,tagging-setup={math/setup=mathml-SE}}
 \documentclass{article}
 \usepackage{caption}
-\usepackage{table-header-scope}
+%\usepackage{table-header-scope}
 \title{Title}
 \begin{document}
 \section{section}
 \begin{minipage}{4cm}%
-\tagstructbegin{tag=Table}
-\tagpdfsetup{table/header-rows={1}}
-\begin{tabular}{c}
-A\\a
-\end{tabular}
+\tagstructbegin{tag=Sect}
+some table before
 \captionof{table}{a table}\label{tab:test}%
-%some table after
+some table after
 \tagstructend
 \end{minipage}
 
 \parbox{4cm}{%
-\tagstructbegin{tag=Figure,alt={alt text}}
+\tagstructbegin{tag=Sect}
 some figure before
 \captionof{figure}{a figure}\label{fig:test}
 some figure after\tagstructend}
@@ -29,3 +26,5 @@ minipage content
 
 \parbox{4cm}{parbox content}
 \end{document} 
+
+see https://github.com/latex3/tagging-project/issues/986
