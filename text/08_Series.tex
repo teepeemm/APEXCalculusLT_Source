@@ -231,8 +231,12 @@ S_2 &=	\left(\frac11-\frac12\right) + \left(\frac12-\frac13\right) & & = 1-\frac
 S_3 &=	\left(\frac11-\frac12\right) + \left(\frac12-\frac13\right)+\left(\frac13-\frac14\right) & &= 1-\frac14\\
 S_4 &=	\left(\frac11-\frac12\right) + \left(\frac12-\frac13\right)+\left(\frac13-\frac14\right) +\left(\frac14-\frac15\right)& &= 1-\frac15
 \end{align*}
-%
-\mtable{Scatter plots relating to the series of \autoref{ex_series3}.}{fig:series3}{\begin{tikzpicture}[alt={Blue aₙ decay to 0; red Sₙ increase toward 0.9; scatter 1≤n≤10, y-axis 0 < y < 1.}]
+Note how most of the terms in each partial sum subtract out. In general, we see that $S_n = 1-\frac{1}{n+1}$. This means that the sequence $\{S_n\}$ converges,  as
+\[\lim_{n\to\infty}S_n=\smallskip\lim_{n\to\infty}\left(1-\tfrac1{n+1}\right)=1,\]
+and so we conclude that $\ds\sum_{n=1}^\infty \left(\tfrac1n-\tfrac1{n+1}\right) = 1$. Partial sums of the series are plotted in \autoref{fig:series3}.
+\end{example}
+
+\mtable[yshift=10\baselineskip]{Scatter plots relating to the series of \autoref{ex_series3}.}{fig:series3}{\begin{tikzpicture}[alt={Blue aₙ decay to 0; red Sₙ increase toward 0.9; scatter 1≤n≤10, y-axis 0 < y < 1.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick={2,4,6,8,10},
 ymin=-.1,ymax=1.1,xmin=-1,xmax=11,legend columns=-1,legend style={at={(.5,-.1)},anchor=north}]
@@ -245,11 +249,6 @@ ymin=-.1,ymax=1.1,xmin=-1,xmax=11,legend columns=-1,legend style={at={(.5,-.1)},
 \node [right] at (myplot.right of origin) {\scriptsize $n$};
 \node [above] at (myplot.above origin) {\scriptsize $y$};
 \end{tikzpicture}}%
-%
-Note how most of the terms in each partial sum subtract out. In general, we see that $S_n = 1-\frac{1}{n+1}$. This means that the sequence $\{S_n\}$ converges,  as
-\[\lim_{n\to\infty}S_n=\smallskip\lim_{n\to\infty}\left(1-\tfrac1{n+1}\right)=1,\]
-and so we conclude that $\ds\sum_{n=1}^\infty \left(\tfrac1n-\tfrac1{n+1}\right) = 1$. Partial sums of the series are plotted in \autoref{fig:series3}.
-\end{example}
 
 The series in \autoref{ex_series3} is an example of a \textbf{telescoping series}. Informally, a telescoping series is one in which the partial sums reduce to just a fixed number of terms. The partial sum $S_n$ did not contain $n$ terms, but rather just two: 1 and $1/(n+1)$.\index{series!telescoping}\index{telescoping series}
 
@@ -257,6 +256,23 @@ When possible, seek a way to write an explicit formula for the $n^{\text{th}}$ p
 
 %\noindent\textbf{Note on notation:} Most of the series we encounter will start with $n=1$. For ease of notation, we will often write $\sum a_n$ instead of writing $\ds\sum_{n=1}^\infty a_n$.\\
 
+% the next mtable needs to be outside the {example} for tagging, before the example because the example is 1.4 pages long,
+% but after the page break so that it appears next to the example
+\newpage
+
+\mtable[yshift=-0.5\textheight]{Scatter plots relating to the series of \autoref{ex_series4} part 1.}{fig:series4a}{\begin{tikzpicture}[alt={Scatter-blue aₙ drops toward 0 while red Sₙ rises and levels near 1.3; data for 1≤n≤10.}]
+\begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
+axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick={2,4,6,8,10},
+ymin=-.1,ymax=1.6,xmin=-1,xmax=11,legend columns=-1,legend style={at={(.5,-.1)},anchor=north}]
+\addplot [only marks,draw={\colorone},fill={\colorone},mark size={1.5pt},domain=1:10,samples=10] {2/(x^2+2*x)};
+\addlegendentry{\scriptsize$a_n$\quad\mbox{}}
+\addplot [only marks,draw={\colortwo},fill={\colortwo},mark size={1.5pt},domain=1:10,samples=10] {1.5-1/(x+1)-1/(x+2)};
+\addlegendentry{\scriptsize$S_n$}
+\end{axis}
+\node [right] at (myplot.right of origin) {\scriptsize $n$};
+\node [above] at (myplot.above origin) {\scriptsize $y$};
+\end{tikzpicture}}\vspace{-.8\baselineskip}% this shouldn't be needed.
+% see https://tex.stackexchange.com/q/750678/107497
 
 \begin{example}[Evaluating series]\label{ex_series4}%
 Evaluate each of the following infinite series.
@@ -283,20 +299,6 @@ S_4 &= (1-\tfrac13) + (\tfrac12-\tfrac14) + (\tfrac13-\tfrac15) + (\tfrac14-\tfr
 S_5 &= (1-\tfrac13) + (\tfrac12-\tfrac14) + (\tfrac13-\tfrac15) + (\tfrac14-\tfrac16) + (\tfrac15-\tfrac17)\mkern-18mu
 &&= 1+\tfrac12-\tfrac16-\tfrac17
 \end{align*}}%
-%
-\mtable{Scatter plots relating to the series of \autoref{ex_series4} part 1.}{fig:series4a}{\begin{tikzpicture}[alt={Scatter-blue aₙ drops toward 0 while red Sₙ rises and levels near 1.3; data for 1≤n≤10.}]
-\begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
-axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick={2,4,6,8,10},
-ymin=-.1,ymax=1.6,xmin=-1,xmax=11,legend columns=-1,legend style={at={(.5,-.1)},anchor=north}]
-\addplot [only marks,draw={\colorone},fill={\colorone},mark size={1.5pt},domain=1:10,samples=10] {2/(x^2+2*x)};
-\addlegendentry{\scriptsize$a_n$\quad\mbox{}}
-\addplot [only marks,draw={\colortwo},fill={\colortwo},mark size={1.5pt},domain=1:10,samples=10] {1.5-1/(x+1)-1/(x+2)};
-\addlegendentry{\scriptsize$S_n$}
-\end{axis}
-\node [right] at (myplot.right of origin) {\scriptsize $n$};
-\node [above] at (myplot.above origin) {\scriptsize $y$};
-\end{tikzpicture}}%
-%
 We again have a telescoping series. In each partial sum, most of the terms pair up to add to zero and we obtain the formula $\ds S_n = 1+\frac12-\frac1{n+1}-\frac1{n+2}.$ Taking limits allows us to determine the convergence of the series:
 \[
 \lim_{n\to\infty}S_n
@@ -327,7 +329,11 @@ S_n=\ln\left(2\right)+\ln\left(\frac32\right)+\dots +\ln \left(\frac{n+1}{n}\rig
 =\ln(n+1)
 \end{multline*}
 
-\mtable{Scatter plots relating to the series of \autoref{ex_series4} part 2.}{fig:series4b}{\begin{tikzpicture}[alt={Scatter-blue aₙ stays near 0, red Sₙ increases slowly to about 4.5 over 10≤n≤100.}]
+We can conclude that $\{S_n\} = \bigl\{\ln (n+1)\bigr\}$. This sequence  does not converge, as $\ds \lim_{n\to\infty}S_n=\infty$. Therefore  $\ds\sum_{n=1}^\infty  \ln\left(\frac{n+1}{n}\right)=\infty$; the series diverges. Note in \autoref{fig:series4b} how the sequence of partial sums grows slowly; after 100 terms, it is not yet over 5. Graphically we may be fooled into thinking the series converges, but our analysis above shows that it does not.
+\end{enumerate}
+\end{example}
+
+\mtable[yshift=10\baselineskip]{Scatter plots relating to the series of \autoref{ex_series4} part 2.}{fig:series4b}{\begin{tikzpicture}[alt={Scatter-blue aₙ stays near 0, red Sₙ increases slowly to about 4.5 over 10≤n≤100.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-.5,ymax=5,xmin=-10,xmax=110,legend columns=-1,legend style={at={(.5,-.1)},anchor=north}]
@@ -339,10 +345,6 @@ ymin=-.5,ymax=5,xmin=-10,xmax=110,legend columns=-1,legend style={at={(.5,-.1)},
 \node [right] at (myplot.right of origin) {\scriptsize $n$};
 \node [above] at (myplot.above origin) {\scriptsize $y$};
 \end{tikzpicture}}
-
-We can conclude that $\{S_n\} = \bigl\{\ln (n+1)\bigr\}$. This sequence  does not converge, as $\ds \lim_{n\to\infty}S_n=\infty$. Therefore  $\ds\sum_{n=1}^\infty  \ln\left(\frac{n+1}{n}\right)=\infty$; the series diverges. Note in \autoref{fig:series4b} how the sequence of partial sums grows slowly; after 100 terms, it is not yet over 5. Graphically we may be fooled into thinking the series converges, but our analysis above shows that it does not.
-\end{enumerate}
-\end{example}
 
 We are learning about a new mathematical object, the series. As done before, we apply ``old'' mathematics to this new topic.
 
@@ -462,7 +464,7 @@ This gives us $S\geq \frac12+S$ which can never be true, thus our assumption tha
 %\node [right] at (myplot.right of origin) {\scriptsize $n$};
 %\node [above] at (myplot.above origin) {\scriptsize $y$};
 %\end{tikzpicture}}
-%\\[10pt](b)}
+%\\[10pt](b)
 %
 %\item		The denominators in each term are perfect squares; we are adding $\ds \sum_{n=4}^\infty \frac{1}{n^2}$ (note  we start with $n=4$, not $n=1$). This series will converge. Using the formula from \autoref{idea:famous_series}, we have the following:
 %\begin{align*}
