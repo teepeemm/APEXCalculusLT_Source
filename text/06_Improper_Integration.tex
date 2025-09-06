@@ -303,8 +303,14 @@ We begin by integrating and then evaluating the limit.
 	&= \lim_{t\to\infty} \frac{1}{-p+1}x^{-p+1}\Big|_1^t\\
 	&= \lim_{t\to\infty} \frac{1}{1-p}\bigl(t^{1-p}-1^{1-p}\bigr).\\
 \end{align*}
-%
-\mtable{Plotting functions of the form $1/x\,^p$ in \autoref{ex_impint4}.}{fig:impint4}{\begin{tikzpicture}[alt={Three decreasing curves on log axes: red f(x)=1/x^p (gentlest), dashed 1/x, blue f(x)=1/x^q (steepest); p<1<q.}]
+When does this limit converge --- i.e., when is this limit \emph{not} $\infty$? This limit converges precisely when the power of $t$ is less than 0: when $1-p<0 \Rightarrow 1<p$. 
+
+Our analysis shows that if $p>1$, then $\ds\int_1^\infty \frac1{x\primeskip^p}\dd x $ converges. When $p<1$ the improper integral diverges; we showed in \autoref{ex_impint1} that when $p=1$ the integral also diverges. 
+
+\autoref{fig:impint4} graphs $y=1/x$ with a dashed line, along with graphs of $y=1/x^p$, $p<1$, and $y=1/x^q$, $q>1$. Somehow the dashed line forms a dividing line between convergence and divergence. %A function of the form $1/x^q$ will be under the dashed line on $[1,\infty)$ when $q>1$. Even if $q$ is ``very close'' to 1, the difference will be enough to force convergence.
+\end{example}
+
+\mtable[yshift=10\baselineskip]{Plotting functions of the form $1/x\,^p$ in \autoref{ex_impint4}.}{fig:impint4}{\begin{tikzpicture}[alt={Three decreasing curves on log axes: red f(x)=1/x^p (gentlest), dashed 1/x, blue f(x)=1/x^q (steepest); p<1<q.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick={1},
 ytick=\empty,ymin=-.1,ymax=6,xmin=-.1,xmax=2.1]
@@ -317,14 +323,7 @@ ytick=\empty,ymin=-.1,ymax=6,xmin=-.1,xmax=2.1]
 \end{axis}
 \node [right] at (myplot.right of origin) {\scriptsize $x$};
 \node [above] at (myplot.above origin) {\scriptsize $y$};
-\end{tikzpicture}}%
-%
-When does this limit converge --- i.e., when is this limit \emph{not} $\infty$? This limit converges precisely when the power of $t$ is less than 0: when $1-p<0 \Rightarrow 1<p$. 
-
-Our analysis shows that if $p>1$, then $\ds\int_1^\infty \frac1{x\primeskip^p}\dd x $ converges. When $p<1$ the improper integral diverges; we showed in \autoref{ex_impint1} that when $p=1$ the integral also diverges. 
-
-\autoref{fig:impint4} graphs $y=1/x$ with a dashed line, along with graphs of $y=1/x^p$, $p<1$, and $y=1/x^q$, $q>1$. Somehow the dashed line forms a dividing line between convergence and divergence. %A function of the form $1/x^q$ will be under the dashed line on $[1,\infty)$ when $q>1$. Even if $q$ is ``very close'' to 1, the difference will be enough to force convergence.
-\end{example}
+\end{tikzpicture}}
 
 The result of \autoref{ex_impint4} provides an important tool in determining the convergence of other integrals. A similar result is proved in the exercises about improper integrals of the form $\ds \int_0^1\frac1{x\primeskip^p}\dd x$. These results are summarized in the following Key Idea.
 

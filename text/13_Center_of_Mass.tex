@@ -108,15 +108,18 @@ M = \iint_R(x+y+2)\dd A &= \int_0^1\int_0^1 (x+y+2)\dd x\dd y\\
 		&= \left.\left(\frac52y+\frac12y^2\right)\right|_{y=0}^{y=1}\\
 		&= 3\text{ g}.
 \end{align*}
-\mtable{Graphing the density functions in Examples \ref{ex_mass1} and \ref{ex_mass2}.}{fig:mass2}{\myincludeasythree{
+It turns out that since since the density of the lamina is so uniformly distributed ``above and below'' $z=3$ that the mass of the lamina is the same as if it had a constant density of 3. The density functions in Examples \ref{ex_mass1} and \ref{ex_mass2} are graphed in \autoref{fig:mass2}, which illustrates this concept.
+\end{example}
+
+\mtable[yshift=5\baselineskip]{Graphing the density functions in Examples \ref{ex_mass1} and \ref{ex_mass2}.}{fig:mass2}{\myincludeasythree{
 3Droll=0.,
 3Dortho=0.0046491301618516445,
 3Dc2c=0.5246235132217407 -0.7953014969825745 0.3037526309490204,
 3Dcoo=26.242107391357422 100.81001281738281 52.60980224609375,
-3Droo=149.9999999399336}{\marginparwidth}{The planes z=3 and z=x+y+2 intersecting along the line x+y=1.}{figures/figmass2_3D}}
-It turns out that since since the density of the lamina is so uniformly distributed ``above and below'' $z=3$ that the mass of the lamina is the same as if it had a constant density of 3. The density functions in Examples \ref{ex_mass1} and \ref{ex_mass2} are graphed in \autoref{fig:mass2}, which illustrates this concept.
-\end{example}
-
+3Droo=149.9999999399336}{\marginparwidth}{The planes z=3 and z=x+y+2 intersecting along the line x+y=1.}{figures/figmass2_3D}}%
+%
+\vspace{-1.3\baselineskip}% this seems overmuch, but 1.1 is too little.
+%
 \begin{example}[Finding the weight of a lamina with variable density]\label{ex_mass3}%
 Find the weight of the lamina represented by the circle with radius 2ft, centered at the origin, with density function $\delta(x,y) = (x^2+y^2+1)$lb/ft$^2$. Compare this to the weight of the same lamina with density $\delta(x,y) = (2\sqrt{x^2+y^2}+1)$lb/ft$^2$.
 \solution

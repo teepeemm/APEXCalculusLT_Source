@@ -346,7 +346,10 @@ Thus
 	&= \frac{\norm{\bracket{12t^2,-12t,2}}}{\norm{\bracket{1,2t,6t^2}}^3} \smallskip\\
 	&= \frac{\sqrt{144t^4+144t^2+4}}{\Bigl(\sqrt{1+4t^2+36t^4\ }\Bigr)^3}
 \end{align*}
-\mtable{Understanding the curvature of a curve in space.  The top is $\kappa$ as a function of $t$; the bottom is $\vrt$ as a function of $t$.}{fig:curvature4}{%
+While this is not a particularly ``nice'' formula, it does explicitly tell us what the curvature is at a given $t$ value. To maximize $\kappa(t)$, we should solve $\kappa'(t)=0$ for $t$. This is doable, but \emph{very} time consuming. Instead, consider the graph of $\kappa(t)$ as given in \autoref{fig:curvature4}(a). We see that $\kappa$ is maximized at two $t$ values; using a numerical solver, we find these values are $t\approx\pm 0.189$. In part (b) of the figure we graph $\vrt$ and indicate the points where curvature is maximized.
+\end{example}
+
+\mtable[yshift=10\baselineskip]{Understanding the curvature of a curve in space.  The top is $\kappa$ as a function of $t$; the bottom is $\vrt$ as a function of $t$.}{fig:curvature4}{%
 \begin{tikzpicture}[alt={Plot of curvature \kappa(t) vs. t; spikes expose tight bends.},>=stealth]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,
@@ -365,8 +368,8 @@ ymin=-.1,ymax=2.5,xmin=-2.1,xmax=2.1]
 3Dcoo=-0.0000029802322387695312 -0.0000029802322387695312 -0.0000014901161193847656,
 3Droo=150}{\marginparwidth}{Spatial curve r(t) with two red points where \kappa peaks (from part a).}{figures/figcurvature4_3D}
 \\(b)}%
-While this is not a particularly ``nice'' formula, it does explicitly tell us what the curvature is at a given $t$ value. To maximize $\kappa(t)$, we should solve $\kappa'(t)=0$ for $t$. This is doable, but \emph{very} time consuming. Instead, consider the graph of $\kappa(t)$ as given in \autoref{fig:curvature4}(a). We see that $\kappa$ is maximized at two $t$ values; using a numerical solver, we find these values are $t\approx\pm 0.189$. In part (b) of the figure we graph $\vrt$ and indicate the points where curvature is maximized.
-\end{example}
+
+\vspace{-\topsep}\vspace{-\partopsep}
 
 \subsection{Curvature and Motion}
 

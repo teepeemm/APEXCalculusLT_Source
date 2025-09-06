@@ -292,8 +292,10 @@ Now we complete the squares.
 	4(x-1)^2 + 9(y-2)^2 &= 36 \\
 	\frac{(x-1)^2}{9} + \frac{(y-2)^2}{4} &= 1.
 \end{align*}
-%
-\mtable{Graphing the ellipse in \autoref{ex_conic4}.}{fig:conic4}{\begin{tikzpicture}[alt={Horizontal ellipse; endpoints marked at (--2,2) and (4,2), two interior foci near (-1.2,2) and (3.2,2), and center at (1,2).  The range of values is -2<x<4 and 0<y<4.}]
+We see the center of the ellipse is at $(1,2)$. We have $a=3$ and $b=2$; the major axis is horizontal, so the vertices are located at $(-2,2)$ and $(4,2)$. We find $c=\sqrt{9-4} = \sqrt{5}\approx 2.24.$ The foci are located along the major axis, approximately $2.24$ units from the center, at $(1\pm 2.24,2)$. This is all graphed in \autoref{fig:conic4}.
+\end{example}
+
+\mtable[yshift=7\baselineskip]{Graphing the ellipse in \autoref{ex_conic4}.}{fig:conic4}{\begin{tikzpicture}[alt={Horizontal ellipse; endpoints marked at (--2,2) and (4,2), two interior foci near (-1.2,2) and (3.2,2), and center at (1,2).  The range of values is -2<x<4 and 0<y<4.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,xtick={-2,-1,1,2,3,4},
 ytick={-1,1,2,3,4},ymin=-2,ymax=5,xmin=-3,xmax=5]
@@ -307,9 +309,8 @@ ytick={-1,1,2,3,4},ymin=-2,ymax=5,xmin=-3,xmax=5]
 \node [right] at (myplot.right of origin) {\scriptsize $x$};
 \node [above] at (myplot.above origin) {\scriptsize $y$};
 \end{tikzpicture}}%
-%
-We see the center of the ellipse is at $(1,2)$. We have $a=3$ and $b=2$; the major axis is horizontal, so the vertices are located at $(-2,2)$ and $(4,2)$. We find $c=\sqrt{9-4} = \sqrt{5}\approx 2.24.$ The foci are located along the major axis, approximately $2.24$ units from the center, at $(1\pm 2.24,2)$. This is all graphed in \autoref{fig:conic4}.
-\end{example}
+
+\vspace{-\topsep}\vspace{-\partopsep}
 
 \iftoggle{abridgeConics}{}{%
 \subsection{Eccentricity}

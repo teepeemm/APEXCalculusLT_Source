@@ -271,8 +271,8 @@ ymin=-.1,ymax=1.6,xmin=-1,xmax=11,legend columns=-1,legend style={at={(.5,-.1)},
 \end{axis}
 \node [right] at (myplot.right of origin) {\scriptsize $n$};
 \node [above] at (myplot.above origin) {\scriptsize $y$};
-\end{tikzpicture}}\vspace{-.8\baselineskip}% this shouldn't be needed.
-% see https://tex.stackexchange.com/q/750678/107497
+\end{tikzpicture}}\vspace{-\topsep}\vspace{-\partopsep}% this shouldn't be needed.
+% todo bugfix see https://tex.stackexchange.com/q/750678/107497
 
 \begin{example}[Evaluating series]\label{ex_series4}%
 Evaluate each of the following infinite series.

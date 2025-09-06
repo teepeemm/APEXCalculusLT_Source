@@ -372,8 +372,11 @@ This is admittedly very ``messy;'' such is usually the case when we deal with un
 \vec u\,'(-1) &=\bracket{0,-2}\\
 \vec u\,'(0) &=\bracket{1,0}
 \end{align*}
-%
-\mtable{Graphing some of the derivatives of $\vec u(t)$ in \autoref{ex_vvfderiv2}.}{fig:vvfderiv2b}{\begin{tikzpicture}[alt={Blue circle u (t) with three red derivative vectors u′(t) drawn at t = π/2, π, 3π/2, indicating velocity directions.},>=stealth]
+Each of these is sketched in \autoref{fig:vvfderiv2b}. Note how the length of the vector gives an indication of how quickly the circle is being traced at that point. When $t=-2$, the circle is being drawn relatively slow; when $t=-1$, the circle is being traced much more quickly.
+\end{enumerate}
+\end{example}
+
+\mtable[yshift=8\baselineskip]{Graphing some of the derivatives of $\vec u(t)$ in \autoref{ex_vvfderiv2}.}{fig:vvfderiv2b}{\begin{tikzpicture}[alt={Blue circle u (t) with three red derivative vectors u′(t) drawn at t = π/2, π, 3π/2, indicating velocity directions.},>=stealth]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,
 ymin=-2.1,ymax=1.1,xmin=-1.92,xmax=1.92]
@@ -391,10 +394,8 @@ ymin=-2.1,ymax=1.1,xmin=-1.92,xmax=1.92]
 \node [right] at (myplot.right of origin) {\scriptsize $x$};
 \node [above] at (myplot.above origin) {\scriptsize $y$};
 \end{tikzpicture}}%
-%
-Each of these is sketched in \autoref{fig:vvfderiv2b}. Note how the length of the vector gives an indication of how quickly the circle is being traced at that point. When $t=-2$, the circle is being drawn relatively slow; when $t=-1$, the circle is being traced much more quickly.
-\end{enumerate}
-\end{example}
+
+\vspace{-\topsep}\vspace{-\partopsep}
 
 It is a basic geometric fact that a line tangent to a circle at a point $P$ is perpendicular to the line passing through the center of the circle and $P$. This is illustrated in \autoref{fig:vvfderiv2b}; each tangent vector is perpendicular to the line that passes through its initial point and the center of the circle. Since the center of the circle is the origin, we can state this another way: $\vec u\,'(t)$ is orthogonal to $\vec u(t)$.
 

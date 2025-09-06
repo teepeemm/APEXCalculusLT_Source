@@ -383,7 +383,25 @@ Rewrite the iterated integral $\ds \int_0^3\int_y^3 e^{-x^2}\dd x\dd y$ with the
 \solution
 Once again we make a sketch of the region over which we are integrating to facilitate changing the order. The bounds on $x$ are from $x=y$ to $x=3$; the bounds on $y$ are from $y=0$ to $y=3$. These curves are sketched in \autoref{fig:double6}, enclosing the region $R$.
 
-\mtable{Determining the region $R$ determined by the bounds of integration in \autoref{ex_double6}.}{fig:double6}{\begin{tikzpicture}[alt={Horizontal lines at y=0 and y=3.  A vertical line at x=3.  A diagonal line y=x.  The region under the diagonal but in the first quadrant is labeled R.}]
+To change the bounds, note that the curves bounding $y$ are $y=0$ up to $y=x$; the triangle is enclosed between $x=0$ and $x=3$. Thus the new bounds of integration are $0\leq y\leq x$ and $0\leq x\leq 3$, giving the iterated integral $\ds \int_0^3\int_0^x e^{-x^2}\dd y\dd x$.
+
+How easy is it to evaluate each iterated integral? Consider the order of integrating $\dd x\dd y$, as given in the original problem. The first indefinite integral we need to evaluate is $\int e^{-x^2}\dd x$; we have stated before (see \autoref{sec:numerical_integration}) that this integral cannot be evaluated in terms of elementary functions. We are stuck.
+
+Changing the order of integration makes a big difference here. In the second iterated integral, we are faced with $\int e^{-x^2}\dd y$; integrating with respect to $y$ gives us $ye^{-x^2}+C$, and the first definite integral evaluates to 
+\[\int_0^x e^{-x^2}\dd y = xe^{-x^2}.\]
+Thus 
+\[
+ \int_0^3\int_0^x e^{-x^2}\dd y\dd x
+ = \int_0^3\Bigl(xe^{-x^2}\Bigr)\dd x
+ = \int_0^9\frac12 e^{-u}\dd u,
+\]
+where we used the substitution $u=x^2$, giving a final answer of $\frac12(1-e^{-9})%\approx 0.5
+$. \autoref{fig:double6b} shows the surface over $R$.
+
+In short, evaluating one iterated integral is impossible; the other iterated integral is relatively simple.
+\end{example}
+
+\mtable[yshift=30\baselineskip]{Determining the region $R$ determined by the bounds of integration in \autoref{ex_double6}.}{fig:double6}{\begin{tikzpicture}[alt={Horizontal lines at y=0 and y=3.  A vertical line at x=3.  A diagonal line y=x.  The region under the diagonal but in the first quadrant is labeled R.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},axis equal image,
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-.5,ymax=3.5,xmin=-.5,xmax=3.5]
@@ -398,32 +416,15 @@ ymin=-.5,ymax=3.5,xmin=-.5,xmax=3.5]
 \node [above] at (myplot.above origin) {\scriptsize $y$};
 \end{tikzpicture}}
 
-To change the bounds, note that the curves bounding $y$ are $y=0$ up to $y=x$; the triangle is enclosed between $x=0$ and $x=3$. Thus the new bounds of integration are $0\leq y\leq x$ and $0\leq x\leq 3$, giving the iterated integral $\ds \int_0^3\int_0^x e^{-x^2}\dd y\dd x$.
-
-How easy is it to evaluate each iterated integral? Consider the order of integrating $\dd x\dd y$, as given in the original problem. The first indefinite integral we need to evaluate is $\int e^{-x^2}\dd x$; we have stated before (see \autoref{sec:numerical_integration}) that this integral cannot be evaluated in terms of elementary functions. We are stuck.
-
-Changing the order of integration makes a big difference here. In the second iterated integral, we are faced with $\int e^{-x^2}\dd y$; integrating with respect to $y$ gives us $ye^{-x^2}+C$, and the first definite integral evaluates to 
-\[\int_0^x e^{-x^2}\dd y = xe^{-x^2}.\]
-%
-\mtable{Showing the surface $f$ defined in \autoref{ex_double6} over its region $R$.}{fig:double6b}{%
+\mtable[yshift=10\baselineskip]{Showing the surface $f$ defined in \autoref{ex_double6} over its region $R$.}{fig:double6b}{%
 \myincludeasythree{
 3Droll=0.,
 3Dortho=0.005074724089354277,
 3Dc2c=0.3949831426143646 0.8441238403320312 0.3625510632991791,
 3Dcoo=41.500732421875 17.729557037353516 46.038082122802734,
 3Droo=201.00002888349545}{\marginparwidth}{The surface and region of integration.}{figures/figdouble6b_3D}}%
-%
-Thus 
-\[
- \int_0^3\int_0^x e^{-x^2}\dd y\dd x
- = \int_0^3\Bigl(xe^{-x^2}\Bigr)\dd x
- = \int_0^9\frac12 e^{-u}\dd u,
-\]
-where we used the substitution $u=x^2$, giving a final answer of $\frac12(1-e^{-9})%\approx 0.5
-$. \autoref{fig:double6b} shows the surface over $R$.
 
-In short, evaluating one iterated integral is impossible; the other iterated integral is relatively simple.
-\end{example}
+\vspace{-\topsep}\vspace{-\partopsep}
 
 \autoref{def:av_val} defines the average value of a single-variable function $f(x)$ on the interval $[a,b]$ as
 \[\text{average value of $f(x)$ on $[a,b]$} = \frac1{b-a}\int_a^b f(x)\dd x;\]
@@ -441,19 +442,18 @@ In \autoref{ex_double4} we found
 \[\iint_R f(x,y)\dd A = \int_0^4\int_{y^2/4}^{2\sqrt{y}}(4-y)\dd x\dd y = \frac{176}{15}.\] 
 We find the area of $R$ by computing $\iint_R \dd A$:
 \[\iint_R \dd A = \int_0^4\int_{y^2/4}^{2\sqrt{y}} \dd x\dd y = \frac{16}{3}.\]
-%
-\mtable{Finding the average value of $f$ in \autoref{ex_double8}.}{fig:double8}{%
+Dividing the volume under the surface by the area gives the average value:
+\[\text{average value of $f$ on $R$} = \frac{176/15}{16/3} = \frac{11}5 = 2.2.\]
+While the surface, as shown in \autoref{fig:double8}, covers $z$-values from $z=0$ to $z=4$, the ``average'' $z$-value on $R$ is 2.2.
+\end{example}
+
+\mtable[yshift=10\baselineskip]{Finding the average value of $f$ in \autoref{ex_double8}.}{fig:double8}{%
 \myincludeasythree{
 3Droll=0,
 3Dortho=0.004656145814806223,
 3Dc2c=0.9017289280891418 0.24087461829185486 0.35897672176361084,
 3Dcoo=-13.985211372375488 45.56017303466797 41.332950592041016,
 3Droo=201.0000081559461}{\marginparwidth}{The region of integration forms a fish shape.}{figures/figdouble4_3D}}%
-%
-Dividing the volume under the surface by the area gives the average value:
-\[\text{average value of $f$ on $R$} = \frac{176/15}{16/3} = \frac{11}5 = 2.2.\]
-While the surface, as shown in \autoref{fig:double8}, covers $z$-values from $z=0$ to $z=4$, the ``average'' $z$-value on $R$ is 2.2.
-\end{example}
 
 The previous section introduced the iterated integral in the context of finding the area of plane regions. This section has extended our understanding of iterated integrals; now we see they can be used to find the signed volume under a surface. 
 

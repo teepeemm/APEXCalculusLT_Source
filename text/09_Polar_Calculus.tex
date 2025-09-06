@@ -51,16 +51,6 @@ The limaçon and the tangent line are graphed in \autoref{fig:polcalc1}.
 
 Setting $4\sin\theta+1=0$ gives $\theta=\sin^{-1}(-1/4)\approx -0.2527 = -14.48^\circ$. We want the results in $[0,2\pi]$; we also recognize there are two solutions, one in the 3\textsuperscript{rd} quadrant and one in the 4\textsuperscript{th}. Using reference angles, we have our two solutions as $\theta =3.39$ and $6.03$ radians. The four points we obtained where the limaçon has a horizontal tangent line are given in \autoref{fig:polcalc1} with black-filled dots.\bigskip
 
-To find the vertical lines of tangency, we determine where $\frac{\dd y}{\dd x}$ is undefined by setting the denominator of $\frac{\dd y}{\dd x}=0$ (when the numerator does not equal 0).
-\begin{align*}
-2(\cos^2\theta -\sin^2\theta)-\sin\theta &= 0 .
-\intertext{Convert the $\cos^2\theta$ term to $1-\sin^2\theta$:}
-2(1-\sin^2\theta-\sin^2\theta)-\sin\theta &= 0\\
-4\sin^2\theta + \sin\theta -2 &= 0.
-\intertext{Recognize this as a quadratic in the variable $\sin\theta$. Using the quadratic formula, we have}
-\sin\theta &= \frac{-1\pm\sqrt{33}}{8}.
-\end{align*}
-%
 \mtable{The limaçon in \autoref{ex_polcalc1} with its tangent line at $\theta=\pi/4$ and points of vertical and horizontal tangency.}{fig:polcalc1}{\begin{tikzpicture}[alt={Blue limacon with inner loop; red tangent at θ = π/4; filled/open dots show four vertical or horizontal tangent points.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,minor x tick num=1,
@@ -80,7 +70,16 @@ ymin=-.35,ymax=3.2,xmin=-2.1,xmax=2.1]
 \node [right] at (myplot.right of origin) {\scriptsize $0$};
 \node [above] at (myplot.above origin) {\scriptsize $\pi/2$};
 \end{tikzpicture}}%
-%
+
+To find the vertical lines of tangency, we determine where $\frac{\dd y}{\dd x}$ is undefined by setting the denominator of $\frac{\dd y}{\dd x}=0$ (when the numerator does not equal 0).
+\begin{align*}
+2(\cos^2\theta -\sin^2\theta)-\sin\theta &= 0 .
+\intertext{Convert the \intertextmath{\cos^2\theta} term to \intertextmath{1-\sin^2\theta}:}
+2(1-\sin^2\theta-\sin^2\theta)-\sin\theta &= 0\\
+4\sin^2\theta + \sin\theta -2 &= 0.
+\intertext{Recognize this as a quadratic in the variable \intertextmath{\sin\theta}. Using the quadratic formula, we have}
+\sin\theta &= \frac{-1\pm\sqrt{33}}{8}.
+\end{align*}
 We solve $\sin\theta = \frac{-1+\sqrt{33}}8$ and $\sin\theta = \frac{-1-\sqrt{33}}8$:
 \begin{align*}
 \sin\theta &=\frac{-1+\sqrt{33}}8 & \sin\theta &= \frac{-1-\sqrt{33}}{8}\\
@@ -473,8 +472,10 @@ With $r=1+2\sin\theta$, we have $r\,' = 2\cos\theta$. The limaçon is traced out
 	&=	\int_0^{2\pi} \sqrt{4\sin\theta+5}\dd\theta\\
 	&\approx 13.3649.
 \end{align*}
-%
-\mtable{The limaçon in \autoref{ex_polcalc7} whose arc length is measured.}{fig:polcalc7}{\begin{tikzpicture}[alt={Limacon r = 1 + 2 cos θ plotted; small inner loop (θ around π) and outer loop (whole 0 ≤ θ < 2 π) }]
+The final integral cannot be solved in terms of elementary functions, so we resorted to a numerical approximation. (Simpson's Rule, with $n=4$, approximates the value with $13.0608$. Using $n=22$ gives the value above, which is accurate to 4 places after the decimal.)
+\end{example}
+
+\mtable[yshift=5\baselineskip]{The limaçon in \autoref{ex_polcalc7} whose arc length is measured.}{fig:polcalc7}{\begin{tikzpicture}[alt={Limacon r = 1 + 2 cos θ plotted; small inner loop (θ around π) and outer loop (whole 0 ≤ θ < 2 π) }]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,
 ymin=-.5,ymax=3.2,xmin=-2.22,xmax=2.22]
@@ -484,9 +485,8 @@ ymin=-.5,ymax=3.2,xmin=-2.22,xmax=2.22]
 \node [right] at (myplot.right of origin) {\scriptsize $0$};
 \node [above] at (myplot.above origin) {\scriptsize $\pi/2$};
 \end{tikzpicture}}
-%
-The final integral cannot be solved in terms of elementary functions, so we resorted to a numerical approximation. (Simpson's Rule, with $n=4$, approximates the value with $13.0608$. Using $n=22$ gives the value above, which is accurate to 4 places after the decimal.)
-\end{example}
+
+\vspace{-\topsep}\vspace{-\partopsep}
 
 \subsection{Surface Area}
 

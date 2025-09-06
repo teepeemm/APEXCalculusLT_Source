@@ -321,17 +321,9 @@ In reality, our approximation was only off by about $0.07$ (or $11\%$). However,
 
 We practice again. This time, we use Taylor's theorem to find $n$ that guarantees our approximation is within a certain amount.
 
-\begin{example}[Finding sufficiently accurate Taylor polynomials]\label{ex_taypoly4}%
-Find $n$ such that the $n^{\text{th}}$ Taylor polynomial of $f(x)=\cos x$ at $x=0$ approximates $\cos 2$ to within $0.001$ of the actual answer. What is $p_n(2)$?
-\solution
-Following Taylor's theorem, we need bounds on the size of the derivatives of $f(x)=\cos x$. In the case of this trigonometric function, this is easy. All derivatives of cosine are $\pm \sin x$ or $\pm \cos x$. In all cases, these functions are never greater than 1 in absolute value. We want the error to be less than $0.001$. To find the appropriate $n$, consider the following inequalities:
-\begin{align*}
-\frac{\max\abs{f\,^{(n+1)}(z)}}{(n+1)!}\abs{2-0}^{n+1} &\leq 0.001 \\
-\frac1{(n+1)!}\cdot2^{n+1} &\leq 0.001
-\end{align*}
-We find an $n$ that satisfies this last inequality with trial-and-error. When $n=8$, we have $\ds \frac{2^{8+1}}{(8+1)!} \approx 0.0014$; when $n=9$, we have $\ds \frac{2^{9+1}}{(9+1)!} \approx 0.000282 <0.001$. Thus we want to approximate $\cos 2$ with $p_9(2)$.\bigskip
+\clearpage
 
-\mtable{A table of the derivatives of $f(x)=\cos x$ evaluated at $x=0$.}{fig:taypoly4a}{\begin{align*}
+\mtable[yshift=-0.3\pageheight]{A table of the derivatives of $f(x)=\cos x$ evaluated at $x=0$.}{fig:taypoly4a}{\begin{align*}
 f(x) &= \phantom-\cos x & \Rightarrow && f(0) &= \phantom-1\\
 \fp(x) &= -\sin x & \Rightarrow && \fp(0) &= \phantom-0\\
 \fp'(x) &= -\cos x & \Rightarrow && \fp'(0) &= -1\\
@@ -342,18 +334,7 @@ f\,^{(6)}(x) &= -\cos x & \Rightarrow && f\,^{(6)}(0) &= -1\\
 f\,^{(7)}(x) &= \phantom-\sin x & \Rightarrow && f\,^{(7)}(0) &= \phantom-0\\
 f\,^{(8)}(x) &= \phantom-\cos x & \Rightarrow && f\,^{(8)}(0) &= \phantom-1\\
 f\,^{(9)}(x) &= -\sin x & \Rightarrow && f\,^{(9)}(0) &= \phantom-0
-\end{align*}}
-
-We now set out to compute $p_9(x)$. We again need a table of the derivatives of $f(x)=\cos x$ evaluated at $x=0$. A table of these values is given in \autoref{fig:taypoly4a}. Notice how the derivatives, evaluated at $x=0$, follow a certain pattern. All the odd powers of $x$ in the Taylor polynomial will disappear as their coefficient is 0. While our error bounds state that we need $p_9(x)$, our work shows that this will be the same as $p_8(x)$.
-
-Since we are forming our polynomial at $x=0$, we are creating a Maclaurin polynomial, and:\vspace{-.3\baselineskip}
-\[
-	p_8(x) = \sum_{k=0}^8\frac{f\,^{(k)}(0)}{k!}x^k
-	=  1-\frac{1}{2!}x^2+\frac{1}{4!}x^4-\frac{1}{6!}x^6+\frac{1}{8!}x^8
-\]
-
-We finally approximate $\cos 2$:
-\[\cos 2 \approx p_8(2) = -\frac{131}{315} \approx -0.41587.\]
+\end{align*}}%
 %
 \mtable{A graph of $f(x)= \cos x$ and its degree 8 Maclaurin polynomial.}{fig:taypoly4b}{\begin{tikzpicture}[alt={Blue cos x; red 6-term Maclaurin matches near 0, then alternates above/below the curve out to ±π.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
@@ -366,8 +347,30 @@ xtick={-5,-4,-3,-2,-1,1,2,3,4,5},ymin=-1.1,ymax=1.5,xmin=-5.5,xmax=5.5,legend st
 \end{axis}
 \node [right] at (myplot.right of origin) {\scriptsize $x$};
 \node [above] at (myplot.above origin) {\scriptsize $y$};
-\end{tikzpicture}}
-%
+\end{tikzpicture}}%
+
+\vspace{-\topsep}\vspace{-\partopsep}%
+
+\begin{example}[Finding sufficiently accurate Taylor polynomials]\label{ex_taypoly4}%
+Find $n$ such that the $n^{\text{th}}$ Taylor polynomial of $f(x)=\cos x$ at $x=0$ approximates $\cos 2$ to within $0.001$ of the actual answer. What is $p_n(2)$?
+\solution
+Following Taylor's theorem, we need bounds on the size of the derivatives of $f(x)=\cos x$. In the case of this trigonometric function, this is easy. All derivatives of cosine are $\pm \sin x$ or $\pm \cos x$. In all cases, these functions are never greater than 1 in absolute value. We want the error to be less than $0.001$. To find the appropriate $n$, consider the following inequalities:
+\begin{align*}
+\frac{\max\abs{f\,^{(n+1)}(z)}}{(n+1)!}\abs{2-0}^{n+1} &\leq 0.001 \\
+\frac1{(n+1)!}\cdot2^{n+1} &\leq 0.001
+\end{align*}
+We find an $n$ that satisfies this last inequality with trial-and-error. When $n=8$, we have $\ds \frac{2^{8+1}}{(8+1)!} \approx 0.0014$; when $n=9$, we have $\ds \frac{2^{9+1}}{(9+1)!} \approx 0.000282 <0.001$. Thus we want to approximate $\cos 2$ with $p_9(2)$.\bigskip
+
+We now set out to compute $p_9(x)$. We again need a table of the derivatives of $f(x)=\cos x$ evaluated at $x=0$. A table of these values is given in \autoref{fig:taypoly4a}. Notice how the derivatives, evaluated at $x=0$, follow a certain pattern. All the odd powers of $x$ in the Taylor polynomial will disappear as their coefficient is 0. While our error bounds state that we need $p_9(x)$, our work shows that this will be the same as $p_8(x)$.
+
+Since we are forming our polynomial at $x=0$, we are creating a Maclaurin polynomial, and:\vspace{-.3\baselineskip}
+\[
+	p_8(x) = \sum_{k=0}^8\frac{f\,^{(k)}(0)}{k!}x^k
+	=  1-\frac{1}{2!}x^2+\frac{1}{4!}x^4-\frac{1}{6!}x^6+\frac{1}{8!}x^8
+\]
+
+We finally approximate $\cos 2$:
+\[\cos 2 \approx p_8(2) = -\frac{131}{315} \approx -0.41587.\]
 Our error bound guarantees that this approximation is within $0.001$ of the correct answer. Technology shows us that our approximation is actually within about $0.0003$ (or $0.07\%$) of the correct answer.
 
 \autoref{fig:taypoly4b} shows a graph of $y=p_8(x)$ and $y=\cos x$. Note how well the two functions agree on about $(-\pi,\pi)$.
@@ -442,7 +445,7 @@ This shows our approximation is accurate to at least the first 2 places after th
 %y\primeskip' &= y^2\\
 %\frac{\dd}{\dd x}\bigl(y\primeskip'\bigr) &= \frac{\dd}{\dd x}\bigl(y^2\bigr)\\
 %y\primeskip'' &= 2y\cdot y\primeskip'.
-%\intertext{Now evaluate both sides at $x=0$:}
+%\intertext{Now evaluate both sides at \intertextmath{x=0}:}
 %y\primeskip''(0) &= 2y(0)\cdot y\primeskip'(0)\\
 %y\primeskip''(0) &= 2
 %\end{align*}
@@ -450,7 +453,7 @@ This shows our approximation is accurate to at least the first 2 places after th
 %\begin{align*}
 %\frac{\dd}{\dd x}\bigl(y\primeskip''\bigr) &= \frac{\dd}{\dd x} \bigl(2yy\primeskip'\bigr)\\
 %y\primeskip''' &= 2y\primeskip'\cdot y\primeskip' + 2y\cdot y\primeskip''.
-%\intertext{Now evaluate both sides at $x=0$:}
+%\intertext{Now evaluate both sides at \intertextmath{x=0}:}
 %y\primeskip'''(0) &= 2y\primeskip'(0)^2 + 2y(0)y\primeskip''(0)\\
 %y\primeskip'''(0) &=	2+4=6
 %\end{align*}

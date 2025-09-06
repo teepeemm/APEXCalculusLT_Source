@@ -230,8 +230,20 @@ We practice again.
 \begin{example}[Finding extreme values]\label{ex_extval5}%
 Find the maximum and minimum values of $f$ on $[-4,2]$, where
 \[f(x) = \begin{cases} (x-1)^2 & x\leq 0 \\ x+1 & x>0 \end{cases}.\]
-%
-\mtable{A table of extreme values and graph of $f(x)$ on $[-4,2]$ as in \autoref{ex_extval5}.}{fig:extval5}{%
+\solution
+Although $f$ is piecewise-defined, it is still continuous, which means that we can apply \autoref{idea:extrema}. Evaluating $f$ at the endpoints gives: 
+\[f(-4)=(-4-1)^2=(-5)^2 = 25 \quad \text{and} \quad f(2)=2+1 = 3.\]
+
+We now find the critical points of $f$. We have to define $\fp$ in a piecewise manner; it is
+\[\fp(x) =\begin{cases} 2(x-1) & x < 0 \\ 1 & x>0 \end{cases} .\]
+Note that while $f$ is defined for all of $[-4,2]$, $\fp$ is not, as the derivative of $f$ does not exist when $x=0$. (From the left, the derivative approaches $-2$; from the right the derivative is 1.) Thus one critical point of $f$ is $x=0$.
+
+We now set $\fp(x) = 0$. When $x >0$, $\fp(x)$ is never 0.  When $x<0$, $\fp(x)$ is also never 0. (We may be tempted to say that $\fp(x) = 0 $ when $x=1$. However, this is nonsensical, for we only consider $\fp(x) = 2(x-1)$ when $x<0$, so we will ignore a solution that says $x=1$.) 
+
+So we have three important $x$ values to consider: $x= -4, 2$ and $0$. We have already evaluated the first two, and $f(0)=(0-1)^2=(-1)^2=1$.  Collecting these values into \autoref{fig:extval5}(a), we see that the absolute minimum of $f$ is 1 and the absolute maximum of $f$ is $25$. Our answer is confirmed by the graph of $f$ in \autoref{fig:extval5}(b).
+\end{example}
+
+\mtable[yshift=20\baselineskip]{A table of extreme values and graph of $f(x)$ on $[-4,2]$ as in \autoref{ex_extval5}.}{fig:extval5}{%
 \tagpdfsetup{table/header-rows={1}}
 \begin{tabular}{rr}
  $x$ & $f(x)$ \\ \midrule
@@ -251,19 +263,6 @@ ymin=-.9,ymax=25.5,xmin=-4.5,xmax=2.5]
 \node [above] at (myplot.above origin) {\scriptsize $y$};
 \end{tikzpicture}
 \\(b)}
-%
-\solution
-Although $f$ is piecewise-defined, it is still continuous, which means that we can apply \autoref{idea:extrema}. Evaluating $f$ at the endpoints gives: 
-\[f(-4)=(-4-1)^2=(-5)^2 = 25 \quad \text{and} \quad f(2)=2+1 = 3.\]
-
-We now find the critical points of $f$. We have to define $\fp$ in a piecewise manner; it is
-\[\fp(x) =\begin{cases} 2(x-1) & x < 0 \\ 1 & x>0 \end{cases} .\]
-Note that while $f$ is defined for all of $[-4,2]$, $\fp$ is not, as the derivative of $f$ does not exist when $x=0$. (From the left, the derivative approaches $-2$; from the right the derivative is 1.) Thus one critical point of $f$ is $x=0$.
-
-We now set $\fp(x) = 0$. When $x >0$, $\fp(x)$ is never 0.  When $x<0$, $\fp(x)$ is also never 0. (We may be tempted to say that $\fp(x) = 0 $ when $x=1$. However, this is nonsensical, for we only consider $\fp(x) = 2(x-1)$ when $x<0$, so we will ignore a solution that says $x=1$.) 
-
-So we have three important $x$ values to consider: $x= -4, 2$ and $0$. We have already evaluated the first two, and $f(0)=(0-1)^2=(-1)^2=1$.  Collecting these values into \autoref{fig:extval5}(a), we see that the absolute minimum of $f$ is 1 and the absolute maximum of $f$ is $25$. Our answer is confirmed by the graph of $f$ in \autoref{fig:extval5}(b).
-\end{example}
 
 \mtable{A table of extreme values and graph of $f(x)= \cos (x^2)$ on $[-2,2]$ in \autoref{ex_extval6}.}{table:ext6}{%
 \tagpdfsetup{table/header-rows={1}}

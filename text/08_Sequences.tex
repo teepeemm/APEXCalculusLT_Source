@@ -354,13 +354,6 @@ A sequence $\{a_n\}$ is said to be \textbf{bounded above} if there exists an $M$
 
 It follows from this definition that an unbounded sequence may be bounded above or bounded below; a sequence that is both bounded above and below is simply a bounded sequence.
 
-\begin{example}[Determining boundedness of sequences]\label{ex_seq3}%
-Determine the boundedness of the following sequences.
-\[
- \text{1.}\quad\{a_n\} = \left\{\frac1n\right\}\qquad\qquad
- \text{2.}\quad\{a_n\} = \{2^n\}
-\]
-%
 \mtable{A plot of $\{a_n\} = \{1/n\}$ and $\{a_n\} = \{2^n\}$ from \autoref{ex_seq3}.}{fig:seq3}{%
 \begin{tikzpicture}[alt={Blue dots: aₙ=1/n for 1≤n≤10; values decline from 1 to near 0 along the n-axis.}]
 \begin{axis}[width=\marginparwidth,tick label style={font=\scriptsize},
@@ -385,6 +378,13 @@ ymin=-.1,ymax=275,xmin=-.1,xmax=9]
 \node [above] at (myplot.above origin) {\scriptsize $y$};
 \end{tikzpicture}
 \\(b)}
+
+\begin{example}[Determining boundedness of sequences]\label{ex_seq3}%
+Determine the boundedness of the following sequences.
+\[
+ \text{1.}\quad\{a_n\} = \left\{\frac1n\right\}\qquad\qquad
+ \text{2.}\quad\{a_n\} = \{2^n\}
+\]
 \solution
 \begin{enumerate}
 \item	The terms of this sequence are always positive but are decreasing, so we have $0<a_n<2$ for all $n$. Thus this sequence is bounded. \autoref{fig:seq3}(a) illustrates this.

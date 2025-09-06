@@ -26,8 +26,12 @@ We can demonstrate the truth of the Integral Test with two simple graphs. In \au
 \begin{equation}
 \int_1^\infty a(x)\dd x < \sum_{n=1}^\infty a_n.\label{eq:integral_testa}
 \end{equation}
-%
-\mtable{Illustrating the truth of the Integral Test.}{fig:integral_test}{%
+In \autoref{fig:integral_test}(b), we draw rectangles under $y=a(x)$ with the Right-Hand rule, starting with $n=2$. This time, the area of the rectangles is less than the area under $y=a(x)$, so $\ds\sum_{n=2}^\infty a_n < \int_1^\infty a(x)\dd x$. Note how this summation starts with $n=2$; adding $a_1$ to both sides lets us rewrite the summation starting with $n=1$:
+\begin{equation}
+\sum_{n=1}^\infty a_n < a_1 +\int_1^\infty a(x)\dd x.\label{eq:integral_testb}
+\end{equation} 
+
+\mtable[yshift=5\baselineskip]{Illustrating the truth of the Integral Test.}{fig:integral_test}{%
 \begin{tikzpicture}[alt={Left-end rectangles (red) over a decreasing y=a(x) curve; overestimate area on 1 < x < }]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,xtick={1,2,3,4,5},
@@ -59,13 +63,7 @@ ytick={1,2},ymin=-.1,ymax=2.5,xmin=-.5,xmax=5.6]
 \node [right] at (myplot.right of origin) {\scriptsize $x$};
 \node [above] at (myplot.above origin) {\scriptsize $y$};
 \end{tikzpicture}
-\\(b)}%
-%
-In \autoref{fig:integral_test}(b), we draw rectangles under $y=a(x)$ with the Right-Hand rule, starting with $n=2$. This time, the area of the rectangles is less than the area under $y=a(x)$, so $\ds\sum_{n=2}^\infty a_n < \int_1^\infty a(x)\dd x$. Note how this summation starts with $n=2$; adding $a_1$ to both sides lets us rewrite the summation starting with $n=1$:
-\begin{equation}
-\sum_{n=1}^\infty a_n < a_1 +\int_1^\infty a(x)\dd x.\label{eq:integral_testb}
-\end{equation} 
-
+\\(b)}
 
 Combining Equations \eqref{eq:integral_testa} and \eqref{eq:integral_testb}, we have
 \begin{equation}

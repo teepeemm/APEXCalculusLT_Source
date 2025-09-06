@@ -440,7 +440,23 @@ We have $\Delta x=4/16=0.25$, $x_i=0+i\Delta x=i\Delta x$, and $f(x_i)=f(i\Delta
 &=34-\frac{187}{8}=\frac{85}{8}=10.625
 \end{flalign*}}
 % not \ds because of line break
-\mtable{Approximating $\int_0^4(4x-x^2)\dd x$ with the Right Hand Rule and 16 evenly spaced subintervals.}{fig:rie7}{\begin{tikzpicture}[alt={Blue parabola y=4x-x² on 0<x<4; sixteen narrow red rectangles use right endpoints, shading under curve; axes x and y.}]
+We were able to sum up the areas of 16 rectangles with very little computation. In \autoref{fig:rie7} the function and the 16 rectangles are graphed. While some rectangles over-approximate the area, others under-approximate the area by about the same amount. Thus our approximate area of 10.625 is likely a fairly good approximation.
+
+Notice  Equation (*); by changing the 16's to 1000's and changing the value of $\Delta x$ to $4/1000=0.004$, we can use the equation to sum up the areas of 1000 rectangles. We do so here, skipping from the original summand to the equivalent of Equation (*) to save space.
+\begin{align*}
+\int_0^4 &(4x-x^2)\dd x \\
+&\approx \sum_{i=1}^{1000} f(x_i)\Delta x\\
+&=4(\Delta x)^2\sum_{i=1}^{1000} i -(\Delta x)^3\sum_{i=1}^{1000} i^2\\
+&=4(.004)^2\left(\frac{(1000)(1001)}{2}\right) -(0.004)^3\left(\frac{(1000)(1001)(2001)}{6}\right)\\
+&=10.666656
+\end{align*}
+
+Using many, many rectangles, we likely have a good approximation:
+% of $\ds\int_0^4 (4x-x^2)\dd x$. That is,
+\[\int_0^4 (4x-x^2)\dd x\approx 10.666656.\]
+\end{example}
+
+\mtable[yshift=30\baselineskip]{Approximating $\int_0^4(4x-x^2)\dd x$ with the Right Hand Rule and 16 evenly spaced subintervals.}{fig:rie7}{\begin{tikzpicture}[alt={Blue parabola y=4x-x² on 0<x<4; sixteen narrow red rectangles use right endpoints, shading under curve; axes x and y.}]
 \begin{axis}[width=1.16\marginparwidth,
 tick label style={font=\scriptsize},axis y line=middle,axis x line=middle,
 name=myplot,axis on top,
@@ -459,21 +475,6 @@ name=myplot,axis on top,
 \node [right] at (myplot.right of origin) {\scriptsize $x$};
 \node [above] at (myplot.above origin) {\scriptsize $y$};
 \end{tikzpicture}}%
-We were able to sum up the areas of 16 rectangles with very little computation. In \autoref{fig:rie7} the function and the 16 rectangles are graphed. While some rectangles over-approximate the area, others under-approximate the area by about the same amount. Thus our approximate area of 10.625 is likely a fairly good approximation.
-
-Notice  Equation (*); by changing the 16's to 1000's and changing the value of $\Delta x$ to $4/1000=0.004$, we can use the equation to sum up the areas of 1000 rectangles. We do so here, skipping from the original summand to the equivalent of Equation (*) to save space.
-\begin{align*}
-\int_0^4 &(4x-x^2)\dd x \\
-&\approx \sum_{i=1}^{1000} f(x_i)\Delta x\\
-&=4(\Delta x)^2\sum_{i=1}^{1000} i -(\Delta x)^3\sum_{i=1}^{1000} i^2\\
-&=4(.004)^2\left(\frac{(1000)(1001)}{2}\right) -(0.004)^3\left(\frac{(1000)(1001)(2001)}{6}\right)\\
-&=10.666656
-\end{align*}
-
-Using many, many rectangles, we likely have a good approximation:
-% of $\ds\int_0^4 (4x-x^2)\dd x$. That is,
-\[\int_0^4 (4x-x^2)\dd x\approx 10.666656.\]
-\end{example}
 
 Before the above example, we stated what the summations for the Left Hand, Right Hand and Midpoint Rules looked like. Each had the same basic structure, which was:
 \begin{enumerate}

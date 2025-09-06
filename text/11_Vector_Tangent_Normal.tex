@@ -107,19 +107,20 @@ Let $\vrt =\bracket{3\cos t, 3\sin t, 4t}$ as in \autoref{ex_tannorm1}. Sketch b
 \solution
 In \autoref{ex_tannorm1}, we found $\vec T(t)=\bracket{-\frac35\sin t,\frac35\cos t,4/5}$. Therefore 
 \[\vec T\,'(t) =\bracket{-\frac35\cos t,-\frac35\sin t,0}\quad \text{and} \quad \norm{\vec T\,'(t)} = \frac35.\]
-%
-\mtable{Plotting unit tangent and normal vectors in \autoref{ex_tannorm3}.}{fig:tannorm3}{%
+Thus
+\[\vec N(t) = \frac{\vec T\,'(t)}{3/5} =\bracket{-\cos t,-\sin t,0}.\]
+We compute $\vec T(\pi/2) =\bracket{-3/5,0,4/5}$ and $\vec N(\pi/2) =\bracket{0,-1,0}$. These are sketched in \autoref{fig:tannorm3}.
+\end{example}
+
+\mtable[yshift=8\baselineskip]{Plotting unit tangent and normal vectors in \autoref{ex_tannorm3}.}{fig:tannorm3}{%
 \myincludeasythree{
 3Droll=0.9552187107340909,
 3Dortho=0.005093402229249477,
 3Dc2c=0.5105816125869751 0.5339998006820679 0.6739070415496826,
 3Dcoo=4.143548488616943 1.2702205181121826 14.294137954711914,
 3Droo=150.0000014005964}{\marginparwidth}{Along the helix, red T and black N form the Frenet pair at t = 1.2; axes ticked at ±3, ±10.}{figures/figtannorm3_3D}}%
-%
-Thus
-\[\vec N(t) = \frac{\vec T\,'(t)}{3/5} =\bracket{-\cos t,-\sin t,0}.\]
-We compute $\vec T(\pi/2) =\bracket{-3/5,0,4/5}$ and $\vec N(\pi/2) =\bracket{0,-1,0}$. These are sketched in \autoref{fig:tannorm3}.
-\end{example}
+
+\vspace{-\topsep}\vspace{-\partopsep}
 
 The previous example was once again ``too nice.'' In general, the expression for $\vec T(t)$ contains fractions of square-roots, hence the expression of $\vec T\,'(t)$ is very messy. We demonstrate this in the next example.
 

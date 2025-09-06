@@ -256,9 +256,7 @@ means the velocity has increased by 15m/h from $t=0$ to $t=3$.
 
 \subsection{The Mean Value Theorem and Average Value}
 
-Consider the graph of a function $f$ in \autoref{fig:ftc7b}(a) and the area defined by $\int_1^4 f(x)\dd x$. Three rectangles are then drawn; in (b), the height of the rectangle is greater than $f$ on $[1,4]$, hence the area of this rectangle is is greater than $\int_1^4 f(x)\dd x$.
-
-\mtable{A graph of a function $f$ to introduce the Mean Value Theorem and differently sized rectangles giving upper and lower bounds on $\int_1^4 f(x)\dd x$; the last rectangle matches the area exactly.}{fig:ftc7b}%
+\mtable[ysep page top=1in]{A graph of a function $f$ to introduce the Mean Value Theorem and differently sized rectangles giving upper and lower bounds on $\int_1^4 f(x)\dd x$; the last rectangle matches the area exactly.}{fig:ftc7b}%
 {\begin{tikzpicture}[alt={(a) Blue curve f on 0–4, above x axis; axes x and y.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick={1,2,3,4},
@@ -305,6 +303,10 @@ ytick=\empty,ymin=-.5,ymax=1.75,xmin=-.5,xmax=4.5]
 \node [above] at (myplot.above origin) {\scriptsize $y$};
 \end{tikzpicture}
 \\(d)}
+
+\vspace{-\topsep}\vspace{-\partopsep}
+\noindent
+Consider the graph of a function $f$ in \autoref{fig:ftc7b}(a) and the area defined by $\int_1^4 f(x)\dd x$. Three rectangles are then drawn; in (b), the height of the rectangle is greater than $f$ on $[1,4]$, hence the area of this rectangle is is greater than $\int_1^4 f(x)\dd x$.
 
 In (c), the height of the rectangle is smaller than $f$ on $[1,4]$, hence the area of this rectangle is less than $\int_1^4 f(x)\dd x$.
 
@@ -370,8 +372,9 @@ Let $f$ be a function on $[a,b]$ with $c$ such that $f(c)(b-a) = \int_a^bf(x)\dd
 	&= f(c)(b-a) - f(c)(b-a) \\
 	&= 0.
 \end{align*}
-%
-\mtable{On top, a graph of $y=f(x)$ and the rectangle guaranteed by the Mean Value Theorem. Below, $y=f(x)$ is shifted down by $f(c)$; the resulting ``area under the curve'' is 0.}{fig:ftc9}
+When $f(x)$ is shifted by $-f(c)$, the amount of area under $f$ above the $x$-axis on $[a,b]$ is the same as the amount of area below the $x$-axis above $f$; see \autoref{fig:ftc9} for an illustration of this. In this sense, we can say that $f(c)$ is the \emph{average value} of $f$ on $[a,b]$. 
+
+\mtable[ysep page top=1in]{On top, a graph of $y=f(x)$ and the rectangle guaranteed by the Mean Value Theorem. Below, $y=f(x)$ is shifted down by $f(c)$; the resulting ``area under the curve'' is 0.}{fig:ftc9}
 {\begin{tikzpicture}[alt={Top: blue curve from a to b, red rectangle at height f(c) covers same shaded area under curve; axes x and y.}]
 \begin{axis}[width=1.16\marginparwidth,tick label style={font=\scriptsize},
 axis y line=middle,axis x line=middle,name=myplot,axis on top,xtick=\empty,
@@ -400,8 +403,6 @@ ymin=-1,ymax=3.5,xmin=-.5,xmax=4.25]
 \node [right] at (myplot.right of origin) {\scriptsize $x$};
 \node [above] at (myplot.above origin) {\scriptsize $y$};
 \end{tikzpicture}}
-%
-When $f(x)$ is shifted by $-f(c)$, the amount of area under $f$ above the $x$-axis on $[a,b]$ is the same as the amount of area below the $x$-axis above $f$; see \autoref{fig:ftc9} for an illustration of this. In this sense, we can say that $f(c)$ is the \emph{average value} of $f$ on $[a,b]$. 
 
 The value $f(c)$ is the average value in another sense. First, recognize that the Mean Value Theorem can be rewritten as
 \[f(c) = \frac{1}{b-a}\int_a^b f(x)\dd x,\]
