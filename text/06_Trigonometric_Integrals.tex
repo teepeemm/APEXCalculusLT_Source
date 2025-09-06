@@ -258,7 +258,7 @@ Since the power of secant is even, we use rule \#1 from \autoref{idea:trig_int_2
 \begin{align*}
 \int \tan^2x\sec^6x\dd x &= \int\tan^2x\sec^4x\sec^2x\dd x \\
 		&= \int \tan^2x\bigl(1+\tan^2x\bigr)^2\sec^2x\dd x \\
-\intertext{Now substitute, with $u=\tan x$, with $\dd u = \sec^2x\dd x$.}
+\intertext{Now substitute, with \intertextmath{u=\tan x}, with \intertextmath{\dd u = \sec^2x\dd x}.}
 		&=\int u^2\bigl(1+u^2\bigr)^2\dd u\\
 \intertext{We leave the integration and subsequent substitution to the reader. The final answer is}
 		&=\frac13\tan^3x+\frac25\tan^5x+\frac17\tan^7x+C.
@@ -320,7 +320,7 @@ We employ rule \#4 of \autoref{idea:trig_int_2}.
 	&= \int \tan^4x\tan^2x\dd x \\
 	&= \int\tan^4x\bigl(\sec^2x-1\bigr)\dd x\\
 	&= \int\tan^4x\sec^2x\dd x - \int\tan^4x\dd x \\
-\intertext{We integrate the first integral with substitution, $u=\tan x$ and $\dd u=\sec^2x\dd x$; and the second by employing rule \#4 again.}
+\intertext{We integrate the first integral with substitution, \intertextmath{u=\tan x} and \intertextmath{\dd u=\sec^2x\dd x}; and the second by employing rule \#4 again.}
 	&= \int u^4\dd u-\int\tan^2 x\tan^2 x\dd x \\
 	&=	\frac15\tan^5x-\int\tan^2x\bigl(\sec^2x-1\bigr)\dd x \\
 	&= \frac15\tan^5x -\int\tan^2x\sec^2x\dd x + \int\tan^2x\dd x\\

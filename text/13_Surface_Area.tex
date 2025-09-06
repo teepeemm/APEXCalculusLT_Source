@@ -104,7 +104,7 @@ The computation of the surface area is still valid. The definition makes stronge
 S &= 2\int_0^{2\pi}\int_0^a \sqrt{1+\frac{r^2\cos^2\theta+r^2\sin^2\theta}{a^2-r^2\cos^2\theta-r^2\sin^2\theta}}\ r\dd r\dd\theta \notag\\
 &=2\int_0^{2\pi}\int_0^ar\sqrt{1+\frac{r^2}{a^2-r^2}}\dd r\dd\theta\notag\\
 &=2\int_0^{2\pi}\int_0^ar\sqrt{\frac{a^2}{a^2-r^2}}\dd r\dd\theta.\label{eq:exsurfacearea2}
-\intertext{Apply substitution $u=a^2-r^2$ and integrate the inner integral, giving}
+\intertext{Apply substitution \intertextmath{u=a^2-r^2} and integrate the inner integral, giving}
 &= 2\int_0^{2\pi} a^2\dd\theta\notag\\
 &= 4\pi a^2\notag.
 \end{align}
@@ -168,7 +168,7 @@ Integrating with order $\dd x\dd y$ requires us to evaluate $\int \sqrt{10+4x^2}
 \iint_R\sqrt{10+4x^2}\dd A &= \int_0^4\int_{-x}^x\sqrt{10+4x^2}\dd y \dd x\\
 				&= \int_0^4\left.\bigl(y\sqrt{10+4x^2}\bigr)\right|_{y=-x}^{y=x}\dd x\\
 				&=\int_0^4\bigl(2x\sqrt{10+4x^2}\bigr)\dd x.
-				\intertext{Apply substitution with $u = 10+4x^2$:}
+				\intertext{Apply substitution with \intertextmath{u = 10+4x^2}:}
 				&= \left.\left(\frac16\bigl(10+4x^2\bigr)^{3/2}\right)\right|_{x=0}^{x=4} \\
 				&= \frac13\bigl(37\sqrt{74}-5\sqrt{10}\bigr) %\approx 100.825
 				\text{ units}^2.

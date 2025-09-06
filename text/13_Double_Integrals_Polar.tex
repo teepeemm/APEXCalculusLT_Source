@@ -209,7 +209,7 @@ All together, the volume of a sphere with radius $a$ is:
 \begin{align*}
 2\iint_R\sqrt{a^2-x^2-y^2}\dd A &= 2\int_0^{2\pi}\int_0^a\sqrt{a^2-(r\cos\theta)^2-(r\sin\theta)^2}r\dd r\dd\theta\\
 		&=2\int_0^{2\pi}\int_0^ar\sqrt{a^2-r^2}\dd r\dd\theta.
-\intertext{We can evaluate this inner integral with substitution. With $u=a^2-r^2$, $du = -2r\dd r$. The new bounds of integration are $u(0) = a^2$ to $u(a)=0$. Thus we have:}
+\intertext{We can evaluate this inner integral with substitution. With \intertextmath{u=a^2-r^2}, \intertextmath{du = -2r\dd r}. The new bounds of integration are \intertextmath{u(0) = a^2} to \intertextmath{u(a)=0}. Thus we have:}
 	&= \int_0^{2\pi}\int_{a^2}^0\bigl(-u^{1/2}\bigr)\dd u\dd\theta\\
 	&= \int_0^{2\pi}\left.\left(-\frac23u^{3/2}\right)\right|_{u=a^2}^{u=0}\dd\theta\\
 	&= \int_0^{2\pi}\left(\frac23a^3\right)\dd\theta\\
