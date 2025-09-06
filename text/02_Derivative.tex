@@ -280,27 +280,22 @@ Recall from \autoref{sec:limit_analytically} that $\ds \lim_{x\to 0}\frac{\sin x
 
 Consider again \autoref{ex_derv_point1}. To find the derivative of $f$ at $x=1$, we needed to evaluate a limit. To find the derivative of $f$ at $x=3$, we needed to again evaluate a limit. We have this process:
 \[
-\tagpdfsetup{table/tagging=presentation}
-\begin{tabular}{c}input specific\\number $c$\end{tabular}
+\text{\parbox{\widthof{input specific}}{\centering input specific\\number \intertextmath{c}}}
 \longrightarrow
-\fbox{\tagpdfsetup{table/tagging=presentation}
-\begin{tabular}{c}do something\\to $f$ and $c$\end{tabular}}
+\text{\fbox{\parbox{\widthof{do something}}{\centering do something\\to \intertextmath{f} and \intertextmath{c}}}}
 \longrightarrow
-\tagpdfsetup{table/tagging=presentation}
-\begin{tabular}{c}return\\number $\fp(c)$\end{tabular}
+\text{\parbox{\widthof{number $\fp(c)$}}{\centering return\\number \intertextmath{\fp(c)}}}
 \]
 
 This process describes a \emph{function}; given one input (the value of $c$), we return exactly one output (the value of $\fp(c)$). The ``do something'' box is where the tedious work (taking limits) of this function occurs. 
 
 Instead of applying this function repeatedly for different values of $c$, let us apply it just once to the variable $x$. We then take a limit just once. The process now looks like:
 \[
-\text{input variable x}
+\text{input variable $x$}
 \longrightarrow
-\fbox{\tagpdfsetup{table/tagging=presentation}
-\begin{tabular}{c}do something\\to $f$ and $x$\end{tabular}}
+\text{\fbox{\parbox{\widthof{do something}}{\centering do something\\to \intertextmath{f} and \intertextmath{x}}}}
 \longrightarrow
-\tagpdfsetup{table/tagging=presentation}
-\begin{tabular}{c}return\\function $\fp(x)$\end{tabular}
+\text{\parbox{\widthof{function $\fp(x)$}}{\centering return\\function \intertextmath{\fp(x)}}}
 \]
 
 The output is the ``derivative function,'' $\fp(x)$. The $\fp(x)$ function will take a number $c$ as input and return the derivative of $f$ at $c$. This calls for a definition.
@@ -344,7 +339,7 @@ We apply \autoref{def:the_derivative}.
 	\fp(x)
 	&= \lim_{h\to 0} \frac{f(x+h)-f(x)}{h}\\
 	&=	\lim_{h\to 0} \frac{\frac{1}{x+h+1}-\frac{1}{x+1}}{h}
-	\intertext{Now find a common denominator and subtract; factor $1/h$ out front to facilitate reading.}
+	\intertext{Now find a common denominator and subtract; factor \intertextmath{1/h} out front to facilitate reading.}
 	\fp(x)
 	&= \lim_{h\to 0} \frac{1}{h}\cdot\left(\frac{x+1}{(x+1)(x+h+1)} - \frac{x+h+1}{(x+1)(x+h+1)}\right)\\
 	&=	\lim_{h\to 0} \frac 1h\cdot\left(\frac{x+1-(x+h+1)}{(x+1)(x+h+1)}\right)\\
@@ -365,7 +360,7 @@ Before applying \autoref{def:the_derivative}, note that once the derivative is f
 	\small
 	\begin{align*}
 		&\fp(x)\\
-		&= \lim_{h\to 0} \frac{\sin(x+h)-\sin x}{h} & & \left(\text{\scriptsize \parbox{110pt}{\centering Use trig identity $\sin(x+h) = \sin x\cos h+\cos x\sin h$}}\right) \\
+		&= \lim_{h\to 0} \frac{\sin(x+h)-\sin x}{h} & & \left(\text{\scriptsize \parbox{110pt}{\centering Use trig identity \intertextmath{\sin(x+h) = \sin x\cos h+\cos x\sin h}}}\right) \\
 		&= \lim_{h\to 0} \frac{\sin x\cos h+\cos x\sin h-\sin x}{h} & & \text{\scriptsize (regroup)}\\
 		&= \lim_{h\to 0} \frac{\sin x(\cos h-1) + \cos x\sin h}{h} & & \text{\scriptsize (split into two fractions)}\\
 		&= \lim_{h\to 0} \left(\frac{\sin x(\cos h-1)}{h} + \frac{\cos x\sin h}{h}\right) & & \left(\text{\scriptsize use $\ds \lim_{h\to 0} \frac{\cos h-1}{h} = 0$ and $\ds \lim_{h\to 0} \frac{\sin h}{h} = 1$}\right)\\
