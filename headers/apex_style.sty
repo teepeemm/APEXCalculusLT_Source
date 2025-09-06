@@ -83,8 +83,6 @@
   \end{minipage}%
  }%
 }
-\providecommand{\tagpdfparaOn}{}
-\providecommand{\tagpdfparaOff}{}
 
 \usepackage{titletoc}
 \titlecontents{part}[0pt]
@@ -186,9 +184,6 @@
 \AddToHook{env/tcolorbox/before}{\par\tagstructbegin{tag=Div}}
 %\AddToHook{env/tcolorbox/begin}{\tagpdfparaOff \tcbset{before upper=\tagpdfparaOn}} % only for unbreakable boxes
 \AddToHook{env/tcolorbox/after}{\par\tagstructend}
-
-\providecommand{\tagstructbegin}[1]{}
-\providecommand{\tagstructend}
 
 \tcolorboxenvironment{example}{
     empty,
@@ -532,3 +527,5 @@
 \newcommand { \intertextmathend } { \pdf_version_compare:NnF<{2.0} { \tag_struct_end: } }
 
 \ExplSyntaxOff
+
+\newcommand{\intertextmath}[1]{\intertextmathbegin\(#1\)\intertextmathend}

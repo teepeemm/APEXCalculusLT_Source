@@ -323,7 +323,7 @@
 	\mnote@pex{\iftrue}{#1}{#2}%
 }
 
-% testmargin[top|bottom] was interferring with the tagging, as was the mbox
+% testmargin[top|bottom] was interfering with the tagging, as was the mbox
 \newcommand*{\mnote@pex}[3]{%
 	\marginalia[ysep page bottom=.8in,#2]{%[yshift=#2]
 %	\marginnote{%
@@ -564,8 +564,8 @@ https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js}
 \providecommand{\tagpdfsetup}[1]{}
 \providecommand{\ResumeTagging}[1]{}
 \providecommand{\SuspendTagging}[1]{}
-
-%\usepackage{headers/tagpdf-table-headers}
+\providecommand{\tagpdfparaOn}{}
+\providecommand{\tagpdfparaOff}{}
 
 
 \InputIfFileExists{./options}{}{%
