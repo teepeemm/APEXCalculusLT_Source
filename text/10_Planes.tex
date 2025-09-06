@@ -26,9 +26,9 @@ This gives us way of writing an equation describing the plane. Let $P=(x_0,y_0,z
 				a(x-x_0)+b(y-y_0)+c(z-z_0) &=0 \label{eq:planes1}
 \intertext{\autoeqref{eq:planes1} defines an \emph{implicit} function describing the plane. More algebra produces:}
 ax+by+cz &= ax_0+by_0+cz_0. \notag
-\intertext{The right hand side is just a number, so we replace it with $d$:}
+\intertext{The right hand side is just a number, so we replace it with \intertextmath{d}:}
 ax+by+cz &= d\label{eq:planes2}.
-\intertext{As long as $c\neq 0$, we can solve for $z$:}
+\intertext{As long as \intertextmath{c\neq 0}, we can solve for \intertextmath{z}:}
 z &= \frac1c(d-ax-by).\label{eq:planes3}
 \end{align}
  \autoeqref{eq:planes3} is especially useful as many computer programs can graph functions in this form. Equations \eqref{eq:planes1} and \eqref{eq:planes2} have specific names, given next.
@@ -163,13 +163,6 @@ The equation of the plane shows that the vector $\vec n =\bracket{2,1,1}$ is a n
 
 To find the point of intersection, we need to find a $t$ value such that $\ell(t)$ satisfies the equation of the plane. Rewriting the equation of the line with parametric equations will help:
 \[\ell(t) = \begin{cases}x=3-t\\y=-3+2t\\z=-1+t\end{cases}.\]%
-\mtable{Illustrating the intersection of a line and a plane in \autoref{ex_planes5}.}{fig:planes5}{%
-\myincludeasythree{
-3Droll=1.7009339618393229,
-3Dortho=0.0046491301618516445,
-3Dc2c=0.6873484253883362 0.6952667832374573 0.2101338654756546,
-3Dcoo=7.167160511016846 -9.016068458557129 21.630752563476562,
-3Droo=149.9999995928182}{\marginparwidth}{Red line l(t) pierces blue plane; intersection shown on rotated grid; axes xyz ±2.}{figures/figplanes5_3D}}%
 Replacing $x$, $y$ and $z$ in the equation of the plane with the expressions containing $t$ found in the equation of the line allows us to determine a $t$ value that indicates the point of intersection:
 \begin{align*}
 2x+y+z &=4 \\
@@ -178,6 +171,16 @@ t&=2.
 \end{align*}
 When $t=2$, the point on the line satisfies the equation of the plane; that point is $\ell(2) =\bracket{1,1,1}$. Thus the point $(1,1,1)$ is the point of intersection between the plane and the line, illustrated in \autoref{fig:planes5}.
 \end{example}
+
+\mtable[yshift=13\baselineskip]{Illustrating the intersection of a line and a plane in \autoref{ex_planes5}.}{fig:planes5}{%
+\myincludeasythree{
+3Droll=1.7009339618393229,
+3Dortho=0.0046491301618516445,
+3Dc2c=0.6873484253883362 0.6952667832374573 0.2101338654756546,
+3Dcoo=7.167160511016846 -9.016068458557129 21.630752563476562,
+3Droo=149.9999995928182}{\marginparwidth}{Red line l(t) pierces blue plane; intersection shown on rotated grid; axes xyz ±2.}{figures/figplanes5_3D}}%
+
+\vspace{-\topsep}\vspace{-\partopsep}
 
 \subsection{Distances}
 

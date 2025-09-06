@@ -125,7 +125,7 @@ Setting $x=3\sin \theta$ gives  $\dd x = 3\cos\theta\dd\theta$. We are almost re
 	&= \int_{-\pi/2}^{\pi/2} \sqrt{9-9\sin^2\theta} (3\cos\theta)\dd\theta \\
 	&= \int_{-\pi/2}^{\pi/2} 3\sqrt{9\cos^2\theta} \cos\theta\dd\theta \\
 	&=\int_{-\pi/2}^{\pi/2} 3\abs{3\cos \theta} \cos\theta\dd\theta.
-	\intertext{On $[-\pi/2,\pi/2]$, $\cos \theta$ is always positive, so we can drop the absolute value bars, then employ a half-angle formula:}
+	\intertext{On \intertextmath{[-\pi/2,\pi/2]}, \intertextmath{\cos \theta} is always positive, so we can drop the absolute value bars, then employ a half-angle formula:}
 	&= \int_{-\pi/2}^{\pi/2} 9\cos^2 \theta\dd\theta\\
 	&= \int_{-\pi/2}^{\pi/2} \frac{9}{2}\bigl(1+\cos(2\theta)\bigr)\dd\theta\\
 	& = \frac92 \left.\left(\theta +\frac12\sin(2\theta)\right)\right|_{-\pi/2}^{\pi/2}= \frac92\pi.
@@ -255,17 +255,16 @@ We use \autoref{idea:trigsub}\ref*{trigsubsin} with $a=2$, $x=2\sin \theta$, $\d
 		&=	\int (\csc^2\theta -1)\dd\theta\\
 		&= -\cot\theta -\theta + C.
 \end{align*}
-%
-\mtable{A reference triangle for \autoref{ex_trigsub4}}{fig:sin_tri}{\begin{tikzpicture}[alt={Right triangle: base √(4-x²), vertical leg x, hypotenuse 2; right angle at right, θ at left.}]
+We need to rewrite our answer in terms of $x$. Using the Pythagorean Theorem we determine the lengths of the sides of the reference triangle in \autoref{fig:sin_tri}. We have $\cot\theta = \sqrt{4-x^2}/x$ and $\theta = \sin^{-1}(x/2)$. Thus
+\[\int \frac{\sqrt{4-x^2}}{x^2}\dd x = -\frac{\sqrt{4-x^2}}x-\sin^{-1}\left(\frac x2\right) + C.\]
+\end{example}
+
+\mtable[yshift=8\baselineskip]{A reference triangle for \autoref{ex_trigsub4}}{fig:sin_tri}{\begin{tikzpicture}[alt={Right triangle: base √(4-x²), vertical leg x, hypotenuse 2; right angle at right, θ at left.}]
 	\draw [very thick] (0,0) -- node[below,pos=.5] {$\sqrt{4-x^2}$} (3,0)
 	 -- node [right,pos=.5] {$x$} (3,2) -- node [pos=.5,above] {$2$} cycle;
     \draw [thick] (2.7,0) -- (2.7,.3) -- (3,.3);
 	\draw (.75,.25) node {$\theta$};
 \end{tikzpicture}}%
-%
-We need to rewrite our answer in terms of $x$. Using the Pythagorean Theorem we determine the lengths of the sides of the reference triangle in \autoref{fig:sin_tri}. We have $\cot\theta = \sqrt{4-x^2}/x$ and $\theta = \sin^{-1}(x/2)$. Thus
-\[\int \frac{\sqrt{4-x^2}}{x^2}\dd x = -\frac{\sqrt{4-x^2}}x-\sin^{-1}\left(\frac x2\right) + C.\]
-\end{example}
 
 Trigonometric Substitution can be applied in many situations, even those not of the form $\sqrt{a^2-x^2}$, $\sqrt{x^2-a^2}$ or $\sqrt{x^2+a^2}$. In the following example, we apply it to an integral we already know how to handle.
 
@@ -299,7 +298,7 @@ We start by completing the square, then make the substitution $u=x+3$, followed 
 They are often needed for writing your final answer in terms of $x$.}
 \begin{align}
 \int \frac1{(x^2+6x+10)^2}\dd x &=\int \frac1{\bigl((x+3)^2+1\bigr)^2}\dd x = \int \frac1{(u^2+1)^2}\dd u. \notag
-\intertext{Now make the substitution $u=\tan\theta$, $\dd u=\sec^2\theta\dd\theta$:}
+\intertext{Now make the substitution \intertextmath{u=\tan\theta}, \intertextmath{\dd u=\sec^2\theta\dd\theta}:}
    &=	\int \frac1{(\tan^2\theta+1)^2}\sec^2\theta\dd\theta\notag\\
 	&= \int\frac 1{(\sec^2\theta)^2}\sec^2\theta\dd\theta\notag\\
 	&= \int \cos^2\theta\dd\theta.\notag
