@@ -467,6 +467,11 @@
 
 % todo bugfix see https://github.com/latex3/tagging-project/issues/924
 \tl_new:N \l__pgf_tmpa_tl
+\str_if_exist:cF { l__socket_tagsupport/tikz/picture/end_plug_str }
+  {
+    \socket_new:nn {tagsupport/tikz/picture/end}{0}
+    \socket_new_plug:nnn {tagsupport/tikz/picture/end}{alt}{}
+  }
 \socket_set_plug:nnn{tagsupport/tikz/picture/end}{alt}
   {
    \tag_mc_end:
@@ -502,6 +507,11 @@
 
 % todo bugfix see https://github.com/latex3/tagging-project/issues/720
 \RemoveFromHook{begindocument}[latex-lab-testphase-float]
+\str_if_exist:cF { l__socket_tagsupport/parbox/before_plug_str }
+  {
+    \socket_new:nn{tagsupport/parbox/before}{0}
+    \socket_new:nn{tagsupport/parbox/after}{0}
+  }
 \socket_new_plug:nnn{tagsupport/parbox/before}{caption}
   {   
    \tagpdfparaOn %restart para tagging

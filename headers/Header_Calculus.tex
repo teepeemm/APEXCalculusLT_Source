@@ -560,13 +560,16 @@ https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js}
 \providecommand{\tagmcbegin}[1]{}
 \providecommand{\tag_mc_end:}{}
 \providecommand{\tagmcend}{}
+\AtBeginDocument{\providecommand{\luamml_ignore:}{}}
 \ExplSyntaxOff
 \providecommand{\tagpdfsetup}[1]{}
 \providecommand{\ResumeTagging}[1]{}
 \providecommand{\SuspendTagging}[1]{}
 \providecommand{\tagpdfparaOn}{}
 \providecommand{\tagpdfparaOff}{}
+\providecommand{\tagtool}[1]{}
 
+\pgfkeysifdefined{/tikz/alt}{}{\tikzset{alt/.code={}}}
 
 \InputIfFileExists{./options}{}{%
  \newcommand{\thetitle}{Calculus}
