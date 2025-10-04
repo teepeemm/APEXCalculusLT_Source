@@ -1,10 +1,13 @@
-% !TEX program = LuaLaTeX
+% !TEX program = LuaLaTeX-dev
 %\errorcontextlines 10000
-\DocumentMetadata{lang=en,testphase=latest,
-  pdfversion=1.7,pdfstandard=ua-1,
-%  pdfversion=2.0,pdfstandard=ua-2,
-%  pdfstandard=a-4f,
+%\DocumentMetadata{} % ok (also ok if \DocumentMetadata missing)
+%\DocumentMetadata{tagging=off} % Something's wrong--perhaps a missing \item.
+%\DocumentMetadata{tagging=on} % ok
+\DocumentMetadata{lang=en,%tagging=off,
+%  pdfversion=1.7,pdfstandard=ua-1,tagging-setup={math/alt/use}
+%  pdfstandard=ua-2,tagging-setup={math/setup=mathml-SE}
 }
+%\renewcommand{\tagpdfsetup}[1]{}
 %\RequirePackage[l2tabu, orthodox]{nag}
 \documentclass[10pt]{book}
 %\documentclass{article}
@@ -23,17 +26,16 @@
 
 \frontmatter
 
-%\tableofcontents
-
 %\input{text/front_matter_and_cover}
 
 \mainmatter
 
-\setcounter{chapter}{10}
+\setcounter{chapter}{5}
+\chapter{Int App}\clearpage
 
 \setcounter{section}{2}
 
-\input{text/02_Derivative.tex}
+\input{text/07_Shell_Method.tex}
 
 %\printexercises{exercises/05-05-exercises}
 
@@ -43,10 +45,10 @@
 
 \printsolutions{Standalone Solutions To All Problems}
 
-\printindex
-
-\backmatter
-
-\input{text/Inside_Cover_Of_The_Text_Material_Complete}
+%\printindex
+%
+%\backmatter
+%
+%\input{text/Inside_Cover_Of_The_Text_Material_Complete}
 
 \end{document}
