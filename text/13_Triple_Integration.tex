@@ -148,7 +148,7 @@ We define that region $R$, in the integration order of $\dd y\dd x$, with bounds
 	&= \int_0^3\int_0^{6-2x}\int_0^{2-\frac 13y-\frac 23x}\dd z\dd y\dd x \\
 	&= \int_0^3\int_0^{6-2x}\left(\int_0^{2-\frac 13y-\frac 23x}\dd z\right)\dd y\dd x \\
 	&=\int_0^3\int_0^{6-2x}z\Big|_{z=0}^{z=2-\frac 13y-\frac 23x}\dd y\dd x \\
-	&= \int_0^3\int_0^{6-2x}\left(2-\frac 13y-\frac 23x\right)\dd y\dd x.
+	&= \int_0^3\int_0^{6-2x}\left(2-\frac 13y-\frac 23x\right)\dd y\dd x.\\
 	\intertext{From this step on, we are evaluating a double integral as done many times before. We skip these steps and give the final volume,}
 	&= 6\ \text{units}^3.		
 \end{align*}
@@ -644,7 +644,7 @@ $\ds \int_0^1\int_{x^2}^x\int_{x^2-y}^{2x+3y} \bigl(xy+2xz\bigr)\dd z\dd y\dd x 
 			&=	\int_0^1\int_{x^2}^x\left(\int_{x^2-y}^{2x+3y} \bigl(xy+2xz\bigr)\dd z\right)\dd y\dd x\\
 			&= \int_0^1\int_{x^2}^x\left(\bigl(xyz+ xz^2\bigr)\Big|_{x^2-y}^{2x+3y}\right)\dd y\dd x\\
 			&= \int_0^1\int_{x^2}^x\Biggl(xy(2x+3y)+x(2x+3y)^2-\Bigl(xy(x^2-y)+x(x^2-y)^2\Bigr)\Biggr)\dd y\dd x\\
-			&=\int_0^1\int_{x^2}^x\Bigl(-x^5+x^3y+4x^3+14x^2y+12xy^2\Bigr)\dd y\dd x.
+			&=\int_0^1\int_{x^2}^x\Bigl(-x^5+x^3y+4x^3+14x^2y+12xy^2\Bigr)\dd y\dd x.\\
 			\intertext{We continue as we have in the past, showing fewer steps.}
 			&= \int_0^1\Biggl(-\frac72x^7-8x^6-\frac72x^5+15x^4\Biggr)\dd x\\
 			&= \frac{281}{336}%\approx 0.836

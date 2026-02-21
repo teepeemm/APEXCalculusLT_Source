@@ -212,13 +212,13 @@ Write out the first 3 terms of the Maclaurin Series for $f(x) = e^x\cos x$ using
 \[e^x = 1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\dotsb\qquad \text{and}\qquad \cos x = 1-\frac{x^2}{2!}+\frac{x^4}{4!}+\dotsb.\]
 Applying \autoref{thm:series_alg}, we find that
 \begin{align*}
-e^x\cos x &= \left(1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\dotsb\right)\left(1-\frac{x^2}{2!}+\frac{x^4}{4!}+\dotsb\right).
+e^x\cos x &= \left(1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\dotsb\right)\left(1-\frac{x^2}{2!}+\frac{x^4}{4!}+\dotsb\right).\\
 \intertext{Distribute the right hand expression across the left:}
 	&= 1\left(1-\frac{x^2}{2!}+\frac{x^4}{4!}+\dotsb\right)
 	+x\left(1-\frac{x^2}{2!}+\frac{x^4}{4!}+\dotsb\right)\\
 	&\phantom{=}+\frac{x^2}{2!}\left(1-\frac{x^2}{2!}+\frac{x^4}{4!}+\dotsb\right)
 	+\frac{x^3}{3!}\left(1-\frac{x^2}{2!}+\frac{x^4}{4!}+\dotsb\right)\\
-	&\phantom{=}+ \frac{x^4}{4!}\left(1-\frac{x^2}{2!}+\frac{x^4}{4!}+\dotsb\right)+\dotsb
+	&\phantom{=}+ \frac{x^4}{4!}\left(1-\frac{x^2}{2!}+\frac{x^4}{4!}+\dotsb\right)+\dotsb\\
 	\intertext{Distribute again and collect like terms.}
 	&= 1 + x -\frac{x^3}{3}-\frac{x^4}{6} - \frac{x^5}{30}+\frac{x^7}{630}+\dotsb
 \end{align*}
@@ -255,7 +255,7 @@ We learned, when studying Numerical Integration, that $e^{-x^2}$ does not have a
 
 We can quickly write out the Taylor series for $e^{-x^2}$ using the Taylor series of $e^x$:\vspace{-.5\baselineskip}
 \begin{align*}
-e^x &= \sum_{n=0}^\infty \frac{x^n}{n!} = 1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\dotsb
+e^x &= \sum_{n=0}^\infty \frac{x^n}{n!} = 1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\dotsb\\
 \intertext{and so}
 e^{-x^2} &= \sum_{n=0}^\infty \frac{(-x^2)^n}{n!} \\
 				&= \sum_{n=0}^\infty (-1)^n\frac{x^{2n}}{n!}\\

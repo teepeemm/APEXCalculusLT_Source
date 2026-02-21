@@ -124,7 +124,7 @@ Setting $x=3\sin \theta$ gives  $\dd x = 3\cos\theta\dd\theta$. We are almost re
 	\int_{-3}^3\sqrt{9-x^2}\dd x
 	&= \int_{-\pi/2}^{\pi/2} \sqrt{9-9\sin^2\theta} (3\cos\theta)\dd\theta \\
 	&= \int_{-\pi/2}^{\pi/2} 3\sqrt{9\cos^2\theta} \cos\theta\dd\theta \\
-	&=\int_{-\pi/2}^{\pi/2} 3\abs{3\cos \theta} \cos\theta\dd\theta.
+	&=\int_{-\pi/2}^{\pi/2} 3\abs{3\cos \theta} \cos\theta\dd\theta.\\
 	\intertext{On \intertextmath{[-\pi/2,\pi/2]}, \intertextmath{\cos \theta} is always positive, so we can drop the absolute value bars, then employ a half-angle formula:}
 	&= \int_{-\pi/2}^{\pi/2} 9\cos^2 \theta\dd\theta\\
 	&= \int_{-\pi/2}^{\pi/2} \frac{9}{2}\bigl(1+\cos(2\theta)\bigr)\dd\theta\\
@@ -297,11 +297,11 @@ We start by completing the square, then make the substitution $u=x+3$, followed 
 \end{align*}
 They are often needed for writing your final answer in terms of $x$.}
 \begin{align}
-\int \frac1{(x^2+6x+10)^2}\dd x &=\int \frac1{\bigl((x+3)^2+1\bigr)^2}\dd x = \int \frac1{(u^2+1)^2}\dd u. \notag
+\int \frac1{(x^2+6x+10)^2}\dd x &=\int \frac1{\bigl((x+3)^2+1\bigr)^2}\dd x = \int \frac1{(u^2+1)^2}\dd u. \notag\\
 \intertext{Now make the substitution \intertextmath{u=\tan\theta}, \intertextmath{\dd u=\sec^2\theta\dd\theta}:}
    &=	\int \frac1{(\tan^2\theta+1)^2}\sec^2\theta\dd\theta\notag\\
 	&= \int\frac 1{(\sec^2\theta)^2}\sec^2\theta\dd\theta\notag\\
-	&= \int \cos^2\theta\dd\theta.\notag
+	&= \int \cos^2\theta\dd\theta.\notag\\
 	\intertext{Applying a half-angle formula, we have}
 	&= \int \left(\frac12 +\frac12\cos(2\theta)\right)\dd\theta \notag\\
 	&= \frac12\theta + \frac14\sin(2\theta) + C.\label{eq:extrigsub7}
