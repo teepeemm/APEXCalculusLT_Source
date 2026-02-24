@@ -1,0 +1,26 @@
+\DocumentMetadata{lang=en,tagging=on,lang=en,
+ pdfstandard=ua-2,tagging-setup={math/setup=mathml-SE,math/alt/use}
+}
+\documentclass{article}
+\title{Title}
+\author{}
+\date{}
+\usepackage{amsmath}
+\begin{document}
+\section*{Heading}
+\begin{gather*}
+a\\
+%\intertext{ Vera no, Ally yes: \(a+b=c\)}
+     \text{ Vera yes, Ally yes: }a+b=c\\  % centered alignment
+%\intertext{ Vera yes, Ally no: \tagstructbegin{tag=Formula}\(a+b=c\)\tagstructend}
+c\\
+%\intertext{ Vera yes, Ally no: \tagstructbegin{tag=Formula,actualtext={text actually}}\(a+b=c\)\tagstructend}
+d\\
+%\intertext{ Vera yes, Ally yes: \tagstructbegin{tag=Formula,alt={text alt}}\(a+b=c\)\tagstructend}
+e\\
+\intertext{ Vera yes, Ally yes: \tagstructbegin{tag=math}\(a+b=c\)\tagstructend}
+f\\
+%\intertext{ Vera yes, Ally no: \tagstructbegin{tag=Formula,alt={}}\(a+b=c\)\tagstructend}
+g
+\end{gather*}
+\end{document}

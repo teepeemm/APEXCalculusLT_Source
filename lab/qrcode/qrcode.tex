@@ -1,0 +1,75 @@
+\DocumentMetadata{lang=en,pdfstandard=ua-2,tagging=on,
+  tagging-setup={math/setup=mathml-SE}%,math/alt/use} 
+}%,uncompress
+\documentclass{article}
+\usepackage{qrcode}
+\usepackage{url}
+\usepackage{hyperref}
+\newcommand\mylink{https:tex.stackexchange.com}
+
+\usepackage{etoolbox}
+\makeatletter
+\ExplSyntaxOn
+\cs_new_protected:Npn\qr@savepos 
+ {
+  \tex_savepos:D 
+  \RecordProperties{qr@save-\theqrcodecnt}{xpos,ypos}
+  \tex_savepos:D 
+ }
+\cs_new:Npn \qr@diminbp #1 {\dim_to_decimal_in_bp:n {#1}}
+\ExplSyntaxOff
+
+\newcounter{qrcodecnt}
+\NewSocket{tagsupport/qrcode/begin}{0}
+\NewSocket{tagsupport/qrcode/end}{0}
+\NewSocketPlug{tagsupport/qrcode/begin}{tag}
+ {%
+   \leavevmode
+   \tagmcend%
+   \stepcounter{qrcodecnt}\qr@savepos%
+   \ExpandArgs{e}\tagpdfsetup
+     {role/new-attribute=
+      {qrcode-\theqrcodecnt}
+      {
+       /O /Layout 
+       /BBox [\qr@diminbp{\RefProperty{qr@save-\theqrcodecnt}{xpos}sp}
+              \qr@diminbp{\RefProperty{qr@save-\theqrcodecnt}{ypos}sp-0.5\qr@desiredheight}
+              \qr@diminbp{\RefProperty{qr@save-\theqrcodecnt}{xpos}sp+\qr@desiredheight} 
+              \qr@diminbp{\RefProperty{qr@save-\theqrcodecnt}{ypos}sp+0.5\qr@desiredheight}] 
+      }%
+     }%
+   \tagstructbegin{tag=Figure,alt=\qr@texttoencode,
+    attribute=qrcode-\theqrcodecnt}%
+   \tagmcbegin{}%
+  }
+  
+\NewSocketPlug{tagsupport/qrcode/end}{tag} 
+ {\tagmcend\tagstructend\tagmcbegin{}}
+ 
+\AssignSocketPlug{tagsupport/qrcode/begin}{tag} 
+\AssignSocketPlug{tagsupport/qrcode/end}{tag} 
+
+\def\qrcode@hyperwrapper@hyperref#1{%
+  \href{\qr@texttoencode}%
+   {\UseTaggingSocket{qrcode/begin}\SuspendTagging{qrcode}%
+    #1\ResumeTagging{qrcode}\UseTaggingSocket{qrcode/end}}}
+ 
+\def\qrcode@hyperwrapper@nohyperref#1{%
+  \UseTaggingSocket{qrcode/begin}\SuspendTagging{qrcode}%
+  #1\ResumeTagging{qrcode}\UseTaggingSocket{qrcode/end}}
+
+\patchcmd\qrcode@int{\relax}{\qrcode@hyperwrapper@nohyperref}{}{\fail}
+
+\makeatother
+
+\begin{document}
+%Math/alt/use?
+%\ExplSyntaxOn
+%\keys_if_exist:nnTF { __tag / setup } { math / alt / use } { Yes } { No }
+%~
+%\bool_if:NTF \l__tag_math_alt_bool { Yes } { No }
+%\ExplSyntaxOff
+
+\qrcode{\mylink}             % How do I hide this qrcode from tagging?
+\url{\mylink}
+\end{document}
