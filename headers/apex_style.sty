@@ -101,26 +101,32 @@
 
 % from https://github.com/latex3/tagging-project/issues/24
 \usepackage{etoolbox}
-\patchcmd\ttl@straight@ii
-  {\@svsechd\unskip}
-  {\@svsechd\unskip\tagtool {sec-split-para}}
-  {}{\fail}
-\patchcmd\ttl@straight@ii
-  {\@afterheading}
-  {\UseTaggingSocket{para/restore}\@afterheading}
-  {}{\fail}
-\patchcmd\ttl@straight@i
-  {\par}
-  {\par\tagtool{sec-start=#1}\tagtool{para/flattened}}
-  {}{\fail}
+%\patchcmd\ttl@straight@ii
+%  {\@svsechd\unskip}
+%  {\@svsechd\unskip\tagtool {sec-split-para}}
+%  {}{\fail}
+%\patchcmd\ttl@straight@ii
+%  {\@afterheading}
+%  {\UseTaggingSocket{para/restore}\@afterheading}
+%  {}{\fail}
+%\patchcmd\ttl@straight@i
+%  {\par}
+%  {\par\tagtool{sec-start=#1}\tagtool{para/flattened}}
+%  {}{\fail}
 
 
 \newcommand{\exercisesubsection}[1]{%
- \bgroup
-  \titleformat{\subsection}{\huge\bfseries}{}{0pt}{}[\hrule\vspace{-\baselineskip}]%
-  \subsection{\texorpdfstring{\hyperref[sol#1]{Exercises}}{Exercises}}%
- \egroup
+ \clearpage
+ \@startsection{subsection}{2}{-1sp}{0pt}{\baselineskip}{\huge\bfseries}*{\texorpdfstring{\hyperref[sol#1]{Exercises}}{Exercises}}
+ \hrule
+ \noindent
 }
+%\newcommand{\exercisesubsection}[1]{%
+% \bgroup
+%  \titleformat{\subsection}{\huge\bfseries}{}{0pt}{}[\hrule\vspace{-\baselineskip}]%
+%  \subsection{\texorpdfstring{\hyperref[sol#1]{Exercises}}{Exercises}}%
+% \egroup
+%}
 
 % this seems higher level, but tagpdf isn't liking the spare /Refs running around
 %\titleclass{\exercisesubsection}{straight}[\section]
@@ -134,16 +140,21 @@
 % exercisesubsection doesn't appear in the toc (so I don't care about the numbers), but without this the subsequent section gets messed up
 
 \newcommand{\exercisesubsubsection}[1]{%
- \bgroup
-  \titleformat{\subsubsection}[block]{\noindent}%format
-   {is not labeled}%label
-   {0pt}%sep
-   {\noindent\Large\textit}%before
-   %after
-   \titlespacing*{\subsubsection}{0pt}{.5\bigskipamount}{0pt}
-  \subsubsection*{#1}
- \egroup
+ \noindent
+ \@startsection{subsubsection}{3}{0pt}{-.5\bigskipamount}{\baselineskip}{\Large\itshape}*{#1}%
+% \par
 }
+%\newcommand{\exercisesubsubsection}[1]{%
+% \bgroup
+%  \titleformat{\subsubsection}[block]{\noindent}%format
+%   {is not labeled}%label
+%   {0pt}%sep
+%   {\noindent\Large\textit}%before
+%   %after
+%   \titlespacing*{\subsubsection}{0pt}{.5\bigskipamount}{0pt}
+%  \subsubsection*{#1}
+% \egroup
+%}
 %\titleclass{\exercisesubsubsection}{straight}[\exercisesubsection]
 %\titleformat{\exercisesubsubsection}[block]{\noindent}%format
 % {is not labeled}%label
@@ -157,20 +168,23 @@
 \newcommand{\leftparbox}[2]{\parbox[t]{#1}{\raggedright#2}}
 % I couldn't get the raggedright to take otherwise
 
-\titleformat{\part}[block]
-   {\Huge\bfseries\filcenter} % commands on the entire thing
-   {} % don't use a label
-   {0em} % space between (non?)label and title
-   {\thispagestyle{empty}} % command for the page
+\RenewDocumentCommand{\part}{sm}{\clearpage\@startsection{part}{-1}{1in}{3in}{0pt}{\Huge\bfseries\thispagestyle{empty}}}
+%\titleformat{\part}[block]
+%   {\Huge\bfseries\filcenter} % commands on the entire thing
+%   {} % don't use a label
+%   {0em} % space between (non?)label and title
+%   {\thispagestyle{empty}} % command for the page
+
+\renewcommand{\chapter}{\clearpage\@startsection{chapter}{0}{0pt}{-1sp}{2ex}{\Huge\scshape}}
 
 % todo Tim \leftparbox gives a nicer formatting (hanging indent) but messes up the tagging
-\titleformat{\chapter}[block]
-	{\hyphenpenalty=10000\relax\Huge\scshape\textsc} % commands on the entire thing
-	{\thechapter:} % the label
-	{.4em} % space between label and title
-	{}%{\leftparbox{11em}} % command taking the title
-	[\addvspace{2ex}\titlerule] % afterward
-\titlespacing*{\chapter}{0pt}{0pt}{2ex}
+%\titleformat{\chapter}[block]
+%	{\hyphenpenalty=10000\relax\Huge\scshape\textsc} % commands on the entire thing
+%	{\thechapter:} % the label
+%	{.4em} % space between label and title
+%	{}%{\leftparbox{11em}} % command taking the title
+%	[\addvspace{2ex}\titlerule] % afterward
+%\titlespacing*{\chapter}{0pt}{0pt}{2ex}
 
 %\titleformat{\section}
 %  {\normalfont\Large\bfseries} % commands on the entire thing
@@ -533,9 +547,65 @@
   \AssignSocketPlug{tagsupport/parbox/after}{caption}}
 
 % todo bugfix see https://github.com/latex3/tagging-project/issues/981
-\newcommand { \intertextmathbegin } { \pdf_version_compare:NnF<{2.0} { \tag_struct_begin:n{tag=Formula} } }
+\newcommand { \intertextmathbegin } { \pdf_version_compare:NnF<{2.0} {
+ \tag_struct_begin:n { tag=Formula \bool_if:NT \l__tag_math_alt_bool { , alt={subformula~of~larger~formula} } }
+} }
+%\newcommand { \intertextmathbegin } { \pdf_version_compare:NnF<{2.0} { \tag_struct_begin:n{tag=Formula} } }
 \newcommand { \intertextmathend } { \pdf_version_compare:NnF<{2.0} { \tag_struct_end: } }
+\newcommand{\intertextmath}[1]{\intertextmathbegin\(#1\)\intertextmathend}
+%\newcommand{\intertextmath}[1]{\(#1\)}
+
+
+% todo bugfix see https://tex.stackexchange.com/a/718275/107497
+\cs_new_protected:Npn\qr@savepos 
+ {
+  \tex_savepos:D 
+  \RecordProperties{qr@save-\theqrcodecnt}{xpos,ypos}
+  \tex_savepos:D 
+ }
+\cs_new:Npn \qr@diminbp #1 {\dim_to_decimal_in_bp:n {#1}}
 
 \ExplSyntaxOff
 
-\newcommand{\intertextmath}[1]{\intertextmathbegin\(#1\)\intertextmathend}
+% qrcode fix continued
+\newcounter{qrcodecnt}
+\NewSocket{tagsupport/qrcode/begin}{0}
+\NewSocket{tagsupport/qrcode/end}{0}
+\NewSocketPlug{tagsupport/qrcode/begin}{tag}
+ {%
+   \leavevmode
+   \tagmcend%
+   \stepcounter{qrcodecnt}\qr@savepos%
+   \ExpandArgs{e}\tagpdfsetup
+     {role/new-attribute=
+      {qrcode-\theqrcodecnt}
+      {
+       /O /Layout 
+       /BBox [\qr@diminbp{\RefProperty{qr@save-\theqrcodecnt}{xpos}sp}
+              \qr@diminbp{\RefProperty{qr@save-\theqrcodecnt}{ypos}sp-0.5\qr@desiredheight}
+              \qr@diminbp{\RefProperty{qr@save-\theqrcodecnt}{xpos}sp+\qr@desiredheight} 
+              \qr@diminbp{\RefProperty{qr@save-\theqrcodecnt}{ypos}sp+0.5\qr@desiredheight}] 
+      }%
+     }%
+   \tagstructbegin{tag=Figure,alt=\qr@texttoencode,
+    attribute=qrcode-\theqrcodecnt}%
+   \tagmcbegin{}%
+  }
+  
+\NewSocketPlug{tagsupport/qrcode/end}{tag} 
+ {\tagmcend\tagstructend\tagmcbegin{}}
+ 
+\AssignSocketPlug{tagsupport/qrcode/begin}{tag} 
+\AssignSocketPlug{tagsupport/qrcode/end}{tag} 
+
+\def\qrcode@hyperwrapper@hyperref#1{%
+  \href{\qr@texttoencode}%
+   {\UseTaggingSocket{qrcode/begin}\SuspendTagging{qrcode}%
+    #1\ResumeTagging{qrcode}\UseTaggingSocket{qrcode/end}}}
+ 
+\def\qrcode@hyperwrapper@nohyperref#1{%
+  \UseTaggingSocket{qrcode/begin}\SuspendTagging{qrcode}%
+  #1\ResumeTagging{qrcode}\UseTaggingSocket{qrcode/end}}
+
+\patchcmd\qrcode@int{\relax}{\qrcode@hyperwrapper@nohyperref}{}{\fail}
+
