@@ -1,0 +1,821 @@
+%% $Id: firamath-otf-doc.tex 756 2023-09-08 05:54:11Z herbert $
+\listfiles
+\documentclass[english,log-declarations=false]{article}
+\usepackage{mathtools,esvect}
+\usepackage{FiraSans}
+\setmonofont{FiraMono}[ Numbers = {Monospaced},
+        Scale=MatchUppercase,FakeStretch=0.93]
+\usepackage[fakebold,mathrm=sym]{firamath-otf}
+\usepackage{babel}
+\everymath{}\everydisplay{}% FIX for current babel
+
+\usepackage{biblatex}
+\addbibresource[location=remote]{https://www.ctan.org/tex-archive/biblio/ctan-bibdata/ctan.bib}
+\usepackage{booktabs}
+\usepackage{xltabular}
+\usepackage{listings}
+\usepackage{xspace}
+\usepackage{ctexhook}
+\usepackage{physics}
+\usepackage{xcolor,url}
+\usepackage{varioref,multido}
+\newcommand\Macro[1]{\texttt{\textbackslash#1}}
+\usepackage{expl3}
+\usepackage{hvextern}
+
+\newenvironment{demoquote}
+               {\begingroup
+                \setlength{\topsep}{0pt}
+                \setlength{\partopsep}{0pt}
+                \list{}{\rightmargin\leftmargin}%
+                \item\relax}
+               {\endlist\endgroup}
+
+\def\testfeature#1#2#3{{\fontspec[RawFeature={+#2}]{#1}#3\relax}}
+
+
+\makeatletter
+\def\e@alloc#1#2#3#4#5#6{%
+  \global\advance#3\@ne
+  \e@ch@ck{#3}{#4}{#5}#1%
+  \allocationnumber#3\relax
+  \global#2#6\allocationnumber
+  }
+\def\@pr@videpackage[#1]{%
+  \expandafter\xdef\csname ver@\@currname.\@currext\endcsname{#1}}
+\def\@providesfile#1[#2]{%
+    \expandafter\xdef\csname ver@#1\endcsname{#2}%
+  \endgroup}
+\def\@latex@info#1{}
+\def\@font@info#1{}
+\def\ClassInfo#1#2{}
+\def\PackageInfo#1#2{}
+
+\ExplSyntaxOn
+
+\cs_new:Npn \__fonttest_close_msg:nn #1#2
+  { \msg_redirect_name:nnn {#1} {#2} { none } }
+\__fonttest_close_msg:nn { LaTeX / xparse } { not-single-char     }
+% \__fonttest_close_msg:nn { fontspec       } { defining-font       }
+% \__fonttest_close_msg:nn { fontspec       } { no-scripts          }
+\__fonttest_close_msg:nn { unicode-math   } { patch-macro         }
+\ctex_at_end_package:nn { geometry } { \def\Gm@showparams#1{} }
+
+\unimathsetup
+  {
+    math-style = ISO,
+    bold-style = ISO,
+    mathrm     = sym
+  }
+
+\str_new:N  \l_fonttest_font_str
+\str_set:Nn \l_fonttest_font_str { fira }  % Can be either fira/xits/lm
+\cs_set:Npn \WIEGHT { Regular }
+\cs_set:Npn \SSTY   { }
+%%%%%%%%%%%%%%%%%%%%
+
+\str_if_eq:VnTF \l_fonttest_font_str { fira }
+  {
+    \cs_new:Npn \__fonttest_set_fira_math:n #1
+      { \setmathfont { FiraMath-\WIEGHT.otf } [ BoldFont = *, #1 ] }
+    \cs_if_exist:NTF \SSTY
+      {
+        \__fonttest_set_fira_math:n { }
+        \__fonttest_set_fira_math:n { version = pnum,       Numbers = Proportional }
+        \__fonttest_set_fira_math:n { version = upintegral, StylisticSet = 1       }
+        \__fonttest_set_fira_math:n { version = hbar,       StylisticSet = 2       }
+        \__fonttest_set_fira_math:n { version = complement, StylisticSet = 3       }
+      }
+      {
+        \__fonttest_set_fira_math:n { }
+        \__fonttest_set_fira_math:n { version = pnum       }
+        \__fonttest_set_fira_math:n { version = upintegral }
+        \__fonttest_set_fira_math:n { version = hbar       }
+        \__fonttest_set_fira_math:n { version = complement }
+      }
+    \newfontface\firatext{FiraMath-\WIEGHT.otf}[BoldFont = *]
+  }
+  {
+    \str_if_eq:VnTF \l_fonttest_font_str { xits }
+      {
+        \setmathfont { XITS~ Math }
+        \setmathfont { XITS~ Math } [ BoldFont = *,                    version = pnum       ]
+        \setmathfont { XITS~ Math } [ BoldFont = *, StylisticSet = 8,  version = upintegral ]
+        \setmathfont { XITS~ Math } [ BoldFont = *, StylisticSet = 10, version = hbar       ]
+        \setmathfont { XITS~ Math } [ BoldFont = *,                    version = complement ]
+        \newfontface \firatext { XITS~ Math } [ BoldFont = * ]
+      }
+      {
+        \str_if_eq:VnT \l_fonttest_font_str { lm }
+          {
+            \setmathfont { Latin~ Modern~ Math }
+            \setmathfont { Latin~ Modern~ Math } [ BoldFont = *, version = pnum       ]
+            \setmathfont { Latin~ Modern~ Math } [ BoldFont = *, version = upintegral ]
+            \setmathfont { Latin~ Modern~ Math } [ BoldFont = *, version = hbar       ]
+            \setmathfont { Latin~ Modern~ Math } [ BoldFont = *, version = complement ]
+            \newfontface \firatext { Latin~ Modern~ Math } [ BoldFont = * ]
+          }
+      }
+  }
+
+\cs_set:Npn \LatinAlphabets { ABCDEFGHIJKLMNOPQRSTUVWXYZ }
+\cs_set:Npn \latinAlphabets { abcdefghijklmnopqrstuvwxyz }
+
+% ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ
+% αβγδεζηθικλμνξοπρστυφχψω
+\cs_set:Npn \GreekAlphabets
+  {
+    \Alpha      \Beta       \Gamma      \Delta      \Epsilon
+    \Zeta       \Eta        \Theta      \varTheta   \Iota
+    \Kappa      \Lambda     \Mu         \Nu         \Xi
+    \Omicron    \Pi         \Rho        \Sigma      \Tau
+    \Upsilon    \Phi        \Chi        \Psi        \Omega
+  }
+\cs_set:Npn \greekAlphabets
+  {
+    \alpha      \beta       \gamma      \delta      \epsilon
+    \varepsilon \zeta       \eta        \theta      \vartheta 
+    \iota       \kappa      \varkappa   \lambda     \mu
+    \nu         \xi         \omicron    \pi         \rho
+    \varrho     \sigma      \varsigma   \tau        \upsilon
+    \phi        \varphi     \chi        \psi        \omega
+  }
+
+% More characters.
+\AtBeginDocument{
+  \__um_sym:nnn { "0323 } { \underdot             } { \mathbotaccent }
+  \__um_sym:nnn { "0324 } { \twounderdot          } { \mathbotaccent }
+  \__um_sym:nnn { "20D3 } { \shortvertoverlay     } { \mathaccent    }
+  \__um_sym:nnn { "20D6 } { \cev                  } { \mathaccent    }
+  \__um_sym:nnn { "20E1 } { \leftrightarrowaccent } { \mathaccent    }
+  \__um_sym:nnn { "20EC } { \underrightharpoon    } { \mathbotaccent }
+  \__um_sym:nnn { "20ED } { \underleftharpoon     } { \mathbotaccent }
+  \__um_sym:nnn { "20EE } { \underleftarrow       } { \mathbotaccent }
+  \__um_sym:nnn { "20EF } { \underrightarrow      } { \mathbotaccent }
+}
+
+\tl_const:Nn \c__fonttest_accents_tl
+  {
+    % accent
+    \acute \grave \check \hat \bar \breve
+    % dot
+    \mathring \dot \ddot \dddot \ddddot
+    % arrow
+    \cev \vec \leftrightarrowaccent \leftharpoonaccent \rightharpoonaccent
+    % other
+    \tilde \asteraccent \vertoverlay \shortvertoverlay \annuity
+    % long accent
+    \widehat \widetilde \widebridgeabove
+    % under
+    \underdot \twounderdot \threeunderdot \underleftharpoon \underrightharpoon
+    \underleftarrow \underrightarrow
+  }
+
+\cs_set:Npn \MatrixII
+  {
+    a & b & c & d \\
+    x & y & z & w
+  }
+\cs_set:Npn \MatrixIII
+  {
+    a & b & c & d \\
+    k & l & m & n \\
+    x & y & z & w
+  }
+\cs_set:Npn \MatrixIV
+  {
+    a & b & c & d \\
+    k & l & m & n \\
+    p & q & s & t \\
+    x & y & z & w
+  }
+
+\NewDocumentCommand \TopAccentMap { m m }
+  { \fonttest_top_accent_map:Nx #1 {#2} }
+\cs_new:Npn \fonttest_top_accent_map:Nn #1#2
+  { \tl_map_inline:nn {#2} { \[ \__fonttest_top_accent:n { #1 {##1} } \] } }
+\cs_generate_variant:Nn \fonttest_top_accent_map:Nn { Nx }
+\cs_new:Npn \__fonttest_top_accent:n #1
+  { \tl_map_inline:Nn \c__fonttest_accents_tl { ##1 {#1} \, } }
+
+\cs_set:Npn \OverUnderline #1
+  {
+    #1{} \quad #1{b} \quad #1{ab} \quad #1{abc} \quad #1{abcd} \quad #1{abcde} \quad #1{a+b+c}
+  }
+\cs_set:Npn \ListText
+  { x\sb{1}, \, x\sb{2}, \, \ldots, \, x\sb{n} }
+\cs_set:Npn \LigatureText
+  { ff \quad fi \quad fl \quad ffi \quad ffl }
+
+\NewDocumentCommand \PrintRadical { m m m }
+  { \fonttest_print_root:nnn {#1} {#2} {#3} }
+\cs_new_protected:Npn \fonttest_print_root:nnn #1#2#3
+  {
+    \tl_set:Nn \l__fonttest_root_tl {#2}
+    \int_step_inline:nn {#3}
+      {
+        \tl_set:Nx \l__fonttest_root_tl
+          { \exp_not:n {#1} { \exp_not:V \l__fonttest_root_tl } }
+      }
+    \tl_use:N \l__fonttest_root_tl
+  }
+\tl_new:N \l__fonttest_root_tl
+
+\NewDocumentCommand \PrintDelimiters { m m }
+  { \fonttest_print_delimiters:nnnnn {#1} {#2} { 9 } { 1.8 } { 40 } }
+\cs_new_protected:Npn \fonttest_print_delimiters:nnnnn #1#2#3#4#5
+  {
+    \cs_set:Npn \__fonttest_left_delimiter:n ##1
+      { \left #1 \vbox_to_ht:nn { ##1 pt } { } }
+    \cs_set:Npn \__fonttest_right_delimiter:n ##1
+      { \vbox_to_ht:nn { ##1 pt } { } \right #2 }
+    \tl_set:Nx \l__fonttest_delimiter_tl
+      {
+        \fp_step_function:nnnN {#5} { - #4 } {#3} \__fonttest_left_delimiter:n
+        #1
+      }
+    \tl_set:Nx \l__fonttest_delimiter_tl
+      {
+        \l__fonttest_delimiter_tl
+        #2
+        \fp_step_function:nnnN {#3} {#4} {#5} \__fonttest_right_delimiter:n
+      }
+    \tl_use:N \l__fonttest_delimiter_tl
+  }
+\tl_new:N \l__fonttest_delimiter_tl
+
+\ExplSyntaxOff
+
+\def\Lcs#1{\texttt{\textbackslash #1}}
+
+\renewcommand\familydefault{\sfdefault}
+\DeclareMathOperator{\Div}{\symup{div}}
+\DeclareMathOperator{\Grad}{\symup{grad}}
+
+\title{OpenType math font Fira}
+\author{Herbert Voß}
+\usepackage{parskip}
+\parindent=0pt
+
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+
+\begin{abstract}
+The math font FIRA is derived from the Fira Sans and Fira Go sans serif.
+There are several math versions available (\url{https://github.com/Stone-Zeng/FiraMath/}) but
+only the regular version has from todays update all symbols. 
+\end{abstract}
+
+
+\section{Dependencies}
+The package needs an installed OpenType font \texttt{firamath.otf}. This can also be done
+by installing the package \texttt{firamath}  from CTAN.~\cite{ctan-firamath}
+
+\section{Usage}
+
+\begin{verbatim}
+\usepackage[<options>]{firamath-otf}
+\end{verbatim}
+
+Optional arguments are 
+
+\begin{description}
+%\item[\texttt{mathrm=sym}] Use characters from firamath for \Lcs{mathrm}
+\item[\texttt{fakebold}] Use faked bold symbols 
+\item[\texttt{usefilenames}] Use filenames for the fonts instead of the symbolic font names
+\end{description}
+
+All other unknown options, e.g. \verb|mathrm=sym| will be passed to the main package \texttt{unicode-math}.
+
+
+The package itself loads by default
+
+\begin{verbatim}
+\RequirePackage{iftex,xkeyval,textcomp}
+\RequirePackage{unicode-math}
+\end{verbatim}
+
+
+
+
+\section{The default regular weight}
+
+\def\Q#1#2{\frac{\uppartial #1}{\uppartial #2}}
+\def\half{\frac{1}{2}}
+\def\vvec#1{\vv{#1}}
+\newcommand\uppartial{\symup{\partial}}
+\newcommand*\diff{\mathop{}\!\symup{d}}
+\newcommand*\<{\negthickspace}
+\newcommand*\TT{\symbf{\symup{T}}}
+\def\DD{\symbf{\symup{D}}}
+
+
+
+\subsection{Version normal}
+
+\begin{align}
+\begin{aligned}
+  \Q{\varrho}{t}+\Div(\varrho\vec{v}) &= 0 \\
+  \varrho\Q{\vec{v}}{t}+(\varrho\vec{v}\cdot\nabla)\vec{v}   &= \vec{f}_0+\Div\TT=\vec{f}_0
+	-\Grad p+\Div\TT' \\
+  \varrho T\frac{\diff s}{\diff t}               &= \varrho\frac{\diff e}{\diff t}
+    -\frac{p}{\varrho}\frac{\diff\varrho}{\diff t}=-\Div\vec{q}+\TT':\DD 
+\end{aligned}
+\end{align}
+
+\begin{align}
+ \Q{}{t}\iiint\<\varrho\diff^3V+\oiint\varrho(\vec{v}\cdot\vec{v}\vec{n}) \diff^2 A &= 0\\
+ \Q{}{t}\iiint\<\varrho\vec{v}\diff^3V+\oiint\varrho\vec{v}(\vec{v}\cdot\vec{n}\,)\diff^2A &=
+        \iiint\<f_0\diff^3V+\oiint\vec{n}\cdot\TT\diff^2A \\
+ \Q{}{t}\iiint\<\left(\half v^2+e\right)\varrho\diff^3V+\oiint\left(\half v^2+e\right)
+        \varrho\left(\vec{v}\cdot\vec{n}\,\right)\diff^2A                                & =\\
+ \multispan2{\hfill${\displaystyle-\oiint\left(\vec{q}\cdot\vec{v}\vec{n}\right)\diff^2A+
+         \iiint\<\left(\vec{v}\cdot\vec{f}_0\right)\diff^3V+\oiint\left(\vec{v}
+         \cdot\vec{n}~\TT\right)\diff^2A}$}.\nonumber
+\end{align}
+
+
+\subsection{Version bold}
+
+The bold characters are created with the %\texttt{FiraMath-Bold.otf}.
+optional argument \texttt{fakebold} which loads the
+package \texttt{xfakebold} which writes some information into the created PDF to get bold
+characters. For more informations see the documentation of \texttt{xfakebold}.
+
+\setBold
+\begin{align}
+ \Q{}{t}\iiint\<\varrho\diff^3V+\oiint\varrho(\vec{v}\cdot\vec{v}ec{n})\diff^2A          &= 0\\
+ \Q{}{t}\iiint\<\varrho\vec{v}\diff^3V+\oiint\varrho\vec{v}(\vec{v}\cdot\vec{n}\,)\diff^2A &=
+        \iiint\<f_0\diff^3V+\oiint\vec{n}\cdot\symup{T}\diff^2A \\
+ \Q{}{t}\iiint\<\left(\half v^2+e\right)\varrho\diff^3V+\oiint\left(\half v^2+e\right)
+        \varrho\left(\vec{v}\cdot\vec{n}\,\right)\diff^2A                                & =\\
+ \multispan2{\hfill${\displaystyle-\oiint\left(\vec{q}\cdot\vec{v}ec{n}\right)\diff^2A+
+         \iiint\<\left(\vec{v}\cdot\vec{f}_0\right)\diff^3V+\oiint\left(\vec{v}
+         \cdot\vec{n}~\symup{T}\right)\diff^2A}$}.\nonumber
+\end{align}
+
+%\mathversion{normal}
+\unsetBold
+
+\iffalse
+\section{The thin  weight}
+
+\setsansfont{FiraSans-Thin.otf}[BoldFont=FiraSans-SemiBold.otf]
+\setmathfont{FiraMath-Thin.otf}
+
+\subsection{Version normal}
+
+\begin{align}
+\begin{aligned}
+  \Q{\varrho}{t}+\div(\varrho\vec{v}) &= 0 \\
+  \varrho\Q{\vec{v}}{t}+(\varrho\vec{v}\cdot\nabla)\vec{v}   &= \vec{f}_0+\div\,\TT=\vec{f}_0
+	-\grad p+\div\TT' \\
+  \varrho T\frac{\diff s}{\diff t}               &= \varrho\frac{\diff e}{\diff t}
+    -\frac{p}{\varrho}\frac{\diff\varrho}{\diff t}=-\div\vec{q}+\TT':\DD 
+\end{aligned}
+\end{align}
+
+\begin{align}
+ \Q{}{t}\iiint\<\varrho\diff^3V+\oiint\varrho(\vec{v}\cdot\vec{v}ec{n})\diff^2A          &= 0\\
+ \Q{}{t}\iiint\<\varrho\vec{v}\diff^3V+\oiint\varrho\vec{v}(\vec{v}\cdot\vec{n}\,)\diff^2A &=
+        \iiint\<f_0\diff^3V+\oiint\vec{n}\cdot\TT\diff^2A \\
+ \Q{}{t}\iiint\<\left(\half v^2+e\right)\varrho\diff^3V+\oiint\left(\half v^2+e\right)
+        \varrho\left(\vec{v}\cdot\vec{n}\,\right)\diff^2A                                & =\\
+ \multispan2{\hfill${\displaystyle-\oiint\left(\vec{q}\cdot\vec{v}ec{n}\right)\diff^2A+
+         \iiint\<\left(\vec{v}\cdot\vec{f}_0\right)\diff^3V+\oiint\left(\vec{v}
+         \cdot\vec{n}~\TT\right)\diff^2A}$}.\nonumber
+\end{align}
+
+
+\subsection{Version bold}
+
+\setBold
+
+\begin{align}
+ \Q{}{t}\iiint\<\varrho\diff^3V+\oiint\varrho(\vec{v}\cdot\vec{v}ec{n})\diff^2A          &= 0\\
+ \Q{}{t}\iiint\<\varrho\vec{v}\diff^3V+\oiint\varrho\vec{v}(\vec{v}\cdot\vec{n}\,)\diff^2A &=
+        \iiint\<f_0\diff^3V+\oiint\vec{n}\cdot\symup{T}\diff^2A \\
+ \Q{}{t}\iiint\<\left(\half v^2+e\right)\varrho\diff^3V+\oiint\left(\half v^2+e\right)
+        \varrho\left(\vec{v}\cdot\vec{n}\,\right)\diff^2A                                & =\\
+ \multispan2{\hfill${\displaystyle-\oiint\left(\vec{q}\cdot\vec{v}ec{n}\right)\diff^2A+
+         \iiint\<\left(\vec{v}\cdot\vec{f}_0\right)\diff^3V+\oiint\left(\vec{v}
+         \cdot\vec{n}~\symup{T}\right)\diff^2A}$}.\nonumber
+\end{align}
+
+\unsetBold
+
+
+
+\section{The light  weight}
+
+\setsansfont{FiraSans-Light.otf}[BoldFont=FiraSans-SemiBold.otf]
+\setmathfont{FiraMath-Light.otf}
+
+\subsection{Version normal}
+
+\begin{align}
+\begin{aligned}
+  \Q{\varrho}{t}+\symup{div}(\varrho\vec{v}) &= 0 \\
+  \varrho\Q{\vec{v}}{t}+(\varrho\vec{v}\cdot\nabla)\vec{v}   &= \vec{f}_0+\symup{div}\TT=\vec{f}_0
+	-\symup{grad}p+\symup{div}\TT' \\
+  \varrho T\frac{\diff s}{\diff t}               &= \varrho\frac{\diff e}{\diff t}
+    -\frac{p}{\varrho}\frac{\diff\varrho}{\diff t}=-\symup{div}\vec{q}+\TT':\DD 
+\end{aligned}
+\end{align}
+
+\begin{align}
+ \Q{}{t}\iiint\<\varrho\diff^3V+\oiint\varrho(\vec{v}\cdot\vec{n})\diff^2A          &= 0\\
+ \Q{}{t}\iiint\<\varrho\vec{v}\diff^3V+\oiint\varrho\vec{v}(\vec{v}\cdot\vec{n}\,)\diff^2A &=
+        \iiint\<f_0\diff^3V+\oiint\vec{n}\cdot\TT\diff^2A \\
+ \Q{}{t}\iiint\<\left(\half v^2+e\right)\varrho\diff^3V+\oiint\left(\half v^2+e\right)
+        \varrho\left(\vec{v}\cdot\vec{n}\,\right)\diff^2A                                & =\\
+ \multispan2{\hfill${\displaystyle-\oiint\left(\vec{q}\cdot\vec{n}\right)\diff^2A+
+         \iiint\<\left(\vec{v}\cdot\vec{f}_0\right)\diff^3V+\oiint\left(\vec{v}
+         \cdot\vec{n}~\TT\right)\diff^2A}$}.\nonumber
+\end{align}
+
+\subsection{Bold version with optional argument \texttt{fakebold}}
+
+
+\setBold
+\begin{align}
+ \Q{}{t}\iiint\<\varrho\diff^3V+\oiint\varrho(\vec{v}\cdot\vec{n})\diff^2A          &= 0\\
+ \Q{}{t}\iiint\<\varrho\vec{v}\diff^3V+\oiint\varrho\vec{v}(\vec{v}\cdot\vec{n}\,)\diff^2A &=
+        \iiint\<f_0\diff^3V+\oiint\vec{n}\cdot\symup{T}\diff^2A \\
+ \Q{}{t}\iiint\<\left(\half v^2+e\right)\varrho\diff^3V+\oiint\left(\half v^2+e\right)
+        \varrho\left(\vec{v}\cdot\vec{n}\,\right)\diff^2A                                & =\\
+ \multispan2{\hfill${\displaystyle-\oiint\left(\vec{q}\cdot\vec{n}\right)\diff^2A+
+         \iiint\<\left(\vec{v}\cdot\vec{f}_0\right)\diff^3V+\oiint\left(\vec{v}
+         \cdot\vec{n}~\symup{T}\right)\diff^2A}$}.\nonumber
+\end{align}
+\unsetBold
+
+
+\fi
+
+
+\section{Examples}
+
+\subsection{Digits}
+
+\begin{itemize}
+  \item Digits: \hfill $ 0123456789 $
+  \item Proportional digits: \hfill\begingroup\mathversion{pnum} $ 0123456789 $ \endgroup
+  \item Bold digits (\verb|\symbf|): \hfill $ \symbf{0123456789} $
+  \item Bold proportional digits (\verb|\symbf|): \hfill \begingroup\mathversion{pnum}$\symbf{0123456789}$\endgroup
+\end{itemize}
+
+\subsection{Alphabets}
+
+\begin{itemize}
+  \item Latin letters (mathnormal):\\
+        $ \LatinAlphabets \latinAlphabets $
+
+  \item Latin upright letters (\verb|\symup|):\\
+        $ \symup{\LatinAlphabets} \symup{\latinAlphabets}$
+
+  \item Latin typewriter letters (\verb|\symtt|):\\
+        $ \symtt{\LatinAlphabets} \symtt{\latinAlphabets} $
+  \item Latin bold letters (\verb|\symbf|):\\
+        $ \symbf{\LatinAlphabets} \symbf{\latinAlphabets}$
+  \item Latin bold upright letters (\verb|\symbfup|):\\
+        $ \symbfup{\LatinAlphabets}  \symbfup{\latinAlphabets} $
+  \item Latin blackboard letters (\verb|\symbb|):\\
+        $ \symbb{\LatinAlphabets} \symbb{\latinAlphabets}$
+        % $ \symbb{The\ quick\ brown\ fox\ jumps\ over\ the\ lazy\ dog.} $
+        % $ \symbb{The\ Quick\ Brown\ Fox\ Jumps\ Over\ The\ Lazy\ Dog.} $
+        % $ \symbb{THE\ QUICK\ BROWN\ FOX\ JUMPS\ OVER\ THE\ LAZY\ DOG.} $
+  \item Greek letters:\\
+        $ \GreekAlphabets \greekAlphabets $
+  \item Greek upright letters (\verb|\symup|):\\
+        $ \symup{\GreekAlphabets} \symup{\greekAlphabets}$
+  \item Greek bold letters (\verb|\symbf|):\\
+        $ \symbf{\GreekAlphabets}\symbf{\greekAlphabets} $
+  \item Greek bold upright letters (\verb|\symbfup|):\\
+        $ \symbfup{\GreekAlphabets} \symbfup{\greekAlphabets} $
+  \item Dotless letters:\\
+        $ \imath + \jmath + \symup{\imath} + \symup{\jmath} $
+        % \TopAccentMap{\symbf}{\imath\jmath}
+        % \TopAccentMap{\symup}{\imath\jmath}
+  \item Hebrew
+        $ \aleph + \beth + \gimel + \daleth $
+  \item Ligature (text):\\
+        {\firatext\LigatureText}
+  \item Non-ligature (math):\\
+        $ \LigatureText + \symit{\LigatureText} + \symrm{\LigatureText} $
+  \item Miscellaneous:\\
+        $
+          \hslash
+          + \mbox{\mathversion{hbar}$\hslash$}
+          + \Angstrom
+        $\\
+        $ \forall x > x_0, \, \exists \delta, \delta \in \varnothing $
+\end{itemize}
+
+\subsection{Equations test}
+
+\begin{itemize}
+  \item Basic:\\
+        $ 1 + 2 - 3 \times 4 \div 5 \pm 6 \mp 7 \dotplus 8 = -a \oplus b \otimes c $
+  \item Binary relations
+        $ x + - \oplus \otimes \ominus \odot \oslash \cdot \cdotp \times \div y $
+  \item Set theory
+        $ A \cap B \cup C \sqcap D \sqcup R \cupleftarrow k \cupdot l \uplus m $\\
+        $
+            A \subset B \supset C \subseteq D \supseteq E \Subset F \Supset G
+          + A \sqsubset B \sqsupset C \sqsubseteq D \sqsupseteq E
+        $\\
+        $
+          \complement_U A \cup \complement_C C
+          \subset \mbox{\mathversion{complement}$\complement_U A \cup \complement_C C$}
+          \in R \smallin Q \ni Z \smallni N
+        $
+  \item Superscript and subscript:\\
+        $ 2^2 + 2^{2^2} + 2^{2^{2^2}} + {2^2}^2 + x_a + x_{a_i} + x_{a_{i_1}} $
+  \item Arrows:\\
+        $
+          x \leftarrow  y   \rightarrow  z \leftrightarrow  w
+            \nleftarrow y   \nrightarrow z \nleftrightarrow w
+            \Leftarrow  a = \Rightarrow  b \Leftrightarrow  c
+            \nLeftarrow a = \nRightarrow b \nLeftrightarrow c
+        $\\
+        $
+          x \uparrow   y \downarrow  z \updownarrow    w
+            \Uparrow   a \Downarrow  b \Updownarrow    c
+        $\\
+        $
+          p \nwarrow p \nearrow p \searrow p \swarrow p
+            \Nwarrow p \Nearrow p \Searrow p \Swarrow p
+        $\\
+        $
+          x \leftharpoonup    x \leftharpoondown  x
+            \upharpoonright   x \upharpoonleft    x
+            \rightharpoonup   x \rightharpoondown x
+            \downharpoonright x \downharpoonleft  x
+        $\\
+        $
+          A \longleftarrow B   \longrightarrow C \longleftrightarrow D
+            \Longleftarrow E = \Longrightarrow F \Longleftrightarrow G
+        $\\
+        $
+          X \mapsfrom Y \mapsto Z \mapsup W \mapsdown P \Mapsfrom S \Mapsto R
+        $\\
+        $
+          M \longmapsfrom N \longmapsto O \Longmapsfrom K \Longmapsto L
+        $\\
+        $
+          f \rightleftarrows  f \updownarrows f \leftrightarrows f \downuparrows
+          g \rightrightarrows g \upuparrows   g \leftleftarrows  g \downdownarrows
+          h \rightthreearrows h \leftthreearrows
+          p \leftrightharpoons       p \rightleftharpoons
+          p \updownharpoonsleftright p \downupharpoonsleftright p
+        $
+  \item Math accents:\\
+        \TopAccentMap{\symnormal}{x}
+        % \begin{itemize}
+        %   \item Latin capital letters:\\
+        %     \TopAccentMap{\symnormal}{\LatinAlphabets}
+        %   \item Latin small letters:\\
+        %     \TopAccentMap{\symnormal}{\latinAlphabets}
+        %   \item Latin capital upright letters:\\
+        %     \TopAccentMap{\symup}{\LatinAlphabets}
+        %   \item Latin small upright letters:\\
+        %     \TopAccentMap{\symup}{\latinAlphabets}
+        %   \item Latin capital bold letters:\\
+        %     \TopAccentMap{\symbf}{\LatinAlphabets}
+        %   \item Latin small bold letters:\\
+        %     \TopAccentMap{\symbf}{\latinAlphabets}
+        %   \item Latin capital bold upright letters:\\
+        %     \TopAccentMap{\symbfup}{\LatinAlphabets}
+        %   \item Latin small bold upright letters:\\
+        %     \TopAccentMap{\symbfup}{\latinAlphabets}
+        %   \item Greek capital letters:\\
+        %     \TopAccentMap{\symnormal}{\GreekAlphabets}
+        %   \item Greek small letters:\\
+        %     \TopAccentMap{\symnormal}{\greekAlphabets}
+        %   \item Greek capital upright letters:\\
+        %     \TopAccentMap{\symup}{\GreekAlphabets}
+        %   \item Greek small upright letters:\\
+        %     \TopAccentMap{\symup}{\greekAlphabets}
+        %   \item Greek capital bold letters:\\
+        %     \TopAccentMap{\symbf}{\GreekAlphabets}
+        %   \item Greek small bold letters:\\
+        %     \TopAccentMap{\symbf}{\greekAlphabets}
+        %   \item Greek capital bold upright letters:\\
+        %     \TopAccentMap{\symbfup}{\GreekAlphabets}
+        %   \item Greek small bold upright letters:\\
+        %     \TopAccentMap{\symbfup}{\greekAlphabets}
+        % \end{itemize}
+  \item Integral:
+        \[
+            \int_0^\pi        \sin x \, \mathrm{d} x
+          = \int\limits_0^\pi \sin x \, \mathrm{d} x
+          = \cos 0 - \cos\pi=2
+        \]
+        \[
+          \int_{-\infty}^{+\infty}    \mathrm{d} z
+          \iint_{-\infty}^{+\infty}   \mathrm{d}^2 y
+          \iiint_{-\infty}^{+\infty}  \mathrm{d}^3 x
+          \iiiint_{-\infty}^{+\infty} \mathrm{d}^4 p
+        \]
+        \[ \oint \dd{r} \oiint \dd{\theta} \oiiint \dd{\varphi}\]
+        \begingroup
+          \mathversion{upintegral}
+          \[
+              \int_0^\pi        \sin x \, \mathrm{d} x
+            = \int\limits_0^\pi \sin x \, \mathrm{d} x
+            = \cos 0 - \cos\pi + C
+          \]
+          \[
+            \int_{-\infty}^{+\infty}    \mathrm{d} z
+            \iint_{-\infty}^{+\infty}   \mathrm{d}^2 y
+            \iiint_{-\infty}^{+\infty}  \mathrm{d}^3 x
+            \iiiint_{-\infty}^{+\infty} \mathrm{d}^4 p
+          \]
+          \[ \oint \dd{r} \oiint \dd{\theta} \oiiint \dd{\varphi} \]
+        \endgroup
+  \item Huge operators:
+        \[
+          \int\limits_0^\infty \int_0^\infty
+          \sum_{i=1}^\infty \prod_{j=i}^\infty \coprod_{k=i}^\infty
+        \]
+        \[
+          \sum_{i=1}^\infty    \frac{1}{x^i} = \frac{1}{1-x} \quad
+          \prod_{i=1}^\infty   \frac{1}{x^i} = x^{-n(n+1)/2} \quad
+          \coprod_{i=i}^\infty \frac{1}{x^i} = ?
+        \]
+  \item Huge operators (inline):
+        \[ \int\limits_0^\infty \int_0^\infty \iint \dd{x} \iiint \dd{y} \iiiint \dd{p}
+          \oint \dd{r} \oiint \dd{\theta} \oiiint \dd{\varphi}
+          \sum_{i=1}^\infty \prod_{j=i}^\infty \coprod_{i=i}^\infty \]
+  \item Huge operators (inline):
+        \begingroup
+          \mathversion{upintegral}
+          \[ \int\limits_0^\infty \int_0^\infty \iint \dd{x} \iiint \dd{y} \iiiint \dd{p}
+            \oint \dd{r} \oiint \dd{\theta} \oiiint \dd{\varphi}
+            \sum_{i=1}^\infty \prod_{j=i}^\infty \coprod_{i=i}^\infty \]
+        \endgroup
+  \item Fraction:
+        \[ \frac{1}{2} + \frac{1}{\frac{2}{3}+4} + \frac{\frac{1}{2}+3}{4} \]
+  \item Fraction (inline):
+        \[ \frac{1}{2} + \frac{1g}{2} + \frac{1}{\frac{2}{3}+4} + \frac{\frac{1}{2}+3}{4} \]
+  \item Radical:
+        \[
+            \sqrt{2} + \sqrt{2^2} + \sqrt{1+\sqrt{2}} + \sqrt{1+\sqrt{1+\sqrt{3}}}
+          + \sqrt{\sqrt{\sqrt{\sqrt{2}}}} + \sqrt{\frac{1}{2}}
+        \]
+        \[
+            \cuberoot{2} + \cuberoot{2^2} + \cuberoot{1+\cuberoot{2}}
+          + \cuberoot{1+\cuberoot{1+\cuberoot{3}}}
+          + \cuberoot{\cuberoot{\cuberoot{\cuberoot{2}}}} + \cuberoot{\frac{1}{2}}
+        \]
+        \[
+            \fourthroot{2} + \fourthroot{2^2} + \fourthroot{1+\fourthroot{2}}
+          + \fourthroot{1+\fourthroot{1+\fourthroot{3}}}
+          + \fourthroot{\fourthroot{\fourthroot{\fourthroot{2}}}} + \fourthroot{\frac{1}{2}}
+        \]
+        \[
+            \sqrt[x]{y} + \sqrt[x]{\sqrt[x]{y}} + \sqrt[x]{\sqrt[x]{\sqrt[x]{y}}}
+          + \sqrt[x]{\frac{1}{2}}
+          + \sqrt      { \begin{matrix} x \\ y \\ z \\ w \end{matrix} }
+          + \cuberoot  { \begin{matrix} x \\ y \\ z \\ w \end{matrix} }
+          + \fourthroot{ \begin{matrix} x \\ y \\ z \\ w \end{matrix} }
+          + \sqrt[x]   { \begin{matrix} x \\ y \\ z \\ w \end{matrix} }
+          + \sqrt      { \begin{matrix} x \\ y \\ z \\ w \\ p \end{matrix} }
+          + \cuberoot  { \begin{matrix} x \\ y \\ z \\ w \\ p \end{matrix} }
+          + \fourthroot{ \begin{matrix} x \\ y \\ z \\ w \\ p \end{matrix} }
+          + \sqrt[x]   { \begin{matrix} x \\ y \\ z \\ w \\ p \end{matrix} }
+        \]
+        \[ \PrintRadical{\sqrt}{x}{25}       \]
+        \[ \PrintRadical{\cuberoot}{x}{25}   \]
+        \[ \PrintRadical{\fourthroot}{x}{25} \]
+        \[ \PrintRadical{\sqrt[x]}{x}{4}     \]
+  \item Brackets:
+        \[ (a) (A) (O) (Y) (y) (f) (Q) (T) (Y) (j) (q) \]
+        % \[ \PrintDelimiters{(}{)}             \]
+        % \[ \PrintDelimiters{\lgroup}{\rgroup} \]
+        % \[ \PrintDelimiters{[}{]}             \]
+        % \[ \PrintDelimiters{\{}{\}}           \]
+        % \[ \PrintDelimiters{\vert}{\vert}     \]
+        % \[ \PrintDelimiters{\Vert}{\Vert}     \]
+        % \[ \PrintDelimiters{\Vvert}{\Vvert}   \]
+        % \[ \PrintDelimiters{\langle}{\rangle} \]
+        % \[ \PrintDelimiters{\lAngle}{\rAngle} \]
+        % \[ \PrintDelimiters{\lceil}{\rceil}   \]
+        % \[ \PrintDelimiters{\lfloor}{\rfloor} \]
+        \[
+          \Biggl(  \biggl(  \Bigl(  \bigl(   (x)  \bigr)  \Bigr)  \biggr)  \Biggr)  \quad
+          \Biggl\lgroup \biggl\lgroup \Bigl\lgroup  \bigl\lgroup  \lgroup x \rgroup
+          \bigr\rgroup  \Bigr\rgroup  \biggr\rgroup \Biggr\rgroup                   \quad
+          \Biggl[  \biggl[  \Bigl[  \bigl[   [x]  \bigr]  \Bigr]  \biggr]  \Biggr]  \quad
+          \Biggl\{ \biggl\{ \Bigl\{ \bigl\{ \{x\} \bigr\} \Bigr\} \biggr\} \Biggr\}
+        \]
+        \[
+            \left( x \right) + \left( x^2 \right)
+          + \left( \frac{1}{2} \right) + \left( \frac{2^2}{3} \right)
+          + \left( \frac{\frac{1}{2}}{\frac{3}{4}} \right)
+        \]
+        \[
+          ( \vert ) [ \Vert ] \{ \Vvert \} \quad
+          \bigl(  \bigm\vert  \bigr)  \bigl[  \bigm\Vert  \bigr]  \bigl\{  \bigm\Vvert  \bigr\}  \quad
+          \Bigl(  \Bigm\vert  \Bigr)  \Bigl[  \Bigm\Vert  \Bigr]  \Bigl\{  \Bigm\Vvert  \Bigr\}  \quad
+          \biggl( \biggm\vert \biggr) \biggl[ \biggm\Vert \biggr] \biggl\{ \biggm\Vvert \biggr\} \quad
+          \Biggl( \Biggm\vert \Biggr) \Biggl[ \Biggm\Vert \Biggr] \Biggl\{ \Biggm\Vvert \Biggr\} \quad
+          \left(  \vbox to 40pt {} \middle\vert  \right)
+          \left[  \vbox to 40pt {} \middle\Vert  \right]
+          \left\{ \vbox to 40pt {} \middle\Vvert \right\} \quad
+          \left(  \vbox to 50pt {} \middle\vert  \right)
+          \left[  \vbox to 50pt {} \middle\Vert  \right]
+          \left\{ \vbox to 50pt {} \middle\Vvert \right\}
+        \]
+  \item More brackets:\\
+        \[
+          \lceil  ceiling \rceil  \quad
+          \lfloor floor   \rfloor \quad
+          \lgroup group   \rgroup
+        \]
+  \item Bra-kets:\\
+ \renewcommand\ket[1]{\left\lvert{#1}\right\rangle}
+ \renewcommand\bra[1]{\left\langle{#1}\right\rvert}
+ \renewcommand\ip[2]{\left\langle{#1}\middle\vert{#2}\right\rangle}
+ \renewcommand\op[2]{\left\lvert{#1}\middle\rangle\middle\langle{#2}\right\rvert}
+        \[
+            \bra{x} + \ket{x} + \ip{\alpha}{\beta} + \op{\alpha^2}{\beta^2}
+          + \bra{\frac{1}{2}} + \ket{\frac{1}{2}}
+          + \ip{\frac{1}{2}}{\frac{1}{2}} + \op{\frac{1}{2}}{\frac{1}{2}}
+          + \bra{\frac{a^2}{b^2}}
+          + \Biggl\vert \frac{\mathrm{e}^{x^2}}{\mathrm{e}^{y^2}} \Biggr\rangle
+        \]
+        \[
+            \langle \vert \rangle                   \quad
+            \bigl\langle  \bigl\vert  \bigl\rangle  \quad
+            \Bigl\langle  \Bigl\vert  \Bigl\rangle  \quad
+            \biggl\langle \biggl\vert \biggl\rangle \quad
+            \Biggl\langle \Biggl\vert \Biggl\rangle \qquad
+            \lAngle \vert \rAngle                   \quad
+            \bigl\lAngle  \bigl\vert  \bigl\rAngle  \quad
+            \Bigl\lAngle  \Bigl\vert  \Bigl\rAngle  \quad
+            \biggl\lAngle \biggl\vert \biggl\rAngle \quad
+            \Biggl\lAngle \Biggl\vert \Biggl\rAngle
+        \]
+  \item Matrices:\\
+        \[ \mqty(a & b \\ c & d) + \mqty*(a & b \\ c & d) \]
+        \[
+          \begin{pmatrix} \MatrixII  \end{pmatrix} \quad
+          \begin{bmatrix} \MatrixII  \end{bmatrix} \quad
+          \begin{Bmatrix} \MatrixII  \end{Bmatrix} \quad
+          \begin{vmatrix} \MatrixII  \end{vmatrix} \quad
+          \begin{Vmatrix} \MatrixII  \end{Vmatrix}
+        \]
+        \[
+          \begin{pmatrix} \MatrixIII \end{pmatrix} \quad
+          \begin{bmatrix} \MatrixIII \end{bmatrix} \quad
+          \begin{Bmatrix} \MatrixIII \end{Bmatrix} \quad
+          \begin{vmatrix} \MatrixIII \end{vmatrix} \quad
+          \begin{Vmatrix} \MatrixIII \end{Vmatrix}
+        \]
+        \[
+          \begin{pmatrix} \MatrixIV  \end{pmatrix} \quad
+          \begin{bmatrix} \MatrixIV  \end{bmatrix} \quad
+          \begin{Bmatrix} \MatrixIV  \end{Bmatrix} \quad
+          \begin{vmatrix} \MatrixIV  \end{vmatrix} \quad
+          \begin{Vmatrix} \MatrixIV  \end{Vmatrix}
+        \]
+  \item Nablas:\\
+        \[ \nabla x + \grad{f} + \divergence{\symbf{u}} + \curl{\symbf{v}} \]
+        \[
+          \nabla                 \quad \symbf{\nabla}           \quad
+          \symit{\nabla}         \quad \symbfit{\nabla};        \quad
+          \tilde{\nabla}         \quad \tilde{\symbf{\nabla}}   \quad
+          \tilde{\symit{\nabla}} \quad \tilde{\symbfit{\nabla}}
+        \]
+  \item Over-/underline and over-/underbraces
+        \[ \OverUnderline{\overline}     \quad \overline     {\ListText}   \]
+        \[ \OverUnderline{\overparen}    \quad \overparen    {\ListText}^n \]
+        \[ \OverUnderline{\overbracket}  \quad \overbracket  {\ListText}^n \]
+        \[ \OverUnderline{\overbrace}    \quad \overbrace    {\ListText}^n \]
+        \[ \OverUnderline{\underline}    \quad \underline    {\ListText}   \]
+        \[ \OverUnderline{\underparen}   \quad \underparen   {\ListText}_n \]
+        \[ \OverUnderline{\underbracket} \quad \underbracket {\ListText}_n \]
+        \[ \OverUnderline{\underbrace}   \quad \underbrace   {\ListText}_n \]
+  \item Primes
+        \[ x' x'' x''' x''''  x^{x'} x^{x''} x^{x'''} x^{x''''} x^{x`} \]
+        \[ x \prime x \dprime x \trprime x \qprime \]
+        \[ x^{\prime} x^{\dprime} x^{\trprime} x^{\qprime} \] % the same as ', '' or ''' => ssty
+%        \begin{center}
+%          \firatext x\symbol{"2032} x\symbol{"2033} x\symbol{"2034} x' x'' x'''
+%        \end{center}
+\end{itemize}
+
+\verb|\lim\limits_{x\to\infty} \frac{1}{x^2} = 0| $ \lim\limits_{x\to\infty} \dfrac{1}{x^2} = 0 $
+
+\verb|\frac{\partial y(x)}{\partial x} = \frac{\symup{d}y(x)}{\symup{d}x} = y'(x)|
+\[ \frac{\partial y(x)}{\partial x} = \frac{\symup{d}y(x)}{\symup{d}x} = y'(x) \]
+
+\printbibliography
+
+\end{document}

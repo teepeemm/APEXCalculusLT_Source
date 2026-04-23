@@ -1,0 +1,124 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{amsmath,unicode-math,physics,tensor,xeCJK,bookmark}
+\useoutertheme{metropolis}
+\useinnertheme{metropolis}
+\usecolortheme{metropolis}
+\usefonttheme{professionalfonts}
+
+\setbeamerfont{title}{size=\Large, series=\bfseries}
+\setbeamerfont{author}{size=\small}
+\setbeamerfont{date}{size=\small}
+\setbeamertemplate{footline}{\vspace*{0.3cm}}
+
+\makeatletter
+% https://tex.stackexchange.com/q/66519
+\apptocmd{\beamer@@frametitle}{\only<1>{\bookmark[page=\the\c@page,level=3]{#1}}}{}{}
+
+\unimathsetup{math-style=ISO, bold-style=ISO, mathrm=sym}
+
+\setsansfont{FiraGO}[BoldFont=* SemiBold, Numbers=Monospaced]
+  { \setmathfont { FiraMath-##1.otf } [ version = ##1 ] }
+\cs_new:Npn \MultipleWeights #1
+  {
+    \seq_map_inline:Nn \c_@@_weight_seq
+      { \group_begin: \mathversion {##1} #1 \group_end: }
+  }
+\ExplSyntaxOff
+\makeatother
+
+\def\ii{\symrm{i}}
+\def\pp{\symrm{\pi}}
+
+\title{Fira Math}
+\subtitle{Sans-serif font with Unicode math support}
+\author{Xiangdong Zeng}
+\date{2020/10/15\quad v0.3.4}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Basic examples (I)}
+\begin{itemize}
+  \item Covariant derivative:
+    \[
+      \nabla \symbf{X} = \tensor{X}{^\alpha_{;\beta}} \pdv{x^\alpha} \otimes \dd{x^\beta}
+                       = \qty(\tensor{X}{^\alpha_{,\beta}} + \Gamma^{\alpha}_{\beta\gamma} \, X^\gamma) \,
+                         \pdv{x^\alpha} \otimes \dd{x^\beta}
+    \]
+  \item Einstein's field equations:
+    \[ G_{\mu\nu} \equiv R_{\mu\nu} - \frac{1}{2} R g_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu} \]
+  \item Schwarzschild metric:
+    \[
+      c^2 \dd{\tau}^2 = \qty(1-\frac{r_{\mathrm{s}}}{r}) \, c^2 \dd{t}^2
+                      - \qty(1-\frac{r_{\mathrm{s}}}{r})^{-1} \dd{r}^2
+                      - r^2 \underbrace{\qty(\dd{\theta}^2 + \sin^2 \theta \dd{\varphi}^2)}_{\dd{\Omega}^2}
+    \]
+  \item Einstein--Hilbert action:
+    \[ S = \frac{1}{2\kappa} \int R \sqrt{-g} \dd[4]{x} \]
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Basic examples (II)}
+\begin{itemize}
+  \item Case $n=1$
+    \small
+    \[
+      \int_0^{\frac{\pp}{2}}
+        \frac{\sqrt{\frac12 \sqrt{\frac{\ln^2\cos\theta}{\theta^2+\ln^2\cos\theta}} + \frac12}}%
+            {\fourthroot{\theta^2 + \ln^2\cos\theta}} \dd{\theta}
+      = \frac{\pp}{2\sqrt{\ln 2}}
+    \]
+  \item Generalization:
+    \small\vspace{1ex}
+    \[
+      \begin{cases}
+        \smash[t]{\displaystyle
+          R_n^- = \frac{2}{\pp} \int_0^{\pp/2} \qty(\theta^2+\ln^2\cos\theta)^{-2^{-n-1}}
+                  \sqrt{\frac12+\frac12\sqrt{\frac12+\cdots+\frac12\sqrt{
+                        \frac{\ln^2\cos\theta}{\theta^2+\ln^2\cos\theta}}}} \dd{\theta}
+                = (\ln 2)^{-2^{-n}}} \\[3ex]
+        \smash[b]{\displaystyle
+          R_n^+ = \frac{2}{\pp} \int_0^{\pp/2} \qty(\theta^2+\ln^2\cos\theta)^{2^{-n-1}}
+                  \sqrt{\frac12+\frac12\sqrt{\frac12+\cdots+\frac12\sqrt{
+                        \frac{\ln^2\cos\theta}{\theta^2+\ln^2\cos\theta}}}} \dd{\theta}
+                = (\ln 2)^{2^{-n}}}
+      \end{cases}
+    \]
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Using with CJK fonts}
+\begin{itemize}
+  \item {\fontzhhans 【留数定理】全纯函数 $f$ 在若尔当曲线 $\gamma$ 上的积分为：}
+    \[
+      \oint_\gamma f(z) \dd{z}
+      = 2\pp\ii \sum_{k=1}^n \Res_{z=a_k} f(z).
+    \]
+  \item {\fontzhhant 【留數定理】全純函數 $f$ 在若爾當曲線 $\gamma$ 上的積分為：}
+    \[
+      \oint_\gamma f(z) \dd{z}
+      = 2\pp\ii \sum_{k=1}^n \Res_{z=a_k} f(z).
+    \]
+  \item {\fontja 【留数定理】ジョルダン曲線 $\gamma$ に沿う正則関数 $f$ の積分は、}
+    \[
+      \oint_\gamma f(z) \dd{z}
+      = 2\pp\ii \sum_{k=1}^n \Res_{z=a_k} f(z).
+    \]
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Multiple weights (preview)}
+\centering
+\everymath{\displaystyle}
+\begin{tabular}{p{5cm}l}
+  \mathversion{Thin}       $ \pdv{\alpha} \sin\alpha =  \cos  \alpha       $ & \mathversion{Medium}     $ \int \sin x \dd{x} = -\cos x                   + C_1 $ \\[12pt]
+  \mathversion{UltraLight} $ \pdv{\beta } \cos\beta  = -\sin  \beta        $ & \mathversion{SemiBold}   $ \int \cos y \dd{y} =  \sin y                   + C_2 $ \\[12pt]
+  \mathversion{ExtraLight} $ \pdv{\gamma} \tan\gamma =  \sec^2\gamma       $ & \mathversion{Bold}       $ \int \tan z \dd{z} = -\ln|\cos z \, |          + C_3 $ \\[12pt]
+  \mathversion{Light}      $ \pdv{\theta} \cot\theta = -\csc^2\theta       $ & \mathversion{ExtraBold}  $ \int \cot p \dd{p} =  \ln|\sin p \, |          + C_4 $ \\[12pt]
+  \mathversion{Book}       $ \pdv{\phi  } \sec\phi   =  \tan\phi \sec\phi  $ & \mathversion{Heavy}      $ \int \sec q \dd{q} =  \ln|\sec q + \tan q \, | + C_5 $ \\[12pt]
+  \mathversion{Regular}    $ \pdv{\zeta } \csc\zeta  = -\cot\zeta\csc\zeta $ & \mathversion{Ultra}      $ \int \csc r \dd{r} = -\ln|\csc r + \cot r \, | + C_6 $
+\end{tabular}
+\end{frame}
+
+\end{document}

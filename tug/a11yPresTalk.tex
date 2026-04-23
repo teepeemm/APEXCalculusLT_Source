@@ -1,0 +1,324 @@
+% !TEX program = LuaLaTeX-dev
+\DocumentMetadata{
+  lang=en,
+  tagging=on,
+  pdfstandard=ua-2,
+%  check-tagging-status,
+  tagging-setup={
+%    math/alt/use,
+    math/setup=mathml-SE
+  }
+}
+\documentclass{ltx-talk}
+
+% 30 minutes including questions
+
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{ulem}
+
+% but it's still indented?
+\newenvironment{fakeVerbatim}
+  {\smallskip\par\obeylines\obeyspaces\ttfamily\small\noindent\ignorespaces}
+  {\smallskip\par\noindent\ignorespacesafterend\vspace{-2.5\baselineskip}}
+\newcommand{\cs}[1]{\texttt{\textbackslash #1}}
+\newcommand{\tubbraced}[1]{\texttt{\{#1\}}}
+
+%\usepackage{tcolorbox}% not used, but needed for the next package
+%\usepackage{tagpdfdocu-patches}% needed to make listings work properly
+
+%%%%%% copied from tagpdfdocu-patches.sty
+\makeatletter
+\ExplSyntaxOn
+\NewTaggingSocket{listings/number}{2}
+\NewTaggingSocketPlug{listings/number}{default}
+ {
+   \tag_mc_end_push:
+   \tagstructbegin{tag=Lbl}
+    \tagmcbegin{}
+     #2
+    \tagmcend
+   \tagstructend
+   \tag_mc_begin_pop:n{} 
+ }
+\AssignTaggingSocketPlug{listings/number}{default} 
+\ExplSyntaxOff
+\lst@Key{numbers}{none}{%
+    \let\lst@PlaceNumber\@empty
+    \lstKV@SwitchCases{#1}%
+    {none:\\%
+     left:\def\lst@PlaceNumber{\llap{\normalfont
+                \UseTaggingSocket{listings/number}{}{\lst@numberstyle{\thelstnumber}}\kern\lst@numbersep}}\\%
+     right:\def\lst@PlaceNumber{\rlap{\normalfont
+                \kern\linewidth \kern\lst@numbersep
+                \UseTaggingSocket{listings/number}{}{\lst@numberstyle{\thelstnumber}}}}%
+    }{\PackageError{Listings}{value `#1' for keyword `numbers' not supported}\@ehc}}
+\ExplSyntaxOn
+
+% environment tagging. Updated 2025-12-27 to new block code
+
+% new code from 2025-12-27, requires latex-dev     
+  \DeclareInstance{blockenv}{lstlisting}{std}
+   {
+    name           = lstlisting, 
+    tag-name       = verbatim,
+    tag-attr-class = ,           
+    tagging-recipe = standard,
+    inner-level-counter  = ,
+    transparent-level = true,    
+    legacy-code     = ,
+    block-instance = verbatim ,
+    inner-instance = ,
+    final-code     = \AssignStructureRole {para/textblock}%
+                         {\UseStructureName{block/verbatim/codeline}}\ignorespaces,
+    tagging-suppress-paras = true 
+   }  
+   
+ \lst@AddToHook{PreInit}
+  { 
+    \MathCollectFalse 
+    \ifx\lst@float\relax
+     \SimpleBlockEnv{lstlisting}{}%
+    \else 
+     \SimpleBlockEnv{lstlisting}{tagging-recipe = standalone}
+    \fi
+  }
+
+ \lst@AddToHook{DeInit}
+   {\BlockEnvEnd}% 
+
+ \tagpdfsetup{float/new=lstlisting}
+\ExplSyntaxOff
+\makeatother
+%%%%% end copying
+
+\lstset{
+  columns=fullflexible,
+  keepspaces=true,
+  commentstyle=\slshape,
+  basicstyle=\ttfamily
+  \lst@ifdisplaystyle\small\fi,
+  language={[LaTeX]TeX}
+}
+
+\title[Accessible Presentations]
+ {Creating Accessible Presentations With \texttt{ltx-talk}}
+%\subtitle{beamer+tagging}
+\author[Tim Prescott]{Timothy Prescott (\TeX.SE \texttt{teepeemm})}
+\date{July 2026}
+% abstract:
+%We discuss how to create accessible \PDF\ presentations
+%using \texttt{ltx-talk}, which is similar to \texttt{beamer}.
+%We give several examples, including how to adapt common Beamer styles.
+%We also discuss necessary adaptations
+%to satisfy a common accessibility checker available in several \acro{LMS}s.
+
+\newcommand{\apex}{%
+  \texorpdfstring{A\kern -.1em \lower -.5ex\hbox{P}%
+    \kern -.25em\lower .5ex\hbox{E}\kern -.1em X%
+  }{APEX}%
+}
+
+%\providecolor{maybeUNDgreen}{Hsb}{146,1,0.62}
+\providecolor{maybeUNDgreen}{Hsb}{146,1,0.53}
+
+\EditInstance{header}{std}{
+  background-color = maybeUNDgreen,
+  color            = white,
+}
+
+\EditInstance{footer}{std}{
+  color         = black!75,
+  separator     = \hfill|\hfill,
+  element-order = {date, author, title, framenumber},
+}
+
+\DeclareInstance{titlepage-element}{titlegraphic}{talk}{}
+% department logo obtained locally
+% other graphics from https://campus.und.edu/brand/downloads.html
+% primary logotype, full color, svg converted to pdf
+\ExpandArgs{c}\newcommand{@titlegraphic}{%
+  \includegraphics[
+    actualtext={University of North Dakota, Mathematics \& Statistics},
+    width=5cm
+  ]{MathStats-CMYK_primary.jpg}% logotype-full
+}
+% flame logo, white, digital png
+\NewCommandCopy\oldframetitle\frametitle
+\renewcommand{\frametitle}[1]{%
+  \oldframetitle{#1\hfill
+    \includegraphics[height=2ex,artifact]{flame-w-rgb}%
+  }%
+}
+
+%\ShowTemplateDefaults{titlepage}{talk}
+%\ShowTemplateInterface{type}{talk}
+%\ShowTemplateVariables{type}{talk}
+%\ShowTemplateCode{type}{talk}
+%\ShowInstanceValues{type}{instance}
+
+%\DeclareInstance{footer-element}{myelement}{talk}{}
+%\ExpandArgs{c}\newcommand{@myelement}{SUCCESS}
+%\ExpandArgs{c}\newcommand{@shortmyelement}{SHORT}
+
+\begin{document}
+\overfullrule=10pt
+
+\begin{frame}
+\maketitle[
+  element-order = {title, subtitle, author, titlegraphic, date},
+  framestyle = plain,
+]
+\end{frame}
+
+\begin{frame*}
+\frametitle{The Basics}
+\begin{itemize}
+\item
+\begin{lstlisting}
+\DocumentMetadata{
+  lang=en,
+  tagging=on,
+  pdfstandard=ua-2,
+%  check-tagging-status,
+  tagging-setup={
+%    math/alt/use,                % <=> Formulas must have alt text
+%    role/new-tag=frametitle/H1,  % <=> document must start at H1
+    math/setup=mathml-SE
+  }
+}
+\documentclass{ltx-talk}
+\end{lstlisting}
+\item Lua\LaTeX
+\item tagged PDF + overlays
+\item defined colors: \textcolor{alert}{alert}, \textcolor{example}{example}, \textcolor{structure}{structure}
+\item \tubbraced{frame*} $\Leftrightarrow$
+\tubbraced{verb}, \tubbraced{lstlisting}, etc.
+\end{itemize}
+\end{frame*}
+
+\begin{frame}
+\frametitle{A \cs{tableofcontents}}
+\tableofcontents
+\hrule\bigskip
+Default \texttt{tocdepth} is 2 (\cs{subsection}).
+\end{frame}
+
+\section{The Basics}
+
+\section{Sectioning}
+
+\begin{frame}
+\frametitle{A \cs{tableofcontents} in a \cs{section}}
+\tableofcontents
+\end{frame}
+
+\begin{frame}
+\frametitle{Sectioning}
+\begin{itemize}
+\item \sout{\cs{part}}, \sout{\cs{chapter}},\\
+\cs{section}, \cs{subsection}, \cs{subsubsection},\\
+\sout{\cs{paragraph}}, \sout{\cs{subparagraph}}
+\end{itemize}
+\end{frame}
+
+\section{Examples}
+
+\subsection{List Environments}
+
+\begin{frame*}
+\frametitle{List Environments}
+\begin{itemize}
+\item \tubbraced{itemize}, \tubbraced{enumerate}, \tubbraced{description}
+as in usual classes
+\item templates mean we can pass options to the environments,\\
+see \texttt{texdoc blocks-doc}
+\item extra (default) key \texttt{action-spec}
+\item \verb!action-spec=<+->! \qquad uncover one item at a time
+\item \verb!action-spec=<+-|alert@+>!
+\qquad and \alert{\cs{alert}} the new item
+\end{itemize}
+\end{frame*}
+
+\newlength\mylabelwidth
+\setlength\mylabelwidth
+  {\widthof{tagged PDFs }}
+\begin{frame*}
+  \frametitle{A Strangely Sporadic Glossary}
+ \begin{minipage}{.52\textwidth}
+ \begin{lstlisting}
+\newlength\mylabelwidth
+\setlength\mylabelwidth
+  {\widthof{tagged PDFs }}\\
+\begin{frame}
+\frametitle{A Strangely Sporadic Glossary}
+\end{lstlisting}\vspace{-\baselineskip}
+ \lstinputlisting{exampleDesc}%
+\vspace{-\baselineskip}
+\begin{lstlisting}
+\end{frame}
+\end{lstlisting}
+ \end{minipage}%
+ \begin{minipage}{.48\textwidth}
+\input{exampleDesc}
+\end{minipage}
+\end{frame*}
+
+\subsection{Interesting Use of Overlays}
+
+\begin{frame*}
+\frametitle{Overlays}
+\begin{itemize}
+\item Just like in Beamer
+\item \begin{lstlisting}
+\NewDocumentCommand{\mycommand}{ s D<>{1-} ... }{ ...}
+% or
+\NewDocumentCommand{\mycommand}{ s d<> ... }{ ...}
+\end{lstlisting}
+\item For example
+\begin{lstlisting}
+\NewDocumentCommand{\visablealert}{ d<> m }{%
+ \visible<#1->{\alert<#1>{#2}}}
+\end{lstlisting}
+\end{itemize}
+\end{frame*}
+
+\begin{frame*}[tag-slides=all]
+\frametitle{Matrix Multiplication Example,
+ Step \arabic{slide}}
+ \begin{minipage}{.52\textwidth}
+ \begin{onlyenv}<1>
+\begin{lstlisting}
+\begin{frame}[tag-slides=all]
+ \frametitle{Matrix Multiplication Example,
+  Step \arabic{slide}}
+\end{lstlisting}\vspace{-.8\baselineskip}
+ \end{onlyenv}
+ \only<2->{\vspace{-\baselineskip}}
+ \only<1>{\lstinputlisting[lastline=15]{exampleMatrix}}
+ \only<2>{\lstinputlisting[lastline=18]{exampleMatrix}}
+ \only<3>{\lstinputlisting[firstline=6,lastline=23]{exampleMatrix}}
+ \only<4>{\lstinputlisting[firstline=10,lastline=27]{exampleMatrix}}
+ \only<5>{\lstinputlisting[firstline=14,lastline=31]{exampleMatrix}}
+ \only<6>{\lstinputlisting[firstline=17]{exampleMatrix}}
+ \begin{onlyenv}<6>\vspace{-.6\baselineskip}
+ \begin{fakeVerbatim}
+\cs{end}\tubbraced{frame}
+\end{fakeVerbatim}
+\end{onlyenv}
+\end{minipage}%
+\begin{minipage}{.48\textwidth}
+\input{exampleMatrix}
+\end{minipage}
+\end{frame*}
+
+\section{Customizations}
+
+\section{Future Work}
+
+\begin{frame}
+\frametitle{Future Work}
+\end{frame}
+
+\end{document}
