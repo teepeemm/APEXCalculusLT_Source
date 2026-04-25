@@ -173,8 +173,16 @@ should be\\
 Keep it brief and objective; exposition won't be seen by most students.\\
 Alternatives to {\bfseries\ttfamily alt=\{...\}} are
 \begin{itemize}
-\item {\bfseries\ttfamily artifact} (image is decorative only)
+\item {\bfseries\ttfamily artifact} (image is decorative only)\quad
+\colorbox{maybeUNDgreen}{\includegraphics[height=2ex,artifact]{flame-w-rgb}}
 \item {\bfseries\ttfamily actualtext=\{...\}} (image is text in disguise)
+\quad
+\raisebox{-.8\height}{%
+  \includegraphics[
+    actualtext={University of North Dakota, Mathematics \& Statistics},
+    width=5cm
+  ]{MathStats-CMYK_primary.jpg}% logotype-full
+}
 \end{itemize}
 %\\
 %PAC objects to a bug in pgfplots.
@@ -190,9 +198,11 @@ Alternatives to {\bfseries\ttfamily alt=\{...\}} are
 \item Do not repeat the caption
 \item At most 120 characters or 1--2 sentences.\\
 If not possible, have the alt text point to a separately written description
+\smallskip
 \item \verb|\setkeys{Gin}{alt={...}}|
-\item ``Formulas need alt text'' \textrightarrow\ option \texttt{math/alt/use}
-\item Have someone else do it?
+\item ``Formulas need alt text'' $\leftrightarrow$ option
+\texttt{math/alt/use}
+\item Have someone else write the alt text?
 \end{itemize}
 \end{frame*}
 

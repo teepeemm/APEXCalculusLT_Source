@@ -21,6 +21,14 @@
 %  }
 %}
 
+\RequirePackage{pdfmanagement}
+\SetKeys[document/metadata]
+{
+pdfversion=2.0,
+lang=en-US,
+xmp=false,
+}
+
 \documentclass{ltugboat}
 %\usepackage{luatex85}
 \usepackage{graphicx}
@@ -32,10 +40,8 @@
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{array}
+\usepackage{siunitx}
 \usepackage[hidelinks]{hyperref}
-
-\usepackage{xr}
-\externaldocument{presExamples}
 
 % latexmk could probably do this
 \IfFileExists{./tugFigs.pdf}{}{
@@ -51,15 +57,14 @@
   language={[LaTeX]TeX}
 }
 
-\newenvironment{fakeVerbatim}
-  {\smallskip\par\obeylines\obeyspaces\ttfamily\small\noindent\ignorespaces}
-  {\smallskip\par\noindent\ignorespacesafterend\vspace{-2.5\baselineskip}}
+\newcommand{\verbatimOptions}{%
+ \IfDocumentMetadataT{setup-code=}\small\makevmeta}
 
-\newcommand{\verbatimOptions}{\IfDocumentMetadataT{setup-code=}\small}
+\newcommand{\ltxtalk}{\texttt{ltx-talk}}
 
 \def\url{\tburl}
 
-\title{Creating accessible presentations with \texttt{ltx-talk}}
+\title{Creating accessible presentations with \ltxtalk}
 
 % repeat info for each author; comment out items that don't apply.
 \author{Timothy Prescott}
@@ -71,14 +76,12 @@ Grand Forks ND, 58203\\ USA}
 
 % Electronic access to the article suffices
 
-\NewDocumentCommand{\visablealert}{d<>m}{\visible<#1->{\alert<#1>{#2}}}
-
 \begin{document}
 \maketitle
 
 \begin{abstract}
 We discuss how to create accessible \PDF\ presentations
-using \texttt{ltx-talk}, which is similar to \texttt{beamer}.
+using \ltxtalk, which is similar to \texttt{beamer}.
 We give several examples, including how to adapt common Beamer styles.
 We also discuss necessary adaptations
 to satisfy a common accessibility checker available in several \acro{LMS}s.
@@ -103,14 +106,14 @@ The \texttt{beamer} class is incompatible with the tagging
 code and due to the way it is implemented, it is
 not easily possible to change this. Joseph Wright
 therefore decided to write a new presentation class
-called \texttt{ltx-talk} with proper tagging support as a
+called \ltxtalk\ with proper tagging support as a
 replacement for \texttt{beamer}.
 \end{quote}
 Our purpose here is to explore this replacement.
 
 \section{The Basics}
 
-A \texttt{ltx-talk} presentation must begin with
+A \ltxtalk\ presentation must begin with
 \begin{verbatim}[\verbatimOptions]
 \DocumentMetadata{}
 \documentclass{ltx-talk}
@@ -125,9 +128,7 @@ But we will probably want a \cs{DocumentMetadata} more like
   tagging-setup={
 %    math/alt/use,
 %    role/new-tag=frametitle/H1,
-    math/setup=mathml-SE
-  }
-}
+    math/setup=mathml-SE } }
 \end{verbatim}
 %where we use the usual key-value options for \cs{DocumentMetadata}.
 %(For example,
@@ -141,11 +142,11 @@ on a command line, or at \url{https://ctan.org/pkg/ltx-talk}.
 This links to several examples at
 \url{https://www.texdev.net/ltx-talk/examples/}.
 If we want to customize the document,
-it is important to note that \texttt{ltx-talk} makes use of \emph{templates},
+it is important to note that \ltxtalk\ makes use of \emph{templates},
 so that we will want to familiarize ourselves
 with \texttt{texdoc lttemplates}.
 
-Broadly, we can view a \texttt{ltx-talk} as a properly tagged \LaTeX\ document
+Broadly, we can view a \ltxtalk\ as a properly tagged \LaTeX\ document
 that incorporates presentation ideas such as overlays and the geometry.
 This means that ``how to'' questions often revolve around
 how something should be done in a \LaTeX\ document
@@ -168,31 +169,41 @@ and then we have whatever other arguments we'd like our function to take.
 For example, an upcoming
 \begin{verbatim}[\verbatimOptions]
 \NewDocumentCommand{\visablealert}{d<> m}{%
-  \visible<#1->{\alert<#1>{#2}}%
-}
+  \visible<#1->{\alert<#1>{#2}}}
 \end{verbatim}
 creates a new command \cs{visiblealert} that takes an overlay specification
 as \#1 and then a mandatory argument as \#2.
 Its content will be visible on slides from \#1 onward,
 and its content will be alerted on the slide given by \#1.
 
-\texttt{ltx-talk} defines three colors:
-alert (red),
-example (green),
-and
-structure (blue).
-%\begin{description}
-%\item[alert] red
-%\item[structure] blue
-%\item[example] green
-%\end{description}
+\ltxtalk\ defines three colors:
+alert (red), example (green), and structure (blue).
 All three are slightly darker than standard 100\%/0\%/0\%
 in \acro{RGB} colors to enhance contrast for accessibility.
+
+Where \texttt{beamer} has the concept of a \emph{fragile} frame
+that uses verbatim or listings to change the catcodes,
+\ltxtalk\ does this when a \tubbraced{frame*} environment is used.
+As with most things related to verbatim,
+such a frame cannot appear as the argument of another command.
+
+\section{Overlays}
+
+\ltxtalk\ modifies many common commands to accept an overlay specification
+(after an optional star, but before other arguments),
+so that the commands do nothing outside of the specified slides.
+\ltxtalk\ also defines the usual overlay commands
+\cs{only}, \cs{uncover}, \cs{visible}, \cs{invisible},
+and their environments \tubbraced{\meta{action}env}.
+% could talk about action spec, but I think that might be a bit much
+%\cs{onslide},
+%\cs{alt}, \cs{temporal}
 
 \section{Sections}
 
 Within a frame, the sectioning commands \cs{section}, \cs{subsection}, and
 \cs{subsubsection} have no affect.
+% Joseph: will there be visible output?
 (The other common sectioning commands should not appear in a presentation and
 are not defined.)
 Outside of the frames, the sectioning commands for sections with frames
@@ -205,7 +216,7 @@ how deep the levels should be displayed
 After a sectioning command, this will present the same outline,
 but with the non-current sections mostly transparent.
 
-By default, \texttt{ltx-talk} sets frame titles to be \texttt{H4}.
+By default, \ltxtalk\ sets frame titles to be \texttt{H4}.
 %allowing \cs{section} and similar commands to be above them.
 %(\LaTeX\ sets all such sectioning commands as \texttt{H1}.)
 The Ally accessibility checker, however,
@@ -220,7 +231,7 @@ the appropriate line of \cs{DocumentMetadata}.
 
 \subsection{Lists}
 
-Because \texttt{ltx-talk} has adapted the \texttt{beamer}
+Because \ltxtalk\ has adapted the \texttt{beamer}
 overlay specification concept, we can still use
 \begin{verbatim}[\verbatimOptions]
 \begin{itemize}[<+->]
@@ -236,16 +247,17 @@ If we also want to make use of the more powerful listing environments
 created by templates (see \texttt{texdoc blocks-doc}),
 then the \verb|<+->| value goes with the key \texttt{action-spec}.
 For example,
-\begin{verbatim}[\verbatimOptions]
+{\lstset{aboveskip=0pt,belowskip=0pt}
+\begin{lstlisting}
 \newlength\mylabelwidth
 \setlength\mylabelwidth{\widthof{tagged PDFs }}
 \begin{frame}
  \frametitle{A Strangely Sporadic Glossary}
-\end{verbatim}
+\end{lstlisting}
 \lstinputlisting{exampleDesc}
-\vspace{-.5\baselineskip}\begin{verbatim}[\verbatimOptions]
+\begin{lstlisting}
 \end{frame}
-\end{verbatim}
+\end{lstlisting}}
 creates four slides where each item is uncovered in turn,
 culminating in \autoref{fig:eg_description}.
 \begin{figure}
@@ -254,6 +266,7 @@ culminating in \autoref{fig:eg_description}.
 \caption{Output of example \tubbraced{description} code.}
 \label{fig:eg_description}
 \end{figure}
+
 For tagging purposes, and when creating a printed handout of the slides,
 repeating four slides with only slightly varying information
 doesn't make sense.
@@ -262,45 +275,46 @@ Therefore, only the final slide is represented in those modes.
 \subsection{Matrix Multiplication}
 
 As another example, we were able to demonstrate matrix multiplication using
-\begin{verbatim}[\verbatimOptions]
-\begin{frame}[tag-slides=all]
+{\lstset{aboveskip=0pt,belowskip=0pt}
+\begin{lstlisting}
+\begin{frame}[tag-slides=1-]
 \frametitle{Matrix Multiplication Example,
  Step \arabic{slide}}
-\end{verbatim}
+\end{lstlisting}
 \lstinputlisting{exampleMatrix}
-\vspace{-1\baselineskip}\begin{verbatim}[\verbatimOptions]
+\begin{lstlisting}
 \end{frame}
-\end{verbatim}
-%Because \texttt{ltx-talk} borrows its overlay concepts from \texttt{beamer},
+\end{lstlisting}}
+%Because \ltxtalk\ borrows its overlay concepts from \texttt{beamer},
 The previous content works in \texttt{beamer} with the only necessary changes
-being to remove the \texttt{tag-slides=all} and
+being to remove the \texttt{tag-slides=1-} and
 adjust the \cs{arabic}\tubbraced{slide}.
 This creates a frame of six slides,
 as seen in \autoref{matrixMult}.
 \begin{figure}
-\setlength{\fboxsep}{0pt}
 \setkeys{Gin}{width=.49\linewidth}
-\fbox{\includegraphics[page=5]{tugFigs}}%
-\fbox{\includegraphics[page=6]{tugFigs}}
-\fbox{\includegraphics[page=7]{tugFigs}}%
-\fbox{\includegraphics[page=8]{tugFigs}}
-\fbox{\includegraphics[page=9]{tugFigs}}%
-\fbox{\includegraphics[page=10]{tugFigs}}
+\begin{tabular}{|@{}c@{}|@{}c@{}|}\hline
+\includegraphics[page=5]{tugFigs}&
+\includegraphics[page=6]{tugFigs}\\\hline
+\includegraphics[page=7]{tugFigs}&
+\includegraphics[page=8]{tugFigs}\\\hline
+\includegraphics[page=9]{tugFigs}&
+\includegraphics[page=10]{tugFigs}\\\hline
+\end{tabular}
 \caption{Output of example Matrix Multiplication code.}
 \label{matrixMult}
 \end{figure}
 
-It is worthwhile to comment on the \texttt{tag-slides=all} argument.
-% Joseph - is "all" documented?  Or not supposed to be used?
+It is worthwhile to comment on the \texttt{tag-slides=1-} argument.
 As we remarked with the previous example,
 it is not useful to tag slides with slightly varying information.
-Consequently, \texttt{ltx-talk} would normally only tag
+Consequently, \ltxtalk\ would normally only tag
 the final slide in the frame.
-Conceptually, we would prefer to have \texttt{ltx-talk} \emph{tag all slides}
-in the frame.
-In addition to taking an overlay specification,
-\texttt{tag-slides} also recognizes
-the variable \texttt{n} as ``the last slide''.
+Pedagocically, we would prefer to have \ltxtalk\ \emph{tag all slides}
+in the frame, which is accomplished by the \texttt{1-} specification.
+As part of the overlay specifications, \texttt{tag-slides} also recognizes
+the variable \texttt{n} as ``the last slide'',
+so that the default argument is \texttt{tag-slides=n}.
 
 There is an additional complication if we want
 the \texttt{handout} mode of this example (with \texttt{beamer} as well).
@@ -328,7 +342,7 @@ Alternatively, we can have only the last slide in the handout by using
 \subsection{Adjusting the Header and Footer}
 
 A universal task in presentations is to tailor the header and footer.
-These are created in \texttt{ltx-talk} using templates,
+These are created in \ltxtalk\ using templates,
 which allows convenient customization.
 (But we must first remark that these templates are still being developed;
 one should consult the documentation if code here does not work as expected.)
@@ -338,23 +352,41 @@ in \autoref{headerTemplateDefaults}.
 \caption{Default values of the \texttt{header} type \texttt{talk} template}
 \label{headerTemplateDefaults}
 \centering
-\begin{tabular}{ll}\toprule
+\begin{tabular}{ ll }\toprule
 Key & Default Value\\\midrule
 background-color & (none)\\
 color & structure \\
 font & \cs{normalfont}\\
-height & 12mm\\% top margin + headsp
-left-hspace & 10mm\\% left margin
-right-hspace & 10mm\\% right margin
+height & topmargin (\qty{10}{mm})\\
+ & \quad+ headsep (\qty2{mm})\\
+left-hspace & leftmargin (\qty{10}{mm})\\
+right-hspace & rightmargin (\qty{10}{mm})\\
 print-frame-title & true\\\bottomrule
 \end{tabular}
 \end{table}
 We can adjust the values by using
-\cs{EditInstance}\tubbraced{header}\tubbraced{std}\tubbraced{\meta{key=value}}.
-(Note that adjusting the font is probably better done with the
-\texttt{frametitle} instance.)
+\cs{EditInstance}\tubbraced{header}\tubbraced{std}
+\tubbraced{\meta{key=value}}.
+Note that the font key is intended for non title elements.
+% Joseph? are there non title elements affected by this?
+% or is that planned?
+Adjusting the font of the title is probably better done with
+\cs{EditInstance}\tubbraced{frametitle}\tubbraced{header}
+\tubbraced{font=...}.
 %\cs{EditInstance}\tubbraced{frametitle}\tubbraced{header}%
 %\tubbraced{\meta{key=value}}).
+
+My university encourages a presentation template that has a logo
+in the top right of the header.
+This cannot be done with the existing template, but can be accomplished with
+\begin{lstlisting}
+\NewCommandCopy\oldframetitle\frametitle
+\renewcommand{\frametitle}[1]{%
+  \oldframetitle{#1\hfill
+    \includegraphics[height=2ex,artifact]
+      {logofile}}}
+\end{lstlisting}
+% Joseph or is there a better way?
 
 The default values of the footer template are listed
 in \autoref{footerTemplateDefaults}.
@@ -369,8 +401,8 @@ color & black \\
 element-order & (empty)\\
 % author, date, institute, title, subtitle, framenumber, totalframes
 font & \cs{tiny}\\
-left-hspace & 10mm \\ % left margin
-right-hspace & 10mm \\ % right margin
+left-hspace & leftmargin (\qty{10}{mm}) \\
+right-hspace & rightmargin (\qty{10}{mm}) \\
 separator & \cs{hfil}\\\bottomrule
 \end{tabular}
 \end{table}
@@ -382,51 +414,52 @@ The \texttt{totalframes} footer-element displays as an integer.
 Outside of the footer, we can access that using
 \cs{RefProperty}\tubbraced{lastpage}\tubbraced{totalframes}.
 
-examples at
-\url{https://www.texdev.net/ltx-talk/examples/}:
+%examples at
+%\url{https://www.texdev.net/ltx-talk/examples/}:
 \begin{itemize}
-\item background-image
+%\item background-image % as with regular document
 %\item float-centering
 %\item footer-text
 %\item header-footer-color
-\item list-actions
+%\item list-actions
 %\item list-overlays
-\item math-fonts
+%\item math-fonts % as with regular document
 %\item overlays-opacity
 %\item titlepage-styling
 %\item totalframes
-\item verbatim-alt-env
-\item verbatim-content
+%\item verbatim-alt-env
+%\item verbatim-content
 \item actionenv
 \end{itemize}
 
-\subsection{Adjusting the Titlepage}
+\subsection{Adjusting the Title Page}
 
-The defaults for the \texttt{titlepage} template are in
-\autoref{titlepageTemplateDefaults}.
-\begin{table}
-\caption{Default values of the \texttt{titlepage} type \texttt{talk} template}
-\label{titlepageTemplateDefaults}
-\centering
-\begin{tabularx}{\linewidth}{l >{\raggedright} X}\toprule
-Key & Default Value\\\midrule
-element-order & title, subtitle, author, institute, date \\
-framestyle & talk \\
-horizontal-alignment & center \\
-vertical-alignment & center\\\bottomrule
-\end{tabularx}
-\end{table}
-We could \cs{EditTemplateDefaults}, but that is only necessary
-if we plan to create multiple titlepages.
-If we have a single titlepage, we can pass non-default values
-as optional arguments to the \cs{maketitle} command.
+We could
+\begin{verbatim}[\verbatimOptions]
+\EditTemplateDefaults{titlepage}{talk}
+  {!<new key values>}
+\end{verbatim}
+to adjust the title page, but that is only necessary
+if we plan to create multiple title pages.
+The default \cs{maketitle} is equivalent to
+\begin{lstlisting}
+\maketitle[
+  element-order        = {
+    title, subtitle, author, institute, date},
+  framestyle           = talk,
+  horizontal-alignment = center,
+  vertical-alignment   = center ]
+\end{lstlisting}
+
+%If we have a single title page, we can pass non-default values
+%as optional arguments to the \cs{maketitle} command.
 
 The value for \texttt{framestyle} is passed to \cs{pagestyle}.
 In addition to the default and \texttt{plain} (no header or footer),
-we can also use \texttt{wallpaper} which remove the footer and the title
+we can also use \texttt{wallpaper} which removes the footer and the title
 (but not the background color of the header).
 
-\subsection{Creating a Custom Title Element}
+\subsection{Creating Custom Elements}
 
 There are two steps to creating a custom element for a title page.
 The first is to declare its template instance:
@@ -435,7 +468,7 @@ The first is to declare its template instance:
   {talk}{...}
 \end{verbatim}
 where we use the final argument to change any default template options.
-\texttt{ltx-talk} will then use \cs{@myelement},
+\ltxtalk\ will then use \cs{@myelement},
 which we can define with the usual
 \begin{verbatim}[\verbatimOptions]
 \makeatletter
@@ -443,7 +476,7 @@ which we can define with the usual
 \makeatother
 \end{verbatim}
 
-\subsection{Creating a Custom Footer Element}
+%\subsection{Creating a Custom Footer Element}
 
 Similarly, to creating a custom footer element,
 we first declare its template instance:
@@ -451,7 +484,7 @@ we first declare its template instance:
 \DeclareInstance{footer-element}{myelement}
   {talk}{...}
 \end{verbatim}
-\texttt{ltx-talk} will then use \cs{@shortmyelement} or \cs{@myelement}
+\ltxtalk\ will then use \cs{@shortmyelement} or \cs{@myelement}
 (favoring the \texttt{short} command if both exist).
 If we don't want to change the catcode of \texttt{@},
 we can define the desired command with
@@ -461,9 +494,12 @@ we can define the desired command with
 
 \subsection{More Customizations}
 
-There are several more templates and instances in \texttt{ltx-talk},
+There are several more templates and instances in \ltxtalk,
 summarized in \autoref{templatesInstances}.
-\begin{table}\centering
+\begin{table}
+\caption{Instances and types in the template \texttt{talk} in \ltxtalk}
+\label{templatesInstances}
+\centering
 \begin{tabularx}{\linewidth}{l >{\raggedright} X}\toprule
 type & instances \\\midrule
 titlepage & \\
@@ -477,14 +513,9 @@ floatenv & std\\
 hidden & std \\
 \bottomrule
 \end{tabularx}
-\caption{Instances and types in the template \texttt{talk} in \texttt{ltx-talk}}
-\label{templatesInstances}
 \end{table}
 The \texttt{floatenv} template adjusts the horizontal alignment
 of figures and tables using
-\renewcommand{\verbatimOptions}{%
-\IfDocumentMetadataT{setup-code=}\small\makevmeta
-}
 \begin{verbatim}[\verbatimOptions]
 \EditInstance{floatenv}{std}
   {horizontal-alignment = !<alignment>}
@@ -495,8 +526,8 @@ The \texttt{hidden} template adjusts the transparency of hidden items using
 \EditInstance{hidden}{std}{opacity=!<value>}
 \end{verbatim}
 where the \meta{value} ranges from 0 (default invisible) to 1 (fully visible).
-We may see information about these during compilation and in the log file
-by using the template commands
+We may see information about these templates and instances during compilation
+and in the log file by using the template commands
 \begin{itemize}
 \item\cs{ShowTemplateDefaults}\tubbraced{\meta{type}}\tubbraced{talk}
 \item\cs{ShowTemplateInterface}\tubbraced{\meta{type}}\tubbraced{talk}
@@ -508,7 +539,7 @@ by using the template commands
 % Joseph
 \section{Future Work}
 
-As \texttt{ltx-talk}'s reason for existence is proper tagging,
+As \ltxtalk's reason for existence is proper tagging,
 please let us know of any tagging difficulties that you find.
 
 We are intensely interested in feedback from screen reader users

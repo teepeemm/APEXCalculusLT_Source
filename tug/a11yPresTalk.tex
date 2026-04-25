@@ -16,7 +16,8 @@
 \usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{listings}
-\usepackage{ulem}
+\usepackage[normalem]{ulem}
+\usepackage{siunitx}
 
 % but it's still indented?
 \newenvironment{fakeVerbatim}
@@ -24,7 +25,11 @@
   {\smallskip\par\noindent\ignorespacesafterend\vspace{-2.5\baselineskip}}
 \newcommand{\cs}[1]{\texttt{\textbackslash #1}}
 \newcommand{\tubbraced}[1]{\texttt{\{#1\}}}
-
+\newcommand{\meta}[1]{\ensuremath{\langle}%
+ \ifmmode\expandafter\mbox\fi{\itshape #1\/}%
+ \ensuremath{\rangle}%
+}
+ 
 %\usepackage{tcolorbox}% not used, but needed for the next package
 %\usepackage{tagpdfdocu-patches}% needed to make listings work properly
 
@@ -114,11 +119,11 @@
 %We also discuss necessary adaptations
 %to satisfy a common accessibility checker available in several \acro{LMS}s.
 
-\newcommand{\apex}{%
-  \texorpdfstring{A\kern -.1em \lower -.5ex\hbox{P}%
-    \kern -.25em\lower .5ex\hbox{E}\kern -.1em X%
-  }{APEX}%
-}
+%\newcommand{\apex}{%
+%  \texorpdfstring{A\kern -.1em \lower -.5ex\hbox{P}%
+%    \kern -.25em\lower .5ex\hbox{E}\kern -.1em X%
+%  }{APEX}%
+%}
 
 %\providecolor{maybeUNDgreen}{Hsb}{146,1,0.62}
 \providecolor{maybeUNDgreen}{Hsb}{146,1,0.53}
@@ -152,6 +157,8 @@
   }%
 }
 
+\EditInstance{hidden}{std}{opacity=.4}
+
 %\ShowTemplateDefaults{titlepage}{talk}
 %\ShowTemplateInterface{type}{talk}
 %\ShowTemplateVariables{type}{talk}
@@ -163,7 +170,7 @@
 %\ExpandArgs{c}\newcommand{@shortmyelement}{SHORT}
 
 \begin{document}
-\overfullrule=10pt
+%\overfullrule=10pt
 
 \begin{frame}
 \maketitle[
@@ -183,18 +190,33 @@
   pdfstandard=ua-2,
 %  check-tagging-status,
   tagging-setup={
-%    math/alt/use,                % <=> Formulas must have alt text
-%    role/new-tag=frametitle/H1,  % <=> document must start at H1
+%    math/alt/use,               % <=> Formulas must have description/alt text
+%    role/new-tag=frametitle/H1, % <=> headings must begin at level 1
     math/setup=mathml-SE
   }
 }
 \documentclass{ltx-talk}
 \end{lstlisting}
 \item Lua\LaTeX
-\item tagged PDF + overlays
+\item tagged PDF + overlays: \verb|\command<xyz>| \textrightarrow\ \cs{command} only on slides \verb|xyz|
 \item defined colors: \textcolor{alert}{alert}, \textcolor{example}{example}, \textcolor{structure}{structure}
-\item \tubbraced{frame*} $\Leftrightarrow$
+\item \tubbraced{frame*} $\Leftrightarrow$ \verb@\verb|...|@,
 \tubbraced{verb}, \tubbraced{lstlisting}, etc.
+\end{itemize}
+\end{frame*}
+
+\begin{frame*}
+\frametitle{More Basics --- Overlays}
+\begin{itemize}
+\item Overlays: \verb|\command<xyz>| \textrightarrow\ \cs{command} only on slides \verb|xyz|
+\item Color commands with overlays: \cs{color}, \cs{mathcolor}, \cs{textcolor}; \cs{alert}
+\item Text commands with overlays: \cs{textbf}, \cs{textit},
+\cs{textmd}, \cs{textnormal}, \cs{textrm}, \cs{textsc}, \cs{textsf}, \cs{textsl}, \cs{texttt}, \cs{textup},
+\cs{emph}
+\item Also: \cs{includegraphics}; \cs{label}
+\item Also: \cs{item} (and can take an \emph{action spec})
+\item Main overlay commands: \cs{onslide}, \cs{only}, \cs{uncover}, \cs{visible}, \cs{invisible}, \cs{alt}, \cs{temporal}
+\item Overlay environments: \tubbraced{onlyenv}, \tubbraced{invisibleenv}, \tubbraced{uncoverenv}, \tubbraced{visibleenv}
 \end{itemize}
 \end{frame*}
 
@@ -212,6 +234,9 @@ Default \texttt{tocdepth} is 2 (\cs{subsection}).
 \begin{frame}
 \frametitle{A \cs{tableofcontents} in a \cs{section}}
 \tableofcontents
+%\begin{uncoverenv}<0>
+\hrule\bigskip
+Default \texttt{tocdepth} is 2 (\cs{subsection}).
 \end{frame}
 
 \begin{frame}
@@ -220,6 +245,8 @@ Default \texttt{tocdepth} is 2 (\cs{subsection}).
 \item \sout{\cs{part}}, \sout{\cs{chapter}},\\
 \cs{section}, \cs{subsection}, \cs{subsubsection},\\
 \sout{\cs{paragraph}}, \sout{\cs{subparagraph}}
+\item (currently?) no visible output\\
+\qquad only affects the \cs{tableofcontents}
 \end{itemize}
 \end{frame}
 
@@ -271,7 +298,8 @@ see \texttt{texdoc blocks-doc}
 \frametitle{Overlays}
 \begin{itemize}
 \item Just like in Beamer
-\item \begin{lstlisting}
+\item To define an overlay command:
+\begin{lstlisting}
 \NewDocumentCommand{\mycommand}{ s D<>{1-} ... }{ ...}
 % or
 \NewDocumentCommand{\mycommand}{ s d<> ... }{ ...}
@@ -285,27 +313,28 @@ see \texttt{texdoc blocks-doc}
 \end{frame*}
 
 \begin{frame*}[tag-slides=all]
+\lstset{aboveskip=0pt,belowskip=0pt}
 \frametitle{Matrix Multiplication Example,
  Step \arabic{slide}}
  \begin{minipage}{.52\textwidth}
  \begin{onlyenv}<1>
 \begin{lstlisting}
-\begin{frame}[tag-slides=all]
+\begin{frame}[tag-slides={1-}]
  \frametitle{Matrix Multiplication Example,
   Step \arabic{slide}}
-\end{lstlisting}\vspace{-.8\baselineskip}
+\end{lstlisting}%\vspace{-.8\baselineskip}
  \end{onlyenv}
- \only<2->{\vspace{-\baselineskip}}
+% \only<2->{\vspace{-\baselineskip}}
  \only<1>{\lstinputlisting[lastline=15]{exampleMatrix}}
  \only<2>{\lstinputlisting[lastline=18]{exampleMatrix}}
  \only<3>{\lstinputlisting[firstline=6,lastline=23]{exampleMatrix}}
  \only<4>{\lstinputlisting[firstline=10,lastline=27]{exampleMatrix}}
  \only<5>{\lstinputlisting[firstline=14,lastline=31]{exampleMatrix}}
  \only<6>{\lstinputlisting[firstline=17]{exampleMatrix}}
- \begin{onlyenv}<6>\vspace{-.6\baselineskip}
- \begin{fakeVerbatim}
-\cs{end}\tubbraced{frame}
-\end{fakeVerbatim}
+ \begin{onlyenv}<6>%\vspace{-.6\baselineskip}
+ \begin{lstlisting}
+\end{frame}
+\end{lstlisting}
 \end{onlyenv}
 \end{minipage}%
 \begin{minipage}{.48\textwidth}
@@ -313,12 +342,157 @@ see \texttt{texdoc blocks-doc}
 \end{minipage}
 \end{frame*}
 
+\begin{frame*}
+\frametitle{Which slides to use?}
+\begin{itemize}
+\item Which slides should a screen reader use?
+\item Default is the last slide: \texttt{tag-slides=n}
+\item Previous example: \texttt{tag-slides=\{1-\}}\bigskip
+\item Which slides should\\
+\verb|\documentclass[mode=handout]{ltx-talk}| use?
+\item Default is to ignore all overlays
+\item Fails in previous example:
+\newcommand{\colvect}[1]{%
+ \begin{pmatrix}#1\end{pmatrix}}
+\[\alert{
+  \colvect{1\\2}
+  \colvect{4\\5}
+  \bullet
+  \colvect{-2\\2}
+  \colvect{4\\-5}
+  =
+  2-62-9
+}\]
+\end{itemize}
+\end{frame*}
+
 \section{Customizations}
+
+\subsection{Adjusting the Header and Footer}
+
+\begin{frame*}
+\frametitle{Adjusting the Header}
+\verb|\EditInstance{header}{std}{<key=value>}|
+or\\
+\verb|\EditInstance{frametitle}{header}{font=<value>}|\\\medskip
+\begin{tabular}{ ll }\toprule
+Key & Default Value\\\midrule
+background-color & (none)\\
+color & structure \\
+font & \cs{normalfont}\\
+height & topmargin (\qty{10}{mm})\\
+ & \quad+ headsep (\qty2{mm})\\
+left-hspace & leftmargin (\qty{10}{mm})\\
+right-hspace & rightmargin (\qty{10}{mm})\\
+print-frame-title & true\\\bottomrule
+\end{tabular}
+\end{frame*}
+
+\begin{frame*}
+\frametitle{A Logo in the Header
+$\qquad\longrightarrow\qquad\longrightarrow$}
+\begin{lstlisting}
+\NewCommandCopy\oldframetitle\frametitle
+\renewcommand{\frametitle}[1]{%
+  \oldframetitle{#1\hfill
+    \includegraphics[height=2ex,artifact]{logo-file}%
+  }%
+}
+\end{lstlisting}
+\end{frame*}
+
+\begin{frame*}
+\frametitle{Adjusting the Footer}
+\verb|\EditInstance{footer}{std}{<key=value>}|\\\medskip
+\begin{tabular}{ll}\toprule
+Key & Default Value\\\midrule
+background-color & (none)\\
+color & black \\
+element-order & (empty)\\
+font & \cs{tiny}\\
+left-hspace & leftmargin (\qty{10}{mm}) \\
+right-hspace & rightmargin (\qty{10}{mm}) \\
+separator & \cs{hfil}\\\bottomrule
+\end{tabular}\\\medskip
+Available footer elements:\\
+author, date, institute, title, subtitle, framenumber,
+totalframes (=\cs{RefProperty}\tubbraced{lastpage}\tubbraced{totalframes})\\
+For example:
+\verb|\EditInstance{footer}{std}{element-order={date,author,title,framenumber}}|
+\end{frame*}
+
+\subsection{Adjusting the Title Page}
+
+\begin{frame*}
+\frametitle{Adjusting the Title Page}
+\begin{lstlisting}
+\maketitle[
+  element-order        = {
+    title, subtitle, author, institute, date
+  },
+  framestyle           = talk,
+  horizontal-alignment = center,
+  vertical-alignment   = center
+]
+\end{lstlisting}
+framestyle = pagestyle\\
+other options are plain \& wallpaper
+\end{frame*}
+
+\subsection{Creating a Custom Title and Footer Element}
+
+\begin{frame*}
+\frametitle{Creating a Custom Title Element}
+\begin{lstlisting}
+\DeclareInstance{titlepage-element}{myelement}{talk}{<key=value>}
+% and then
+\makeatletter
+\newcommand\@myelement{...}
+\makeatother
+% or
+\ExpandArgs{c}\newcommand{@myelement}{...}
+\end{lstlisting}
+\end{frame*}
+
+\begin{frame*}
+\frametitle{Creating a Custom Footer Element}
+\begin{lstlisting}
+\DeclareInstance{footer-element}{myelement}{talk}{...}
+% and then
+\makeatletter
+\newcommand\@myelement{...}
+% or
+\newcommand\@shortmyelement{...}
+\makeatother
+% or
+\ExpandArgs{c}\newcommand{@myelement}{...}
+% or
+\ExpandArgs{c}\newcommand{@shortmyelement}{...}
+\end{lstlisting}\bigskip
+(\cs{@shortmyelement} will be preferred if available)
+\end{frame*}
+
+\subsection{More Customizations}
+
+\begin{frame*}
+\frametitle{More Customizations}
+\begin{lstlisting}
+\EditInstance{floatenv}{std}{horizontal-alignment = <alignment>}
+% left (default), center, or right
+
+\EditInstance{hidden}{std}{opacity = <value>}
+% 0 <= value <= 1 for how opaque hidden things should be
+\end{lstlisting}
+\end{frame*}
 
 \section{Future Work}
 
 \begin{frame}
 \frametitle{Future Work}
+\begin{itemize}
+\item better tagging
+\item better heading structure?
+\end{itemize}
 \end{frame}
 
 \end{document}

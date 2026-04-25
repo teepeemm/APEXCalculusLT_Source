@@ -17,6 +17,7 @@ options.tex
 *.answers
 *.aux
 *.bbl
+*.blg
 *.dvi
 *.epub
 *.fdb_latexmk
@@ -32,9 +33,11 @@ options.tex
 *.loe
 *.lof
 *.lot
+*.nav
 *.out
 *.prc
 *.pdf
+*.snm
 *.synctex
 *.synctex(busy)
 *.synctex.gz

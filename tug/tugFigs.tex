@@ -9,8 +9,8 @@
 % \if including into other document
 \AtBeginDocument{\Huge}
 \EditInstance{frametitle}{header}{font=\Huge}
-\iftrue % if including into TUGboat:
-\EditInstance{frametitle}{header}{color=black}
+\iftrue % if including into TUGboat (no color):
+%\EditInstance{frametitle}{header}{color=black}
 \colorlet{structure}{black}
 \colorlet{alert}{black}
 \usepackage{xfakebold}
@@ -19,8 +19,6 @@
 %\RenewDocumentCommand{\alert}{D<>{all}m}
 % {\alt<#1>{\symbf{#2}}{#2}}
 \fi
-
-%\EditInstance{footer}{std}{element-order = {framenumber,totalframes}}
 
 \title{Examples for Presentation Slides}
 \author{Timothy Prescott}
