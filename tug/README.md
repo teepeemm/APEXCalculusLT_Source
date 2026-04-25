@@ -3,14 +3,10 @@ TUG Articles
 
 Source files for TUG articles and presentations for July 2026.
 
-a11yBook...
-: discusses how we made the Calculus textbook accessible
-a11yPres...
-: discusses how to make accessible presentations with ltx-talk
-a11y...Paper
-: is the article for TUGboat
-a11y...Talk
-: is the presentation for TUG
+* **a11yBook...**: discusses how we made the Calculus textbook accessible
+* **a11yPres...**: discusses how to make accessible presentations with ltx-talk
+* **a11y...Paper**: is the article for TUGboat
+* **a11y...Talk**: is the presentation for TUG
 
 The example... files are used four different ways:
 
