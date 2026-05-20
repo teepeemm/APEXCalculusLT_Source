@@ -84,16 +84,17 @@
  }%
 }
 
-\usepackage{titletoc}
-\titlecontents{part}[0pt]
-	{\vspace{3ex}}
-	{no numbered parts}
-	{\large\bfseries}
-	{\titlerule*[1em]{ }}
+%\usepackage{titletoc}
+%\titlecontents{part}[0pt]
+%	{\vspace{3ex}}
+%	{no numbered parts}
+%	{\large\bfseries}
+%	{\titlerule*[1em]{ }}
 
 % titlesec (and titleformat) is available to latexml,
 % but the formatting leaks into the TOC and the header
-\usepackage[newparttoc]{titlesec} % apparently conflicts with hyperref?  :(
+%\usepackage{titlesec}
+%\usepackage[newparttoc]{titlesec} % apparently conflicts with hyperref?  :(
 % but: ``unsolved is the anchor setting, missing with unnumbered section,
 % perhaps problems with page breaks with numbered ones''
 % if I'm not seeing those problems, maybe just continue
@@ -168,7 +169,7 @@
 \newcommand{\leftparbox}[2]{\parbox[t]{#1}{\raggedright#2}}
 % I couldn't get the raggedright to take otherwise
 
-\RenewDocumentCommand{\part}{sm}{\clearpage\@startsection{part}{-1}{1in}{3in}{0pt}{\Huge\bfseries\thispagestyle{empty}}}
+%\RenewDocumentCommand{\part}{sm}{\clearpage\@startsection{part}{-1}{1in}{3in}{0pt}{\Huge\bfseries\thispagestyle{empty}}}
 %\titleformat{\part}[block]
 %   {\Huge\bfseries\filcenter} % commands on the entire thing
 %   {} % don't use a label

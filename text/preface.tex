@@ -5,8 +5,17 @@
 \thispagestyle{empty}
 
 \bgroup
-% make sections titles styled like subsections in the preface, so that validation can pass
-\titleformat{\section}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+% make sections titles styled like subsections in the preface, to appease validation
+\makeatletter
+%\section=macro:
+%->\@startsection {section}{1}{\z@ }{-3.5ex \@plus -1ex \@minus -.2ex}{2.3ex \@plus .2ex}{\normalfont \Large \bfseries }
+%\subsection=macro:
+%->\@startsection {subsection}{2}{\z@ }{-3.25ex\@plus -1ex \@minus -.2ex}{1.5ex \@plus .2ex}{\normalfont \large \bfseries }
+\renewcommand \section
+ { \@startsection{section}{1}{0pt}{-3.25ex\@plus -1ex \@minus -.2ex}{1.5ex \@plus .2ex}{\normalfont \large \bfseries }}
+%{ \ParseLaTeXeHeading {subsection} {#1} {#2} {#3} }
+%\titleformat{\section}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\makeatother
 
 \section*{A Note on Using this Text}
 
