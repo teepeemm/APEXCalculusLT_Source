@@ -86,6 +86,7 @@ addboolarg('todo','Update todo lists.')
 addboolarg('overview','Create overview file.')
 addboolarg('quit','Write options.tex and quit.')
 parser.add_argument('--spelling',action='store_true',help='Run spellcheck')
+parser.add_argument('--validate', action='store_true', help='Validate PDF')
 parser.add_argument('--justprint',action='store_true',
                     help='Print the commands that would be executed, but do not execute them')
 
@@ -607,13 +608,48 @@ def writemisspellings() -> None:
         for word,count in runningTotal.most_common(10):
             print(word+':',count,'time(s)',file=misspellings)
 
+def validate_pdfs() -> int:
+    local_failed_compilations = 0
+    profilepath = '../veraPDF-validation-profiles/PDF_UA/'
+    # Those that don't specify UA-1 or 1.7
+    # These probably overlap, but I want to get at least one go
+    profiles = (
+        #'ISO-32000-2-Tagged',  # PDF A-4
+        'ISO-32005-Tagged',
+        'PDFUA-2-ISO32005',  # This one's long
+        'PDFUA-2',
+        'WCAG-2-2-Complete-PDF20',
+        #'WCAG-2-2-Complete',  # PDF 1.7
+        'WCAG-2-2-Dev',
+        'WCAG-2-2-Machine-PDF20',
+        #'WCAG-2-2-Machine',  # PDF 1.7
+        'WCAG-2-2',
+        'WTPDF-1-0-Accessibility',
+        'WTPDF-1-0-Reuse',
+        )
+    for profile in profiles:
+        commandline = ['/Applications/verapdf/verapdf','--profile',profilepath+profile+'.xml','Calculus.pdf']
+        with open('ApexPDFs/vera/'+profile+'-result.xml', 'w') as output:
+            try:
+                subprocess.check_call(commandline,stdout=output,stderr=subprocess.DEVNULL)  # type: ignore
+            except Exception as exception:
+                print(f'Exception caught: {type(exception)}; {exception}', file=sys.stderr)
+                time = "{0[0]:02d}:{0[1]:02d}:{0[2]:02d}".format(getTime())
+                local_failed_compilations += 1
+                loginfomessage = 'At '+time+' failing profile '+profile
+                loginfo.append(loginfomessage)
+                print(loginfomessage, file=sys.stderr)
+                traceback.print_exc()
+    return local_failed_compilations
+
 option_func = {
     'figures': makefigs,
     'matrices': makematrices,
     'todo': updatetodo,
     'prc': updateprc,
     'spelling': writemisspellings,
-    'overview': create_overview
+    'overview': create_overview,
+    'validate': validate_pdfs
 }
 
 def compilewith(commands: Union[str, Literal[False]] =False) -> int:
