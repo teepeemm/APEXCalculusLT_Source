@@ -2,12 +2,13 @@
 
 \usepackage{amsthm}
 % see https://github.com/latex3/tagging-project/issues/942 and issue 920
-\ExplSyntaxOn
-\makeatletter
-\def\measuring@true{\let\ifmeasuring@\iftrue\tag_suspend:n{\measuring}\luamml_ignore:}
-\makeatother
-\ExplSyntaxOff
+%\ExplSyntaxOn
+%\makeatletter
+%\def\measuring@true{\let\ifmeasuring@\iftrue\tag_suspend:n{\measuring}\luamml_ignore:}
+%\makeatother
+%\ExplSyntaxOff
 
+% \newline needs https://github.com/latex3/tagging-project/issues/1201
 \newtheoremstyle{apexExample}% name
   {0pt}% Space above, empty = `usual value'
   {0pt}% Space below
@@ -21,7 +22,8 @@
 %  {\makebox[\ifbool{latexml}{10em}{8em}][l]{\thmname{#1}\thmnumber{ #2}}%
 %   \thmnote{\parbox[t]{.75\textwidth}{\raggedright#3}}%
 %  }
-  {\makebox[\ifbool{latexml}{10em}{8em}][l]{\bfseries\thmname{#1}~\thmnumber{#2}}%
+  {\thmname{\makebox[\ifbool{latexml}{10em}{8em}][l]{\bfseries#1}}%
+  \thmnumber{~#2}%
    \thmnote{\parbox[t]{.75\textwidth}{\bfseries\raggedright#3}}%
   }
 
@@ -35,7 +37,8 @@
   {\newline}% Space after thm head
 %  {\thmname{{\bfseries#1}}\thmnumber{{ \bfseries#2}}%
 %   \thmnote{{\raggedright\bfseries#3}}%
-  {\makebox[\ifbool{latexml}{10em}{8em}][l]{\bfseries\thmname{#1}~\thmnumber{#2}}%
+  {\thmname{\makebox[\ifbool{latexml}{10em}{8em}][l]{\bfseries#1}}%
+  \thmnumber{~#2}%
    \thmnote{\parbox[t]{\ifbool{latexml}{.6\textwidth}{.7\textwidth}}{\bfseries\raggedright#3}}%
   }% Thm head spec
   % the padding for the box takes just a bit of room away from these that examples get to keep
@@ -576,7 +579,10 @@ https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js}
 \providecommand{\tagpdfparaOff}{}
 \providecommand{\tagtool}[1]{}
 
-\pgfkeysifdefined{/tikz/alt}{}{\tikzset{alt/.code={}}}
+\pgfkeysifdefined{/tikz/alt}{}{
+ \tikzset{alt/.code={}}
+ \tikzset{actualtext/.code={}}
+}
 
 \InputIfFileExists{./options}{}{%
  \newcommand{\thetitle}{Calculus}
