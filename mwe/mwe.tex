@@ -1,47 +1,48 @@
-\documentclass{article}
+\DocumentMetadata{}
+\documentclass[10pt]{book}
 
-\usepackage{graphicx}
-\usepackage{ragged2e}
-\usepackage[justification=RaggedRight]{caption}
-\usepackage{marginnote}
+\usepackage{amsthm}
 
-\newcommand*{\mnote}[1]{%
-	\marginnote{%
-		\begin{minipage}[c]{.8in}
-			\captionsetup{type=figure}%
-			\RaggedRight%
-			#1%
-		\end{minipage}%
-	}%
-}
+%\input{../headers/APEX_format}
+%\usepackage{../headers/apex_style}
+%\input{../headers/Header_Calculus}
 
-\newcommand{\mfigure}[3]{%
-	\marginnote{%
-		\begin{minipage}[c]{.8in}
-			\centering\includegraphics[width=.8in]{#3}%
-			\captionsetup{type=figure}\caption{#1}\label{#2}%
-		\end{minipage}%
-	}%
-}
-%\newcommand{\mfigure}[3]{%
-%	\mnote{%
-%		\centering\includegraphics[width=.8in]{#3}%
-%		\captionsetup{type=figure}\caption{#1}\label{#2}%
-%	}%
-%}
+\newtheoremstyle{apexExample}%
+{}{}%
+{}{}%
+{\bfseries}{}% % Note that final punctuation is omitted.
+{\newline}{}
 
-% https://tex.stackexchange.com/a/191715/107497
+%\newtheoremstyle{apexExample}%
+%{}{}%
+%{}{}%
+%{\bfseries}{}%
+%{\newline}%
+%{\thmname{#1}\thmnumber{ #2}\thmnote{ #3}}
+
+%\newtheoremstyle{apexExample}% name
+%  {0pt}% Space above, empty = `usual value'
+%  {0pt}% Space below
+%  {}% Body font
+%  {}% Indent amount (empty = no indent, \parindent = para indent)
+%  {\bfseries}% Thm head font
+%  {}% Punctuation after thm head
+%  {\newline}% Space after thm head
+%%  {\thmname{\makebox[8em][l]{\bfseries#1}}%
+%  {\thmname{#1}%
+%  \thmnumber{~#2}%
+%%   \thmnote{\parbox[t]{.75\textwidth}{\bfseries\raggedright#3}}%
+%   \thmnote{#3}%
+%  }
+
+\theoremstyle{apexExample}
+\newtheorem{example}{Example}[section]
+\newcommand{\exampleautorefname}{Ex\-am\-ple}
 
 \begin{document}
 
-\mnote{one one one one\\two two two two}
-
-\vspace{.8in}
-
-\mfigure{three three three}{label1}{example-image}
-
-\vspace{1.5in}
-
-\mfigure{four four four\\five five five five}{label2}{example-image}
+\begin{example}[How to derive]\label{mylabel}
+Some stuff
+\end{example}
 
 \end{document}
