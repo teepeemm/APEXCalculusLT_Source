@@ -548,13 +548,15 @@
   \AssignSocketPlug{tagsupport/parbox/after}{caption}}
 
 % todo bugfix see https://github.com/latex3/tagging-project/issues/981
-\newcommand { \intertextmathbegin } { \pdf_version_compare:NnF<{2.0} {
- \tag_struct_begin:n { tag=Formula \bool_if:NT \l__tag_math_alt_bool { , alt={subformula~of~larger~formula} } }
-} }
+%\newcommand { \intertextmathbegin } { \pdf_version_compare:NnF<{2.0} {
+% \tag_struct_begin:n { tag=Formula \bool_if:NT \l__tag_math_alt_bool { , alt={subformula~of~larger~formula} } }
+%} }
 %\newcommand { \intertextmathbegin } { \pdf_version_compare:NnF<{2.0} { \tag_struct_begin:n{tag=Formula} } }
-\newcommand { \intertextmathend } { \pdf_version_compare:NnF<{2.0} { \tag_struct_end: } }
-\newcommand{\intertextmath}[1]{\intertextmathbegin\(#1\)\intertextmathend}
-%\newcommand{\intertextmath}[1]{\(#1\)}
+%\newcommand { \intertextmathend } { \pdf_version_compare:NnF<{2.0} { \tag_struct_end: } }
+%\newcommand{\intertextmath}[1]{\intertextmathbegin\(#1\)\intertextmathend}
+\newcommand{\intertextmath}[1]{\(#1\)}
+% see https://github.com/latex3/tagging-project/issues/1396
+%\newcommand{\intertextmath}[1]{}
 
 
 % todo bugfix see https://tex.stackexchange.com/a/718275/107497
