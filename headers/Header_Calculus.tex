@@ -546,18 +546,80 @@ https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js}
 \usetwoDgraphics
 
 
-%\newcommand*{\pdftooltip}[2]{%
-% \tagstructbegin{tag=Figure,alt={#2}}\tagmcbegin{}%
-% \SuspendTagging{tikz}%
-% #1%
-% \par
-% \ResumeTagging{tikz}%
-% \tagmcend\tagstructend
+% todo bugfix see https://github.com/latex3/tagging-project/issues/981
+%\newcommand { \intertextmathbegin } { \pdf_version_compare:NnF<{2.0} {
+% \tag_struct_begin:n { tag=Formula \bool_if:NT \l__tag_math_alt_bool { , alt={subformula~of~larger~formula} } }
+%} }
+%\newcommand { \intertextmathbegin } { \pdf_version_compare:NnF<{2.0} { \tag_struct_begin:n{tag=Formula} } }
+%\newcommand { \intertextmathend } { \pdf_version_compare:NnF<{2.0} { \tag_struct_end: } }
+%\newcommand{\intertextmath}[1]{\intertextmathbegin\(#1\)\intertextmathend}
+\newcommand{\intertextmath}[1]{\(#1\)}
+% see https://github.com/latex3/tagging-project/issues/1396
+%\newcommand{\intertextmath}[1]{}
+
+\makeatletter
+\newcommand{\exercisesubsection}[1]{%
+ \clearpage
+ \@startsection{subsection}{2}{-1sp}{0pt}{\baselineskip}{\huge\bfseries}*{\texorpdfstring{\hyperref[sol#1]{Exercises}}{Exercises}}
+ \hrule
+ \noindent
+}
+%\newcommand{\exercisesubsection}[1]{%
+% \bgroup
+%  \titleformat{\subsection}{\huge\bfseries}{}{0pt}{}[\hrule\vspace{-\baselineskip}]%
+%  \subsection{\texorpdfstring{\hyperref[sol#1]{Exercises}}{Exercises}}%
+% \egroup
 %}
 
+% this seems higher level, but tagpdf isn't liking the spare /Refs running around
+%\titleclass{\exercisesubsection}{straight}[\section]
+%\titleformat{\exercisesubsection}[block]{\clearpage\setcounter{enumXi}{0}}%format
+% {}%label
+% {0pt}%sep
+% {\exercisesubsectiontitle}%before
+% %after
+%\titlespacing*{\exercisesubsection}{0pt}{0pt}{-7ex}
+%\dottedcontents{exercisesubsection}[6.1em]{}{3.2em}{1pc}
+% exercisesubsection doesn't appear in the toc (so I don't care about the numbers), but without this the subsequent section gets messed up
+% at is still letter
+\newcommand{\exercisesubsubsection}[1]{%
+ \noindent
+ \@startsection{subsubsection}{3}{0pt}{-.5\bigskipamount}{\baselineskip}{\Large\itshape}*{#1}%
+% \par
+}
+%\newcommand{\exercisesubsubsection}[1]{%
+% \bgroup
+%  \titleformat{\subsubsection}[block]{\noindent}%format
+%   {is not labeled}%label
+%   {0pt}%sep
+%   {\noindent\Large\textit}%before
+%   %after
+%   \titlespacing*{\subsubsection}{0pt}{.5\bigskipamount}{0pt}
+%  \subsubsection*{#1}
+% \egroup
+%}
+%\titleclass{\exercisesubsubsection}{straight}[\exercisesubsection]
+%\titleformat{\exercisesubsubsection}[block]{\noindent}%format
+% {is not labeled}%label
+% {0pt}%sep
+% {\noindent\Large\textit}%before
+% %after
+%\titlespacing*{\exercisesubsubsection}{0pt}{.5\bigskipamount}{0pt}
+%\dottedcontents{exercisesubsubsection}[6.1em]{}{3.2em}{1pc}
+% exercisesubsubsection doesn't appear in the toc (so I don't care about the numbers), end of story
+\makeatother
 
-% these allow us to skip pdf tagging for the speedup
-% (may no longer be a worry now that I use Talon for compilation)
+
+\InputIfFileExists{./options}{}{%
+ \newcommand{\thetitle}{Calculus}
+ \printallanswers
+ \printincolor
+% \usetwoDgraphics
+ \usethreeDgraphics
+}
+
+% these allow us to skip pdf tagging for
+% https://tex.stackexchange.com/a/751610
 \ExplSyntaxOn
 \providecommand{\tag_struct_begin:n}[1]{}
 \providecommand{\tagstructbegin}[1]{}
@@ -582,12 +644,4 @@ https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js}
 \pgfkeysifdefined{/tikz/alt}{}{
  \tikzset{alt/.code={}}
  \tikzset{actualtext/.code={}}
-}
-
-\InputIfFileExists{./options}{}{%
- \newcommand{\thetitle}{Calculus}
- \printallanswers
- \printincolor
-% \usetwoDgraphics
- \usethreeDgraphics
 }
