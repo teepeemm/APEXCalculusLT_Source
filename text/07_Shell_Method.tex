@@ -57,7 +57,7 @@ V&=\lim_{n\to \infty} \sum_{i=1}^n 2\pi r_i h_i \Delta x\\
 \tagpdfsetup{table/header-rows={2}}
 \begin{tabular}{cc}
 % todo Tim turn these into asymptote files
-\begin{tikzpicture}[alt={Blue cylinder of height h and radius r cut along a vertical line; arrow to rectangle width 2 π r, height h labelled area = 2 π r h},scale=.67]
+\begin{tikzpicture}[alt={Blue cylinder of height h and radius r cut along a vertical line; arrow to rectangle width 2 π r, height h, & A = 2 π r h},scale=.67]
  \draw [draw={\colorone},thick,left color=\colorone!60,right color=\colorone!20]
   (0,0) ellipse [x radius=1.5cm, y radius=1cm];
 \begin{scope}[xscale=1.5]
@@ -72,7 +72,7 @@ V&=\lim_{n\to \infty} \sum_{i=1}^n 2\pi r_i h_i \Delta x\\
 \draw (6,-2.05) node {\scriptsize $A = 2\pi r h$};
 \end{tikzpicture}
 &
-\begin{tikzpicture}[alt={Blue cylindrical shell height h, radius r and thickness delta x cut and flattened; rectangle width 2 π r, height h, thickness ∆x, labelled V ≈ 2 π r h ∆x},scale=.67]
+\begin{tikzpicture}[alt={Blue cylindrical shell height h, radius r and thickness delta x cut and flattened; arrow to rectangle with width 2 π r, height h, thickness ∆x, & V ≈ 2 π r h ∆x},scale=.67]
 \draw [draw={\colorone},thick,left color=\colorone!60,right color=\colorone!20]
  (0,0) ellipse [x radius=1.5cm,y radius=1cm];
 \begin{scope}[xscale=1.5]
@@ -403,13 +403,13 @@ node[color=black,right,pos=.5]{$\scriptstyle\left.\rule{0pt}{12pt}\right\} h(x)$
  \ifbool{latexml}{
   \localimage
  }{
-  \tagpdfsetup{table/multirow={2}}
+  \tagpdfsetup{table/multirow={3}}
   \multirow{12.6}{*}{\localimage}
   % see https://tex.stackexchange.com/a/364935/107497
  }
 \endgroup
 \smallskip\\(a)&(b)\smallskip\\
-\begin{tikzpicture}[alt={Two red washers at y=2 and 3 illustrate cross-sections when triangle rotates about the x-axis; axes x,y.}]
+\begin{tikzpicture}[alt={Two red washers at y=2 and 3.5 illustrate cross-sections when triangle rotates about the x-axis; axes x,y.}]
 \begin{axis}[width=\marginparwidth,tick label style={font=\scriptsize},
 			axis y line=middle,axis x line=middle,name=myplot,axis on top,
 			xtick=\empty,extra x ticks={1,2},ytick={1,2,3,4},
@@ -419,9 +419,9 @@ node[color=black,right,pos=.5]{$\scriptstyle\left.\rule{0pt}{12pt}\right\} h(x)$
 --(axis cs:1,4);
 \addplot[draw={\colorone},smooth,thick,domain=0:1] {x^2+3};
 \draw[thick,draw={\colortwo}] (axis cs:0,3.64)--(axis cs: .8,3.64)
-node[color=black,above,pos=.5]{\scriptsize$r(x)$};
+node[color=black,above,pos=.5]{\scriptsize$r(y)$};
 \draw[thick,draw={\colortwo}] (axis cs: 0,2) -- (axis cs:.5,2)%;
-node[color=black,above,pos=.5]{\scriptsize$R(x)$};
+node[color=black,above,pos=.5]{\scriptsize$R(y)$};
 \end{axis}
 \node [right] at (myplot.right of origin) {\scriptsize $x$};
 \node [above] at (myplot.above origin) {\scriptsize $y$};
