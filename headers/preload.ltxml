@@ -13,8 +13,7 @@ use strict;
 use warnings;
 use LaTeXML::Package;
 
-# work around https://github.com/brucemiller/LaTeXML/issues/2064
-InputDefinitions('headers/ltxml-expl3', type=>'sty', noltxml => 1);
+LoadPool('LaTeX');
 
 DefMacro('\DocumentMetadata RequiredKeyVals', sub {
     my ($gullet, $kv) = @_;
@@ -40,5 +39,8 @@ DefMacro('\DocumentMetadata RequiredKeyVals', sub {
     DefMacroI('\tag_struct_insert_annot:nn {}{}');
     return;
 });
+Let(T_CS('\IfDocumentMetadataTF'), T_CS('\@secondoftwo'));
+Let(T_CS('\IfDocumentMetadataT'),  T_CS('\@gobble'));
+Let(T_CS('\IfDocumentMetadataF'),  T_CS('\@firstofone'));
 
 InputDefinitions('enumext', type=>'sty', noltxml => 1);
