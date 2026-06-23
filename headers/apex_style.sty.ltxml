@@ -102,19 +102,20 @@ DefMacro('\apexchapter []{}{}',
 	 .'\addcontentsline{toc}{section}{Chapter Introduction}');
 
 
-DefConstructor('\myincludeasythree{}{} Semiverbatim',
+DefConstructor('\myincludeasythree{} {Dimension} Semiverbatim Semiverbatim',
     '<ltx:inline-block class="includedAsy">'.
     '<ltx:rawhtml>'.
-    '<xhtml:iframe %&apex::getIframeAttr(#3)/>'.
+    '<xhtml:iframe alt="#3" %&apex::getIframeAttr(#4)/>'.
     '</ltx:rawhtml><ltx:break/>'.
-    '(<ltx:ref class="ltx_href" href="#3.html">fullscreen</ltx:ref>)'.
+    '(<ltx:ref class="ltx_href" href="#4.html">fullscreen</ltx:ref>)'.
     '</ltx:inline-block>');
 
+# The file lists the attributes that we need
 sub getIframeAttr {
-    my $filename = $_[0];
+    my ($filename) = @_;
     my %iframeAttr;
-    $filename = ToString($filename).'.html';
-    open(HTML,'<',$filename) or Error('missing_file',$filename,undef,"Can't find file.");
+    $filename = ToString($filename) . '.html';
+    open(HTML, '<', $filename) or Error('missing_file', $filename, undef, 'Cannot find file.');
     $filename =~ s[figures/][];
     while(<HTML>) {
         if ( /iframe/ ) {
