@@ -322,14 +322,22 @@
 
 \newcommand{\myincludeasythree}[4]{%
  % We want a library of 3d images
- % Each call here also leaves a marker in the aux file, which Python can then find.
+ % Each call here also leaves a marker in the aux file for Python to find.
  \stepcounter{figure}%
  \immediate\write\@auxout{%
   \@percentchar\space prc file #4 used in \prc@section@autoref\space as \prc@figure@autoref%
  }%
  \addtocounter{figure}{-1}%
  \iftoggle{in_threeD}{%
-  \includemedia[3Dmenu,activate=onclick,deactivate=onclick,3Dlights=Headlamp,add3Djscript=asylabels.js,#1,width=#2]
+  \includemedia[
+   3Dmenu,
+   activate=onclick,
+   deactivate=onclick,
+   3Dlights=Headlamp,
+   add3Djscript=asylabels.js,
+   #1,
+   width=#2
+  ]
   {\myincludegraphics[width=#2,alt={#3}]{#4}}{#4\colornamesuffix.prc}%
  }{%
   \myincludegraphics[width=#2,alt={#3}]{#4}%
@@ -411,13 +419,6 @@
  \chapter{#2}\label{#3}%
  \ifstrempty{#1}{}{\inputprereq{#1}}%
 }
-\newcommand*{\inputprereq}[1]{%
-  \addtocounter{section}{-1}%
-  \addtocontents{toc}{\protect\setcounter{tocdepth}{0}}%
-  \input{#1}%
-  \addtocontents{toc}{\protect\setcounter{tocdepth}{1}}%
-}
-
 
 % some exercise / answer related commands
 

@@ -61,11 +61,21 @@
 \usepackage{calc}
 \usepackage{ragged2e}
 
-%\usepackage[inline]{enumitem}
-\usepackage{enumext}
-
 \usepackage[nocomments]{latexml}
 \lxDocumentID{apex}
+
+\usepackage{enumext}
+\iflatexml
+\ExplSyntaxOn
+% todo bug https://github.com/brucemiller/LaTeXML/issues/2714
+\AtBeginDocument{
+    \cs_new_eq:NN   \__enumext_start_list:nn \list
+    \cs_new_eq:NN   \__enumext_stop_list: \endlist
+    \NewCommandCopy \__enumext_item_std:w \item
+}
+\ExplSyntaxOff
+\usepackage[inline]{enumitem}
+\fi
 
 \numberwithin{figure}{section}
 \numberwithin{equation}{section}
@@ -361,26 +371,26 @@
 \newcommand{\printproblems}{\noindent\closeenumerate\exercisesubsubsection{Problems}}
 \newcommand{\printreview}{\noindent\closeenumerate\exercisesubsubsection{Review}}
 
-%\newlist{sectionexercises}{enumerate}{1}
-%\newcounter{saveexercisenum}[section]
-%\counterwithin*{sectionexercisesi}{section} % in case we have a exercise set before any exercises that would reset the save exercise enum
-%\setlist[sectionexercises]{
-%	label=\arabic*.,
-%	leftmargin=1.5em,
-%    before=\setcounter{sectionexercisesi}{\value{saveexercisenum}},
-%    after=\setcounter{saveexercisenum}{\value{sectionexercisesi}},
-%}
-%\ifbool{latexml}{}{
-% \setlist*[sectionexercises]{ref=\arabic*}
-%}
+\iflatexml
+\newlist{sectionexercises}{enumerate}{1}
+\newcounter{saveexercisenum}[section]
+\counterwithin*{sectionexercisesi}{section} % in case we have a exercise set before any exercises that would reset the save exercise enum
+\setlist[sectionexercises]{
+	label=\arabic*.,
+	leftmargin=1.5em,
+    before=\setcounter{sectionexercisesi}{\value{saveexercisenum}},
+    after=\setcounter{saveexercisenum}{\value{sectionexercisesi}},
+    ref=\arabic*,
+}
+%\setlist*[sectionexercises]{ref=\arabic*}
+\fi
 
-%\setenumext[enumext,2]{start=1}
 \setenumext[enumext,1]{resume}
 \resetenumext[1]{subsection} % reset the resumed counter for exercises
 
 %\makeatletter
 \newcommand{\printexercises}[1]{%
- \writeToAnsFile{#1}% writeToAnsFile in sty (actually, down below)
+ \writeToAnsFile{#1}% writeToAnsFile down below
  \exercisegeometry% includes a clearpage
  \pagestyle{exercise}%
 % \bookmarksetupnext{level=\toclevel@subsection}% otherwise, the level is "section" and everything is messed up
@@ -399,7 +409,8 @@
  \restoregeometry%
  \pagestyle{prose}%
  %	\easypagecheck
- \setlength{\hoffset}{0pt} \rmfamily\normalsize \bigbreak%
+ \setlength{\hoffset}{0pt}%
+ \rmfamily\normalsize\bigbreak%
 }
 %\makeatother
 
@@ -449,27 +460,36 @@
 % doesn't work?
 }
 
-%\newcommand*{\exerenv}{sectionexercises}
+\iflatexml
+\newcommand*{\exerenv}{sectionexercises}
+\else
 \newcommand*{\exerenv}{enumext}
+\fi
 
 \makeatletter
 \newcommand{\openenumerate}{%
  \ifx\@currenvir\exerenv\else%
   \leavevmode%
-  \begin{enumext}[widest=22,ref=\arabic*]
-%  \begin{sectionexercises}
+  \iflatexml
+  \begin{sectionexercises}
 %  \ifbool{latexml}{%
-%   \setcounter{sectionexercisesi}{\value{saveexercisenum}}%
+   \setcounter{sectionexercisesi}{\value{saveexercisenum}}%
 %  }{}%
+  \else
+  \begin{enumext}[widest=22,ref=\arabic*]
+  \fi
  \fi%
 }
 \newcommand{\closeenumerate}{%
  \ifx\@currenvir\exerenv%
+  \iflatexml
 %  \ifbool{latexml}{%
-%   \setcounter{saveexercisenum}{\value{sectionexercisesi}}%
+   \setcounter{saveexercisenum}{\value{sectionexercisesi}}%
 %  }{}%
+  \end{sectionexercises}
+  \else
   \end{enumext}%
-%  \end{sectionexercises}
+  \fi
  \fi%
 }
 \makeatother
@@ -483,8 +503,12 @@
 \newcommand{\stepenumeratedepth}{\advance\@enumdepth\@ne}
 \makeatother
 
-\newcommand{\exercisesetinstructions}[2][In Exercises]{%
+\newcommand{\exercisesetinstructions}[2][In~Exercises]{%
+ \iflatexml
+ \setcounter{saveenumi}{\value{saveexercisenum}}%
+ \else
  \setcounter{saveenumi}{\value{enumXi}}%
+ \fi
  \closeenumerateinquestions
  \pagebreak[2]%
  \stepcounter{saveenumi}%
@@ -497,7 +521,7 @@
  \bgroup
  \stepenumeratedepth
 % \setenumext[enumext,1]{label=\alph*,wrap-label={(#1)}}% pretend it is level 2
- \noindent#1 \arabic{saveenumi}--\ref*{enumiatendof\theexercisesetcounter}%
+ \noindent#1~\arabic{saveenumi}--\ref*{enumiatendof\theexercisesetcounter}%
 % \renewcommand{\theenumi}{(\alph{enumi})}%
  #2%
  \egroup%
@@ -648,9 +672,15 @@
 \newcommand*{\loadAnswers}[1]{%
 %	\stepcounter{answersection}%
  \leavevmode\vspace{-2\baselineskip}%
- \begin{enumext}[start=1,widest=22]
-  \input{#1}
- \end{enumext}
+ \iflatexml
+  \begin{enumerate}[leftmargin=1.5em]%
+   \input{#1}
+  \end{enumerate}
+ \else
+  \begin{enumext}[start=1,widest=22]
+   \input{#1}
+  \end{enumext}
+ \fi
  \bigbreak%
 }
 

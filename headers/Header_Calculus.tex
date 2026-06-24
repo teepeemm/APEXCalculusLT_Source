@@ -169,29 +169,20 @@
 }
 
 \newtoggle{inappendix}
-% todo Tim
-% \appto\appendix{stuff} or
-% \AddToHook{cmd/appendix/before} (with TeXLive 2021)
-\let\oldappendix\appendix
 \makeatletter
-\renewcommand{\appendix}{%
+\AddToHook{cmd/appendix/before}{%
  \let\ps@plain=\ps@oldplain% restore the pagestyle
  \cleardoublepage
- \oldappendix
+}
+\makeatother
+\AddToHook{cmd/appendix/after}{%
  \toggletrue{inappendix}
  \setcounter{secnumdepth}{-1}
  \pagenumbering{arabic}
  \renewcommand{\thepage}{A.\arabic{page}}
  \renewcommand{\thechapter}{\arabic{chapter}}
  \part*{\appendixname}
-% \pagestyle{oldplain}
-% \part*{Appendices\protect\thispagestyle{empty}}
-% \addcontentsline{toc}{part}{\appendixname}
-% \iflatexml\else
-% \pdfbookmark[part]{Appendices}{appendixbookmark}
-% \fi
 }
-\makeatother
 
 
 % an enumerate like environment that can be mixed into tabular, array, etc.
@@ -375,6 +366,13 @@
 
 \newcommand{\prereqIntro}{The material in this section provides a basic review of and practice problems for pre-calculus skills essential to your success in Calculus. You should take time to review this section and work the suggested problems (checking your answers against those in the back of the book). Since this content is a pre-requisite for Calculus, reviewing and mastering these skills are considered your responsibility. This means that minimal, and in some cases no, class time will be devoted to this section. When you identify areas that you need help with we strongly urge you to seek assistance outside of class from your instructor or other student tutoring service.\bigskip}
 
+\newcommand*{\inputprereq}[1]{%
+  \addtocounter{section}{-1}%
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{0}}%
+  \input{#1}%
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{1}}%
+}
+
 % lets try to reduce bad boxes
 \usepackage{microtype}
 \hfuzz=2pt\relax
@@ -504,7 +502,7 @@
 	pdftitle={APEX Calculus LT},
 	pdfauthor={UND Math Dept and Greg Hartman, VMI},
 	unicode,
-    pdflang=EN-US
+    pdflang=en-US
 }
 %\usepackage{hyperxmp}
 \ifbool{latexml}{}{
@@ -539,7 +537,7 @@
 \lxRequireResource{%
 https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js}
 \lxRequireResource{script.js}
-\lxRequireResource{LaTeXML-maybeMathJax.js}
+\lxRequireResource{LaTeXML-maybeMathJax4.js}
 
 % set the defaults, just in case
 \printincolor
