@@ -326,7 +326,7 @@ When rotating about a vertical axis, the outside and inside radius functions mus
 \flushinner{%
 \tagpdfsetup{table/header-rows={2}}
 \begin{tabular}{ c c c }
- \begin{tikzpicture}[alt={Blue curves y=x² (lower) and y=2x (upper) from x=0 to 2; shaded region between curves; red horizontal sample lines at r(x) and R(x); axes x,y.}]
+ \begin{tikzpicture}[alt={Blue curves y=x² (lower) and y=2x (upper) from x=0 to 2; shaded region between curves; red horizontal sample lines at r(y) and R(y); axes x,y.}]
   \begin{axis}[width=\marginparwidth,tick label style={font=\scriptsize},
     axis equal,axis y line=middle,axis x line=middle,name=myplot,axis on top,
     xtick=\empty,extra x ticks={1},ytick={1},ymin=-.2,ymax=1.2,xmin=-.1,xmax=1.2]
@@ -335,9 +335,9 @@ When rotating about a vertical axis, the outside and inside radius functions mus
    \addplot [draw={\colorone},smooth,thick,domain=0:1] {x^2};
    \addplot [draw={\colorone},smooth,thick,domain=0:1,samples=100] {sqrt x};
    \draw [thick,draw={\colortwo}] (axis cs: 0,.81) --
-    node[pos=.4,above,color=black]{\scriptsize $R(x)$}(axis cs:.9,.81);
+    node[pos=.4,above,color=black]{\scriptsize $R(y)$}(axis cs:.9,.81);
    \draw [thick,draw={\colortwo}] (axis cs: 0,.5) --
-    node[pos=.5,above,color=black]{\scriptsize $r(x)$} (axis cs:.25,.5);
+    node[pos=.5,above,color=black]{\scriptsize $r(y)$} (axis cs:.25,.5);
   \end{axis}
   \node [right] at (myplot.right of origin) {\scriptsize $x$};
   \node [above] at (myplot.above origin) {\scriptsize $y$};
@@ -383,16 +383,16 @@ V&=\pi \int_0^1 \left((\sqrt y)^2-(y^2)^2\right) \dd y\\
 \flushinner{%
 \tagpdfsetup{table/header-rows={2}}
 \begin{tabular}{ c c c }
- \begin{tikzpicture}[alt={Blue curves R(x) upper and r(x) lower from x=a to b; shaded region between red lines; axes x, y.}]
+ \begin{tikzpicture}[alt={Blue triangle with vertices (1,1), (2,1), and (2,3). Red lines R(y) from y axis to x=2 and r(y) from y axis to y=2x-1. Axes x, y.}]
   \begin{axis}[width=1.16\marginparwidth,axis equal,
     tick label style={font=\scriptsize},
     axis y line=middle,axis x line=middle,axis lines=center,name=myplot,
     xtick={1,2},ztick={1,2,3},ymin=-.2,ymax=3.2,xmin=-.2,xmax=2.2]
     \draw[draw={\colorone},fill={\coloronefill}] (axis cs:1,1) -- (axis cs:2,1) --(axis cs:2,3)-- cycle;
     \draw [thick,draw={\colortwo}] (axis cs: 0,2.6) --
-      node[pos=.4,below,color=black]{\scriptsize$r(x)$} (axis cs: 1.8,2.6);
+      node[pos=.4,below,color=black]{\scriptsize$r(y)$} (axis cs: 1.8,2.6);
     \draw [thick,draw={\colortwo}] (axis cs: 0,1.2) --
-      node[pos=.3,above,color=black]{\scriptsize$R(x)$} (axis cs: 2,1.2);
+      node[pos=.3,above,color=black]{\scriptsize$R(y)$} (axis cs: 2,1.2);
    \end{axis}
    \node [right] at (myplot.right of origin) {\scriptsize $x$};
    \node [above] at (myplot.above origin) {\scriptsize $y$};
