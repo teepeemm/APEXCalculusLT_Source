@@ -55,6 +55,12 @@ veraResults.json
 # not for students
 Answers.*
 
+# why doesn't this work?
+*.css
+standaloneweb/*.css
+web/*.css
+!style.css
+
 #################
 ## Eclipse
 #################
