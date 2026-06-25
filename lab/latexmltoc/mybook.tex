@@ -9,7 +9,7 @@
 
 %\usepackage{../../headers/apex_style}
 
-%\lxIncludeCssFile{LaTeXML-navbar-left.css}
+\lxRequireResource{LaTeXML-navbar-left.css}
 
 \usepackage{hyperref}
 
@@ -78,5 +78,5 @@ content
 
 \end{document}
 
-% ../../../LaTeXML/bin/latexml --quiet --destination=mybook.xml --nocomments mybook
-% ../../../LaTeXML/bin/latexmlpost --split --quiet --destination=mybook.html --css=LaTeXML-navbar-left.css mybook.xml
+% ../../../LaTeXML/bin/latexml --quiet --destination=mybook.xml mybook
+% ../../../LaTeXML/bin/latexmlpost --split --quiet --destination=mybook.html mybook.xml
