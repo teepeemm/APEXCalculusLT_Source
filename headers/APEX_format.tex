@@ -72,8 +72,11 @@
     \cs_new_eq:NN   \__enumext_start_list:nn \list
     \cs_new_eq:NN   \__enumext_stop_list: \endlist
     \NewCommandCopy \__enumext_item_std:w \item
+    \cs_new_eq:NN \__enumext_minipage:w \minipage
+    \cs_new_eq:NN \__enumext_endminipage: \endminipage
 }
 \ExplSyntaxOff
+\usepackage{amssymb} % bug needed for mathbb
 \usepackage[inline]{enumitem}
 \fi
 
