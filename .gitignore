@@ -55,10 +55,8 @@ veraResults.json
 # not for students
 Answers.*
 
-# why doesn't this work?
+# LaTeXML css files
 *.css
-standaloneweb/*.css
-web/*.css
 !style.css
 
 #################
