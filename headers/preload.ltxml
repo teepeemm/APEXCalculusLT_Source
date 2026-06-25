@@ -44,3 +44,5 @@ Let(T_CS('\IfDocumentMetadataT'),  T_CS('\@gobble'));
 Let(T_CS('\IfDocumentMetadataF'),  T_CS('\@firstofone'));
 
 InputDefinitions('enumext', type=>'sty', noltxml => 1);
+RawTeX('\ExplSyntaxOff');
+# todo bug https://github.com/brucemiller/LaTeXML/issues/2830
