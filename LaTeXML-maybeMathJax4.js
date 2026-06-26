@@ -3,7 +3,7 @@
 
 (function() {
     var mathjax_url =
-        "https://cdn.jsdelivr.net/npm/mathjax@4/es5/mml-chtml.js";
+        "https://cdn.jsdelivr.net/npm/mathjax@4/mml-chtml.js";
 
     function refreshMath() {
         // Maybe unnecessary, or overkill, but...
