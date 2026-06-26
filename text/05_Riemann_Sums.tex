@@ -737,9 +737,9 @@ Now that we have more tools to work with, we can now justify the remaining prope
 \begin{align*}
 \int_a^b f(x)\dd x
 &=\lim_{n\to\infty}\sum_{i=1}^n f(c_i)\Delta x
-\quad \text{(by \autoref{thm:riemannSum}(2))}\\
+&\iflatexml\quad\fi&\text{(by \autoref{thm:riemannSum}(2))}\\
 &=\lim_{n\to\infty} 0\\
-&=0\\
+&=0
 \end{align*}
 
 \item Applying \autoref{thm:riemannSum}(2), we have:
@@ -748,7 +748,7 @@ When we compute $\ds\int_b^a f(x)\dd x$, we can use the same partitions and the 
 \begin{align*}
 \int_b^a f(x)\dd x
 &=\lim_{n\to\infty} \sum_{i=1}^n f(c_i)\widetilde\Delta x
-&&\text{(\autoref{thm:riemannSum}(2))}\\
+&\iflatexml\quad\fi&\text{(\autoref{thm:riemannSum}(2))}\\
 &=\lim_{n\to\infty} \sum_{i=1}^n f(c_i)(-\Delta x)\\
 &=\lim_{n\to\infty} -\left(\sum_{i=1}^n f(c_i)\Delta x\right)
 &&\text{(using \autoref{thm:summation}(3))}\\

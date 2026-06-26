@@ -85,19 +85,19 @@ $t$ (sec)&0&5&10&15&20&25&30\\ \hline
 $v$ (mph)&0&6&14&23&30&36&40\\ \hline
 \end{tabular}
 \end{center}}{\mbox{}\\[-2\baselineskip]\parbox[t]{\linewidth}{\begin{enumext}
-\item	$(5\text{ s})((0+6+14+23+30+36)\text{ mph})=545\frac{\text{mi s}}{\text{hr}}\times\frac{1\text{ hr}}{3600\text{ s}}\times{5280\text{ ft}}{1\text{ mi}}=799\text{ ft}$
-\item	$(5\text{ s})((6+14+23+30+36+40)\text{ mph})=585\frac{\text{mi s}}{\text{hr}}\times\frac{1\text{ hr}}{3600\text{ s}}\times{5280\text{ ft}}{1\text{ mi}}=858\text{ ft}$
+\item	$(5\text{ s})((0+6+14+23+30+36)\text{ mph})=545\frac{\text{mi s}}{\text{hr}}\times\frac{1\text{ hr}}{3600\text{ s}}\times\frac{5280\text{ ft}}{1\text{ mi}}=799\text{ ft}$
+\item	$(5\text{ s})((6+14+23+30+36+40)\text{ mph})=585\frac{\text{mi s}}{\text{hr}}\times\frac{1\text{ hr}}{3600\text{ s}}\times\frac{5280\text{ ft}}{1\text{ mi}}=858\text{ ft}$
 \end{enumext}}}
 
 \exercise{Use Theorems \ref{thm:summation} and \ref{thm:riemannSum} to justify the remaining property in \autoref{thm:defintprop}: \[\int_a^b k\cdot f(x)\dd x =k\int_a^b f(x)\dd x\]}{\mbox{}\\[-2\baselineskip]\parbox[t]{\linewidth}{\begin{align*}
 \int_a^b k\cdot f(x)\dd x
 &=\lim_{n\to\infty}\sum_{i=1}^n k\cdot f(c_i)\Delta x
-\quad\text{T\ref{thm:riemannSum}.2} \\
+&\iflatexml\quad\fi&\text{T\ref{thm:riemannSum}.2} \\
 &=\lim_{n\to\infty}k\cdot\sum_{i=1}^n k\cdot f(c_i)\Delta x
-\quad\text{T\ref{thm:summation}.3} \\
+&&\text{T\ref{thm:summation}.3} \\
 &=k\cdot\lim_{n\to\infty}\sum_{i=1}^n k\cdot f(c_i)\Delta x
-\quad\text{T\ref{thm:limit_algebra}.4} \\
-&=k\int_a^b f(x)\dd x\quad\text{T\ref{thm:riemannSum}.2}
+&&\text{T\ref{thm:limit_algebra}.4} \\
+&=k\int_a^b f(x)\dd x&&\text{T\ref{thm:riemannSum}.2}
 \end{align*}}}
 
 \exercise{Use Theorems \ref{thm:summation} and \ref{thm:riemannSum} to justify the remaining property in \autoref{thm:further_def_int_props}: If $f(x)\leq M$ for all $x$ in $[a,b]$, then
@@ -105,9 +105,9 @@ $v$ (mph)&0&6&14&23&30&36&40\\ \hline
 \begin{align*}
 \int_a^b f(x)\dd x
 &=\lim_{n\to\infty}\sum_{i=1}^n f(c_i)\Delta x
-\quad\text{T\ref{thm:riemannSum}.2} \\
+&\iflatexml\quad\fi&\text{T\ref{thm:riemannSum}.2} \\
 &\le\lim_{n\to\infty}\sum_{i=1}^n M\Delta x \\
-&=\int_a^b M\dd x\quad\text{T\ref{thm:riemannSum}.2} \\
+&=\int_a^b M\dd x&&\text{T\ref{thm:riemannSum}.2} \\
 &=M(b-a)
 \end{align*}}
 

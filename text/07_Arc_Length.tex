@@ -249,13 +249,13 @@ The setup turns out to be easier than the resulting integral. Using \autoref{ide
 \begin{align*}
 	\text{SA}
 	&=	2\pi\int_0^\pi \sin x\sqrt{1+\cos^2x}\dd x \\
-	&=	-2\pi\int_1^{-1}\sqrt{1+u^2}\dd u \qquad\qquad \text{substitute $u=\cos x$} \\
-	&=	2\pi\int_{-\pi/4}^{\pi/4}\sec^3\theta\dd\theta \qquad\qquad \text{substitute $u=\tan\theta$} \\
-	&=  \left.\pi\left(\sec\theta\tan\theta+\ln\abs{\sec\theta+\tan\theta}\right)\right|_{-\pi/4}^{\pi/4} \qquad \text{by \autoref{ex_trigint6}} \\
-	&=  \pi\left(\sqrt2+\ln\left(\sqrt2+1\right)
-	-\left(-\sqrt2+\ln\left(\sqrt2-1\right)\right)\right) \\
+	&=	-2\pi\int_1^{-1}\sqrt{1+u^2}\dd u &\iflatexml\quad\fi&\text{substitute $u=\cos x$} \\
+	&=	2\pi\int_{-\pi/4}^{\pi/4}\sec^3\theta\dd\theta && \text{substitute $u=\tan\theta$} \\
+	&=  \left.\pi\left(\sec\theta\tan\theta+\ln\abs{\sec\theta+\tan\theta}\right)\right|_{-\pi/4}^{\pi/4} && \text{by \autoref{ex_trigint6}} \\
+	&\omit\makebox[0pt][l]{$\ds{}=\pi\left(\sqrt2+\ln\left(\sqrt2+1\right)
+	-\left(-\sqrt2+\ln\left(\sqrt2-1\right)\right)\right)$} \\
 	&=	\pi\left(2\sqrt2+\ln\left(\frac{\sqrt2+1}{\sqrt2-1}\right)\right) \\
-	&=	2\pi\left(\sqrt2+\ln\left(\sqrt2+1\right)\right)\ \text{units}^2 \qquad\qquad\text{rationalize the denominator.}
+	&=	2\pi\left(\sqrt2+\ln\left(\sqrt2+1\right)\right)\ \text{units}^2 &&\text{rationalize the denominator.}
 \end{align*}
 
 It is interesting to see that the surface area of a solid, whose shape is defined by a trigonometric function, involves both a square root and a natural logarithm.

@@ -229,9 +229,9 @@ We will begin by considering the unit circle. Each point on the unit circle has 
 \end{tikzpicture}}
 
 \autoref{fig:squeeze_sinx} shows three regions have been constructed in the first quadrant, two triangles and a sector of a circle, which are also drawn below. The area of the large triangle is $\frac12\tan\theta$; the area of the sector is $\theta/2$; the area of the triangle contained inside the sector is $\frac12\sin\theta$. It is then clear from the diagram that 
-
-\[
-\begin{array}{ccccc}
+%
+\begin{center}\tagpdfsetup{table/tagging=presentation}
+\begin{tabular}{ccccc}
 \begin{tikzpicture}[alt={The triangle (0,0), (1,0), (1,tan𝜃), completely shaded in.},x=.2\textwidth,y=.5\marginparwidth,>=stealth]
 \fill [draw=black,thick,fill={\coloronefill}] (0,0) node [shift={(10pt,4pt)}] {\scriptsize$\theta$} -- (1,.839) -- node [pos=.5,right] {\scriptsize$\tan \theta$} (1,0) -- cycle;
 \draw (.5,0) node [below] {\scriptsize$1$};
@@ -254,11 +254,11 @@ We will begin by considering the unit circle. Each point on the unit circle has 
 \draw [black,dashed,thick] (1,0) arc(0:40:1) --  (1,.839) -- cycle;
 \end{tikzpicture}
 \\
-\dfrac{\tan\theta}{2} & \geq &
-\dfrac{\theta}{2} & \geq &
-\dfrac{\sin\theta}{2}
-\end{array}
-\]
+$\dfrac{\tan\theta}{2}$ & $\geq$ &
+$\dfrac{\theta}{2}$ & $\geq$ &
+$\dfrac{\sin\theta}{2}$
+\end{tabular}
+\end{center}
 
 Multiply all terms by $\dfrac2{\sin\theta}$, giving
 \[\frac1{\cos\theta}\geq\frac{\theta}{\sin\theta}\geq 1.\]
@@ -391,13 +391,13 @@ Knowing that we have a rational function hints that some algebra will help. Cons
 \allowdisplaybreaks
 \begin{align*}
 	\lim_{h\to 0} & \frac{f(1+h)-f(1)}{h} \\
-	&= \lim_{h\to 0}\frac{-1.5(1+h)^2 + 11.5(1+h) - \left(-1.5(1)^2+11.5(1)\right)}{h} \\
-	&= \lim_{h\to 0}\frac{-1.5(1+2h+h^2) + 11.5+11.5h - 10}{h}\\
+	&\omit\makebox[0pt][l]{$\ds{}= \lim_{h\to 0}\frac{-1.5(1+h)^2 + 11.5(1+h) - \left(-1.5(1)^2+11.5(1)\right)}{h}$} \\
+	&\omit\makebox[0pt][l]{$\ds{}= \lim_{h\to 0}\frac{-1.5(1+2h+h^2) + 11.5+11.5h - 10}{h}$}\\
 	&= \lim_{h\to 0}\frac{-1.5h^2 +8.5h}{h}\\
 	&= \lim_{h\to 0}\frac{h(-1.5h+8.5)}h\\
-	&= \lim_{h\to 0}(-1.5h+8.5) \qquad (\text{\small using \autoref{thm:limit_allbut1}, as $h\neq 0$}) \\
-	&= 	8.5 \qquad (\text{\small using \autoref{thm:poly_rat}})
-\end{align*}	
+	&= \lim_{h\to 0}(-1.5h+8.5) &\iflatexml\qquad\fi& \text{(\small using \autoref{thm:limit_allbut1}, as $h\neq 0$)} \\
+	&= 	8.5 &\iflatexml\qquad\fi& \text{(\small using \autoref{thm:poly_rat})}
+\end{align*}
 This matches our previous approximation.
 \end{example}
 
