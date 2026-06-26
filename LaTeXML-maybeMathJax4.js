@@ -11,6 +11,12 @@
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         }
     }
+    
+    window.MathJax = {
+        mml: {
+            allowHtmlInTokenNodes: true
+        }
+    }
 
     // Add script element loading MathJax unless we can handle MathML
     var agent = navigator.userAgent;
