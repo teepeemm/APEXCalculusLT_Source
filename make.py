@@ -2,6 +2,8 @@
 
 # prc and web can be edited on und.edu by going to
 # http://a.ou.und.edu/10/#oucampus/UND/sites/browse/staging/timothy.prescott
+# now
+# https://a.cms.omniupdate.com/11/?skin=und&account=UND&site=sites&action=de&path=/timothy.prescott/apex/web/
 
 '''
     pdfsizeopt must use Python 2 because it uses old style print statements.
