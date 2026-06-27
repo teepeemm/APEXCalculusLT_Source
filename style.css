@@ -1,3 +1,8 @@
+
+body > a[href^="https://a.cms.omniupdate.com/"] {
+    display: none;
+}
+
 .twoColumn > div , .threeColumn > div , .fourColumn > div {
     display: inline-block;
     margin-right: 2em;
@@ -117,8 +122,6 @@ nav.ltx_page_navbar ol.ltx_toclist li.ltx_tocentry_subsection {
 }
 .ltx_page_navbar li {
     white-space: normal;
-    text-indent: -.5em;
-    margin-left: .5em;
 }
 
 span.ltx_note.ltx_role_margin.ltx_marginpar {
