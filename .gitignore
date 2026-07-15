@@ -58,7 +58,7 @@ Answers.*
 # LaTeXML css files
 *.css
 !style.css
-web/style.css
+*/style.css
 
 #################
 ## Eclipse
