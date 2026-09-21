@@ -358,7 +358,8 @@
 
 
 
-
+\newtoggle{hasTrig}
+\toggletrue{hasTrig}
 
 
 \newtoggle{isEarlyTrans}
@@ -488,8 +489,8 @@
 \newtoggle{bsc} % default false
 \newcommand{\forwhom}{\iftoggle{bsc}{ for Bismarck State College}{}}
 
-\title{APEX Calculus LT}
-\author{Greg Hartman, VMI \and UND Math Dept}
+\title{APEX Calculus}
+\author{Greg Hartman, VMI and UND Math Dept}
 \usepackage[
 	bookmarksnumbered,
 	hidelinks,
@@ -498,12 +499,12 @@
 	pdfdisplaydoctitle,
 	bookmarksdepth=2,
 ]{hyperref}
-\hypersetup{
-	pdftitle={APEX Calculus LT},
-	pdfauthor={UND Math Dept and Greg Hartman, VMI},
-	unicode,
-    pdflang=en-US
-}
+%\hypersetup{
+%	pdftitle={APEX Calculus LT},
+%	pdfauthor={UND Math Dept and Greg Hartman, VMI},
+%	unicode,
+%    pdflang=en-US
+%}
 %\usepackage{hyperxmp}
 \ifbool{latexml}{}{
  \usepackage{bookmark}
