@@ -5,7 +5,7 @@ If you are interested in a particular error, you can look through [Errata.tex](E
 
 Version | Calculus I | Calculus II | Calculuc III
 ---|---|---|---
-2025-07|1|0|0
+2025-07|3|0|0
 2023-06|2|0|2
 2021-06|2|30|10
 2019-06|6+|7|22
@@ -16,7 +16,7 @@ Version | Calculus I | Calculus II | Calculuc III
 2017-01|9+|19+|
 2016-08|19+||
 ---|---|---|---
-Total|97+|146+|105+
+Total|99+|146+|105+
 
 "+" indicates a systemic error.  
 (The totals for a row may be higher than what's listed in [changes.md](../changes.md) due to double counting.)
